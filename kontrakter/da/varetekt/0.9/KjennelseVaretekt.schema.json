@@ -1,0 +1,75 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",		
+	"$id": "da/varetekt/0.9/KjennelseVaretekt.schema.json",	
+	"description": "Scheme definisjon av en Kjennelse-varetekt",
+	"additionalProperties": false,
+	"definitions": {
+		"varetektKjennelse": {
+			"properties": {
+				"embete": {
+					"$ref": "#/references/Orgenhet",
+					"description": "Hvilket embete som er avsender av kjennelsen"
+				},
+				"aktoerer": {
+					"$comment": "Skal vi kalle dette domstol-aktører. Evt. ta med 'siktede' inn under aktører",
+					"description": "Aktører fra domstolen",
+					"properties": {
+						"avsender": {
+							"$comment": "Kan vi referere til dommer eller saksbehandler i stedet",
+							"$ref": "#/references/AnsattPerson",
+							"description": "Avsender av meldingen"
+						},
+						"dommer": {
+							"$ref": "#/references/AnsattPerson",
+							"description": "Dommer på saken"
+						},
+						"saksbehandler": {
+							"$ref": "#/references/AnsattPerson",
+							"description": "Saksbehandler på saken"					
+						}
+					},
+					"required": [
+						"avsender"				
+					]
+				},
+				"kravid": {
+					"type": "string"
+				},				
+				"siktede": {
+					"$ref": "#/references/PrivatPerson"
+				},
+				"dokumentListe": {
+					"$ref": "#/references/Dokument",
+					"type": "array"
+				},
+				"saksInformsjon": {
+					"$ref": "#/references/SaksInformasjon"
+				}
+			}
+		}		
+	},
+	
+	"references": {
+		"PrivatPerson": {
+			"$ref": "../../felles/0.9/BasicTypes.schema.json#/definitions/PrivatPerson"
+		},		
+		"Dokument": {
+			"$ref": "../../felles/0.9/Dokument.schema.json#/definitions/Dokument"
+		},
+		"SaksInformasjon": {
+			"$ref": "Sak.schema.json#/definitions/SaksInformasjon"
+		},
+		"AnsattPerson": {
+			"$ref": "../../felles/0.9/BasicTypes.schema.json#/definitions/AnsattPerson"
+		},
+		"Orgenhet": {
+			"$ref": "../../felles/0.9/BasicTypes.schema.json#/definitions/Orgenhet"			
+		}
+	},	
+	"properties": {		
+		"varetektKjennelse": {
+			"$ref": "#/definitions/varetektKjennelse"
+		}    
+	},
+	"type": "object"	
+}
