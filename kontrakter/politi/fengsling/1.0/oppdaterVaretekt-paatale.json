@@ -1,0 +1,114 @@
+{
+  "oppdaterVaretekt": {
+    "forsendelse": {
+      "meldingsId": "{1CC5098B-7D30-487C-8246-28C77BF20462}",
+      "sendtTid": "2022-07-31T20:25:33+02:00",
+      "avsender": {
+        "organisasjon": {
+          "organisasjonsnummer": "983997953",
+          "navn": "Innlandet politidistrikt"
+        },
+        "saksbehandler": {
+          "brukeridentifikasjon": "PD",
+          "navn": {
+            "etternavn": "Politiets Datatjeneste"
+          }
+        }
+      },
+      "mottaker": {
+        "organisasjon": {
+          "organisasjonsnummer": "993316121",
+          "navn": "Agder fengsel, Evje avdeling"
+        }
+      }
+    },
+    "hovedStraffesaksnummer": "15434819",
+    "varetektSyklusId": "{182C60E6-E162-4EDA-8352-EFC33C4FD3C2}",
+    "ordreId": "unik id {21B7454C-C428-4332-BA45-C11A127807AC}",
+    "ordreKjennelse": {
+      "merknad": "Første ordre fra påtale. Hvilke varianter av brev og besøksforbud og delvs/full isolasjon er mulig.\r\nHva med annet, hvilken lovhjemmel er det og hva kan det være. Det er ikke mulig strukturert i dag",
+      "ordre": {
+        "besluttetAv": {
+          "brukeridentifikasjon": "TEB012",
+          "tittel": "Politifullmektig",
+          "navn": {
+            "fornavn": "Tom Erik Wassenaar",
+            "etternavn": "Berntsen"
+          },
+          "kontakt": {
+            "telefon": "55224411"
+          }
+        },
+        "tidspunkt": "2022-07-31T20:25:34+02:00",
+        "restriksjoner": {
+          "merknad": "Ingen brev til denne personen",
+          "restriksjoner": [
+            {
+              "id": "{31638516-F856-4F21-B379-6C29154C5959}",
+              "restriksjonsType": "BREV_OG_BESOEKSFORBUD",
+              "lovbud": {
+                "lovbudStreng": "Strpl. § 186, 2.ledd 1.pkt."
+              }
+            }]
+        },
+        "isolasjon": {
+          "merknad": "Opphever isolasjon i morgen",
+          "isolasjon": [
+            {
+              "id": "{398E45C3-E7CF-4FD8-916E-797830E78F15}",
+              "isolasjonsType": "FULL_ISOLASJON",
+              "lovbud": {
+                "lovbudStreng": "Strpl. § 186a"
+              },
+              "tilDato": "2022-08-01"
+            }]
+        }
+      }
+    },
+    "paagrepetTidspunkt": "2022-07-31T20:25:34+02:00",
+    "personVaretekt": {
+      "internId": "700892414",
+      "navn": {
+        "fornavn": "Morsom",
+        "etternavn": "KIWI"
+      },
+      "foedselsnummer": ["14846399381"],
+      "kjoenn": "MANN",
+      "foedselsdato": "1963-04-14",
+      "statsborgerskap": [
+        {
+          "kode": "NOR",
+          "navn": "Norge"
+        }],
+      "adresse": {
+        "adresselinjer": ["Bjørklund 21"],
+        "postnummer": "4137",
+        "poststed": "ÅRDAL I RYFYLKE"
+      }
+    },
+    "dokumenter": [
+      {
+        "internId": "1234567879",
+        "overskrift": "Begjæring om varetekt, Kiwi",
+        "skrevetDato": "2022-07-31",
+        "forsendelse": {
+          "mimeType": "application/pdf",
+          "uri": "file:///asdfasdf",
+          "sjekksum": "234s"
+        }
+      },
+      {
+        "internId": "123234567879",
+        "overskrift": "Siktelse",
+        "kategori": {
+          "kode": "siktelse"
+        },
+        "skrevetDato": "2022-07-11",
+        "forsendelse": {
+          "mimeType": "application/pdf",
+          "uri": "file:///asdfaasdfsdf",
+          "sjekksum": "234asass"
+        }
+      }]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "description": "Header informasjon på meldinger",
+
+  "$defs" :{
+	  "forsendelse" : {
+		  "properties": {
+			"meldingsId" : {"type": "string"},
+			"sendtTid" : {"type": "string", "format" : "date-time"},
+			"avsender" : {"$ref": "#/$defs/avsender"},
+			"mottaker" : {"$ref": "#/$defs/mottaker"}
+		  },
+		  "required" : ["meldingsId", "avsender", "mottaker", "sendtTid"],
+		  "additionalProperties": false
+	  },
+	  "avsender" : {
+		  "properties": {
+			  "organisasjon" : {"$ref": "#/references/organisasjon"},
+			  "saksbehandler" : {"$ref": "#/references/saksbehandler"}
+		  },
+		  "required" : ["organisasjon"],
+		  "additionalProperties": false
+	},
+	  "mottaker" : {
+		  "properties": {
+			  "organisasjon" : {"$ref": "#/references/organisasjon"}
+		  },
+		  "required" : ["organisasjon"],
+		  "additionalProperties": false
+	}
+  },
+  "references" : {
+    "saksbehandler" : {"$ref" : "basistyper.schema.json#/$defs/ansatt"},
+    "organisasjon" : {"$ref" : "basistyper.schema.json#/$defs/organisasjon"}
+  }
+}

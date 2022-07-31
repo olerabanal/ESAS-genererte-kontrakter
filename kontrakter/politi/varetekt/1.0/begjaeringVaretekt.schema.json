@@ -1,0 +1,137 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "description": "Skjema for begjæring av varetektsmeldinger fra påtale til tingretten",
+
+  "type": "object",
+  "properties": {
+	  "begjaeringVaretekt": {"$ref": "#/$defs/begjaeringVaretekt"}
+  },
+  "additionalProperties": false,
+  
+  "$defs": {
+    "begjaeringKjennelseInfo" : {
+      "description": "Påtale ønsker hvor lenge i varetekt og hvilke restriksjoner/isolasjonskrav",
+      "type": "object",
+      "required": ["fengsling"],
+      "additionalProperties": false,
+      "properties": {
+        "fengsling": {"$ref": "#/$defs/fengsling"},
+        "restriksjoner": {"type": "array", "items" : {"$ref" : "#/references/restriksjon"}},
+        "isolasjon": {"type": "array", "items" : {"$ref" : "#/references/isolasjon"}}
+      }
+    },
+    "begjaeringVaretekt": {
+      "properties": {
+        "forsendelse": {"$ref": "#/references/forsendelse"},
+        "hovedStraffesaksnummer": {"type": "string"},
+        "kravId": {"type": "string"},
+        "siktet": {"$ref" : "#/$defs/siktetInfo"},
+        "varetekt" : {"$ref": "#/$defs/varetektInfo"},
+        "saksinformasjon" : {"$ref": "#/$defs/saksinformasjon"},
+        "siktelse" : {"$ref" : "#/references/siktelse"},
+        "straffesaker" : {"type": "array", "items": {"$ref" : "#/references/straffesakMedInvolverteSiktet"}},
+        "aktoerer": {"type": "string"},
+        "dokumenter": {"type": "array", "items": {"$ref" : "#/references/dokument"}}
+      },
+      "required": ["forsendelse", "hovedStraffesaksnummer", "kravId","varetekt", "saksinformasjon", "straffesaker"],
+      "additionalProperties": false
+    },
+    "saksinformasjon": {
+      "properties": {
+        "varetektsType": {"$ref": "#/$defs/varetektsType"},
+        "forlengelse": {"type": "string"},
+        "hovedforhandling" : {
+          "type": "object",
+          "description": "Hvis de tror hovedforhandling kommer før varetektsfengsling er ferdig",
+            "properties": {
+              "beskrivelse" : {"type": "string"},
+              "berammetDato" : {"type" : "string", "format": "date"}
+            },
+            "required" : ["beskrivelse"],
+            "additionalProperties": false
+        },
+        "paagrepetTidspunkt" : {"type" : "string", "format": "date-time"},
+        "berammetFengslingsmoete": {
+          "type" : "object",
+          "properties": {
+            "dato" : {"type" : "string", "format": "date"},
+            "tid" : {"type" : "string", "format": "time"},
+            "sted" : {"type": "string"}
+          },
+          "required": ["dato"],
+          "additionalProperties": false
+        },
+        "forsvarerSaksdokumenter" : {
+          "description": "Er det oppnevnt forsvarer og sendt dokumenter?",
+          "type": "object",
+          "properties": {
+            "status": {
+              "enum" : ["VARSLET_DOK","IKKE_ONSKET_FORSVARER"],
+              "type": "string"
+            },
+            "beskrivelse": {"type": "string"}
+          },
+          "required": ["status"],
+          "additionalProperties": false
+        },
+        "varsleBistandsadvokat" : {"type":"string"},
+        "begrenseOffentlighet" : {"type":"string","enum":["LUKKEDE_DOERER", "FORBUD_GJENGIVELSE"]},
+        "ansvarligPaatalejurist" : {"$ref" : "#/references/politiAnsatt"},
+        "aktor" : {"$ref" : "#/references/politiAnsatt"}
+      },
+      "required": ["varetektsType", "paagrepetTidspunkt", "ansvarligPaatalejurist"],
+      "additionalProperties": true
+    },
+
+    "fengsling" : {
+      "description": "Hvor lenge i varetekt ",
+      "type": "object",
+      "properties": {
+        "id": {"type": "string"},
+        "antallDager": {"type": "integer"}
+      },
+      "required": ["id", "antallDager"],
+      "additionalProperties": false
+    },
+    "siktetInfo": {
+      "properties": {
+        "person": {"$ref": "#/references/personFull"},
+        "forsvarer": {"$ref": "#/references/profesjonellPerson"}
+      },
+      "required": ["person"],
+      "additionalProperties": false
+    },
+    "varetektInfo" : {
+      "description": "Varetekt type, dager, restriksjoner, isolasjon",
+      "type": "object",
+      "properties": {
+        "lovbud" : {"$ref": "#/references/lovbudEnkel"},
+        "begjaeringKjennelse" : {"$ref" : "#/$defs/begjaeringKjennelseInfo"},
+        "vilkaar" : {"type": "array", "items" : {"$ref" : "#/references/lovbudEnkel"}}
+      },
+      "required": ["lovbud", "begjaeringKjennelse", "vilkaar"],
+      "additionalProperties": false
+    },
+    "varetektsType": {
+      "description": "Vanlig, brudd eller brudd på vilkår",
+      "enum": [
+        "VANLIG",
+        "VILKAARSBRUDD"
+      ],
+      "type": "string"
+    }
+  },
+
+  "references": {
+    "forsendelse": {"$ref": "../../felles/1.0/forsendelse.schema.json#/$defs/forsendelse"},
+    "isolasjon": {"$ref": "../../felles/1.0/varetekt.schema.json#/$defs/isolasjonBegjaering"},
+    "lovbudEnkel": {"$ref": "../../felles/1.0/lovbud.schema.json#/$defs/lovbudEnkel"},
+    "politiAnsatt": {"$ref": "../../felles/1.0/basistyper.schema.json#/$defs/ansatt"},
+    "personFull": {"$ref": "../../felles/1.0/person.schema.json#/$defs/personFull"},
+    "profesjonellPerson": {"$ref": "../../felles/1.0/person.schema.json#/$defs/profesjonellPerson"},
+    "restriksjon": {"$ref": "../../felles/1.0/varetekt.schema.json#/$defs/restriksjonBegjaering"},
+    "siktelse": {"$ref": "../../felles/1.0/siktelse.schema.json#/$defs/siktelseTiltale"},
+    "straffesakMedInvolverteSiktet": {"$ref": "../../felles/1.0/straffesak.schema.json#/$defs/straffesakMedInvolverteSiktet"},
+    "dokument": {"$ref": "../../felles/1.0/dokument.schema.json#/$defs/dokument"}
+  }
+}
