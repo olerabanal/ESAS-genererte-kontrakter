@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "description": "Skjema for lovbud (referanser mm)",
+
+  "$defs" :{
+    "lovbudFull" : {
+      "description": "Lovvbudreferanse med gjengivelse og strafferamme",
+      "properties": {
+        "lovbudId" : {"type" : "string"},
+        "lovbudStreng" : {"type" : "string"},
+        "gjengivelse" : {"type" : "string"},
+        "strafferamme": {"type": "integer", "description": "Antall måneder"}
+      },
+      "required" : ["lovbudStreng", "gjengivelse"],
+      "additionalProperties": false
+    },
+
+    "lovbudGjengivelse" : {
+      "description": "Lovvbudreferanse med gjengivelse",
+      "properties": {
+        "lovbudId" : {"type" : "string"},
+        "lovbudStreng" : {"type" : "string"},
+        "gjengivelse" : {"type" : "string"}
+      },
+      "required" : ["lovbudStreng", "gjengivelse"],
+      "additionalProperties": false
+    },
+
+    "lovbudEnkel" : {
+      "description": "Enkel lovbudreferanse kun lovbudstreng",
+      "properties": {
+        "lovbudId" : {"type" : "string"},
+        "lovbudStreng" : {"type" : "string"}
+      },
+      "required" : ["lovbudStreng"],
+      "additionalProperties": false
+    }
+	}
+}
