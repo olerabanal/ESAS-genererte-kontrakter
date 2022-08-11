@@ -16,7 +16,7 @@
 	  "avsender" : {
 		  "properties": {
 			  "organisasjon" : {"$ref": "#/references/organisasjon"},
-			  "saksbehandler" : {"$ref": "#/references/saksbehandler"}
+			  "saksbehandler" : {"$ref": "#/references/ansatt"}
 		  },
 		  "required" : ["organisasjon"],
 		  "additionalProperties": false
@@ -27,10 +27,10 @@
 		  },
 		  "required" : ["organisasjon"],
 		  "additionalProperties": false
-	}
+    }
   },
   "references" : {
-    "saksbehandler" : {"$ref" : "basistyper.schema.json#/$defs/ansatt"},
+    "ansatt" : {"$ref" : "basistyper.schema.json#/$defs/ansatt"},
     "organisasjon" : {"$ref" : "basistyper.schema.json#/$defs/organisasjon"}
   }
 }

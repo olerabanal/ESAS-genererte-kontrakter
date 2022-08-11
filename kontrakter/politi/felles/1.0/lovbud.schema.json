@@ -3,12 +3,14 @@
   "description": "Skjema for lovbud (referanser mm)",
 
   "$defs" :{
+
     "lovbudFull" : {
       "description": "Lovvbudreferanse med gjengivelse og strafferamme",
       "properties": {
         "lovbudId" : {"type" : "string"},
         "lovbudStreng" : {"type" : "string"},
         "gjengivelse" : {"type" : "string"},
+        "hjemmel" : {"type" : "array", "items": {"$ref": "#/$defs/lovreferanse"},"minItems": 1},
         "strafferamme": {"type": "integer", "description": "Antall måneder"}
       },
       "required" : ["lovbudStreng", "gjengivelse"],
@@ -34,6 +36,28 @@
       },
       "required" : ["lovbudStreng"],
       "additionalProperties": false
+    },
+    "lovreferanse" : {
+      "description": "Eksakt referanse inn i spesifikk lov, paragraf, ledd osv.",
+      "properties": {
+        "rettskilde" : {"$ref": "#/references/kodeverk"},
+        "lovreferanse" : {"type" : "array", "items": {"$ref": "#/$defs/lovreferanseElement"},"minItems": 1}
+      },
+      "required" : ["rettskilde", "lovreferanse"],
+      "additionalProperties": false
+    },
+
+    "lovreferanseElement" : {
+      "description": "Referanse til paragraf, ledd osv, type kan bli enum som er utvidbar .. PARAGRAG, LEDD, STRAFFALTERNATIV",
+      "properties": {
+        "type" : {"type" : "string"},
+        "verdi" : {"type" : "string"}
+      },
+      "required" : ["type", "verdi"],
+      "additionalProperties": false
     }
-	}
+	},
+ "references": {
+    "kodeverk": {"$ref": "../../felles/1.0/basistyper.schema.json#/$defs/kodeverk"}
+ }
 }

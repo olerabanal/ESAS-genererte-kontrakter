@@ -143,7 +143,7 @@
       "additionalProperties": false,
       "properties": {
         "merknad": {"type": "string"},
-        "besluttetAv": {"$ref" : "#/references/saksbehandler"},
+        "besluttetAv": {"$ref" : "#/references/ansatt"},
         "tidspunkt": {"type": "string", "format": "date-time"},
         "restriksjoner": {"$ref": "#/$defs/restriksjonerOrdre"},
         "isolasjon": {"$ref": "#/$defs/isolasjonOrdre"}
@@ -235,7 +235,7 @@
   
    "references": { 
     "lovbudEnkel": {"$ref": "../../felles/1.0/lovbud.schema.json#/$defs/lovbudEnkel"},
-    "saksbehandler" : {"$ref" : "basistyper.schema.json#/$defs/ansatt"},
+    "ansatt" : {"$ref" : "basistyper.schema.json#/$defs/ansatt"},
     "organisasjon" : {"$ref" : "basistyper.schema.json#/$defs/organisasjon"}
    }
 
