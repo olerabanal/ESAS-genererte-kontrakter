@@ -3,6 +3,21 @@
   "description": "Persondata",
 
   "$defs" :{
+    "adresseGradering" : {
+      "description" : "Samme enum som folkeregisteret, ugradert hvis den ikke er gradert",
+      "type" : "string", "enum" : ["KLIENT_ADRESSE","FORTROLIG","STRENGT_FORTROLIG"]},
+
+    "personnavn": {
+      "type" : "object",
+      "properties": {
+        "fornavn" : {"type": "string"},
+        "mellomnavn" : {"type": "string"},
+        "etternavn" : {"type": "string"}
+        },
+      "required" : ["etternavn"],
+      "additionalProperties": false
+    },
+
     "foedselsnummer": {"type" : "string", "pattern": "[0-9]+", "minLength": 11, "maxLength": 11},
     "sspNummer": {"type" : "string", "pattern": "[0-9]+", "minLength": 11, "maxLength": 11},
     "dNummer": {"type" : "string", "pattern": "[0-9]+", "minLength": 11, "maxLength": 11},
@@ -74,6 +89,17 @@
         "person" : {"$ref": "#/$defs/personFull"}
       }
     },
+
+    "personAdresse": {
+      "description": "Kan være graderte adresser",
+      "type": "object",
+      "properties": {
+        "gradering": {"$ref": "#/$defs/adresseGradering"},
+        "adresse": {"$ref": "#/references/adresse"}
+      },
+      "required": ["adresse"],
+      "additionalProperties": false
+    },
    
     "personFull": {
       "description": "Person med alle nyttige data som fødselsnummer adresse osv., SSP nummer kun på siktede, tiltalte.",
@@ -87,7 +113,8 @@
         "foedselsnummer": {"type": "array", "items": {"$ref": "#/$defs/foedselsnummer"}},
         "sspNummer": {"type": "array", "items": {"$ref": "#/$defs/sspNummer"}},
         "dNummer": {"type": "array", "items": {"$ref": "#/$defs/dNummer"}},
-        "adresse": {"$ref": "#/references/adresse"}
+        "adresseGradering": {"$ref": "#/$defs/adresseGradering"},
+        "adresse": {"$ref": "#/$defs/personAdresse"}
       },
       "required" : ["internId","navn","foedselsdato"],
       "additionalProperties": false
