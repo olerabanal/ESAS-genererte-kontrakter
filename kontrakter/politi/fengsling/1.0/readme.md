@@ -16,6 +16,10 @@ Eksempler:
 * oppdaterVaretekt-kjennelse.json, kjennelsen fra domstolene videresendt.
 
 ##### Historie
+
+###### Fjernet oneOf og bruker felt som ikke er påbudt 28.09.2022
+Rydder samtidig i noen typer som da blir obsolete.
+
 ###### Flere eksempler og justeringer 20.09.22
 Bruker definitions alle steder, rydder i ting som er inkonsistent.
 Fjernet toppnivå schema som vi ikke bruker og fjernet navn .combined. på schema.
