@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/schema#",
   "$id": "politi/fengsling/1.0/innsettelsesordre",
-  "description": "Innsettelsesordre fra påtale til fengsel KDI",
+  "description": "Innsettelsesordre fra påtale til fengsel KDI, med ordre fra påtale eller kjennelse.",
   "type": "object",
   "properties": {
     "melding": {"type": "string"},
@@ -10,7 +10,8 @@
     "kontaktPersonKDI": {"$ref": "#/definitions/ansatt"},
     "varetektSyklusId": {"type": "string"},
     "ordreId": {"type": "string"},
-    "ordreKjennelse": {"oneOf": [{"$ref": "#/definitions/ordrePaataleOneOf"},{"$ref": "#/definitions/kjennelseVaretektOneOf"}]},
+    "ordreVaretekt": {"$ref": "#/definitions/ordreVaretektPaatale"},
+    "kjennelseVaretekt": {"$ref": "#/definitions/kjennelseVaretekt"},
     "paagrepetTidspunkt": {"type": "string","format": "date-time"},
     "personVaretektInfo": {"$ref": "#/definitions/personVaretektInfo"},
     "paategningsdokumentRef": {"$ref": "#/definitions/dokumentRef"},
@@ -22,7 +23,6 @@
     "hovedStraffesaksnummer",
     "varetektSyklusId",
     "ordreId",
-    "ordreKjennelse",
     "paagrepetTidspunkt",
     "personVaretektInfo"
   ],
@@ -171,16 +171,7 @@
         "isolasjon": {"type" : "array", "items": {"$ref": "#/definitions/isolasjonKjennelse"}}
       }
     },
-    "kjennelseVaretektOneOf": {
-      "description": "Enkelt øvereste nivå på OneOf i hovedskjema",
-      "type": "object",
-      "required": ["kjennelse"],
-      "additionalProperties": true,
-      "properties": {
-        "merknad": {"type": "string"},
-        "kjennelse": {"$ref": "#/definitions/kjennelseVaretekt"}
-      }
-    }, 
+
     "ordreVaretektPaatale": {
       "description": "Påtale sin ordre/beslutning om fengsling i fengsel, før vi har en kjennelse fra retten og for å lette på restriksjoner, det er implisit at det er fengsling",
       "type": "object",
@@ -197,16 +188,7 @@
         "isolasjon": {"$ref": "#/definitions/isolasjonOrdre"}
       }
     },
-    "ordrePaataleOneOf": {
-      "description": "Enkelt øvereste nivå på OneOf i hovedskjema",
-      "type": "object",
-      "required": ["ordre"],
-      "additionalProperties": false,
-      "properties": {
-        "merknad": {"type": "string"},
-        "ordre": {"$ref": "#/definitions/ordreVaretektPaatale"}
-      }
-    },    
+
     "periodeStartAntall": {
       "description": "Periode for fensling eller restriksjon, bruker ikke å spesifisere startdato, derfor lengde og antall dager inn i fengslingen for restriksjoner",
       "type": "object",
@@ -468,14 +450,7 @@
       "required": ["internId","navn"],
       "additionalProperties": false
     },
-    "foretakNivaa": {
-      "description": "Ekstra nivå for å få med foretak navn på item i miks liste",
-      "type": "object",
-      "required": ["foretak"],
-      "properties": {
-        "foretak" : {"$ref": "#/definitions/foretak"}
-      }
-    },
+
     "kjoenn" : {
       "description" : "Samme enum som folkeregisteret",
       "type" : "string", "enum" : ["KVINNE","MANN"]},
@@ -491,27 +466,13 @@
       "additionalProperties": false
     },
 
-    "personForetakArray": {
-      "type": "array",
-      "title": "Array med person og/eller foretak",
-      "items": {
-        "oneOf": [
-          {
-            "$ref": "#/definitions/personFullNivaa"
-          },
-          {
-            "$ref": "#/definitions/foretakNivaa"
-          }
-        ]
-      }
-    },
-    "personFullNivaa": {
-      "description": "Ekstra nivå for å få med person navn på item",
-      "type": "object",
-      "required": ["person"],
+    "personForetakFull": {
+      "type" : "object",
       "properties": {
-        "person" : {"$ref": "#/definitions/personFull"}
-      }
+        "person" : {"$ref": "#/definitions/personFull"},
+        "foretak" : {"$ref": "#/definitions/foretak"}
+        },
+      "additionalProperties": false
     },
 
     "personAdresse": {
@@ -620,8 +581,8 @@
       "additionalProperties": true,
       "properties": {
         "siktet": {"$ref": "#/definitions/personMini"},
-        "medsiktede": {"$ref": "#/definitions/personForetakArray"},
-        "fornaermede": {"$ref": "#/definitions/personForetakArray"},
+        "medsiktede": {"type": "array", "items": {"$ref": "#/definitions/personForetakFull"}},
+        "fornaermede": {"type": "array", "items": {"$ref": "#/definitions/personForetakFull"}},
         "vitne": {"type": "array", "items": {"$ref": "#/definitions/personFull"}}
       }
     },

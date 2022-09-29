@@ -1,8 +1,8 @@
 {
   "melding": "innsettelsesordre",
   "forsendelse": {
-    "meldingsId": "{8EF729CE-AEB5-4D00-81D3-C7D614925CEC}",
-    "sendtTid": "2022-09-20T21:21:37+02:00",
+    "meldingsId": "2CB6929E-DE3F-49A4-8AE3-9625640DF0A9",
+    "sendtTid": "2022-09-28T14:59:02+02:00",
     "avsender": {
       "organisasjon": {
         "organisasjonsnummer": "983997953",
@@ -28,74 +28,72 @@
       "etternavn": "navn og bid Jo Å"
     }
   },
-  "varetektSyklusId": "{07B5DC67-BD03-408A-A701-4A3A6054EAB6}",
-  "ordreId": "unik id {7E2949C0-5D44-423F-AB35-8AAD07BFA5A6}",
-  "ordreKjennelse": {
-    "kjennelse": {
-      "fengslingKjennelse": {
+  "varetektSyklusId": "ADF7E887-CA22-41AF-BCB9-87B837873EDD",
+  "ordreId": "EA8D7AFD-D370-47C4-B7BB-5E26099E45C0",
+  "kjennelseVaretekt": {
+    "fengslingKjennelse": {
+      "domstol": {
+        "organisasjonsnummer": "826726342",
+        "navn": "Buskerud tingrett"
+      },
+      "avsagtDato": "2022-09-28",
+      "fengsling": {
+        "lovbudEnkel": {
+          "lovbudStreng": "§172..."
+        },
+        "fraDato": "2022-09-28",
+        "tilDato": "2022-10-25"
+      }
+    },
+    "restriksjoner": [
+      {
         "domstol": {
           "organisasjonsnummer": "826726342",
           "navn": "Buskerud tingrett"
         },
-        "avsagtDato": "2022-09-20",
-        "fengsling": {
+        "avsagtDato": "2022-09-28",
+        "restriksjon": {
+          "restriksjonsType": "BREV_OG_BESOEKSFORBUD",
           "lovbudEnkel": {
-            "lovbudStreng": "§172..."
+            "lovbudStreng": "Strpl. § 186, 2.ledd 1.pkt."
           },
-          "fraDato": "2022-09-20",
-          "tilDato": "2022-10-17"
+          "fraDato": "2022-09-28",
+          "tilDato": "2022-10-11"
         }
       },
-      "restriksjoner": [
-        {
-          "domstol": {
-            "organisasjonsnummer": "826726342",
-            "navn": "Buskerud tingrett"
-          },
-          "avsagtDato": "2022-09-20",
-          "restriksjon": {
-            "restriksjonsType": "BREV_OG_BESOEKSFORBUD",
-            "lovbudEnkel": {
-              "lovbudStreng": "Strpl. § 186, 2.ledd 1.pkt."
-            },
-            "fraDato": "2022-09-20",
-            "tilDato": "2022-10-03"
-          }
+      {
+        "domstol": {
+          "organisasjonsnummer": "826726342",
+          "navn": "Buskerud tingrett"
         },
-        {
-          "domstol": {
-            "organisasjonsnummer": "826726342",
-            "navn": "Buskerud tingrett"
+        "avsagtDato": "2022-09-28",
+        "restriksjon": {
+          "restriksjonsType": "BREV_OG_BESOEKSKONTROLL",
+          "lovbudEnkel": {
+            "lovbudStreng": "Strpl. § 186, 2.ledd 1.pkt."
           },
-          "avsagtDato": "2022-09-20",
-          "restriksjon": {
-            "restriksjonsType": "BREV_OG_BESOEKSKONTROLL",
-            "lovbudEnkel": {
-              "lovbudStreng": "Strpl. § 186, 2.ledd 1.pkt."
-            },
-            "fraDato": "2022-10-04",
-            "tilDato": "2022-10-17"
-          }
-        }],
-      "isolasjon": [
-        {
-          "domstol": {
-            "organisasjonsnummer": "826726342",
-            "navn": "Buskerud tingrett"
+          "fraDato": "2022-10-12",
+          "tilDato": "2022-10-25"
+        }
+      }],
+    "isolasjon": [
+      {
+        "domstol": {
+          "organisasjonsnummer": "826726342",
+          "navn": "Buskerud tingrett"
+        },
+        "avsagtDato": "2022-09-28",
+        "isolasjon": {
+          "isolasjonsType": "FULL_ISOLASJON",
+          "lovbudEnkel": {
+            "lovbudStreng": "Strpl. § 186a"
           },
-          "avsagtDato": "2022-09-20",
-          "isolasjon": {
-            "isolasjonsType": "FULL_ISOLASJON",
-            "lovbudEnkel": {
-              "lovbudStreng": "Strpl. § 186a"
-            },
-            "fraDato": "2022-09-20",
-            "tilDato": "2022-10-03"
-          }
-        }]
-    }
+          "fraDato": "2022-09-28",
+          "tilDato": "2022-10-11"
+        }
+      }]
   },
-  "paagrepetTidspunkt": "2022-09-20T21:21:37+02:00",
+  "paagrepetTidspunkt": "2022-09-28T14:59:02+02:00",
   "personVaretektInfo": {
     "personVaretekt": {
       "internId": "700892414",
@@ -481,7 +479,7 @@
     {
       "internId": "1234567879",
       "overskrift": "Begjæring om varetekt, Kiwi",
-      "skrevetDato": "2022-09-20",
+      "skrevetDato": "2022-09-28",
       "forsendelse": {
         "mimeType": "application/pdf",
         "uri": "file:///asdfasdf",
@@ -494,7 +492,7 @@
       "kategori": {
         "kode": "siktelse"
       },
-      "skrevetDato": "2022-08-31",
+      "skrevetDato": "2022-09-08",
       "forsendelse": {
         "mimeType": "application/pdf",
         "uri": "file:///asdfaasdfsdf",

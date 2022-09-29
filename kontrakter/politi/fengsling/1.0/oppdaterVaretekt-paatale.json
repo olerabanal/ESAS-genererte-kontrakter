@@ -1,8 +1,8 @@
 {
   "melding": "oppdaterVaretekt",
   "forsendelse": {
-    "meldingsId": "{CE9B297A-20E3-4386-911B-FA1F509EFD52}",
-    "sendtTid": "2022-09-20T21:22:37+02:00",
+    "meldingsId": "09F0437A-E1F8-4F03-BE9C-0C145CCCEB69",
+    "sendtTid": "2022-09-28T14:59:03+02:00",
     "avsender": {
       "organisasjon": {
         "organisasjonsnummer": "983997953",
@@ -23,49 +23,47 @@
     }
   },
   "hovedStraffesaksnummer": "15434819",
-  "varetektSyklusId": "{3D6E3B60-C050-4B48-ACDC-E8B9E71DDDDF}",
-  "ordreId": "unik id {8F37C4F0-E949-4B49-A6C4-CFDDBA908192}",
-  "ordreKjennelse": {
-    "ordre": {
-      "merknad": "Første ordre fra påtale. Hvilke varianter av brev og besøksforbud og delvs/full isolasjon er mulig.\r\nHva med annet, hvilken lovhjemmel er det og hva kan det være. Det er ikke mulig strukturert i dag",
-      "besluttetAv": {
-        "brukeridentifikasjon": "TEB012",
-        "tittel": "Politifullmektig",
-        "navn": {
-          "fornavn": "Tom Erik Wassenaar",
-          "etternavn": "Berntsen"
-        },
-        "kontakt": {
-          "telefon": "55224411"
-        }
+  "varetektSyklusId": "8EDCD261-AB21-41D9-9262-7BCF80483DDD",
+  "ordreId": "69D9D679-3270-42F7-A3D1-E798AB48D9FB",
+  "ordreVaretekt": {
+    "merknad": "Første ordre fra påtale. Hvilke varianter av brev og besøksforbud og delvs/full isolasjon er mulig.\r\nHva med annet, hvilken lovhjemmel er det og hva kan det være. Det er ikke mulig strukturert i dag",
+    "besluttetAv": {
+      "brukeridentifikasjon": "TEB012",
+      "tittel": "Politifullmektig",
+      "navn": {
+        "fornavn": "Tom Erik Wassenaar",
+        "etternavn": "Berntsen"
       },
-      "tidspunkt": "2022-09-20T21:22:37+02:00",
-      "restriksjoner": {
-        "merknad": "Ingen brev til denne personen",
-        "restriksjoner": [
-          {
-            "id": "{3D6C2AC3-C6CF-4E38-B623-22228E6B8036}",
-            "restriksjonsType": "BREV_OG_BESOEKSFORBUD",
-            "lovbudEnkel": {
-              "lovbudStreng": "Strpl. § 186, 2.ledd 1.pkt."
-            }
-          }]
-      },
-      "isolasjon": {
-        "merknad": "Opphever isolasjon i morgen",
-        "isolasjon": [
-          {
-            "id": "{F40E6DCF-F1CC-4C2B-B3F5-4E9F68218265}",
-            "isolasjonsType": "FULL_ISOLASJON",
-            "lovbudEnkel": {
-              "lovbudStreng": "Strpl. § 186a"
-            },
-            "tilDato": "2022-09-21"
-          }]
+      "kontakt": {
+        "telefon": "55224411"
       }
+    },
+    "tidspunkt": "2022-09-28T14:59:03+02:00",
+    "restriksjoner": {
+      "merknad": "Ingen brev til denne personen",
+      "restriksjoner": [
+        {
+          "id": "2BABE494-FBE7-4B1E-97C0-DB96AA8F7D63",
+          "restriksjonsType": "BREV_OG_BESOEKSFORBUD",
+          "lovbudEnkel": {
+            "lovbudStreng": "Strpl. § 186, 2.ledd 1.pkt."
+          }
+        }]
+    },
+    "isolasjon": {
+      "merknad": "Opphever isolasjon i morgen",
+      "isolasjon": [
+        {
+          "id": "EA23487D-2C30-4A75-82AA-F9ECA7B4D831",
+          "isolasjonsType": "FULL_ISOLASJON",
+          "lovbudEnkel": {
+            "lovbudStreng": "Strpl. § 186a"
+          },
+          "tilDato": "2022-09-29"
+        }]
     }
   },
-  "paagrepetTidspunkt": "2022-09-20T21:22:37+02:00",
+  "paagrepetTidspunkt": "2022-09-28T14:59:03+02:00",
   "personVaretekt": {
     "internId": "700892414",
     "navn": {
@@ -94,7 +92,7 @@
     {
       "internId": "1234567879",
       "overskrift": "Begjæring om varetekt, Kiwi",
-      "skrevetDato": "2022-09-20",
+      "skrevetDato": "2022-09-28",
       "forsendelse": {
         "mimeType": "application/pdf",
         "uri": "file:///asdfasdf",
@@ -107,7 +105,7 @@
       "kategori": {
         "kode": "siktelse"
       },
-      "skrevetDato": "2022-08-31",
+      "skrevetDato": "2022-09-08",
       "forsendelse": {
         "mimeType": "application/pdf",
         "uri": "file:///asdfaasdfsdf",
