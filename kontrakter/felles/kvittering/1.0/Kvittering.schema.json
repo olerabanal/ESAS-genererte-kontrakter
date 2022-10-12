@@ -4,11 +4,11 @@
   "description": "Schema som beskriver kvitteringer som skal utveksles på tvers av virksomhetene",
   "additionalProperties": true,
   "properties": {
-    "messageId": {
+    "meldingsId": {
       "type": "string",
       "description": "Meldingsid for selve kvitteringen"
     },
-    "messageIdRef": {
+    "meldingsIdRef": {
       "type": "string",
       "description": "Meldingsid for meldingen vi kvitterer"
     },
@@ -16,9 +16,13 @@
       "$ref": "#/definitions/StatusType",
       "description": "Status for meldingen vi kvitterer"
     },
-    "description": {
+    "beskrivelse": {
       "type": "string",
       "description": "Tekstlig beskrivelse. Brukes i forbindelse med statusene FEILET_AVSENDER og FEILET_MOTTAKER"
+    },
+    "saksRef": {
+		"type": "string",
+		"description": "Saksnummeret fra Lovisa. Vil kun være med fra domstolen dersom status er MOTTATT (altså kun etter at saken er opprettet"
     }
   },
   "definitions": {
@@ -41,18 +45,18 @@
         },
         {
           "value": "FEILET_AVSENDER",
-            "description": "Indikerer at det er noe feil hos avsender. F.eks. feil format, manglende vedlegg etc. Det er forventet av _avsender_ iverksette nødvendige tiltak for å sende melding på nytt. En slik status skal aldri sendes etter at en MOTTATT melding er sendt. Ingen nye kvitteringer forventes."
+            "description": "Indikerer at det er noe feil hos avsender. F.eks. feil format, manglende vedlegg på STFP server etc. Det er forventet av _avsender_ iverksette nødvendige tiltak for å sende melding på nytt. En slik status skal aldri sendes etter at en MOTTATT melding er sendt. Ingen nye kvitteringer forventes."
         },
         {
           "value": "FEILET_MOTTAKER",
-          "description": "Indikerer at det er noe feil hos mottaker. F.eks. bug eller system nede. Det er forventet at _mottaker_ undersøker. En slik status skal aldri sendes etter at en MOTTATT melding er sendt. Det forventes at det skal alltid komme en MOTTATT eller FEILET_AVSENDER kvittering i etterkant."
+          "description": "Indikerer at det er noe feil hos mottaker. F.eks. bug eller system nede. Det er forventet at _mottaker_ undersøker. En slik status skal aldri sendes etter at en MOTTATT melding er sendt. Det forventes at det skal komme en MOTTATT eller FEILET_AVSENDER kvittering i etterkant dersom feilen utbedres på mottakersiden. Men statusen kan bli stående dersom problemet løses ved at meldingen sendes på nytt"
         }
       ]
       }
     }, 
     "required": [
-				"messageId",
-				"messageIdRef",
+				"meldingsId",
+				"meldingsIdRef",
 				"status"
 			],
   "type": "object"
