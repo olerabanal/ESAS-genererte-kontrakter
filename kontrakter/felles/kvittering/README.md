@@ -15,9 +15,9 @@ En kvitteringsmelding som indikerer feil bør også inneholde en beskrivelse om 
 * Status **MOTTATT** indikerer at alt er ok. 
   * Avsender kan fjerne vedlegg fra filtjeneste når MOTTATT status er mottatt
   * Ingen nye kvitteringer forventes.
-* Status **FEILET_AVSENDER** indikerer at det er noe feil hos avsender. F.eks. feil format, manglende vedlegg etc. Det er forventet av _avsender_ iverksette nødvendige tiltak for å sende melding på nytt.
+* Status **FEILET_AVSENDER** indikerer at det er noe feil hos avsender. F.eks. feil format, manglende vedlegg på STFP server etc. Det er forventet av _avsender_ iverksette nødvendige tiltak for å sende melding på nytt.
   * En slik status skal aldri sendes etter at en MOTTATT melding er sendt
   * Ingen nye kvitteringer forventes.
 * Status **FEILET_MOTTAKER** indikerer at det er noe feil hos mottaker. F.eks. bug eller system nede. Det er forventet at _mottaker_ undersøker.
-  * en slik status skal aldri sendes etter at en MOTTATT melding er sendt
-  * det forventes at det skal alltid komme en MOTTATT eller FEILET_AVSENDER kvittering i etterkant
+  * En slik status skal aldri sendes etter at en MOTTATT melding er sendt
+  * Det forventes at det skal komme en MOTTATT eller FEILET_AVSENDER kvittering i etterkant dersom feilen utbedres på mottakersiden. Men statusen kan bli stående dersom problemet løses ved at meldingen sendes på nytt
