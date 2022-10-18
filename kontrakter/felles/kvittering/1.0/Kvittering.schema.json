@@ -29,23 +29,28 @@
     "StatusType": {
       "description": "Liste over mulige statuser",      
       "enum": [
-        "UNDER_BEHANDLING",
+        "UNDER_MOTTAK",
         "MOTTATT",
-        "FEILET_AVSENDER",
+        "FEILET_AVSENDER_TEKNINSK",
+        "FEILET_AVSENDER_MENNESKELIG",
         "FEILET_MOTTAKER"
       ],
       "type": "string",
       "options": [{
-            "value": "UNDER_BEHANDLING",            
+            "value": "UNDER_MOTTAK",
             "description": "Indikerer at meldingen er mottatt, men ikke ferdig prosessert inn i saksbehandlingssystem. Det kan fremdeles oppstå feil som gjør at avsender eller mottaker må starte feilsøking."
         }, 
         {
           "value": "MOTTATT",
-            "description": "Indikerer at alt er ok. Ingen ny status forventes. Avsender kan fjerne vedlegg fra filtjeneste når MOTTATT er mottatt."
+            "description": "Indikerer at alt er ok. Ingen nye kvitteringer forventes. Avsender kan fjerne vedlegg fra filtjeneste når MOTTATT er mottatt."
         },
         {
-          "value": "FEILET_AVSENDER",
-            "description": "Indikerer at det er noe feil hos avsender. F.eks. feil format, manglende vedlegg på STFP server etc. Det er forventet av _avsender_ iverksette nødvendige tiltak for å sende melding på nytt. En slik status skal aldri sendes etter at en MOTTATT melding er sendt. Ingen nye kvitteringer forventes."
+          "value": "FEILET_AVSENDER_TEKNISK",
+            "description": "Indikerer at det er en teknisk feil hos avsender. F.eks. feil format, vedlegg som ikke fins på STFP selv om det fins referanse i melding etc. Feltet 'beskrivelse' skal fylles ut med en feilmelding/exception. Det er forventet av _avsender_ å iverksette nødvendige tiltak for å sende melding på nytt. En slik status skal aldri sendes etter at en MOTTATT melding er sendt. Ingen nye kvitteringer forventes.",
+        },
+        {
+          "value": "FEILET_AVSENDER_MENNESKELIG",
+          "description": "Indikerer at det er en menneskelig feil hos avsender. F.eks. at forventet påtedning er avglemt. Feltet 'beskrivelse' skal fylles ut med en feilmelding skrevet av bruker. Det er forventet av _avsender_ iverksette nødvendige tiltak for å sende melding på nytt. En slik status skal aldri sendes etter at en MOTTATT melding er sendt. Ingen nye kvitteringer forventes."
         },
         {
           "value": "FEILET_MOTTAKER",
