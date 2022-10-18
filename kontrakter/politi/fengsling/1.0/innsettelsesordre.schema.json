@@ -467,12 +467,30 @@
     },
 
     "personForetakFull": {
-      "type" : "object",
+      "description": "En siktet kan være en person eller et foretak, denne typen er enten person eller foretak.",
+      "type": "object",
       "properties": {
-        "person" : {"$ref": "#/definitions/personFull"},
-        "foretak" : {"$ref": "#/definitions/foretak"}
+        "type": {"enum": ["person", "foretak"]},
+        "person": {"$ref": "#/definitions/personFull"},
+        "foretak": {"$ref": "#/definitions/foretak"}
+      },
+      "required": ["type"],
+      "oneOf": [
+        {
+          "properties":{
+            "type": {"const": "person" },
+            "foretak": {"type": "null"}
+          },
+          "required": ["person"]
         },
-      "additionalProperties": false
+        {
+          "properties":{
+            "type": {"const": "foretak" },
+            "person": {"type": "null"}
+          },
+          "required": ["foretak"]
+        }
+      ]
     },
 
     "personAdresse": {
