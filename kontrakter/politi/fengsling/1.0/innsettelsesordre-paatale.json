@@ -1,8 +1,8 @@
 {
   "melding": "innsettelsesordre",
   "forsendelse": {
-    "meldingsId": "3D4D10FE-7253-43EE-B505-A5F50AEF2721",
-    "sendtTid": "2022-09-28T15:05:48+02:00",
+    "meldingsId": "895D333A-F1E5-47E4-AA9C-8C77424618AD",
+    "sendtTid": "2022-10-17T18:46:19+02:00",
     "avsender": {
       "organisasjon": {
         "organisasjonsnummer": "983997953",
@@ -17,8 +17,8 @@
     },
     "mottaker": {
       "organisasjon": {
-        "organisasjonsnummer": "890286712",
-        "navn": "Bjørgvin fengsel"
+        "organisasjonsnummer": "993316121",
+        "navn": "Agder fengsel, Evje avdeling"
       }
     }
   },
@@ -28,8 +28,8 @@
       "etternavn": "navn og bid Jo Å"
     }
   },
-  "varetektSyklusId": "E2365D79-ACE7-46B6-9AE2-44EA3EB28F82",
-  "ordreId": "0F499C89-AECF-4D48-AA1C-2FCC801BD44B",
+  "varetektSyklusId": "17ADEEDA-BD0F-4A41-BB9C-4AB716A47C60",
+  "ordreId": "62B5CE7B-EC92-4772-A919-98A2CC855D94",
   "ordreVaretekt": {
     "merknad": "Første ordre fra påtale. Hvilke varianter av brev og besøksforbud og delvs/full isolasjon er mulig.\r\nHva med annet, hvilken lovhjemmel er det og hva kan det være. Det er ikke mulig strukturert i dag",
     "besluttetAv": {
@@ -43,12 +43,12 @@
         "telefon": "55224411"
       }
     },
-    "tidspunkt": "2022-09-28T15:05:48+02:00",
+    "tidspunkt": "2022-10-17T18:46:19+02:00",
     "restriksjoner": {
       "merknad": "Ingen brev til denne personen",
       "restriksjoner": [
         {
-          "id": "BCDA507F-296B-4163-BED1-813997A713D3",
+          "id": "0FB0967D-44F3-4360-92DD-755B6BD7F7F5",
           "restriksjonsType": "BREV_OG_BESOEKSFORBUD",
           "lovbudEnkel": {
             "lovbudStreng": "Strpl. § 186, 2.ledd 1.pkt."
@@ -59,7 +59,7 @@
       "merknad": "Ingen kontakt",
       "isolasjon": [
         {
-          "id": "5FCD2D7C-F8E2-4BB8-A840-63BC580B61AA",
+          "id": "6B5C3A6C-C89B-40F8-A24C-BC956A70EF56",
           "isolasjonsType": "FULL_ISOLASJON",
           "lovbudEnkel": {
             "lovbudStreng": "Strpl. § 186a"
@@ -67,7 +67,7 @@
         }]
     }
   },
-  "paagrepetTidspunkt": "2022-09-28T15:05:48+02:00",
+  "paagrepetTidspunkt": "2022-10-17T18:46:19+02:00",
   "personVaretektInfo": {
     "personVaretekt": {
       "internId": "700892414",
@@ -77,7 +77,7 @@
       },
       "foedselsnummer": ["14846399381"],
       "kjoenn": "MANN",
-      "foedselsdato": "1963-04-14",
+      "foedselsdato": "1963-04-14T00:00:00",
       "statsborgerskap": [
         {
           "kode": "NOR",
@@ -136,7 +136,7 @@
               "fornavn": "Morsom",
               "etternavn": "KIWI"
             },
-            "foedselsdato": "1963-04-14"
+            "foedselsdato": "1963-04-14T00:00:00"
           },
           "medsiktede": [
             {
@@ -148,7 +148,7 @@
                 },
                 "foedselsnummer": ["19877099302"],
                 "kjoenn": "MANN",
-                "foedselsdato": "1970-07-19",
+                "foedselsdato": "1970-07-19T00:00:00",
                 "statsborgerskap": [
                   {
                     "kode": "NOR",
@@ -180,7 +180,7 @@
                 },
                 "foedselsnummer": ["31907499858"],
                 "kjoenn": "KVINNE",
-                "foedselsdato": "1974-10-31",
+                "foedselsdato": "1974-10-31T00:00:00",
                 "statsborgerskap": [
                   {
                     "kode": "NOR",
@@ -204,7 +204,7 @@
               },
               "foedselsnummer": ["21907699738"],
               "kjoenn": "MANN",
-              "foedselsdato": "1976-10-21",
+              "foedselsdato": "1976-10-21T00:00:00",
               "statsborgerskap": [
                 {
                   "kode": "NOR",
@@ -261,7 +261,7 @@
               "fornavn": "Morsom",
               "etternavn": "KIWI"
             },
-            "foedselsdato": "1963-04-14"
+            "foedselsdato": "1963-04-14T00:00:00"
           },
           "medsiktede": [
             {
@@ -273,7 +273,7 @@
                 },
                 "foedselsnummer": ["19877099302"],
                 "kjoenn": "MANN",
-                "foedselsdato": "1970-07-19",
+                "foedselsdato": "1970-07-19T00:00:00",
                 "statsborgerskap": [
                   {
                     "kode": "NOR",
@@ -304,7 +304,7 @@
                 "etternavn": "HUFSETE"
               },
               "kjoenn": "KVINNE",
-              "foedselsdato": "1970-01-01",
+              "foedselsdato": "1970-01-01T00:00:00",
               "statsborgerskap": [
                 {
                   "kode": "ARM",
@@ -354,7 +354,7 @@
               "fornavn": "Morsom",
               "etternavn": "KIWI"
             },
-            "foedselsdato": "1963-04-14"
+            "foedselsdato": "1963-04-14T00:00:00"
           },
           "fornaermede": [
             {
@@ -365,7 +365,7 @@
                   "etternavn": "QUATRO"
                 },
                 "kjoenn": "MANN",
-                "foedselsdato": "1978-01-12",
+                "foedselsdato": "1978-01-12T00:00:00",
                 "statsborgerskap": [
                   {
                     "kode": "ITA",
@@ -416,7 +416,7 @@
               "fornavn": "Morsom",
               "etternavn": "KIWI"
             },
-            "foedselsdato": "1963-04-14"
+            "foedselsdato": "1963-04-14T00:00:00"
           },
           "fornaermede": [
             {
@@ -428,7 +428,7 @@
                 },
                 "foedselsnummer": ["31907499858"],
                 "kjoenn": "KVINNE",
-                "foedselsdato": "1974-10-31",
+                "foedselsdato": "1974-10-31T00:00:00",
                 "statsborgerskap": [
                   {
                     "kode": "NOR",
@@ -453,7 +453,7 @@
     {
       "internId": "1234567879",
       "overskrift": "Begjæring om varetekt, Kiwi",
-      "skrevetDato": "2022-09-28",
+      "skrevetDato": "2022-10-17T00:00:00",
       "forsendelse": {
         "mimeType": "application/pdf",
         "uri": "file:///asdfasdf",
@@ -466,7 +466,7 @@
       "kategori": {
         "kode": "siktelse"
       },
-      "skrevetDato": "2022-09-08",
+      "skrevetDato": "2022-09-27T00:00:00",
       "forsendelse": {
         "mimeType": "application/pdf",
         "uri": "file:///asdfaasdfsdf",

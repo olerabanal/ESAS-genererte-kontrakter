@@ -1,8 +1,8 @@
 {
   "melding": "oppdaterVaretekt",
   "forsendelse": {
-    "meldingsId": "09F0437A-E1F8-4F03-BE9C-0C145CCCEB69",
-    "sendtTid": "2022-09-28T14:59:03+02:00",
+    "meldingsId": "22A3E939-4F38-46DF-8C88-708829415B87",
+    "sendtTid": "2022-10-17T19:02:24+02:00",
     "avsender": {
       "organisasjon": {
         "organisasjonsnummer": "983997953",
@@ -17,14 +17,14 @@
     },
     "mottaker": {
       "organisasjon": {
-        "organisasjonsnummer": "890286712",
-        "navn": "Bjørgvin fengsel"
+        "organisasjonsnummer": "993316121",
+        "navn": "Agder fengsel, Evje avdeling"
       }
     }
   },
   "hovedStraffesaksnummer": "15434819",
-  "varetektSyklusId": "8EDCD261-AB21-41D9-9262-7BCF80483DDD",
-  "ordreId": "69D9D679-3270-42F7-A3D1-E798AB48D9FB",
+  "varetektSyklusId": "EB696BE1-D84B-480C-A5D9-635EA3C0E1D3",
+  "ordreId": "3D365B8D-461E-4C7E-B48E-FA6A7DC41EBC",
   "ordreVaretekt": {
     "merknad": "Første ordre fra påtale. Hvilke varianter av brev og besøksforbud og delvs/full isolasjon er mulig.\r\nHva med annet, hvilken lovhjemmel er det og hva kan det være. Det er ikke mulig strukturert i dag",
     "besluttetAv": {
@@ -38,12 +38,12 @@
         "telefon": "55224411"
       }
     },
-    "tidspunkt": "2022-09-28T14:59:03+02:00",
+    "tidspunkt": "2022-10-17T19:02:24+02:00",
     "restriksjoner": {
       "merknad": "Ingen brev til denne personen",
       "restriksjoner": [
         {
-          "id": "2BABE494-FBE7-4B1E-97C0-DB96AA8F7D63",
+          "id": "7D7212B5-3D64-4860-BC5E-A82F106350B0",
           "restriksjonsType": "BREV_OG_BESOEKSFORBUD",
           "lovbudEnkel": {
             "lovbudStreng": "Strpl. § 186, 2.ledd 1.pkt."
@@ -54,16 +54,16 @@
       "merknad": "Opphever isolasjon i morgen",
       "isolasjon": [
         {
-          "id": "EA23487D-2C30-4A75-82AA-F9ECA7B4D831",
+          "id": "BC5C418B-A420-43EC-95D8-B968F387A472",
           "isolasjonsType": "FULL_ISOLASJON",
           "lovbudEnkel": {
             "lovbudStreng": "Strpl. § 186a"
           },
-          "tilDato": "2022-09-29"
+          "tilDato": "2022-10-18T00:00:00"
         }]
     }
   },
-  "paagrepetTidspunkt": "2022-09-28T14:59:03+02:00",
+  "paagrepetTidspunkt": "2022-10-17T19:02:24+02:00",
   "personVaretekt": {
     "internId": "700892414",
     "navn": {
@@ -72,7 +72,7 @@
     },
     "foedselsnummer": ["14846399381"],
     "kjoenn": "MANN",
-    "foedselsdato": "1963-04-14",
+    "foedselsdato": "1963-04-14T00:00:00",
     "statsborgerskap": [
       {
         "kode": "NOR",
@@ -92,7 +92,7 @@
     {
       "internId": "1234567879",
       "overskrift": "Begjæring om varetekt, Kiwi",
-      "skrevetDato": "2022-09-28",
+      "skrevetDato": "2022-10-17T00:00:00",
       "forsendelse": {
         "mimeType": "application/pdf",
         "uri": "file:///asdfasdf",
@@ -105,7 +105,7 @@
       "kategori": {
         "kode": "siktelse"
       },
-      "skrevetDato": "2022-09-08",
+      "skrevetDato": "2022-09-27T00:00:00",
       "forsendelse": {
         "mimeType": "application/pdf",
         "uri": "file:///asdfaasdfsdf",

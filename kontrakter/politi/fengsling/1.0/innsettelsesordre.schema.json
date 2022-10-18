@@ -57,7 +57,7 @@
       "additionalProperties": false,
 			"properties": {				
 				
-				"anketDato": {"type": "string", "format": "date"},
+				"anketDato": {"description": "Dato", "type": "string", "format": "date-time"},
 				"anketAv": {"$ref": "#/definitions/anketAvType"},
 				"oppsettendeVirkning": {"type": "boolean"					
 				}
@@ -86,8 +86,8 @@
       "additionalProperties": false,
       "properties": {
         "lovbudEnkel": {"$ref": "#/definitions/lovbudEnkel"},
-        "fraDato": {"type": "string", "format": "date"},
-        "tilDato": {"type": "string", "format": "date"}
+        "fraDato": {"description": "Dato, som domstolene spesifiserer","type": "string", "format": "date-time"},
+        "tilDato": {"description": "Dato, som domstolene spesifiserer","type": "string", "format": "date-time"}
       }
     },
     "fengslingKjennelse": {
@@ -98,7 +98,7 @@
       "properties": {
         "avgjoerelseId": {"type": "string"},
         "domstol": {"$ref": "#/definitions/organisasjon"},
-        "avsagtDato": {"type": "string", "format": "date"},
+        "avsagtDato": {"description": "Dato","type": "string", "format": "date-time"},
         "fengsling": {"$ref": "#/definitions/fengsling"},
         "anke": {"$ref": "#/definitions/anke"}
       }
@@ -113,8 +113,8 @@
         "id": {"type": "string"},
         "isolasjonsType": {"$ref": "#/definitions/isolasjonsType"},
         "lovbudEnkel": {"$ref": "#/definitions/lovbudEnkel"},
-        "fraDato": {"type": "string", "format": "date"},
-        "tilDato": {"type": "string", "format": "date"}
+        "fraDato": {"description": "Dato", "type": "string", "format": "date-time"},
+        "tilDato": {"description": "Dato", "type": "string", "format": "date-time"}
       }
     },
     "isolasjonBegjaering": {
@@ -136,7 +136,7 @@
       "properties": {
         "avgjoerelseId": {"type": "string"},
         "domstol": {"$ref": "#/definitions/organisasjon"},
-        "avsagtDato": {"type": "string", "format": "date"},
+        "avsagtDato": {"description": "Dato", "type": "string", "format": "date-time"},
         "isolasjon": {"$ref": "#/definitions/isolasjon"},
         "anke": {"$ref": "#/definitions/anke"}
       }
@@ -208,8 +208,8 @@
         "id": {"type": "string"},
         "restriksjonsType": {"$ref": "#/definitions/restriksjonsType"},
         "lovbudEnkel": {"$ref": "#/definitions/lovbudEnkel"},
-        "fraDato": {"type": "string", "format": "date"},
-        "tilDato": {"type": "string", "format": "date"}
+        "fraDato": {"description": "Dato","type": "string", "format": "date-time"},
+        "tilDato": {"description": "Dato","type": "string", "format": "date-time"}
       }
     },
 
@@ -232,7 +232,7 @@
       "properties": {
         "avgjoerelseId": {"type": "string"},
         "domstol": {"$ref": "#/definitions/organisasjon"},
-        "avsagtDato": {"type": "string", "format": "date"},
+        "avsagtDato": {"description": "Dato", "type": "string", "format": "date-time"},
         "restriksjon": {"$ref": "#/definitions/restriksjon"},
         "anke": {"$ref": "#/definitions/anke"}
       }
@@ -292,7 +292,7 @@
         "internId" : {"type" : "string"},
         "kategori" : {"$ref" : "#/definitions/kodeverk"},
         "overskrift" : {"type" : "string"},
-        "skrevetDato": {"type": "string", "format": "date"},
+        "skrevetDato": {"description": "Dato", "type": "string", "format": "date-time"},
         "forsendelse" : {"$ref" : "#/definitions/dokumentForsendelse"}
       },
       "required" : ["overskrift", "forsendelse"],
@@ -492,7 +492,7 @@
       "properties": {
         "internId": {"type": "string"},
         "navn": {"$ref" : "#/definitions/personnavn"},
-        "foedselsdato": {"type" : "string", "format" : "date"},
+        "foedselsdato": {"description": "Dato", "type" : "string", "format" : "date-time"},
         "kjoenn": {"$ref" : "#/definitions/kjoenn"},
         "statsborgerskap": {"type": "array", "items": {"$ref": "#/definitions/land"}},
         "foedselsnummer": {"type": "array", "items": {"$ref": "#/definitions/foedselsnummer"}},
@@ -511,7 +511,7 @@
       "properties": {
         "internId": {"type": "string"},
         "navn": {"$ref" : "#/definitions/personnavn"},
-        "foedselsdato": {"type" : "string", "format" : "date"}
+        "foedselsdato": {"description": "Dato", "type" : "string", "format" : "date-time"}
       },
       "required" : ["internId","navn"],
       "additionalProperties": false
