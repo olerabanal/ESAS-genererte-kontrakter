@@ -32,7 +32,7 @@
         "UNDER_MOTTAK",
         "MOTTATT",
         "FEILET_AVSENDER_TEKNINSK",
-        "FEILET_AVSENDER_MENNESKELIG",
+        "FEILET_AVSENDER_MANGLER",
         "FEILET_MOTTAKER"
       ],
       "type": "string",
@@ -49,8 +49,8 @@
             "description": "Indikerer at det er en teknisk feil hos avsender. F.eks. feil format, vedlegg som ikke fins på STFP selv om det fins referanse i melding etc. Feltet 'beskrivelse' skal fylles ut med en feilmelding/exception. Det er forventet av _avsender_ å iverksette nødvendige tiltak for å sende melding på nytt. En slik status skal aldri sendes etter at en MOTTATT melding er sendt. Ingen nye kvitteringer forventes.",
         },
         {
-          "value": "FEILET_AVSENDER_MENNESKELIG",
-          "description": "Indikerer at det er en menneskelig feil hos avsender. F.eks. at forventet påtedning er avglemt. Feltet 'beskrivelse' skal fylles ut med en feilmelding skrevet av bruker. Det er forventet av _avsender_ iverksette nødvendige tiltak for å sende melding på nytt. En slik status skal aldri sendes etter at en MOTTATT melding er sendt. Ingen nye kvitteringer forventes."
+          "value": "FEILET_AVSENDER_MANGLER",
+          "description": "Indikerer at det er mangler i forsendelsen som er avdekket av saksbehandler. F.eks. at forventet påtegning er avglemt. Feltet 'beskrivelse' skal fylles ut med en feilmelding skrevet av bruker. Meldingen forkastes og det er forventet av _avsender_ skal sende hele meldingen på nytt. En slik status skal aldri sendes etter at en MOTTATT melding er sendt. Ingen nye kvitteringer forventes."
         },
         {
           "value": "FEILET_MOTTAKER",
