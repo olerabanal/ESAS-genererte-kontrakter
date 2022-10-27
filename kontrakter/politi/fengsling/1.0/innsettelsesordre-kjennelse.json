@@ -1,8 +1,8 @@
 {
   "melding": "innsettelsesordre",
   "forsendelse": {
-    "meldingsId": "863B3A1B-F99C-4807-9CF7-C19D018B3AE8",
-    "sendtTid": "2022-10-18T06:32:53+02:00",
+    "meldingsId": "04830800-4369-4C11-9BCB-30905E0AFBBA",
+    "sendtTid": "2022-10-27T20:22:15+02:00",
     "avsender": {
       "organisasjon": {
         "organisasjonsnummer": "983997953",
@@ -17,8 +17,8 @@
     },
     "mottaker": {
       "organisasjon": {
-        "organisasjonsnummer": "993316121",
-        "navn": "Agder fengsel, Evje avdeling"
+        "organisasjonsnummer": "890286712",
+        "navn": "Bjørgvin fengsel"
       }
     }
   },
@@ -28,72 +28,75 @@
       "etternavn": "navn og bid Jo Å"
     }
   },
-  "varetektSyklusId": "E3ABB47E-0936-42ED-B399-AD23477A1E02",
-  "ordreId": "14229C03-D649-4983-80CE-F04C76667A34",
-  "kjennelseVaretekt": {
-    "fengslingKjennelse": {
-      "domstol": {
-        "organisasjonsnummer": "826726342",
-        "navn": "Buskerud tingrett"
-      },
-      "avsagtDato": "2022-10-18T00:00:00",
-      "fengsling": {
-        "lovbudEnkel": {
-          "lovbudStreng": "§172..."
-        },
-        "fraDato": "2022-10-18T00:00:00",
-        "tilDato": "2022-11-14T00:00:00"
-      }
-    },
-    "restriksjoner": [
-      {
+  "varetektSyklusId": "9B4013DE-6A17-4603-8AA5-F035C22C3A87",
+  "ordreId": "37CEC730-7BA7-406E-94DF-0E19C7E9DCA6",
+  "ordreEllerKjennelseVaretekt": {
+    "type": "kjennelseVaretekt",
+    "kjennelseVaretekt": {
+      "fengslingKjennelse": {
         "domstol": {
           "organisasjonsnummer": "826726342",
           "navn": "Buskerud tingrett"
         },
-        "avsagtDato": "2022-10-18T00:00:00",
-        "restriksjon": {
-          "restriksjonsType": "BREV_OG_BESOEKSFORBUD",
+        "avsagtDato": "2022-10-27T00:00:00",
+        "fengsling": {
           "lovbudEnkel": {
-            "lovbudStreng": "Strpl. § 186, 2.ledd 1.pkt."
+            "lovbudStreng": "§172..."
           },
-          "fraDato": "2022-10-18T00:00:00",
-          "tilDato": "2022-10-31T00:00:00"
+          "fraDato": "2022-10-27T00:00:00",
+          "tilDato": "2022-11-23T00:00:00"
         }
       },
-      {
-        "domstol": {
-          "organisasjonsnummer": "826726342",
-          "navn": "Buskerud tingrett"
-        },
-        "avsagtDato": "2022-10-18T00:00:00",
-        "restriksjon": {
-          "restriksjonsType": "BREV_OG_BESOEKSKONTROLL",
-          "lovbudEnkel": {
-            "lovbudStreng": "Strpl. § 186, 2.ledd 1.pkt."
+      "restriksjoner": [
+        {
+          "domstol": {
+            "organisasjonsnummer": "826726342",
+            "navn": "Buskerud tingrett"
           },
-          "fraDato": "2022-11-01T00:00:00",
-          "tilDato": "2022-11-14T00:00:00"
-        }
-      }],
-    "isolasjon": [
-      {
-        "domstol": {
-          "organisasjonsnummer": "826726342",
-          "navn": "Buskerud tingrett"
+          "avsagtDato": "2022-10-27T00:00:00",
+          "restriksjon": {
+            "restriksjonsType": "BREV_OG_BESOEKSFORBUD",
+            "lovbudEnkel": {
+              "lovbudStreng": "Strpl. § 186, 2.ledd 1.pkt."
+            },
+            "fraDato": "2022-10-27T00:00:00",
+            "tilDato": "2022-11-09T00:00:00"
+          }
         },
-        "avsagtDato": "2022-10-18T00:00:00",
-        "isolasjon": {
-          "isolasjonsType": "FULL_ISOLASJON",
-          "lovbudEnkel": {
-            "lovbudStreng": "Strpl. § 186a"
+        {
+          "domstol": {
+            "organisasjonsnummer": "826726342",
+            "navn": "Buskerud tingrett"
           },
-          "fraDato": "2022-10-18T00:00:00",
-          "tilDato": "2022-10-31T00:00:00"
-        }
-      }]
+          "avsagtDato": "2022-10-27T00:00:00",
+          "restriksjon": {
+            "restriksjonsType": "BREV_OG_BESOEKSKONTROLL",
+            "lovbudEnkel": {
+              "lovbudStreng": "Strpl. § 186, 2.ledd 1.pkt."
+            },
+            "fraDato": "2022-11-10T00:00:00",
+            "tilDato": "2022-11-23T00:00:00"
+          }
+        }],
+      "isolasjon": [
+        {
+          "domstol": {
+            "organisasjonsnummer": "826726342",
+            "navn": "Buskerud tingrett"
+          },
+          "avsagtDato": "2022-10-27T00:00:00",
+          "isolasjon": {
+            "isolasjonsType": "FULL_ISOLASJON",
+            "lovbudEnkel": {
+              "lovbudStreng": "Strpl. § 186a"
+            },
+            "fraDato": "2022-10-27T00:00:00",
+            "tilDato": "2022-11-09T00:00:00"
+          }
+        }]
+    }
   },
-  "paagrepetTidspunkt": "2022-10-18T06:32:53+02:00",
+  "paagrepetTidspunkt": "2022-10-27T20:22:15+02:00",
   "personVaretektInfo": {
     "personVaretekt": {
       "internId": "700892414",
@@ -102,6 +105,8 @@
         "etternavn": "KIWI"
       },
       "foedselsnummer": ["14846399381"],
+      "sspNummer": [],
+      "dNummer": [],
       "kjoenn": "MANN",
       "foedselsdato": "1963-04-14T00:00:00",
       "statsborgerskap": [
@@ -151,6 +156,7 @@
             "lovbudId": "{DC423098-A15E-4408-BB35-85C101725AE0}",
             "lovbudStreng": "Straffeloven § 323 første ledd, jf. § 321",
             "gjengivelse": "for å ha tatt en gjenstand som tilhørte en annen, med forsett om å skaffe seg eller andre en uberettiget vinning ved å selge, forbruke eller på annen måte tilegne seg den. \r\n\r\nStraffskylden er liten fordi det gjelder en ubetydelig verdi og forholdene for øvrig tilsier det.",
+            "hjemmel": [],
             "strafferamme": 0
           },
           "grunnlagstekst": "Lørdag 1. januar 2022 kl. 00.00 i Waldemar Carlsens veg 4 i Kongsvinger tok Morsom Kiwi og Masse Kiwi og grisebanket dama til Morsom Kiwi Sannferdig Kos. Sannferdig Kos fikk fire knekte ribbeing, knust nese og knekt fot."
@@ -174,6 +180,8 @@
                   "etternavn": "KIWI"
                 },
                 "foedselsnummer": ["19877099302"],
+                "sspNummer": [],
+                "dNummer": [],
                 "kjoenn": "MANN",
                 "foedselsdato": "1970-07-19T00:00:00",
                 "statsborgerskap": [
@@ -197,6 +205,26 @@
                 "organisasjonsnummer": "984954808",
                 "navn": "Obs"
               }
+            },
+            {
+              "type": "person",
+              "person": {
+                "internId": "700893213",
+                "navn": {
+                  "fornavn": "Per",
+                  "etternavn": "OTTERSTAD"
+                },
+                "foedselsnummer": [],
+                "sspNummer": [],
+                "dNummer": [],
+                "kjoenn": "MANN",
+                "foedselsdato": "1975-12-12T00:00:00",
+                "statsborgerskap": [
+                  {
+                    "kode": "NOR",
+                    "navn": "Norge"
+                  }]
+              }
             }],
           "fornaermede": [
             {
@@ -208,6 +236,8 @@
                   "etternavn": "KOS"
                 },
                 "foedselsnummer": ["31907499858"],
+                "sspNummer": [],
+                "dNummer": [],
                 "kjoenn": "KVINNE",
                 "foedselsdato": "1974-10-31T00:00:00",
                 "statsborgerskap": [
@@ -232,6 +262,8 @@
                 "etternavn": "BALLONG"
               },
               "foedselsnummer": ["21907699738"],
+              "sspNummer": [],
+              "dNummer": [],
               "kjoenn": "MANN",
               "foedselsdato": "1976-10-21T00:00:00",
               "statsborgerskap": [
@@ -279,6 +311,7 @@
             "lovbudId": "{0B0D6AED-3A43-4B70-AD86-8A4FE38B090B}",
             "lovbudStreng": "Straffeloven § 232 annet ledd første straffalternativ, jf. § 231 første ledd, jf. straffeloven § 27",
             "gjengivelse": "for ulovlig å ha tilvirket, innført, utført, ervervet, oppbevart, sendt eller overdratt narkotika. \r\n\r\nOvertredelsen omfatter en meget betydelig mengde.\r\n\r\nNår et straffebud er overtrådt av noen som har handlet på vegne av et foretak, kan foretaket straffes.",
+            "hjemmel": [],
             "strafferamme": 180
           },
           "grunnlagstekst": "Campingbil med kokeutstyr og Breaking Bad DVD'er"
@@ -302,6 +335,8 @@
                   "etternavn": "KIWI"
                 },
                 "foedselsnummer": ["19877099302"],
+                "sspNummer": [],
+                "dNummer": [],
                 "kjoenn": "MANN",
                 "foedselsdato": "1970-07-19T00:00:00",
                 "statsborgerskap": [
@@ -334,6 +369,9 @@
                 "fornavn": "Ariane",
                 "etternavn": "HUFSETE"
               },
+              "foedselsnummer": [],
+              "sspNummer": [],
+              "dNummer": [],
               "kjoenn": "KVINNE",
               "foedselsdato": "1970-01-01T00:00:00",
               "statsborgerskap": [
@@ -374,6 +412,7 @@
             "lovbudId": "{664DC73B-828D-4196-9D94-5EB1D1811A9B}",
             "lovbudStreng": "Straffeloven § 273",
             "gjengivelse": "for å ha skadet en annens kropp eller helse, gjort en annen fysisk maktesløs eller fremkalt bevisstløshet eller liknende tilstand hos en annen.",
+            "hjemmel": [],
             "strafferamme": 72
           },
           "grunnlagstekst": "Lormen Quatro ble lappet til av Morsom Kiwi så han blødde neseblod."
@@ -387,6 +426,7 @@
             },
             "foedselsdato": "1963-04-14T00:00:00"
           },
+          "medsiktede": [],
           "fornaermede": [
             {
               "type": "person",
@@ -396,6 +436,9 @@
                   "fornavn": "Lormen",
                   "etternavn": "QUATRO"
                 },
+                "foedselsnummer": [],
+                "sspNummer": [],
+                "dNummer": [],
                 "kjoenn": "MANN",
                 "foedselsdato": "1978-01-12T00:00:00",
                 "statsborgerskap": [
@@ -404,7 +447,8 @@
                     "navn": "Italia"
                   }]
               }
-            }]
+            }],
+          "vitne": []
         }
       },
       {
@@ -437,6 +481,7 @@
             "lovbudId": "{1713FA29-4E82-7F97-E053-0B3EA30AAE0D}",
             "lovbudStreng": "Straffeloven (1902) § 227 første straffalternativ",
             "gjengivelse": "for i ord eller handling å ha truet med en straffbar handling som kan medføre høyere straff enn 6 måneders fengsel, under slike omstendigheter at trusselen var skikket til å fremkalle alvorlig frykt",
+            "hjemmel": [],
             "strafferamme": 36
           },
           "grunnlagstekst": "Torsdag 1. januar 2015 kl. 00.00 i Walmannsvegen 81 i Eidskog truet Morsom Kiwi fornærmede med en avsaget hagle."
@@ -450,6 +495,7 @@
             },
             "foedselsdato": "1963-04-14T00:00:00"
           },
+          "medsiktede": [],
           "fornaermede": [
             {
               "type": "person",
@@ -460,6 +506,8 @@
                   "etternavn": "KOS"
                 },
                 "foedselsnummer": ["31907499858"],
+                "sspNummer": [],
+                "dNummer": [],
                 "kjoenn": "KVINNE",
                 "foedselsdato": "1974-10-31T00:00:00",
                 "statsborgerskap": [
@@ -475,7 +523,8 @@
                   }
                 }
               }
-            }]
+            }],
+          "vitne": []
         }
       }]
   },
@@ -486,7 +535,7 @@
     {
       "internId": "1234567879",
       "overskrift": "Begjæring om varetekt, Kiwi",
-      "skrevetDato": "2022-10-18T00:00:00",
+      "skrevetDato": "2022-10-27T00:00:00",
       "forsendelse": {
         "mimeType": "application/pdf",
         "uri": "file:///asdfasdf",
@@ -499,7 +548,7 @@
       "kategori": {
         "kode": "siktelse"
       },
-      "skrevetDato": "2022-09-28T00:00:00",
+      "skrevetDato": "2022-10-07T00:00:00",
       "forsendelse": {
         "mimeType": "application/pdf",
         "uri": "file:///asdfaasdfsdf",
