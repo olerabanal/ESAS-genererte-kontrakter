@@ -1,8 +1,8 @@
 {
   "melding": "oppdaterVaretekt",
   "forsendelse": {
-    "meldingsId": "64C81667-CA36-451E-9457-9A1B80222BFA",
-    "sendtTid": "2022-10-17T19:02:48+02:00",
+    "meldingsId": "D1B0F25B-40C6-41AF-91C0-363CA48C4E47",
+    "sendtTid": "2022-10-27T21:07:44+02:00",
     "avsender": {
       "organisasjon": {
         "organisasjonsnummer": "983997953",
@@ -17,27 +17,27 @@
     },
     "mottaker": {
       "organisasjon": {
-        "organisasjonsnummer": "993316121",
-        "navn": "Agder fengsel, Evje avdeling"
+        "organisasjonsnummer": "890286712",
+        "navn": "Bjørgvin fengsel"
       }
     }
   },
   "hovedStraffesaksnummer": "15434819",
-  "varetektSyklusId": "2A9FBEE8-F486-4467-9AD0-0DF4FB59C4BE",
-  "ordreId": "A00F0D33-6D49-4C0A-81E7-0CAC6D4B0B2D",
+  "varetektSyklusId": "709462B3-DE11-4A66-BDDD-5CC4D87EA3AD",
+  "ordreId": "ECD7BF3E-4F35-4F2B-9A5B-43054DFE7339",
   "kjennelseVaretekt": {
     "fengslingKjennelse": {
       "domstol": {
         "organisasjonsnummer": "826726342",
         "navn": "Buskerud tingrett"
       },
-      "avsagtDato": "2022-10-17T00:00:00",
+      "avsagtDato": "2022-10-27T00:00:00",
       "fengsling": {
         "lovbudEnkel": {
           "lovbudStreng": "§172..."
         },
-        "fraDato": "2022-10-17T00:00:00",
-        "tilDato": "2022-11-13T00:00:00"
+        "fraDato": "2022-10-27T00:00:00",
+        "tilDato": "2022-11-23T00:00:00"
       }
     },
     "restriksjoner": [
@@ -46,14 +46,14 @@
           "organisasjonsnummer": "826726342",
           "navn": "Buskerud tingrett"
         },
-        "avsagtDato": "2022-10-17T00:00:00",
+        "avsagtDato": "2022-10-27T00:00:00",
         "restriksjon": {
           "restriksjonsType": "BREV_OG_BESOEKSFORBUD",
           "lovbudEnkel": {
             "lovbudStreng": "Strpl. § 186, 2.ledd 1.pkt."
           },
-          "fraDato": "2022-10-17T00:00:00",
-          "tilDato": "2022-10-30T00:00:00"
+          "fraDato": "2022-10-27T00:00:00",
+          "tilDato": "2022-11-09T00:00:00"
         }
       },
       {
@@ -61,14 +61,14 @@
           "organisasjonsnummer": "826726342",
           "navn": "Buskerud tingrett"
         },
-        "avsagtDato": "2022-10-17T00:00:00",
+        "avsagtDato": "2022-10-27T00:00:00",
         "restriksjon": {
           "restriksjonsType": "BREV_OG_BESOEKSKONTROLL",
           "lovbudEnkel": {
             "lovbudStreng": "Strpl. § 186, 2.ledd 1.pkt."
           },
-          "fraDato": "2022-10-31T00:00:00",
-          "tilDato": "2022-11-13T00:00:00"
+          "fraDato": "2022-11-10T00:00:00",
+          "tilDato": "2022-11-23T00:00:00"
         }
       }],
     "isolasjon": [
@@ -77,14 +77,14 @@
           "organisasjonsnummer": "826726342",
           "navn": "Buskerud tingrett"
         },
-        "avsagtDato": "2022-10-17T00:00:00",
+        "avsagtDato": "2022-10-27T00:00:00",
         "isolasjon": {
           "isolasjonsType": "FULL_ISOLASJON",
           "lovbudEnkel": {
             "lovbudStreng": "Strpl. § 186a"
           },
-          "fraDato": "2022-10-17T00:00:00",
-          "tilDato": "2022-10-30T00:00:00"
+          "fraDato": "2022-10-27T00:00:00",
+          "tilDato": "2022-11-09T00:00:00"
         }
       }]
   },
@@ -92,7 +92,7 @@
     {
       "internId": "1234567879",
       "overskrift": "Begjæring om varetekt, Kiwi",
-      "skrevetDato": "2022-10-17T00:00:00",
+      "skrevetDato": "2022-10-27T00:00:00",
       "forsendelse": {
         "mimeType": "application/pdf",
         "uri": "file:///asdfasdf",
@@ -105,7 +105,7 @@
       "kategori": {
         "kode": "siktelse"
       },
-      "skrevetDato": "2022-09-27T00:00:00",
+      "skrevetDato": "2022-10-07T00:00:00",
       "forsendelse": {
         "mimeType": "application/pdf",
         "uri": "file:///asdfaasdfsdf",
