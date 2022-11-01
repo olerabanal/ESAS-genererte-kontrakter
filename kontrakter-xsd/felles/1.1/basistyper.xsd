@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Basis typer.
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	      xmlns="http://justishub.justisnett.no/felles/1.1/basistyper"
+		   targetNamespace="http://justishub.justisnett.no/felles/1.1/basistyper">
+
+
+   <xs:complexType name="AdresseType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Allt som ikke er postnummer/poststed er adresselinje. Det er ikke lov å sende adresse uten verdier på alle elementer. Offshore adresser kommer som adresselinje.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="adresselinje" type="xs:string" maxOccurs="4"/>
+			<xs:element name="postnummer" type="xs:string" minOccurs="0"/>
+			<xs:element name="poststed" type="xs:string" minOccurs="0"/>
+			<xs:element name="landkode" type="LandkodeType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:simpleType name="EpostType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Lange epostadresser.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="5"/>
+			<xs:maxLength value="150"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="FoedselsnummerType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Et foedselsnummer bestaar av 11 sifre. Et fødselsnummer kan også være et D nummer.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\d{11}"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="KildeEnumType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Kilde til data/melding</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Domstolen"/>
+			<xs:enumeration value="Politiet"/>
+			<xs:enumeration value="Kriminalomsorgen"/>
+			<xs:enumeration value="annen"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="KildeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Utvidbar enumerert type for å kunne legge til flere kilder uten å endre skjema i overgangsperioder.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:extension base="KildeEnumType">
+				<xs:attribute name="annen" type="xs:string"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+	<xs:simpleType name="IdentType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Identifikator laget egen type for å begrense lengde</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="50"/>
+			<xs:minLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="BrukerIdentType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Politiet bruker 6 tegn tre bokstaver og tre tall, Lovisa og kriminalomsorgen ?</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+			<xs:minLength value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="KjoennsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Kjoenn representeres ved en bokstav: M for Mann, K for Kvinne. Burde vi ha med ukjent?
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="M"/>
+			<xs:enumeration value="K"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="KodeType">
+		<xs:annotation>
+			<xs:documentation>For felles kodeverk mellom sektorene. Dette er definisjonen som skal brukes i meldinger, definisjon av felles kodeverk må også innehold gyldg fra/til mm.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="id" type="UnikIdType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Unik nøkkel over alle kodetyper innenfor felles kodeverk. GUID eller annen unik nøkkel.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="kode" type="xs:string">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">kode, unik innenfor aktive kodeverk objekt av denne typen. En kode skal ikke gjenbrukes hvis det er en ny betydning av koden.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="type" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">SYSTEM, DOMSTOL, POLITIDISTRIKT, ...</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="navn" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Navn eller beskrivelse, f.eks. Øst politidistrikt, Agder statsadvokatembeter.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="LandkodeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">En landkode bestaar av tre storeFraURL bokstaver fra kodelisten ISO 3166-1-alpha-3. Brukes på nasjonalitet, men hva med Kosovo?</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\p{L}{3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="OrgnrType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Referanse til politidistrikt, embete osv.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+			<xs:minLength value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SSPNummerType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Må defineres, lurer på om vi tidligere brukte 13 tall.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\d{11}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="StraffesaksnummerType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Saksnummer i straffesaksløsningene, også kalt anmeldelsesnummer. Straffesaksnummer brukes i skjema for å ikke blande med saksnummer i Lovisa, Kriminalomsorgen.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="30"/>
+			<xs:minLength value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DomstolsaksnummerType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Domstolen sitt saksnummer fra Lovisa</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="50"/>
+			<xs:minLength value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="SaksreferanseValueType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">sakreferanse fra domstol (lovisasaksnummer), påtale (straffesaksnummer) eller kriminalomsorgen</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="50"/>
+			<xs:minLength value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="SaksreferanseType">
+		<xs:sequence>
+			<xs:element name="kilde" type="KildeType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Anngir om denne er fra politi/påtale, domstolene eller kriminalomsorgen.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="referanse" type="SaksreferanseValueType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Lovisa saksnummer fra domstolene, straffesaksnummer fra påtale/politi, ?? fra kriminalomsorgen.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="TelefonnummerType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Ett telefonnummer. Husk vi må kunne håndtere utenlandske telefonnummer +1 (345) 3423.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="30"/>
+			<xs:minLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="UnikIdType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Unik id, men kan være andre unike verdier (reaksjons calc kanskje?).</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="50"/>
+			<xs:minLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

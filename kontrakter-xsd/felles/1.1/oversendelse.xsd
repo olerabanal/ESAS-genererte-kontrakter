@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Generell oversendelsesinformasjon.
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		   xmlns:basis="http://justishub.justisnett.no/felles/1.1/basistyper"
+		   xmlns="http://justishub.justisnett.no/felles/1.1/oversendelse"
+		   xmlns:aktoer="http://justishub.justisnett.no/felles/1.1/aktoer"
+		   targetNamespace="http://justishub.justisnett.no/felles/1.1/oversendelse">
+		   
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.1/basistyper" schemaLocation="basistyper.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.1/aktoer" schemaLocation="aktoer.xsd"/>
+
+	<xs:complexType name="ForsendelsesType">
+		<xs:sequence>
+			<xs:element name="meldingsId" type="basis:UnikIdType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Unik id på meldingen, kan brukes til sporing av meldinger.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="avsender" type="AvsenderType"/>
+			<xs:element name="mottaker" type="aktoer:OrgenhetType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Anke på kjennelse/beslutning til tingrett eller lagmansrett eller sendinger til Kriminalomsorgen.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="AvsenderType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Avsender informasjon (distrikt/embete, person, saksbehandler sak).</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="orgenhet" type="aktoer:OrgenhetType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Avsender distrikt, særorgan, statsadvokat, riksadvokat.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="saksbehandler" type="aktoer:AnsattPersonType"/>
+			<xs:element name="saksreferanse" type="basis:SaksreferanseType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Straffesaksnummer fra politi/påtale, lovisa saksnummer fra domstolene, ?? fra kriminalomsorgen</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

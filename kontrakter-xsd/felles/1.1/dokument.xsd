@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Dokumenter som sendes over ESAS.
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:basis="http://justishub.justisnett.no/felles/1.1/basistyper"
+		   xmlns="http://justishub.justisnett.no/felles/1.1/dokument" targetNamespace="http://justishub.justisnett.no/felles/1.1/dokument">
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.1/basistyper" schemaLocation="basistyper.xsd"/>
+
+	<xs:complexType name="DokumentforsendelseType">
+		<xs:sequence>
+			<xs:element name="mimeType" type="xs:string"/>
+			<xs:element name="uri" type="xs:string"/>
+			<xs:element name="sjekksum" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="DokumentlisteType">
+		<xs:sequence>
+			<xs:element name="dokument" type="DokumentType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="DokumentType">
+		<xs:annotation>
+			<xs:documentation>Et dokument har en ID for at det skal kunne refereres til fra andre steder.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="dokumentId" type="DokumentIdType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>For å spore dokumenter som sendes mellom påtale, domstol og kriminalomsorgen.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="dokumentnummer" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Når påtale refererer til dokumenter så brukes ofte dokumentnummer som vises på alle straffesaksdokumenter. Dokumentnummer på et dokument kan endre seg og et dokument kan ha flere dokumentnummer hvis samme dokument ligger flere steder i dokumentlisten.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="skrevetDato" type="xs:date" minOccurs="0"/>
+			<xs:element name="overskrift" type="DokumentOverskriftType"/>
+			<xs:element name="dokumentforsendelse" type="DokumentforsendelseType"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:ID"/>
+	</xs:complexType>
+
+	<xs:simpleType name="DokumentIdType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Referanse/journal nummer fra BL, Lovisa eller kriminalomsorgen.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="50"/>
+			<xs:minLength value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="DokumentOverskriftType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Klippe på slutten hvis det er for langt</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="350"/>
+			<xs:minLength value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="DokumentRefType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Referanse til dokument i meldingen.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:IDREF"/>
+	</xs:simpleType>
+
+	</xs:schema>

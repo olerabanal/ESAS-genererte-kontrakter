@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Forenklet lovbud referanse til fase en av ny tiltale.
+-->
+<xs:schema 	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+					xmlns:basis="http://justishub.justisnett.no/felles/1.1/basistyper"
+					xmlns="http://justishub.justisnett.no/felles/1.1/lovreferanse" 
+					targetNamespace="http://justishub.justisnett.no/felles/1.1/lovreferanse">
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.1/basistyper" schemaLocation="basistyper.xsd"/>
+
+	<xs:complexType name="LovbudType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Lovbud som det brukes i tiltale/siktelse. Vil komme fra lovbudserver.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="lovbudId" type="basis:UnikIdType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Unik id hvis det kommer fra lovbudserver. Kombinert lovbud er for saker som strekkker seg over tid og loven har endret seg underveis.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="lovreferanse" type="HjemmelsrekkeType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Hjemmelsrekke / lovstreng som står med fet skrift i tiltalen.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="strafferamme" type="StrafferammeType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Maksimum fengselsstraff i antall måneder 0-360 måneder.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:ID"/>
+	</xs:complexType>
+	<xs:complexType name="LovbudGjengivelseType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Lovbud som det brukes i tiltale/siktelse. Vil komme fra lovbudserver. Type brukes ved overføring av lovbud til de andre partene.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="lovbudId" type="basis:UnikIdType" minOccurs="0" maxOccurs="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Unik id hvis det kommer fra lovbudserver. Kombinert lovbud er for saker som strekkker seg over tid og loven har endret seg underveis.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="lovreferanse" type="HjemmelsrekkeType"/>
+			<xs:element name="gjengivelse" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Forståelig gjengivelse av lovtekst, feks For ved vold eller ved truende adferd i tiltalen kan gjengivelsen endres.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:ID"/>
+	</xs:complexType>
+	<xs:complexType name="LovreferanseType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Referanse til lov med</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="lovreferanseId" type="basis:UnikIdType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Fra lovbudserver, kommer kanskje.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="hjemmelsRekke" type="HjemmelsrekkeType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Skal denne være med.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="HjemmelsrekkeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Har ikke fått sjekket maksimum lengde per i dag</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="500"/>
+			<xs:minLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="StrafferammeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Antall måneder maksimum fengselsstraff, er per idag maksimum 30 år (360 måneder).</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+</xs:schema>

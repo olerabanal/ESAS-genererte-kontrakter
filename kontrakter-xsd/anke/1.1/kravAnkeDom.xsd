@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Krav anke informasjon fra DHP til domstolen ved anke over dom.
+-->
+<xs:schema 	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns:basis="http://justishub.justisnett.no/felles/1.1/basistyper" 
+	xmlns:aktoer="http://justishub.justisnett.no/felles/1.1/aktoer" 
+	xmlns:avgjoerelse="http://justishub.justisnett.no/felles/1.1/avgjoerelseDomstol"
+	xmlns:straffesak="http://justishub.justisnett.no/felles/1.1/straffbartForhold"
+	xmlns:tiltale="http://justishub.justisnett.no/anke/1.1/tiltaleAnke"
+	
+	xmlns="http://justishub.justisnett.no/anke/1.1/kravAnkeDom"
+	targetNamespace="http://justishub.justisnett.no/anke/1.1/kravAnkeDom">
+
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.1/avgjoerelseDomstol" schemaLocation="../../felles/1.1/avgjoerelseDomstol.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.1/basistyper" schemaLocation="../../felles/1.1/basistyper.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.1/aktoer" schemaLocation="../../felles/1.1/aktoer.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.1/straffbartForhold" schemaLocation="../../felles/1.1/straffbartForhold.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/anke/1.1/tiltaleAnke" schemaLocation="tiltaleAnke.xsd"/>
+
+	<xs:complexType name="KravAnkeDomType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Anke over dom fra påtale eller part(ene) i sakene.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="kravId" type="basis:UnikIdType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Unik nøkkel til kravet fra påtale. Vil følge med selv om påtale godtar dommen og det er kun siktede som anker.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="kravDato" type="xs:date">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Dato kravet ble sendt fra påtale. Skal ikke bli endret ved oppdatering fra påtale.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ankedetaljer" type="tiltale:TiltaleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Hvilke deler av tiltalen ankes. Denne er vil i første omgang ikke følge med i anke til høyesterett.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="part" type="aktoer:AktoerRefType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Det er ikke sikkert vi har ankedetaljer og da må vi ha en referanse til de siktede som anker dommen.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="paataleansvarlig" type="aktoer:AnsattPersonType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Ansvarlig påtalejurist som er statsadvokat eller statsadvokat hos riksadvokaten.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="avgjoerelse" type="avgjoerelse:AvgjoerelseReferanseType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Referanse til dom som ankes.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="opprinneligKravId" type="basis:UnikIdType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Håndtering av avgjørelser som vi ikke har fått elektronisk med en avgjoerelsesId ennå. Dette er referanse til første krav til tingrette om dom eller kjennelse.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

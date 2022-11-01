@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Anke over dom meldingen er fra den høyere påtalemyndighet (DHP) til lagmannsretten og Høyesterett.
+Politiet sin påtale sender aldri inn anke over dom.
+- dokumentene ankebegjæring og støtteskriv er ikke med som egne felt i første omgang da vi ikke kan plukke de ut automatisk og vi må vurdere hvor mye arbeid det er å lage en manuell løsning.
+- Anke til høyesterett blir sendt uten ankedetaljer og det blir fyllt inn part.
+- Det er kun hovedsaken sine saksdetaljer som kommer med i meldingen når det ikke er med ankedetaljer. Hovedsaken er ofte den mest alvorlige saken, men det er ikke alltid tilfelle så det er ikke sikkert informasjonen fra straffesaken er nyttig (kanskje ikke anket).
+
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:basis="http://justishub.justisnett.no/felles/1.1/basistyper"
+	xmlns:oversendelse="http://justishub.justisnett.no/felles/1.1/oversendelse"
+	xmlns:aktoer="http://justishub.justisnett.no/felles/1.1/aktoer"
+	xmlns:dok="http://justishub.justisnett.no/felles/1.1/dokument"
+	xmlns:straffesak="http://justishub.justisnett.no/felles/1.1/straffbartForhold"
+	xmlns:krav="http://justishub.justisnett.no/anke/1.1/kravAnkeDom"
+
+		
+	xmlns="http://justishub.justisnett.no/anke/1.1/ankeDom"
+	targetNamespace="http://justishub.justisnett.no/anke/1.1/ankeDom">
+
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.1/basistyper" schemaLocation="../../felles/1.1/basistyper.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.1/oversendelse" schemaLocation="../../felles/1.1/oversendelse.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.1/dokument" schemaLocation="../../felles/1.1/dokument.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.1/aktoer" schemaLocation="../../felles/1.1/aktoer.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.1/straffbartForhold" schemaLocation="../../felles/1.1/straffbartForhold.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/anke/1.1/kravAnkeDom" schemaLocation="kravAnkeDom.xsd"/>
+	
+	<xs:element name="ankeDom" type="AnkeDomType"/>
+	
+	<xs:complexType name="AnkeDomType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Anke over dom fra påtale til lagmannsretten eller høyesterett</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="forsendelse" type="oversendelse:ForsendelsesType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Avsender-, mottaker- og meldingsinformasjon.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="krav" type="krav:KravAnkeDomType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Krav om å behandle anke med ankedetaljer.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="paategningReferanse" type="dok:DokumentRefType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Påtegningsdokumentet.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="aktor" type="aktoer:AnsattPersonType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Aktor som er registrert på saken (avklaring med DHP om bruken).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="aktoerer" type="aktoer:AktoerlisteType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Liste over aktører.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="straffesaker" type="straffesak:StraffesakslisteType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Liste over straffesaker som er med i anken. Det er kun fornærmet rollen som er med på saken, siktet rollen er en del av ankedetaljene.
+Hvis det ikke er med ankedetaljer til Høyesterett så vil det kun være hovedsaken som kommer her.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="dokumenter" type="dok:DokumentlisteType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Liste over dokumenter som sendes sammen med kravet om anke.</xs:documentation>
+				</xs:annotation>
+			</xs:element>	
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

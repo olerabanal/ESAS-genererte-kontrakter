@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Struktur på siktelser og tiltaler er den samme og er definert her og vi kaller typene brukt her for tiltale
+tiltalepunkt osv.
+En komplett XML kun ved å ta med alle straffesakene, personer/foretak, osv i egne lister i tillegg.
+-->
+<xs:schema 	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns:lov="http://justishub.justisnett.no/felles/1.1/lovreferanse"
+	xmlns:aktoer="http://justishub.justisnett.no/felles/1.2/aktoer"
+	xmlns:dokument="http://justishub.justisnett.no/felles/1.1/dokument" 
+	xmlns:straff="http://justishub.justisnett.no/felles/1.2/straffbartForhold"
+
+	xmlns="http://justishub.justisnett.no/felles/1.2/tiltale"
+	targetNamespace="http://justishub.justisnett.no/felles/1.2/tiltale">
+
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.1/lovreferanse" schemaLocation="../1.1/lovreferanse.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.2/aktoer" schemaLocation="aktoer.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.1/dokument" schemaLocation="../1.1/dokument.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.2/straffbartForhold" schemaLocation="straffbartForhold.xsd"/>
+	
+	<xs:simpleType name="GrunnlagBokstavType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">a), b)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="15"/>
+			<xs:minLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="GrunnlagType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Grunnlaget er referanse til hendelsen(straffesaken) og en tekstlig beskrivelse av hendelsen.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="bokstav" type="GrunnlagBokstavType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">nummerert grunnlag med a), b). Er tom hvis det ikke er flere delpunkter.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="grunnlagstekst" type="xs:string">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Tekstlig beskrivelse av hendelsen. Lørdag 2. mai lappa Martin til Ole utenfor ...</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="personSak" type="PersonSakReferanseType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Det kan være flere basissaker per grunnlag i tiltalen hvis det er flere siktede i en straffesak.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LovbudITiltaleType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">I en tiltale så vil samme lovbud kunne inneholde referanser til flere basissaker med forskjellige straffbare forhold og dermed forskjellige grunnlag.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="lovbud" type="lov:LovbudType" maxOccurs="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Hjemmelsrekken med grunnlaget, når er denne tom? ved manuelle lovbud så skal vi fremdeles ha denne.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="gjengivelse" type="xs:string">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Flere grunnlag per tiltalepunkt betyr at en person er siktet for samme lovbud i flere hendelser (straffbart forhold med tild og sted).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="grunnlag" type="GrunnlagType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Flere grunnlag per tiltalepunkt betyr at en person er siktet for samme lovbud i flere hendelser (straffbart forhold med tild og sted).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TiltaltepunktType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Ett tiltalepunkt i en tiltale.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="nummer" type="TiltalePunktNummerType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Hvis det er flere tiltalepunkt så vil de være nummerert med romertall</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="prinsipalLovbud" type="LovbudITiltaleType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Hovedlovbudet i tiltalen listen over basissaker skal peke på dette lovbudet.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="subsidiaertLovbud" type="LovbudITiltaleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Det Subsidære lovbudet er f.eks. heleri hvis det prinsipale lovbudet er tyveri. Vi bruker de samme basissakene i det prinsipale og det subsidiære lovbudet.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:ID" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="TiltaleType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Tiltale eller siktelse.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="tiltalepunkt" type="TiltaltepunktType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Et tiltaltpunkt med flere basissaker og subsidiære lovbud. Denne skal komme i sortert rekkefølge.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ansvarligPaatale" type="aktoer:ProfesjonellPersonType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Kan kanskje være noen andre enn den som er ansvarlig for bejæringer.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="tiltaledokumentReferanse" type="dokument:DokumentRefType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Tiltalen som dokument.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="TiltalePunktNummerType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Romertall som anngir rekkefølge.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="15"/>
+			<xs:minLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="PersonSakReferanseType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Referanse til person og sak</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="siktetReferanse" type="aktoer:AktoerRefType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Referanse til AktoerType (person eller foretak), hvis det er kjent gjerningsmann.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="straffbartForholdReferanse" type="straff:StraffbartForholdRefType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Referanse til det straffbare forholdet, straffesak med anmeldelsesnummer.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:ID" use="required"/>
+	</xs:complexType>
+</xs:schema>

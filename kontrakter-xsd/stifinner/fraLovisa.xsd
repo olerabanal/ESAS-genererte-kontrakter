@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Endringer som er gjort på dette skjema i forbindelse med ESAS 2020 arbeid.
+Endret skjema fra ISO-8859-1 til UTF-8
+Lagt til kravId (flere krav), avgjoerelseId og opprinneligKravId.
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:lang="no"
+           targetNamespace="http://justishub.justisnett.no/skjema/xml/2.0/"
+           xmlns="http://justishub.justisnett.no/skjema/xml/2.0/"
+           elementFormDefault="qualified">
+  <xs:include schemaLocation="BasicTypes.xsd"/>
+  <xs:complexType name="SaksnummerlisteIBLType">
+    <xs:sequence>
+      <xs:element name="saksnummerBL" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+        	<xs:documentation>BL sine sakasnummer (anmeldelsesnummer) som er blitt behandlet.</xs:documentation>
+        </xs:annotation>
+       </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="sak" type="SaksType">
+  	<xs:annotation>
+  		<xs:documentation>Inneholder Stifinner data om en sak i Lovisa med en avgjørelse/kjennelse.</xs:documentation>
+  	</xs:annotation>
+  </xs:element>
+  <xs:complexType name="SaksType">
+    <xs:sequence>
+	 	<xs:element name="meldingsId" type="UnikIdType" minOccurs="0">
+			<xs:annotation>
+				<xs:documentation>Unik nøkkel for meldingen, kan dette være en AMQP standard meldingsnøkkel så vi ikke trenger den eksplisitt i meldingen?</xs:documentation>
+			</xs:annotation>
+		</xs:element>
+      <xs:element name="domstol" type="DomstolType">
+    		<xs:annotation>
+    			<xs:documentation>Jusenhet koden kommer fra felles kodeverk slik at BL og Lovisa skal finne hvilken domstol som er sender.</xs:documentation>
+    		</xs:annotation>
+      </xs:element>
+      <xs:element name="saksnummer" type="xs:string">
+    		<xs:annotation>
+    			<xs:documentation>Lovisa sitt saksnummer</xs:documentation>
+    		</xs:annotation>
+      </xs:element>
+      <xs:element name="sakstype" type="DomstolssakstypeLavesteNivaa">
+    		<xs:annotation>
+    			<xs:documentation>Lovisa sin sakstype kode på saken (CATEGORY)A.</xs:documentation>
+    		</xs:annotation>
+      </xs:element>
+      <xs:element name="rettskraftigDato" type="xs:date" minOccurs="0"/>
+      <xs:element name="relaterteSaker" type="RelaterteSakerType" minOccurs="0">
+    		<xs:annotation>
+    			<xs:documentation>Referanse til 1. instans saken hvis dette er 2. instans.</xs:documentation>
+    		</xs:annotation>
+      </xs:element>
+      <xs:element name="hovedSakerIBL" type="SaksnummerlisteIBLType">
+        <xs:annotation>
+           <xs:documentation>Liste over saksnummer som er hovedsaker i BL, men som domstolene har valgt aa slaa sammen for felles behandling. 
+                              Vaer oppmerksom paa at domstolene kan ogsaa splitte opp en sak i sakskomplekset til BL slik at denne saken 
+                              i lovisa bare avgjoer noen av vedlegg sakene i BL  
+            </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="avgjoerelse" type="AvgjoerelseType" minOccurs="0" maxOccurs="unbounded">
+    		<xs:annotation>
+    			<xs:documentation>Avgjørelsesdetaljer, det vil alltid være baren avgjørelse per oversending.</xs:documentation>
+    		</xs:annotation>
+      </xs:element>
+      <xs:element name="frist" type="FristType" minOccurs="0">
+    		<xs:annotation>
+    			<xs:documentation>Ankefrist med frivillig beskrivelse. Kan være korte frister ved varetekt.</xs:documentation>
+    		</xs:annotation>
+      </xs:element>
+
+      <xs:element name="aktoerliste" type="AktoerlisteType">
+     		<xs:annotation>
+    			<xs:documentation>Liste over personer på saken.</xs:documentation>
+    		</xs:annotation>
+      </xs:element>
+      <xs:element name="avgjoerelsesDokument" type="DokumentType" minOccurs="0" maxOccurs="1" />
+	  <xs:element name="dokumentliste" type="DokumentlisteType" minOccurs="0" maxOccurs="1" />
+    </xs:sequence>
+  </xs:complexType>
+   <xs:complexType name="RelaterteSakerType">
+      <xs:sequence>
+         <xs:element name="underInstansVedAnke" minOccurs="0">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="saksnummer" type="xs:string"/>
+                  <xs:element name="foersteinstansDomstolsnavn" type="DomstolsnavnType"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="avgjoerelseOmGjenopptagelse" minOccurs="0">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="saksnummer" type="xs:string"/>
+                  <xs:element name="datoForAvsigelse" type="xs:date"/>
+                  <xs:element name="domstolsNavn" type="DomstolsnavnType"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="erstatningUberettigetStraffeforfoelging" minOccurs="0">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="saksnummer" type="xs:string"/>
+                  <xs:element name="domstolsNavn" type="DomstolsnavnType"/>
+                  <xs:element name="datoForAvsigelse" type="xs:date"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+  <xs:complexType name="AvgjoerelseType">
+    <xs:annotation>
+       <xs:documentation>Avgjoerelsen avgjoer et sett med krav i saken som tilsvarer et sett av saker(vedlegg saker i BL). 
+                                    Krav/sak i BL kan bare avagjoeres av en avgjoerelse slik at saksnummer inngaar i kun et sett.  Det vil i dag aldri komme mer en en avgjorelse per oversending til BL.
+       </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="avgjoerelsestype" type="xs:string">
+      <xs:annotation>
+      	<xs:documentation></xs:documentation>
+      </xs:annotation>
+      </xs:element>
+		<xs:element name="avgjoerelseId" type="UnikIdType" minOccurs="0">
+			<xs:annotation>
+				<xs:documentation>Unik referanse til avgjørelsen slik at vi kan koble eventuelle anker til denne.</xs:documentation>
+			</xs:annotation>
+		</xs:element>
+		<xs:element name="kravId" type="UnikIdType" minOccurs="0" maxOccurs="unbounded">
+			<xs:annotation>
+				<xs:documentation>Referanse til alle krav fra påtale som domstolen har avgjort med denne avgjørelsen. Kan være tom hvis kravet ikke er sendt inn elektronisk.</xs:documentation>
+			</xs:annotation>
+		</xs:element>
+		<xs:element name="opprinneligKravId" type="UnikIdType" minOccurs="0" maxOccurs="unbounded">
+			<xs:annotation>
+				<xs:documentation>Unik referanse til oprinnelige krav som vil være første krav til tingretten om krav til dom, kjennelse. Alle dommer, kjennelser og beslutninger knyttet til den behandlingen skal ha med denne nøkkelen. Trenger denne helt til vi får alle anker og avgjørelser elektronisk.</xs:documentation>
+			</xs:annotation>
+		</xs:element>
+      <xs:element name="kravType" type="KravType" minOccurs="1" maxOccurs="unbounded">
+      <xs:annotation>
+      	<xs:documentation>Kravtypen for alle krav som er avgjort.</xs:documentation>
+      </xs:annotation>
+      </xs:element>
+      <xs:element name="statistikkgruppe" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+      <xs:annotation>
+      	<xs:documentation>Samme koder som BL sine statistikkgruppe (OMRAADE koder).</xs:documentation>
+      </xs:annotation>
+      </xs:element>
+      <xs:element name="datoForAvsigelse" type="xs:date"/>
+      <xs:element name="partsliste" type="PartslisteType">
+      <xs:annotation>
+      	<xs:documentation>Alle parter og motparter på det kravet som er avgjort.</xs:documentation>
+      </xs:annotation>
+      </xs:element>
+      <xs:element name="sakerIBL" type="SaksnummerlisteIBLType">
+        <xs:annotation>
+           <xs:documentation>Liste over saksnummer i BL som som avgjoerelse avgjoer. Listen kan inneholde saksnummer fra forskjellige sakskomplekser/hovedsaker i BL.  Ved kjaeremaal er det ikke en kobling til alle vedleggssakene i BL her.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PartslisteType">
+    <xs:annotation>
+       <xs:documentation>Liste over parter i saken som inngaar i denne avgjoerelsen.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="part" type="PartsType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

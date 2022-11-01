@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Generert eksempel ut fra en tiltale som er funnet i produksjon, det er ikke et eksempel på en reell anke.
+-->
+<n1:ankeDom xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:n1="http://justishub.justisnett.no/anke/1.1/ankeDom" xmlns:aktoer="http://justishub.justisnett.no/felles/1.1/aktoer" xsi:schemaLocation="http://justishub.justisnett.no/anke/1.1/ankeDom ankeDom.xsd">
+	<forsendelse>
+		<meldingsId>{lang kanskje GUID id}</meldingsId>
+		<avsender>
+			<orgenhet>
+				<orgnr>974707098</orgnr>
+				<navn>Riksadvokaten</navn>
+			</orgenhet>
+			<saksbehandler>
+				<brukerIdentifikasjon>las004</brukerIdentifikasjon>
+				<navn>
+					<fornavn>Lene Angelica</fornavn>
+					<etternavn>Stormarken</etternavn>
+				</navn>
+				<tittel>Rådgiver</tittel>
+			</saksbehandler>
+			<saksreferanse>
+				<kilde>Politiet</kilde>
+				<referanse>14506272</referanse>
+			</saksreferanse>
+		</avsender>
+		<mottaker>
+			<orgnr>874626562</orgnr>
+			<navn>Høyesterett</navn>
+		</mottaker>
+	</forsendelse>
+	<krav>
+		<kravId>{krav_paatale_123}</kravId>
+		<kravDato>2020-03-01</kravDato>
+		<part>sl_1</part>
+		<part>sl_2</part>
+		<paataleansvarlig>
+			<brukerIdentifikasjon>ams024</brukerIdentifikasjon>
+			<navn>
+				<fornavn>Andreas Magne</fornavn>
+				<etternavn>Strand</etternavn>
+			</navn>
+			<tittel>Konstituert statsadvokat</tittel>
+		</paataleansvarlig>
+		<avgjoerelse>
+			<avgjoerelseId>{lov_avgj_1}</avgjoerelseId>
+			<saksnummer>19-018186DOM-OTIR/07</saksnummer>
+			<domstol>
+				<orgnr>974714647</orgnr>
+				<navn>Oslo tingrett</navn>
+			</domstol>
+			<avsagtDato>2020-01-03</avsagtDato>
+		</avgjoerelse>
+		<opprinneligKravId>{krav_paatale_12}</opprinneligKravId>
+	</krav>
+	<paategningReferanse>dok_1</paategningReferanse>
+	<aktoerer>
+		<aktoer xsi:type="aktoer:PersonType" id="sl_1">
+			<navn>
+				<fornavn>Pjong</fornavn>
+				<mellomnavn>Jada</mellomnavn>
+				<etternavn>Bing</etternavn>
+			</navn>
+			<foedselsnummer>15048732507</foedselsnummer>
+			<sspNummer>00000000000</sspNummer>
+			<kjoenn>M</kjoenn>
+			<foedselsdato>1987-04-15</foedselsdato>
+			<adresse>
+				<adresselinje>Nordre Dals vei 4</adresselinje>
+				<postnummer>4568</postnummer>
+				<poststed>Fredrikstad</poststed>
+				<landkode>NOR</landkode>
+			</adresse>
+			<telefonnummer>789856548</telefonnummer>
+			<epost>pjb@jokmok.n.cat</epost>
+			<nasjonalitet>SWE</nasjonalitet>
+		</aktoer>
+		<aktoer xsi:type="aktoer:PersonType" id="sl_2">
+			<navn>
+				<fornavn>Bella</fornavn>
+				<mellomnavn>Tante</mellomnavn>
+				<etternavn>Duck</etternavn>
+			</navn>
+			<sspNummer>06257800197</sspNummer>
+			<kjoenn>K</kjoenn>
+			<foedselsdato>1978-05-06</foedselsdato>
+			<adresse>
+				<adresselinje>Svenske skogene</adresselinje>
+				<landkode>SWE</landkode>
+			</adresse>
+			<nasjonalitet>SWE</nasjonalitet>
+		</aktoer>
+	</aktoerer>
+	<straffesaker>
+		<straffbartForhold id="s_14506272">
+			<straffesaksnummer>14506272</straffesaksnummer>
+			<hendelse>
+				<gjerningstidspunktFra>2018-07-10T15:35:00</gjerningstidspunktFra>
+				<gjerningstidspunktTil>2018-07-10T15:35:00</gjerningstidspunktTil>
+				<gjerningssted>
+					<adresselinje>Lakkegata 55</adresselinje>
+					<postnummer>0187</postnummer>
+					<poststed>Oslo</poststed>
+					<landkode>NOR</landkode>
+				</gjerningssted>
+			</hendelse>
+			<statistikkgruppe>
+				<id>1234567</id>
+				<kode>0751</kode>
+				<!-- Narkotikaovertredelse -->
+			</statistikkgruppe>
+		</straffbartForhold>
+	</straffesaker>
+	<dokumenter>
+		<dokument id="dok_1">
+			<dokumentId>5678944</dokumentId>
+			<dokumentnummer>01,04</dokumentnummer>
+			<skrevetDato>2019-02-03</skrevetDato>
+			<overskrift>Påtegning oversendelse anke til Borgarting Lagmannsrett</overskrift>
+			<dokumentforsendelse>
+				<mimeType>application/pdf</mimeType>
+				<uri>/sdf/download</uri>
+				<sjekksum>sjekksum</sjekksum>
+			</dokumentforsendelse>
+		</dokument>
+		<dokument id="dok_2">
+			<dokumentId>5678944</dokumentId>
+			<dokumentnummer>07,01,06</dokumentnummer>
+			<skrevetDato>2019-01-28</skrevetDato>
+			<overskrift>Anke og støtteskriv fra adv. Hansen</overskrift>
+			<dokumentforsendelse>
+				<mimeType>application/pdf</mimeType>
+				<uri>/sdf/download</uri>
+				<sjekksum>sjekksum</sjekksum>
+			</dokumentforsendelse>
+		</dokument>
+		<dokument id="dok_3">
+			<dokumentId>5678944</dokumentId>
+			<dokumentnummer>10,01,02</dokumentnummer>
+			<skrevetDato>2019-01-31</skrevetDato>
+			<overskrift>Anke og støtteskriv fra adv. Johansen</overskrift>
+			<dokumentforsendelse>
+				<mimeType>application/pdf</mimeType>
+				<uri>/sdf/download</uri>
+				<sjekksum>sjekksum</sjekksum>
+			</dokumentforsendelse>
+		</dokument>
+	</dokumenter>
+</n1:ankeDom>

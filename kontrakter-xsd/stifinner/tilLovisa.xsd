@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Endringer som er gjort på dette skjema i forbindelse med ESAS 2020 arbeid.
+Endret skjema fra ISO-8859-1 til UTF-8
+Lagt til kravId (flere krav), avgjoerelseId og opprinneligKravId.
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:lang="no"
+		   targetNamespace="http://justishub.justisnett.no/skjema/xml/2.0/"
+		   xmlns="http://justishub.justisnett.no/skjema/xml/2.0/"
+		   elementFormDefault="qualified">
+	<xs:include schemaLocation="BasicTypes.xsd"/>
+	<xs:complexType name="PersonRefType">
+		<xs:attribute name="idref" type="xs:IDREF"/>
+	</xs:complexType>
+	<xs:element name="oversendelse" type="OversendelseType">
+		<xs:annotation>
+			<xs:documentation>Dette elementet inneholder alle data for oversendelse til Lovisa.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:complexType name="BasisAktoerType">
+		<xs:sequence>
+			<xs:element name="personRef" type="PersonRefType"/>
+		</xs:sequence>
+		<xs:attribute name="rolle" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="VitneAktoerType">
+		<xs:complexContent>
+			<xs:extension base="BasisAktoerType">
+				<xs:sequence>
+					<xs:element name="dokumentRef" type="DokumentRefType" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Brukes ikke, alle relevante dokumenter listes i dokumentlisten.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="bevisoppgavemerknad" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Bevisoppgavemerknad kan være: Telefonavhør, Utvidet møteplikt eller Tilsigelse</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="oppmoeteTid" type="xs:dateTime" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Oppmøtetiden for dette vitnet.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="fornaermet" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>Settes til true på vitner som også er fornærmet i saken.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="TiltaltAktoerType">
+		<xs:complexContent>
+			<xs:extension base="BasisAktoerType">
+				<xs:sequence>
+					<xs:element name="forsvareroppnevning" type="BasisAktoerType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="OversendelseType">
+		<xs:annotation>
+			<xs:documentation>En oversendelse bestaar av en oversendelsespaategning, en siktelse eller tilltalebeslutning, en bivisoppgave og en personliste.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="meldingsId" type="UnikIdType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Unik nøkkel for meldingen.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="kravId" type="UnikIdType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Unik nøkkel for dette kravet til tingretten (tvangsmiddel eller hovedforhandling). Skal følge med tilbake på dom/kjennelse/beslutning. Optional for håndtering av overgang der BL og Lovisa ikke er i synk.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="oversendelsespaategning" type="OversendelsespaategningType">
+				<xs:annotation>
+					<xs:documentation>Inneholder data fra påtegningsdokumentet.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:choice>
+				<xs:element name="tiltalebeslutning" type="TiltalebeslutningType">
+					<xs:annotation>
+						<xs:documentation>Hvis en vilkårlig av de tiltalte har en påtalekode som sier tiltale så blir det en tiltale og dermed Meddomsrettssak.  Dette er ikke bestandig riktig da enkelte begjæringer som er enedommersaker behandles etter at påtalekoden er satt.  En forbedring kan være at de forskjellige rutinene brukes til å bestemme siktelse/tiltale.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="siktelse" type="TiltalebeslutningType"/>
+			</xs:choice>
+			<xs:element name="bevisoppgave" type="BevisoppgaveType">
+				<xs:annotation>
+					<xs:documentation>Bevisoppgave data fra påtalemodulen i BL.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="aktoerliste" type="AktoerlisteType">
+				<xs:annotation>
+					<xs:documentation>Inneholder persondata om alle personer som det refereres til.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="dokumentliste" type="DokumentlisteType">
+				<xs:annotation>
+					<xs:documentation>Dokumentlisten inneholder minst paategningsdokumentet i tillegg til de dokumenter som juristen onsker at domstolen skal se. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PaataleMyndighetType">
+		<xs:sequence>
+			<xs:element name="politidistrikt" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Navnet på politidistriktet som sender blir hentet fra BL brukeradministrasjon.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="politienhet" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Navnet på retts og påtaleenheten</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="jusenhet" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Jusenhet koden til distriktet fra toppen av BL brukeradministrasjon.  Dette er jusenhetkoden til en avdeling i distriktet da distriktet ikke har en egen kode.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="OversendelsespaategningType">
+		<xs:sequence>
+			<xs:element name="sakstype">
+				<xs:annotation>
+					<xs:documentation>Sakstype er det samme som krimtype i BL (Vinning, Narkotika, Skadeverk, Trafikk, Vold....</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="prosessregler" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ansvarligPaatalemyndighet" type="PaataleMyndighetType">
+				<xs:annotation>
+					<xs:documentation>Jusenhet koden til distriktet fra toppen av BL brukeradministrasjon.  Dette er jusenhetkoden til en avdeling i distriktet da distriktet ikke har en egen kode.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="domstol" type="DomstolType">
+				<xs:annotation>
+					<xs:documentation>Mottaker av meldingen, jusenhetskoden velges fra kodeverket.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="saksnummer" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Saksnummeret på hovedsaken.  Dette er det samme som strasaknr i modellen og anmeldelsesnummer.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="dato" type="xs:date">
+				<xs:annotation>
+					<xs:documentation>Dagens dato brukes, leter ikke opp dokumentet for aa finne datoen (som for bevisoppgaven)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="saksflyt" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Navnet på rutinen i BL som kjøres f.eks. Berammelse av hovedforhandling - Grønnsak.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="tiltaltePerson" type="TiltaltAktoerType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Alle tiltalte personer på saken (referanser til aktoerlisten)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="bistandsadvokat" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Ikke implementert.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="forslagSaksflyt" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Ikke implementert.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="paategningsDokument" type="DokumentRefType">
+				<xs:annotation>
+					<xs:documentation>Referanse til dokumentet som produseres i denne rutinen.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TiltalebeslutningType">
+		<xs:annotation>
+			<xs:documentation>En tiltalebeslutning kan ha en eller flere tiltalepunkter. Tiltalebeslutningen kan vaere en tilleggstiltale, som har samme elementer som en ordinaer tiltalebeslutning. Attributten 'Tilleggstiltale' ("true") indikerer at dette er en tilleggstiltale.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ansvarligPaatalemyndighet" type="PaataleMyndighetType">
+				<xs:annotation>
+					<xs:documentation>Politidistriktet og retts og påtaleenheten.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="tiltaleDokument" type="DokumentRefType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Brukes ikke i dag da det ikke er mulig å automatisk velge tiltaledokumentet.  Alle dokumenter som brukeren velger kommer med i dokumentlisten.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="tiltalepunkt" type="TiltalepunktType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Inneholder alle tiltalepunkt med tiltalte/siktede og hvilket lovbud som er brutt.  Det vil bli ett innslag per sak i sakskomplekset.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="tilleggstiltale" type="xs:boolean"/>
+	</xs:complexType>
+	<xs:complexType name="TiltalepunktType">
+		<xs:annotation>
+			<xs:documentation>Hvert tiltalepunkt er en sak i BL (anmeldt forhold) og blir et krav i Lovisa.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="tiltaltePerson" type="TiltaltAktoerType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Referanse til alle siktede/tiltale for denne saken (straffbart forhold).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="lovbud" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Lovbudet som beskrevet av politiets jurister.  De fleste er felles, men hver enkelt jurist kan også definere sine egne definisjoner.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="statistikkgruppe" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Kode som velges fra felles kodeverk.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="straffebudgjengivelse" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Fritekst beskrivelse av hva som er gjort.  Tekst forhåndsvelges fra lovbud tabellen, men kan redigeres.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="straffbartForhold" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>BL saksnummer og grunnlaget for hver sak i sakskomplekset</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="saksnummer" type="xs:string">
+							<xs:annotation>
+								<xs:documentation>BL Saksnummer</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="grunnlag">
+							<xs:annotation>
+								<xs:documentation>Grunnlagstekst.</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:string">
+										<xs:attribute name="bokstav" type="xs:string"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="romertall" type="RomertallType"/>
+		<xs:attribute name="medvirkning" type="xs:boolean"/>
+	</xs:complexType>
+	<xs:complexType name="LovbudType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:attribute name="lov" type="xs:string"/>
+		<xs:attribute name="dato" type="xs:date"/>
+		<xs:attribute name="lovnummer" type="xs:integer"/>
+		<xs:attribute name="paragraf" type="xs:integer"/>
+		<xs:attribute name="ledd" type="xs:integer"/>
+		<xs:attribute name="straffalternativ" type="xs:integer"/>
+		<xs:attribute name="jfr" type="xs:boolean"/>
+	</xs:complexType>
+	<xs:complexType name="BevisoppgaveType">
+		<xs:annotation>
+			<xs:documentation>Inneholder data fra BL sin domenemodell, som kan vaere forskjellig fra dokumentet som er generert.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="saksnummer" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Saksnummeret på hovedsaken (strasaknr / anmeldelsnummer)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="vitne" type="VitneAktoerType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Alle vitner i sakskomplekset som ligger på sakene til de tiltalte som sendes over.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="signatur">
+				<xs:annotation>
+					<xs:documentation>Refererer til juristen som er på saken nå og datoen eksporten genereres (ikke nodvendigvis det samme som i dokumentet)</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="politiPerson" type="BasisAktoerType"/>
+					</xs:sequence>
+					<xs:attribute name="dato" type="xs:date" use="optional"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="bevisoppgaveDokument" type="DokumentRefType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Denne brukes ikke, men bevisoppgaven kommer med i dokumentlisten hvis en blir valgt av juristen som sender saken.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

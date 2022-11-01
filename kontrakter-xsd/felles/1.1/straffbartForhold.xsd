@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Beskrivelse av straffesaken.
+-->
+<xs:schema 	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+		xmlns:basis="http://justishub.justisnett.no/felles/1.1/basistyper" 
+		xmlns:aktoer="http://justishub.justisnett.no/felles/1.1/aktoer" 
+		xmlns="http://justishub.justisnett.no/felles/1.1/straffbartForhold" 
+		targetNamespace="http://justishub.justisnett.no/felles/1.1/straffbartForhold">
+		
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.1/basistyper" schemaLocation="basistyper.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.1/aktoer" schemaLocation="aktoer.xsd"/>
+
+	<xs:simpleType name="StraffbartForholdRefType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Referanse til det straffbare forholdet.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:IDREF"/>
+	</xs:simpleType>
+
+	<xs:complexType name="HendelseType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Når og hvor har det skjedd</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="gjerningstidspunktFra" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Når det straffbare forholdet startet, OBS BL har i dag klokketid som bør konverteres.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="gjerningstidspunktTil" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Når det straffbare forholdet sluttet, OBS BL har i dag klokketid som bør konverteres eller ?</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="gjerningssted" type="basis:AdresseType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">standard adresse, ikke så god på offshore adresser.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="StraffbartForholdType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Hendelse med tid og sted samt referanser til straffesaken</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="straffesaksnummer" type="basis:StraffesaksnummerType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Anmeldelsesnummer også kalt strasaknummer</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="hendelse" type="HendelseType"/>
+			<xs:element name="statistikkgruppe" type="basis:KodeType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Kodeverk av type STATGR (trenger domstolene denne?).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="rolle" type="StraffesakRolleRefType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Roller i saken, kan være person eller foretak. (siktet, fornaermet, aktor, sakkyndig,...). Rollene som kommer her er avhengig av meldingen straffesaken er en del av.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:ID"/>
+	</xs:complexType>
+
+	<xs:complexType name="StraffesakslisteType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no"/>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="straffbartForhold" type="StraffbartForholdType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="StraffesakRolleRefType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Person eller foretak med en rolle i en straffesak.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="rolleType" type="basis:KodeType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Mulige roller: siktet (i BL mistenkt,siktet,domfelt),fornaermet,sakkyndig,aktor,annet</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="personForetak" type="aktoer:AktoerRefType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Referanse til person eller foretak, detaljene definert i f.eks. en AktoerListeType.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+
+	</xs:complexType>
+		<xs:complexType name="StraffesakRolleType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Person eller foretak med en rolle i en straffesak.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="rolleType" type="basis:KodeType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Mulige roller: siktet (i BL mistenkt,siktet,domfelt),fornaermet,sakkyndig,aktor,annet</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="personForetak" type="aktoer:AktoerType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Person eller foretak.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="StraffesakRollelisteType">
+		<xs:sequence>
+			<xs:element name="rolle" type="StraffesakRolleType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+
+</xs:schema>

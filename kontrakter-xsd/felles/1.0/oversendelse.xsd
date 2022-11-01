@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 rel. 2 sp2 (http://www.altova.com) by Eirik (PDMT) -->
+<!--
+Informasjon om avsender og mottaker som kan være felles for flere oversendeleser. 
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:basis="http://justishub.justisnett.no/felles/1.0/basistyper" xmlns="http://justishub.justisnett.no/felles/1.0/oversendelse" xmlns:aktoer="http://justishub.justisnett.no/felles/1.0/aktoer" targetNamespace="http://justishub.justisnett.no/felles/1.0/oversendelse">
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.0/basistyper" schemaLocation="basistyper.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.0/aktoer" schemaLocation="aktoer.xsd"/>
+	<xs:complexType name="ForsendelsesType">
+		<xs:sequence>
+			<!-- Distrikt/særorgan og enhet feks Sør-Øst politidistrikt, Hønefoss og ansvarlig påtalejurist. Vi skal ikke bruke jusenhet-->
+			<xs:element name="avsender" type="OrgenhetType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Avsender distrikt, domstoler, særorgan, statsadvokat, riksadvokat, kriminalomsorgen. Det skal alltid være med kontakt tlf, adresse.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="saksbehandlerReferanse" type="aktoer:ProfesjonellPersonType"/>
+			<xs:element name="referanse" type="basis:IdentifikatorType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">For politiet vil det være et anmeldelsesnummer på hovedsaken i et sakskompleks.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="mottaker" type="MottakerType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Mottaker av melding.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OrgenhetType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no"/>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="orgnr" type="basis:OrgnrType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Referanse til distrikt, domstol, embete. Organisasjonsnummer</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="navn" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Nordland politidistrikt eller Oslo tingrett.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="kontakt" type="KontaktType" minOccurs="0" maxOccurs="5">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Kontakt avdeling, person.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="KontaktType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Kontakt med brev, telefon epost osv.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="navn" type="xs:string">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Distrikt, avdeling, person. Det er forskjellige rutiner i de forskjellige distriktene.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="telefon" type="basis:TelefonnummerType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Telefon til kontor/kontaktperson</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="epost" type="basis:EpostType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Epostadresse som skal brukes ved sending av epost til avsender.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="telefax" type="basis:TelefonnummerType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Telefaxnummer må være med i følge politiet.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="postAdresse" type="basis:AdresseType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Her ønsker vi svar når på vanlig post. Denne skal være med på alle.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MottakerType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no"/>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="orgnr" type="basis:OrgnrType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Referanse til distrikt, domstol, embete, ....</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="navn" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Nordland politidistrikt eller Oslo tingrett.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

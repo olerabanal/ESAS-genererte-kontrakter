@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:basis="http://justishub.justisnett.no/felles/1.1/basistyper"
+	xmlns:aktoer="http://justishub.justisnett.no/felles/1.2/aktoer"
+	xmlns="http://justishub.justisnett.no/fengsling/1.0/beslutning"
+	targetNamespace="http://justishub.justisnett.no/fengsling/1.0/beslutning">
+
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.1/basistyper" schemaLocation="../../felles/1.1/basistyper.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.2/aktoer" schemaLocation="../../felles/1.2/aktoer.xsd"/>
+	
+	<xs:complexType name="BeslutningType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Beslutning tatt av jurist, velges blant jurister i distriktet</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="grunn" type="basis:KodeType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Forskjellige typer (overføring til soning, løslatelse osv), se bruk av type for kommentarer.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="besluttetAv" type="aktoer:AnsattPersonType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Jurist som besluttet ...</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="tidspunkt" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Tisdpunkt for beslutning.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

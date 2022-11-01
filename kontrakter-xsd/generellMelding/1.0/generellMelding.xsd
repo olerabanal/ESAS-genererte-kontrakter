@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Generell melding med dokumenter for utveksling av informasjon mellom domstoler, påtale og kriminalomsorgen i straffesaker.
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:basis="http://justishub.justisnett.no/felles/1.1/basistyper"
+	xmlns:oversendelse="http://justishub.justisnett.no/felles/1.1/oversendelse"
+	xmlns:dok="http://justishub.justisnett.no/felles/1.2/dokument"
+
+	xmlns="http://justishub.justisnett.no/generellMelding/1.0/generellMelding"
+	targetNamespace="http://justishub.justisnett.no/generellMelding/1.0/generellMelding">
+
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.1/basistyper" schemaLocation="../../felles/1.1/basistyper.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.1/oversendelse" schemaLocation="../../felles/1.1/oversendelse.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.2/dokument" schemaLocation="../../felles/1.2/dokument.xsd"/>
+
+	<xs:element name="generellMelding" type="GenerellMeldingType"/>
+
+	<xs:complexType name="MeldingskategoriType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Beskrivelse av hva slags type melding dette er.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="tittel" type="xs:string">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Tittel på meldingen skal beskrive kort hva meldingen er for noe og skal brukes som beskrivelse av meldingen i mottagende system.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="kategori" type="basis:KodeType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Hvilke typer meldinger: ankeDomInformasjon, ankeKjennelseInformasjon, beramming, trekkerAnke, annet.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="GenerellMeldingType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Melding mellom domstol, påtale og kriminalomsorgen i straffesaker.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="forsendelse" type="oversendelse:ForsendelsesType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Avsender og mottakerinformasjon med avsender referanse informasjon.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="meldingskategori" type="MeldingskategoriType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Type melding som kodeverk: ankeDomInformasjon, ankeKjennelseInformasjon, beramming, redegjorelseRett, sluttinnlegg, sluttinnleggRett, saksdokumentRett, trekkerAnke, annet.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- kobler sendingen til en begjæring om ... (varetekt, hovedforhandling). -->
+			<xs:choice>
+				<xs:element name="kravId" type="basis:UnikIdType" minOccurs="1" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation xml:lang="no">Referanse til begjæring/anke (krav om avgjørelse) fra påtale som startet saken hos domstolene.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="opprinneligKravId" type="basis:UnikIdType" minOccurs="1" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation xml:lang="no">Dersom kravid er tom brukes opprinneligKravId. Brukes fra lagmannsretten/høyesterett hvis det ikke er kommet noen anke melding fra politiet med anke detaljer.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+			<xs:element name="frist" type="xs:dateTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Frist f.eks. frist på innlevering av tilsvar/annet i forbindelse med anke over kjennelse.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:choice>
+				<xs:sequence>
+					<xs:element name="selvstendigMelding" type="xs:string">
+						<xs:annotation>
+							<xs:documentation xml:lang="no">Det er ingen dokumenter vedlagt og hele meldingen ligger i denne teksten. Må ha et annet navn for at XSD skal validere.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:sequence>
+					<xs:element name="melding" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="no">Melding kan være hele beskjeden og at det er andre dokumenter vedlagt for informasjon eller at denne ikke er med og at påtegning eller oversendelsesbrev ligger i dokumentlisten.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="dokumenter" type="dok:DokumentlisteType">
+						<xs:annotation>
+							<xs:documentation xml:lang="no">Liste over dokumenter som sendes med.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

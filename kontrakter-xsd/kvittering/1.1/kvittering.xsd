@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://justishub.justisnett.no/kvittering/1.1/kvittering" targetNamespace="http://justishub.justisnett.no/kvittering/1.1/kvittering">
+
+    <xs:element name="kvittering" type="Kvittering"/>
+
+    <xs:complexType name="Kvittering">
+        <xs:sequence>
+            <xs:element name="messageId" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>Meldingsid for selve kvitteringen</xs:documentation>
+                </xs:annotation>
+                </xs:element>
+            <xs:element name="messageIdRef" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>Meldingsid for meldingen vi kvitterer</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="status">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="UNDER_MOTTAK"/>
+                        <xs:enumeration value="MOTTATT"/>
+                        <xs:enumeration value="FEILET"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="sakId" minOccurs="0" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>Saksnummeret fra Lovisa vil ikke alltid komme med; bare når saken er opprettet, og ikke nødvendigvis da heller</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

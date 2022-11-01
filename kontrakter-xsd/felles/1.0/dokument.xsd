@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2018 rel. 2 sp1 (x64) (http://www.altova.com) by Eirik (Computas) -->
+<!--
+Krav som påtalemyndigheten fremmer for retten.
+Tatt med flere parter, ...
+kravType er definert som kodeverk som skal deles.
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:basis="http://justishub.justisnett.no/felles/1.0/basistyper" xmlns="http://justishub.justisnett.no/felles/1.0/dokument" targetNamespace="http://justishub.justisnett.no/felles/1.0/dokument">
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.0/basistyper" schemaLocation="basistyper.xsd"/>
+	<xs:complexType name="DokumentforsendelseType">
+		<xs:sequence>
+			<xs:element name="mimeType" type="xs:string"/>
+			<xs:element name="uri" type="xs:string"/>
+			<xs:element name="sjekksum" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DokumentlisteType">
+		<xs:sequence>
+			<xs:element name="dokument" type="DokumentType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DokumentType">
+		<xs:annotation>
+			<xs:documentation>Et dokument har en ID for at det skal kunne refereres til fra andre steder.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="skrevetDato" type="xs:date" minOccurs="0"/>
+			<xs:element name="overskrift" type="xs:string"/>
+			<xs:element name="dokumentforsendelse" type="DokumentforsendelseType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="idRef" type="xs:ID"/>
+	</xs:complexType>
+	<xs:complexType name="DokumentRefType">
+		<xs:attribute name="idref" type="xs:IDREF"/>
+	</xs:complexType>
+</xs:schema>

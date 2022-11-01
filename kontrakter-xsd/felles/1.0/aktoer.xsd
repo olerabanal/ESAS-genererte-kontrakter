@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 rel. 2 sp2 (http://www.altova.com) by Eirik (PDMT) -->
+<!--
+Aktør er en person eller et foretak som er med i straffesaken.
+Siktede, tiltalte, mistenkte, dømte, advokater, påtalemyndighet...
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://justishub.justisnett.no/felles/1.0/aktoer" xmlns:basis="http://justishub.justisnett.no/felles/1.0/basistyper" targetNamespace="http://justishub.justisnett.no/felles/1.0/aktoer">
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.0/basistyper" schemaLocation="basistyper.xsd"/>
+	<xs:complexType name="AktoerlisteType">
+		<xs:sequence>
+			<xs:element name="aktoer" type="AktoerType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AktoerType" abstract="true">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Person eller foretak.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="identifikator" type="basis:IdentifikatorType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Flere identifikatorer på person/foretak. Straffesak identifikator, DUF nummer, interne nøkler.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="idRef" type="xs:ID"/>
+	</xs:complexType>
+	<xs:simpleType name="AktoerRefType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Referanse til en aktør (person/foretak).</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:IDREF"/>
+	</xs:simpleType>
+	<xs:complexType name="ForetakType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Persom som har en rolle i en straffesak (siktet, mistenkt, osv) der det er krav om fødselsnummer for nordmenn. Andre identifikatorer kan være interne, DUF nummer, pass nummer ...</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="AktoerType">
+				<xs:sequence>
+					<xs:element name="navn" type="xs:string">
+						<xs:annotation>
+							<xs:documentation xml:lang="no">Hvis det er kjent gjerningsperson med ukjent identitet ...</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="organisasjonsnummer" type="xs:string" minOccurs="0"/>
+					<xs:element name="adresse" type="basis:AdresseType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="no">Kanskjer fordi domstolene vil trenge å ta kontakt? Trenger vi både postadresse og besøksadresse?</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="telefon" type="basis:TelefonnummerType" minOccurs="0" maxOccurs="2"/>
+					<xs:element name="telefax" type="basis:TelefonnummerType" minOccurs="0"/>
+					<xs:element name="epost" type="basis:EpostType" minOccurs="0" maxOccurs="2"/>
+					<xs:element name="nasjonalitet" type="basis:LandkodeType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="no">Nasjonalitet ikke med hvis det er ukjent.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PartType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">I STRASAK og BL så er part det sentrale objektet i avgjørelser og reaksjoner, refererer til person eller foretak.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="partsId" type="basis:UnikIdType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Unik ID (løpenummer nå), generert av STRASAK.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="aktoerreferanse" type="AktoerRefType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PersonType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Persom som har en rolle i en straffesak (siktet, mistenkt, osv) der det er krav om fødselsnummer for nordmenn. Andre identifikatorer kan være interne, DUF nummer, pass nummer ...</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="AktoerType">
+				<xs:sequence>
+					<xs:element name="navn" type="PersonnavnType">
+						<xs:annotation>
+							<xs:documentation xml:lang="no">Hvis det er kjent gjerningsperson med ukjent identitet ...</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="tittel" type="xs:string" minOccurs="0"/>
+					<xs:element name="foedselsnummer" type="basis:FoedselsnummerType" minOccurs="0"/>
+					<xs:element name="sspNummer" type="basis:SSPNummerType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="no">Alle personer som det er foretatt tvangsmidler mot skal ha et SSP nummer.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="kjoenn" type="basis:KjoennsType" minOccurs="0"/>
+					<xs:element name="foedselsdato" type="xs:date" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="no">Påbudt i BL i dag, men er ikke sikkert politiet vet.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="adresse" type="basis:AdresseType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="no">Kanskje fordi domstolene vil trenge å ta kontakt? Trenger vi både postadresse og besøksadresse?</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="telefonnummer" type="basis:TelefonnummerType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="epost" type="basis:EpostType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="nasjonalitet" type="basis:LandkodeType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="no">Nasjonalitet ikke med hvis det er ukjent.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="advokat" type="ProfesjonellPersonRefType" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation xml:lang="no">Forsvarsadvokat eller bistandsadvokater.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PersonnavnType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">I norge har vi fornavn, mellomnavn og etternavn.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="fornavn" type="xs:string" minOccurs="0"/>
+			<xs:element name="mellomnavn" type="xs:string" minOccurs="0"/>
+			<xs:element name="etternavn" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ProfesjonellPersonRefType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Referanse til en profesjonell person.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:IDREF"/>
+	</xs:simpleType>
+	<xs:complexType name="ProfesjonellPersonListeType">
+		<xs:sequence>
+			<xs:element name="person" type="ProfesjonellPersonType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProfesjonellPersonType">
+		<xs:sequence>
+			<xs:element name="navn" type="PersonnavnType"/>
+			<xs:element name="tittel" type="xs:string" minOccurs="0"/>
+			<xs:element name="foedselsdato" type="xs:date" minOccurs="0"/>
+			<xs:element name="adresse" type="basis:AdresseType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Kanskje fordi domstolene vil trenge å ta kontakt?</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="telefonnummer" type="basis:TelefonnummerType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="epost" type="basis:EpostType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="brukerIdentifikasjon" type="basis:IdentifikatorType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">For politiet sine brukere så skal dette inneholde BID (påbudt).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="idRef" type="xs:ID">
+			<xs:annotation>
+				<xs:documentation xml:lang="no">Vi vil ikke alltid referere og da trengs ikke denne.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+</xs:schema>

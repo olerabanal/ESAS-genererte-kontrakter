@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 rel. 2 sp2 (http://www.altova.com) by Eirik (PDMT) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dok="http://justishub.justisnett.no/felles/1.0/dokument" xmlns:basis="http://justishub.justisnett.no/felles/1.0/basistyper" xmlns:aktoer="http://justishub.justisnett.no/felles/1.0/aktoer" xmlns:oversendelse="http://justishub.justisnett.no/felles/1.0/oversendelse" xmlns="http://justishub.justisnett.no/straffesaksforsendelse/1.0/sammenstilling" targetNamespace="http://justishub.justisnett.no/straffesaksforsendelse/1.0/sammenstilling">
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.0/dokument" schemaLocation="../../felles/1.0/dokument.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.0/basistyper" schemaLocation="../../felles/1.0/basistyper.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.0/aktoer" schemaLocation="../../felles/1.0/aktoer.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.0/oversendelse" schemaLocation="../../felles/1.0/oversendelse.xsd"/>
+	<xs:element name="sammenstilling" type="SammenstillingType"/>
+	<xs:complexType name="SammenstillingType">
+		<xs:sequence>
+			<xs:element name="forsendelse" type="oversendelse:ForsendelsesType"/>
+			<xs:element name="anmeldelsesnr" type="basis:AnmeldelsesnummerType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Strasaknr/BL-saksnummer</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="tittel" type="xs:string"/>
+			<xs:element name="melding" type="xs:string"/>
+			<xs:element name="kravId" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="dokumenter" type="dok:DokumentlisteType"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 rel. 2 sp2 (http://www.altova.com) by Eirik (PDMT) -->
+<!--
+Begjæring om varetekt sendes av påtalemakten til tingretten for behandling.
+påtalemyndighet, tingrett, siktet. 
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dok="http://justishub.justisnett.no/felles/1.0/dokument" xmlns:basis="http://justishub.justisnett.no/felles/1.0/basistyper" xmlns:aktoer="http://justishub.justisnett.no/felles/1.0/aktoer" xmlns="http://justishub.justisnett.no/domTilKDI/1.0/dom" targetNamespace="http://justishub.justisnett.no/domTilKDI/1.0/dom">
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.0/dokument" schemaLocation="../../felles/1.0/dokument.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.0/basistyper" schemaLocation="../../felles/1.0/basistyper.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.0/aktoer" schemaLocation="../../felles/1.0/aktoer.xsd"/>
+	<xs:complexType name="DomType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Dom</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="domsnr" type="xs:string"/>
+			<xs:element name="anmeldelsesnr" type="basis:AnmeldelsesnummerType"/>
+			<xs:element name="dokumenter" type="dok:DokumentlisteType"/>
+			<xs:element name="dokumentDato" type="xs:date"/>
+			<xs:element name="domfelte" type="aktoer:PersonType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no"/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="paataleAnsvarlig" type="aktoer:ProfesjonellPersonType"/>
+			<xs:element name="harNyeStraffbareForhold" type="xs:boolean"/>
+			<xs:element name="lokaltArkivNr" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

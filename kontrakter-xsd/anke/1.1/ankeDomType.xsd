@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Krav anke informasjon fra DHP til domstolen ved anke over dom.
+
+-->
+<xs:schema 	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns:basis="http://justishub.justisnett.no/felles/1.1/basistyper" 
+	xmlns:aktoer="http://justishub.justisnett.no/felles/1.1/aktoer" 
+
+	xmlns="http://justishub.justisnett.no/anke/1.1/ankeDomType"
+	targetNamespace="http://justishub.justisnett.no/anke/1.1/ankeDomType">
+
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.1/basistyper" schemaLocation="../../felles/1.1/basistyper.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.1/aktoer" schemaLocation="../../felles/1.1/aktoer.xsd"/>
+
+	<xs:complexType name="ParterAnkeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Anke over dom fra påtale eller part(ene) i sakene. Minst en av partene skal ha anket dvs paataleAnke/siktetAnke skal være forskjellig fra godtatt.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="paataleAnke" type="basis:KodeType" maxOccurs="6">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">godtas, ankeBevisbedoemmelse, ankeLovanveldelse, ankeSaksbehandlingsfeil, ankeStraffeutmaaling, ankeErstatningen, ankeInndragningen</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="siktet" type="aktoer:AktoerRefType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Part i saken som anker eller godtar.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="siktetAnke" type="basis:KodeType" minOccurs="0" maxOccurs="6">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Hvis det ikke er mottatt anke fra siktede så er ikke denne med. Det er ofte uklart hvilke grunnlag som har hvilken ankegrunn ut fra siktedes dokumentasjon. Påtalemyndigheten velger da 
+godtas, ankeBevisbedoemmelse, ankeLovanveldelse, ankeSaksbehandlingsfeil, ankeStraffeutmaaling, ankeErstatningen, ankeInndragningen</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

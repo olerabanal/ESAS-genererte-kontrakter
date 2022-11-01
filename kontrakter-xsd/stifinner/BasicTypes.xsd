@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Endringer som er gjort på dette skjema i forbindelse med ESAS 2020 arbeid.
+Endret skjema fra ISO-8859-1 til UTF-8
+UnikIdType er definert.
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://justishub.justisnett.no/skjema/xml/2.0/" targetNamespace="http://justishub.justisnett.no/skjema/xml/2.0/" elementFormDefault="qualified">
+	<xs:complexType name="IdentifiserbartObjektType" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Et identifiserbart objekt er et objekt som har en intern id, men som ogsaa kan ha andre id'er i andre sammenheng (kontekster)</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="eksternId" type="EksternIdType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Id fra eksternt system.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:ID"/>
+	</xs:complexType>
+	<xs:complexType name="EksternIdType">
+		<xs:annotation>
+			<xs:documentation>En ekstern id har en id (som ikke noedvendigvis er av type xs:ID) og en sammenheng (kontekst) hvor id'en gjelder</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="id" type="xs:string" use="required"/>
+		<xs:attribute name="type" type="xs:string"/>
+		<xs:attribute name="distrikt" type="xs:string"/>
+		<xs:attribute name="kontekst" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:simpleType name="FoedselsnummerType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Et foedselsnummer bestaar av 11 sifre.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\d{11}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KjoennsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Kjoenn representeres ved en bokstav: M for Mann, K for Kvinne, og U for Ukjennt.
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="M"/>
+			<xs:enumeration value="K"/>
+			<xs:enumeration value="U"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DomstolsnavnType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value=".+"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="DomstolssakstypeLavesteNivaa">
+		<xs:sequence>
+			<xs:element name="kode" type="xs:string"/>
+			<xs:element name="beskrivelse" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="KodeType">
+		<xs:annotation>
+			<xs:documentation>Dette er en generell type som brukes for kodeverk verdier.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="kode" type="xs:string"/>
+			<xs:element name="beskrivelse" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="LandkodeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">En landkode bestaar av tre store bokstaver fra kodelisten ISO 3166-1-alpha-3</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\p{L}{3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="PersonnavnType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">
+        Et Navn bestaar av et fornavn og et etternavn.  Fornavn er ikke obligatorisk i BL.
+      </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="fornavn" type="xs:string"/>
+			<xs:element name="etternavn" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AdresseType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">En adresse bestaar av en eller flere adresselinjer (gate eller postboks osv), et postnummer (fritekst for a tillate utenlandske postnumre), et poststed (fritekst), en landkode, et kommunenummer (fritekst) og et kommunenavn (fritekst).
+       </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="adresselinje" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="postnummer" type="xs:string" minOccurs="0"/>
+			<xs:element name="poststed" type="xs:string" minOccurs="0"/>
+			<xs:element name="kommunenummer" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">
+              Typen forelopig satt til xs:string
+           </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="kommune" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="landkode" type="LandkodeType">
+			<xs:annotation>
+				<xs:documentation xml:lang="no">[FVL] Det bor kanksje vaere slik at attributtet er forpliktet (required) men nillable naar landet er ukjent?</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="AktoerType">
+		<xs:annotation>
+			<xs:documentation>Superklassen til personer og foretak</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="IdentifiserbartObjektType"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ForetakType">
+		<xs:annotation>
+			<xs:documentation>Et foretak har en ID for at den skal kunne refereres til fra andre steder, og et navn og et organisasjonsnummer.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="AktoerType">
+				<xs:sequence>
+					<xs:element name="navn" type="xs:string"/>
+					<xs:element name="organisasjonsnummer" type="xs:string" minOccurs="0"/>
+					<xs:element name="adresse" type="AdresseType" minOccurs="0"/>
+					<xs:element name="telefonnummer" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:attribute name="nasjonalitet" type="LandkodeType" default="NOR">
+					<xs:annotation>
+						<xs:documentation xml:lang="no">Dette er registreringslandet
+                  </xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PersonType" abstract="true">
+		<xs:annotation>
+			<xs:documentation>En Person har en ID for at den skal kunne refereres til fra andre steder, og et navn.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="AktoerType">
+				<xs:sequence>
+					<xs:element name="navn" type="PersonnavnType"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="SivilPersonType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">En SivilPerson er en utvidelse av en vanlig Person: den har et foedselsnummer, en foedselsdato, et kjoenn, en adresse, et telefonnumer og en nasjonalitet. Hvis ingen nasjonalitet er gitt, antaes det aa vaere NOR (Norge). En person har ikke noedvendigvis et foedselsnummer (jfr utenlendinger).  En person kan ha ingen, en eller flere telefonnumre.
+         </xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="PersonType">
+				<xs:sequence>
+					<xs:element name="foedselsnummer" type="FoedselsnummerType" minOccurs="0"/>
+					<xs:element name="kjoenn" type="KjoennsType"/>
+					<xs:element name="foedselsdato" type="xs:date"/>
+					<xs:element name="adresse" type="AdresseType"/>
+					<xs:element name="telefonnummer" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:attribute name="nasjonalitet" type="LandkodeType" default="NOR">
+					<xs:annotation>
+						<xs:documentation xml:lang="no">[FVL] Det boer kanksje vaere slik at attributtet er forpliktet (required) men nillable naar landet er ukjent?
+                  </xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PolitiPersonType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">En PolitiPerson er en utvidelse av en vanlig Person. Den har en tittel og en distrikt. Tittel og distrikt er fritekst.
+         </xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="PersonType">
+				<xs:sequence>
+					<xs:element name="tittel" type="xs:string" minOccurs="0"/>
+					<xs:element name="distrikt" type="xs:string" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AktoerlisteType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">En aktoerliste holder alle personene og foretak som det kan refereres til fra andre elementer. Listen kan vaere tom og skal kunne innholde et ubegrenset antall personer og foretak. ID'ene til personene maa vaere unike paa tvers av de forskjellige subtyper av PersonType.
+         </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="aktoer" type="AktoerType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PartsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Part i saken, siktet eller tiltalt. Part har referanse til person i aktoerlisten.
+      </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="personRef" type="xs:string"/>
+			<xs:element name="resultatType" type="KodeType" minOccurs="0"/>
+			<xs:element name="resultatbeskrivelse" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Resultatbeskrivelsen er fritekst og frivillig i Lovisa</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="forkynnelsesmaate" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation/>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="forkynnelsesdato" type="xs:date" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:simpleType name="RomertallType">
+		<xs:annotation>
+			<xs:documentation>Klassiske romertall som bruker M, D, C, L, X, V og I. Stoetter baade store og smaa bokstaver (men ikke blandet), og stoetter baade iiii og iv.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="([IVXLCDM]*)|([ivxlcdm]*)"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="DokumentType">
+		<xs:annotation>
+			<xs:documentation>Et dokument har en ID for at det skal kunne refereres til fra andre steder.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="IdentifiserbartObjektType">
+				<xs:sequence>
+					<xs:element name="skrevetDato" type="xs:date"/>
+					<xs:element name="overskrift" type="xs:string"/>
+					<xs:element name="dokumentNummer" type="xs:string" minOccurs="0"/>
+					<xs:element name="dokumentforsendelse" type="DokumentforsendelseType"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="DokumentlisteType">
+		<xs:sequence>
+			<xs:element name="dokument" type="DokumentType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DokumentforsendelseType">
+		<xs:sequence>
+			<xs:element name="mimeType" type="xs:string"/>
+			<xs:element name="uri" type="xs:string"/>
+			<xs:element name="sjekksum" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DokumentRefType">
+		<xs:attribute name="idref" type="xs:IDREF"/>
+	</xs:complexType>
+	<xs:complexType name="DomstolType">
+		<xs:sequence>
+			<xs:element name="navn" type="DomstolsnavnType"/>
+			<xs:element name="domstolAdresse" type="AdresseType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="jusenhet" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="KravType">
+		<xs:sequence>
+			<xs:element name="kode" type="xs:string"/>
+			<xs:element name="beskrivelse" type="xs:string"/>
+			<xs:element name="partRef" type="xs:string" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="UnikIdType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Unik id, men kan være andre unike verdier (reaksjons calc kanskje?).</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="50"/>
+			<xs:minLength value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="FristType">
+		<xs:sequence>
+			<xs:element name="tidspunkt" type="xs:dateTime"/>
+			<xs:element name="beskrivelse" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

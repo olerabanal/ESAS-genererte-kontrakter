@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:basis="http://justishub.justisnett.no/felles/1.1/basistyper"
+	xmlns:oversendelse="http://justishub.justisnett.no/felles/1.2/oversendelse"
+	xmlns:aktoer="http://justishub.justisnett.no/felles/1.2/aktoer"
+	xmlns:dok="http://justishub.justisnett.no/felles/1.1/dokument"
+	xmlns:beslutning="http://justishub.justisnett.no/fengsling/1.0/beslutning"
+
+		
+	xmlns="http://justishub.justisnett.no/fengsling/1.0/loeslatelsesordre"
+	targetNamespace="http://justishub.justisnett.no/fengsling/1.0/loeslatelsesordre">
+
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.1/basistyper" schemaLocation="../../felles/1.1/basistyper.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.2/oversendelse" schemaLocation="../../felles/1.2/oversendelse.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.1/dokument" schemaLocation="../../felles/1.1/dokument.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.2/aktoer" schemaLocation="../../felles/1.2/aktoer.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/fengsling/1.0/beslutning" schemaLocation="beslutning.xsd"/>
+	
+	<xs:element name="loeslatelsesordre" type="LoeslatelsesordreType"/>
+	
+	<xs:complexType name="LoeslatelsesordreType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Ordre om løslatelse av en person i fengsel (varetekt).</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="forsendelse" type="oversendelse:ForsendelsesType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Avsender-, mottaker- og meldingsinformasjon.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="kravId" type="basis:UnikIdType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Unik id for denne ordren, skal vi kunne oppdatere denne?</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="beslutning" type="beslutning:BeslutningType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">kjennelseIkkeVaretekt, ikkeGrunnlagVaretekt, ikkePlass ?, mangelPaaTransport, plassForLangtUnna, annenSkalIVaretket, annet</xs:documentation>
+				</xs:annotation>
+			</xs:element>		
+			<xs:element name="siktet" type="aktoer:ReaksjonAktoerType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Person som skal settes inn (aktoer:PersonType).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="paategningReferanse" type="dok:DokumentRefType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Påtegningsdokumentet</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="aktoerer" type="aktoer:AktoerlisteType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Personer referert til.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="dokumenter" type="dok:DokumentlisteType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Liste over dokumenter som sendes sammen med kravet om anke.</xs:documentation>
+				</xs:annotation>
+			</xs:element>	
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

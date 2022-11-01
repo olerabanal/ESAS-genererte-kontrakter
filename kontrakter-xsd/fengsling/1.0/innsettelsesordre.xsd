@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:basis="http://justishub.justisnett.no/felles/1.1/basistyper"
+	xmlns:oversendelse="http://justishub.justisnett.no/felles/1.2/oversendelse"
+	xmlns:aktoer="http://justishub.justisnett.no/felles/1.2/aktoer"
+	xmlns:dok="http://justishub.justisnett.no/felles/1.1/dokument"
+	xmlns:beslutning="http://justishub.justisnett.no/fengsling/1.0/beslutning"
+	xmlns:forhold="http://justishub.justisnett.no/felles/1.2/straffbartForhold"
+	xmlns:tiltale="http://justishub.justisnett.no/felles/1.2/tiltale"
+
+
+	xmlns="http://justishub.justisnett.no/fengsling/1.0/innsettelsesordre"
+	targetNamespace="http://justishub.justisnett.no/fengsling/1.0/innsettelsesordre">
+
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.1/basistyper" schemaLocation="../../felles/1.1/basistyper.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.2/oversendelse" schemaLocation="../../felles/1.2/oversendelse.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.1/dokument" schemaLocation="../../felles/1.1/dokument.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.2/aktoer" schemaLocation="../../felles/1.2/aktoer.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/fengsling/1.0/beslutning" schemaLocation="beslutning.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.2/straffbartForhold" schemaLocation="../../felles/1.2/straffbartForhold.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.2/tiltale" schemaLocation="../../felles/1.2/tiltale.xsd"/>
+
+	<xs:element name="innsettelsesordre" type="InnsettelsesordreType"/>
+
+	<xs:complexType name="InnsettelsesordreType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Ordre om innsettelse av en person i fengsel (varetekt).</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="forsendelse" type="oversendelse:ForsendelsesType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Avsender-, mottaker- og meldingsinformasjon.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="kontaktPersonKDI" type="aktoer:AnsattPersonType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Person hos Kriminalomsorgen som politiet har snakket med om plass i fengslet.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="kravId" type="basis:UnikIdType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Unik id for denne ordren, skal vi kunne oppdatere denne?</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="beslutning" type="beslutning:BeslutningType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Beslutning, med besluting: overforingTilVaretekt, overforingTilSoning</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="paagrepetTidspunkt" type="xs:dateTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Pågrepet tidspunkt, skal alltid fylles ut hvis personen har vært i varetekt.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="restriksjon" type="RestriksjonType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Restriksjoner: brev_besoek_kontroll, brev_besoek_forbud, medieforbud</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="isolasjonskrav" type="IsolasjonskravType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Isolasjonskrav delvis_isolasjon, full_isolasjon med merknad.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="helseopplysninger" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Tekstlig beskrivelse av relevante helseopplysninger.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="siktet" type="aktoer:ReaksjonAktoerType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Person som skal settes inn (aktoer:PersonType).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="siktelse" type="tiltale:TiltaleType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Vi kan ikke love at siktelsen stemmer oversens med siktelsesdokumentet hvis det stemmer.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="paategningReferanse" type="dok:DokumentRefType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Påtegningsdokumentet</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="straffesaker" type="forhold:StraffesakslisteType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Liste over saker i siktelsen som den personen er med i. Det er ingen personinformasjon med i disse sakene (rolle). Siktede vil være siktet i alle sakene.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="aktoerer" type="aktoer:AktoerlisteType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Personer referert til.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="dokumenter" type="dok:DokumentlisteType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Liste over dokumenter som sendes sammen med kravet om anke.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="RestriksjonType">
+		<xs:sequence>
+			<xs:element name="restriksjon" type="basis:KodeType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">brev_besoek_kontroll, brev_besoek_forbud, medieforbud</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="merknad" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Ikke lov til å surfe på ...?</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="IsolasjonskravType">
+		<xs:sequence>
+			<xs:element name="isolasjon" type="basis:KodeType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">delvis_isolasjon, full_isolasjon</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="merknad" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Merknad hvis det er full isolasjon. Vet ikke hvor lang tekst det kan bli her.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 rel. 2 sp2 (http://www.altova.com) by Eirik (PDMT) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://justishub.justisnett.no/domTilKDI/1.0/oversendelseDom" xmlns:oversendelse="http://justishub.justisnett.no/felles/1.0/oversendelse" xmlns:dom="http://justishub.justisnett.no/domTilKDI/1.0/dom" xmlns:basis="http://justishub.justisnett.no/felles/1.0/basistyper" targetNamespace="http://justishub.justisnett.no/domTilKDI/1.0/oversendelseDom">
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.0/oversendelse" schemaLocation="../../felles/1.0/oversendelse.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/domTilKDI/1.0/dom" schemaLocation="dom.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.0/basistyper" schemaLocation="../../felles/1.0/basistyper.xsd"/>
+	<xs:element name="oversendelseDom" type="OversendelseDomType"/>
+	<xs:complexType name="OversendelseDomType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Oversendelse av rettskraftig dom fra politiet til KDI</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="forsendelse" type="oversendelse:ForsendelsesType"/>
+			<xs:element name="dom" type="dom:DomType"/>
+			<xs:element name="typeOversendelse" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

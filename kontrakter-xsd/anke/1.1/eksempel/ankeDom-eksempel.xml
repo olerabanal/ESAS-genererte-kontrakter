@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Generert eksempel ut fra en tiltale som er funnet i produksjon, det er ikke et eksempel på en reell anke.
+-->
+<n1:ankeDom xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:n1="http://justishub.justisnett.no/anke/1.1/ankeDom" xmlns:aktoer="http://justishub.justisnett.no/felles/1.1/aktoer" xsi:schemaLocation="http://justishub.justisnett.no/anke/1.1/ankeDom ankeDom.xsd">
+	<forsendelse>
+		<meldingsId>{lang kanskje GUID id}</meldingsId>
+		<avsender>
+			<orgenhet>
+				<orgnr>974707365</orgnr>
+				<navn>Oslo statsadvokatembeter</navn>
+			</orgenhet>
+			<saksbehandler>
+				<brukerIdentifikasjon>las004</brukerIdentifikasjon>
+				<navn>
+					<fornavn>Lene Angelica</fornavn>
+					<etternavn>Stormarken</etternavn>
+				</navn>
+				<tittel>Rådgiver</tittel>
+			</saksbehandler>
+			<saksreferanse>
+				<kilde>Politiet</kilde>
+				<referanse>14506272</referanse>
+			</saksreferanse>
+		</avsender>
+		<mottaker>
+			<orgnr>974707128</orgnr>
+			<navn>Borgarting lagmannsrett</navn>
+		</mottaker>
+	</forsendelse>
+	<krav>
+		<kravId>{krav_paatale_123}</kravId>
+		<kravDato>2020-03-01</kravDato>
+		<ankedetaljer>
+			<tiltalepunkt>
+				<nummer>I</nummer>
+				<lovbud>
+					<lovbud>
+						<lovbudId>lovid_hjh67</lovbudId>
+						<lovreferanse>Straffeloven § 272, jf. § 271</lovreferanse>
+						<strafferamme>72</strafferamme>
+					</lovbud>
+					<gjengivelse>for å ha øvet vold mot en annen person. Kroppskrenkelsen er grov fordi det særlig legges vekt på at den har skjedd uten foranledning og er forøvd ved bruk av kniv eller annet særlig farlig redskap</gjengivelse>
+					<grunnlag>
+						<grunnlagstekst>Lørdag 8. desember 2018 ca. kl. 20.55, utenfor et sted  i Christian Krohgs gate 2 i Oslo, slo han Petter Jo med en hammer slik at Jo ble påført et kutt i øret.</grunnlagstekst>
+						<straffesak>s_14655424</straffesak>
+						<anke>
+							<paataleAnke>
+								<id>123456</id>
+								<kode>godtas</kode>
+							</paataleAnke>
+							<siktet>sl_1</siktet>
+							<siktetAnke>
+								<id>123457</id>
+								<kode>ankeBevisbedoemmelse</kode>
+							</siktetAnke>
+						</anke>
+					</grunnlag>
+				</lovbud>
+			</tiltalepunkt>
+			<tiltalepunkt>
+				<nummer>II</nummer>
+				<lovbud>
+					<lovbud>
+						<lovbudId>lovid_hjh646</lovbudId>
+						<lovreferanse>Straffeloven § 231 første ledd</lovreferanse>
+						<strafferamme>36</strafferamme>
+					</lovbud>
+					<gjengivelse>for ulovlig å ha oppbevart og overdratt narkotika</gjengivelse>
+					<grunnlag>
+						<bokstav>a</bokstav>
+						<grunnlagstekst>Tirsdag 10. juli 2018 ca. kl. 15.30 ved Akerselva i nærheten, overleverte han ca. 2 gram hasj til Jalla P2.</grunnlagstekst>
+						<!-- Pjong Bing (sl_1) anker dette grunnlaget (saken) over bevisbedømmelsen og lovandvendelsen. Påtale godtar dommen mot Pjong Bing (sl_1) i denne saken.
+							Bella Duck (sl_2) anker dette grunnlaget (saken) over lovanvendelsen. Påtale godtar dommen mot Bella Duck (sl_2) i denne saken.
+						-->
+						<straffesak>s_14506272</straffesak>
+						<anke>
+							<paataleAnke>
+								<id>123456</id>
+								<kode>godtas</kode>
+							</paataleAnke>
+							<siktet>sl_1</siktet>
+							<siktetAnke>
+								<id>123457</id>
+								<kode>ankeBevisbedoemmelse</kode>
+							</siktetAnke>
+							<siktetAnke>
+								<id>123458</id>
+								<kode>ankeLovanvendelse</kode>
+							</siktetAnke>
+						</anke>
+						<anke>
+							<paataleAnke>
+								<id>123456</id>
+								<kode>godtas</kode>
+							</paataleAnke>
+							<siktet>sl_2</siktet>
+							<siktetAnke>
+								<id>123458</id>
+								<kode>ankeLovanvendelse</kode>
+							</siktetAnke>
+						</anke>
+					</grunnlag>
+					<grunnlag>
+						<bokstav>b</bokstav>
+						<grunnlagstekst>Søndag 11. november 2018 ved Grønland 2 A i Oslo, hadde han ca. 11 gram hasj i innerlommen på ytterjakken sin.</grunnlagstekst>
+						<straffesak>s_14629274</straffesak>
+						<anke>
+							<paataleAnke>
+								<id>123456</id>
+								<kode>godtas</kode>
+							</paataleAnke>
+							<siktet>sl_1</siktet>
+							<siktetAnke>
+								<id>123458</id>
+								<kode>ankeLovanvendelse</kode>
+							</siktetAnke>
+						</anke>
+					</grunnlag>
+					<grunnlag>
+						<bokstav>c</bokstav>
+						<grunnlagstekst>Til tid og på sted som angitt i post I, oppbevarte han ca. 20 gram hasj.</grunnlagstekst>
+						<straffesak>s_14655473</straffesak>
+						<anke>
+							<paataleAnke>
+								<id>123456</id>
+								<kode>godtas</kode>
+							</paataleAnke>
+							<siktet>sl_1</siktet>
+							<siktetAnke>
+								<id>123458</id>
+								<kode>ankeLovanvendelse</kode>
+							</siktetAnke>
+						</anke>
+					</grunnlag>
+					<grunnlag>
+						<bokstav>d</bokstav>
+						<grunnlagstekst>Torsdag 31. januar 2019 ca. kl. 17.55 ved Sonja Henies plass 2 i Oslo, hadde han ca. 11 gram hasj.</grunnlagstekst>
+						<straffesak>s_14699273</straffesak>
+						<anke>
+							<paataleAnke>
+								<id>123456</id>
+								<kode>godtas</kode>
+							</paataleAnke>
+							<siktet>sl_1</siktet>
+							<siktetAnke>
+								<id>123458</id>
+								<kode>ankeLovanvendelse</kode>
+							</siktetAnke>
+						</anke>
+					</grunnlag>
+				</lovbud>
+			</tiltalepunkt>
+			<tiltalepunkt>
+				<nummer>III</nummer>
+				<lovbud>
+					<lovbud>
+						<lovbudId>lovid_hjh67457</lovbudId>
+						<lovreferanse>Straffeloven § 181 første ledd</lovreferanse>
+					</lovbud>
+					<gjengivelse>for ved slagsmål, støy eller annen utilbørlig atferd å ha forstyrret den alminnelige fred og orden.</gjengivelse>
+					<grunnlag>
+						<grunnlagstekst>Søndag 13. januar 2019 ca. kl. 07.45, oppholdt han seg i Oslo, der han ropte og skrek.</grunnlagstekst>
+						<straffesak>s_14682951</straffesak>
+						<anke>
+							<paataleAnke>
+								<id>123456</id>
+								<kode>godtas</kode>
+							</paataleAnke>
+							<siktet>sl_1</siktet>
+							<siktetAnke>
+								<id>123457</id>
+								<kode>ankeBevisbedoemmelse</kode>
+							</siktetAnke>
+						</anke>
+						<anke>
+							<paataleAnke>
+								<id>123456</id>
+								<kode>godtas</kode>
+							</paataleAnke>
+							<siktet>sl_2</siktet>
+							<siktetAnke>
+								<id>123458</id>
+								<kode>ankeLovanveldelse</kode>
+							</siktetAnke>
+						</anke>
+					</grunnlag>
+				</lovbud>
+			</tiltalepunkt>
+		</ankedetaljer>
+		<paataleansvarlig>
+			<brukerIdentifikasjon>ams024</brukerIdentifikasjon>
+			<navn>
+				<fornavn>Andreas Magne</fornavn>
+				<etternavn>Strand</etternavn>
+			</navn>
+			<tittel>Konstituert statsadvokat</tittel>
+		</paataleansvarlig>
+		<avgjoerelse>
+			<avgjoerelseId>{lov_avgj_1}</avgjoerelseId>
+			<saksnummer>19-018186DOM-OTIR/07</saksnummer>
+			<domstol>
+				<orgnr>974714647</orgnr>
+				<navn>Oslo tingrett</navn>
+			</domstol>
+			<avsagtDato>2020-01-03</avsagtDato>
+		</avgjoerelse>
+		<opprinneligKravId>{krav_paatale_12}</opprinneligKravId>
+	</krav>
+	<paategningReferanse>dok_1</paategningReferanse>
+	<aktoerer>
+		<aktoer xsi:type="aktoer:PersonType" id="sl_1">
+			<navn>
+				<fornavn>Pjong</fornavn>
+				<mellomnavn>Jada</mellomnavn>
+				<etternavn>Bing</etternavn>
+			</navn>
+			<foedselsnummer>15048732507</foedselsnummer>
+			<sspNummer>00000000000</sspNummer>
+			<kjoenn>M</kjoenn>
+			<foedselsdato>1987-04-15</foedselsdato>
+			<adresse>
+				<adresselinje>Nordre Dals vei 4</adresselinje>
+				<postnummer>4568</postnummer>
+				<poststed>Fredrikstad</poststed>
+				<landkode>NOR</landkode>
+			</adresse>
+			<telefonnummer>789856548</telefonnummer>
+			<epost>pjb@jokmok.n.cat</epost>
+			<nasjonalitet>SWE</nasjonalitet>
+		</aktoer>
+		<aktoer xsi:type="aktoer:PersonType" id="sl_2">
+			<navn>
+				<fornavn>Bella</fornavn>
+				<mellomnavn>Tante</mellomnavn>
+				<etternavn>Duck</etternavn>
+			</navn>
+			<sspNummer>06257800197</sspNummer>
+			<kjoenn>K</kjoenn>
+			<foedselsdato>1978-05-06</foedselsdato>
+			<adresse>
+				<adresselinje>Svenske skogene</adresselinje>
+				<landkode>SWE</landkode>
+			</adresse>
+			<nasjonalitet>SWE</nasjonalitet>
+		</aktoer>
+		<aktoer xsi:type="aktoer:PersonType" id="sl_3">
+			<navn>
+				<fornavn>Snill</fornavn>
+				<etternavn>Type</etternavn>
+			</navn>
+			<kjoenn>M</kjoenn>
+			<foedselsdato>1989-05-06</foedselsdato>
+			<adresse>
+				<adresselinje>Over allt</adresselinje>
+				<landkode>SWE</landkode>
+			</adresse>
+			<nasjonalitet>SWE</nasjonalitet>
+			<verge>sl_4</verge>
+		</aktoer>
+		<aktoer xsi:type="aktoer:PersonType" id="sl_4">
+			<navn>
+				<fornavn>Per</fornavn>
+				<etternavn>Olsen</etternavn>
+			</navn>
+			<foedselsnummer>15037832507</foedselsnummer>
+			<kjoenn>M</kjoenn>
+			<foedselsdato>1978-03-15</foedselsdato>
+			<adresse>
+				<adresselinje>Nordre Dals vei 4</adresselinje>
+				<postnummer>4568</postnummer>
+				<poststed>Fredrikstad</poststed>
+				<landkode>NOR</landkode>
+			</adresse>
+		</aktoer>
+	</aktoerer>
+	<straffesaker>
+		<straffbartForhold id="s_14655424">
+			<straffesaksnummer>14655424</straffesaksnummer>
+			<hendelse>
+				<gjerningstidspunktFra>2018-12-08T20:57:00</gjerningstidspunktFra>
+				<gjerningstidspunktTil>2018-12-08T20:57:00</gjerningstidspunktTil>
+				<gjerningssted>
+					<adresselinje>Christian Krohgs gate 2</adresselinje>
+					<postnummer>0186</postnummer>
+					<poststed>Oslo</poststed>
+					<landkode>NOR</landkode>
+				</gjerningssted>
+			</hendelse>
+			<statistikkgruppe>
+				<id>1234568</id>
+				<kode>0752</kode>
+				<!-- Narkotikaovertredelse -->
+			</statistikkgruppe>
+		</straffbartForhold>
+		<straffbartForhold id="s_14506272">
+			<straffesaksnummer>14506272</straffesaksnummer>
+			<hendelse>
+				<gjerningstidspunktFra>2018-07-10T15:35:00</gjerningstidspunktFra>
+				<gjerningstidspunktTil>2018-07-10T15:35:00</gjerningstidspunktTil>
+				<gjerningssted>
+					<adresselinje>Lakkegata 55</adresselinje>
+					<postnummer>0187</postnummer>
+					<poststed>Oslo</poststed>
+					<landkode>NOR</landkode>
+				</gjerningssted>
+			</hendelse>
+			<statistikkgruppe>
+				<id>1234567</id>
+				<kode>0751</kode>
+				<!-- Narkotikaovertredelse -->
+			</statistikkgruppe>
+		</straffbartForhold>
+		<straffbartForhold id="s_14629274">
+			<straffesaksnummer>14629274</straffesaksnummer>
+			<hendelse>
+				<gjerningstidspunktFra>2018-11-11T02:04:00</gjerningstidspunktFra>
+				<gjerningstidspunktTil>2018-11-11T02:04:00</gjerningstidspunktTil>
+				<gjerningssted>
+					<adresselinje>Grønland 2A</adresselinje>
+					<postnummer>0188</postnummer>
+					<poststed>Oslo</poststed>
+					<landkode>NOR</landkode>
+				</gjerningssted>
+			</hendelse>
+			<statistikkgruppe>
+				<id>1234567</id>
+				<kode>0751</kode>
+				<!-- Narkotikaovertredelse -->
+			</statistikkgruppe>
+		</straffbartForhold>
+		<straffbartForhold id="s_14655473">
+			<straffesaksnummer>14655473</straffesaksnummer>
+			<hendelse>
+				<gjerningstidspunktFra>2018-08-12T22:05:00</gjerningstidspunktFra>
+				<gjerningstidspunktTil>2018-08-12T22:05:00</gjerningstidspunktTil>
+				<gjerningssted>
+					<adresselinje>Grønlandsleiret 44</adresselinje>
+					<postnummer>0190</postnummer>
+					<poststed>Oslo</poststed>
+					<landkode>NOR</landkode>
+				</gjerningssted>
+			</hendelse>
+			<statistikkgruppe>
+				<id>1234567</id>
+				<kode>0751</kode>
+				<!-- Narkotikaovertredelse -->
+			</statistikkgruppe>
+		</straffbartForhold>
+		<straffbartForhold id="s_14699273">
+			<straffesaksnummer>14699273</straffesaksnummer>
+			<hendelse>
+				<gjerningstidspunktFra>2019-01-31T17:55:00</gjerningstidspunktFra>
+				<gjerningstidspunktTil>2019-01-31T18:59:00</gjerningstidspunktTil>
+				<gjerningssted>
+					<adresselinje>Sonja Henies plass 2</adresselinje>
+					<postnummer>0185</postnummer>
+					<poststed>Oslo</poststed>
+					<landkode>NOR</landkode>
+				</gjerningssted>
+			</hendelse>
+			<statistikkgruppe>
+				<id>1234567</id>
+				<kode>0751</kode>
+				<!-- Narkotikaovertredelse -->
+			</statistikkgruppe>
+		</straffbartForhold>
+		<straffbartForhold id="s_14682951">
+			<straffesaksnummer>14682951</straffesaksnummer>
+			<hendelse>
+				<gjerningstidspunktFra>2019-01-13T07:44:00</gjerningstidspunktFra>
+				<gjerningstidspunktTil>2019-01-13T08:15:00</gjerningstidspunktTil>
+				<gjerningssted>
+					<adresselinje>Breigata 9</adresselinje>
+					<postnummer>0187</postnummer>
+					<poststed>Oslo</poststed>
+					<landkode>NOR</landkode>
+				</gjerningssted>
+			</hendelse>
+			<statistikkgruppe>
+				<id>1234578</id>
+				<kode>0651</kode>
+				<!-- Ordensforstyrrelse -->
+			</statistikkgruppe>
+			<rolle>
+				<rolleType>
+					<id>21343441</id>
+					<kode>fornaermet</kode>
+				</rolleType>
+				<personForetak>sl_3</personForetak>
+			</rolle>
+		</straffbartForhold>
+	</straffesaker>
+	<dokumenter>
+		<dokument id="dok_1">
+			<dokumentId>5678944</dokumentId>
+			<dokumentnummer>01,04</dokumentnummer>
+			<skrevetDato>2019-02-03</skrevetDato>
+			<overskrift>Påtegning oversendelse anke til Borgarting Lagmannsrett</overskrift>
+			<dokumentforsendelse>
+				<mimeType>application/pdf</mimeType>
+				<uri>/sdf/download</uri>
+				<sjekksum>sjekksum</sjekksum>
+			</dokumentforsendelse>
+		</dokument>
+		<dokument id="dok_2">
+			<dokumentId>5678944</dokumentId>
+			<dokumentnummer>07,01,06</dokumentnummer>
+			<skrevetDato>2019-01-28</skrevetDato>
+			<overskrift>Anke og støtteskriv fra adv. Hansen</overskrift>
+			<dokumentforsendelse>
+				<mimeType>application/pdf</mimeType>
+				<uri>/sdf/download</uri>
+				<sjekksum>sjekksum</sjekksum>
+			</dokumentforsendelse>
+		</dokument>
+		<dokument id="dok_3">
+			<dokumentId>5678944</dokumentId>
+			<dokumentnummer>10,01,02</dokumentnummer>
+			<skrevetDato>2019-01-31</skrevetDato>
+			<overskrift>Anke og støtteskriv fra adv. Johansen</overskrift>
+			<dokumentforsendelse>
+				<mimeType>application/pdf</mimeType>
+				<uri>/sdf/download</uri>
+				<sjekksum>sjekksum</sjekksum>
+			</dokumentforsendelse>
+		</dokument>
+	</dokumenter>
+</n1:ankeDom>

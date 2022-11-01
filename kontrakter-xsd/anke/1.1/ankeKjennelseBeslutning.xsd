@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+Denne meldingen er for påtale sin anke over kjennelse og anke over beslutning.
+
+Anke over kjennelse særlig varetekt er en prosess med flere praktiske måter å anke på.
+- Anker kjennelsen i retten (muntlig).
+- Anker etterpå, siktedes advokat ved å bruke aktørportalen. Politiet ved å bruke dette skjema.
+- Påtale forhåndsanker ved at det står i Begjæringen om varetektsbehandling at påtale vil anke hvis varetektsfengslingen ikke fører frem.
+- På varetekt blir ofte saken sendt direkte til lagmansretten fra tingretten hvis det er anke. Andre tvangsmidler blir håndtert av tingretten først.
+
+- Dette er anke meldingen som ofte sendes fra politi til domstol når det ankes i etterkant av rettsmøtet. Kjennelsen/beslutningen kan da være anket allerede.
+- På varetekt så blir sakene sendt med en gang til lagmannsretten hvis kjennelsen ankes så ankemeldingen fra politiet må kunne sendes direkte til lagmannsretten.
+
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+         xmlns:basis="http://justishub.justisnett.no/felles/1.1/basistyper"
+		   xmlns:oversendelse="http://justishub.justisnett.no/felles/1.1/oversendelse"
+		   xmlns:krav="http://justishub.justisnett.no/anke/1.1/kravAnkeKjennelseBeslutning"
+			xmlns:aktoer="http://justishub.justisnett.no/felles/1.1/aktoer"
+		   xmlns:dok="http://justishub.justisnett.no/felles/1.1/dokument"
+		   xmlns="http://justishub.justisnett.no/anke/1.1/ankeKjennelseBeslutning"
+		   targetNamespace="http://justishub.justisnett.no/anke/1.1/ankeKjennelseBeslutning">
+
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.1/basistyper" schemaLocation="../../felles/1.1/basistyper.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.1/oversendelse" schemaLocation="../../felles/1.1/oversendelse.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.1/dokument" schemaLocation="../../felles/1.1/dokument.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.1/aktoer" schemaLocation="../../felles/1.1/aktoer.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/anke/1.1/kravAnkeKjennelseBeslutning" schemaLocation="kravAnkeKjennelseBeslutning.xsd"/>
+
+	<xs:element name="ankeKjennelseBeslutning" type="AnkeKjennelseBeslutningType"/>
+	
+	<xs:complexType name="AnkeKjennelseBeslutningType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Anke over kjennelse/beslutning informasjon fra påtalemyndigheten.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="forsendelse" type="oversendelse:ForsendelsesType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Avsender-, mottaker- og meldingsinformasjon.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="krav" type="krav:KravAnkeType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Krav, vi har ikke informasjon om siktede eller påtale har anket, bare at det er en anke.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ankeForkyntSiktede" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">True hvis påtale har forkynt anke til siktede.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="paategning" type="dok:DokumentRefType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Påtegningsdokument til retten.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="aktoerer" type="aktoer:AktoerlisteType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Liste over aktører/parter. Kan denne bli tom på f.eks. anke over noen beslutninger.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="dokumenter" type="dok:DokumentlisteType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Liste over dokumenter som sendes sammen med kravet om anke.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

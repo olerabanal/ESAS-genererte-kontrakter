@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Definerer avgjørelse fra domstolen  (kjennelse, beslutning, dom senere ?)
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		   xmlns:basis="http://justishub.justisnett.no/felles/1.1/basistyper"
+		   xmlns="http://justishub.justisnett.no/felles/1.1/avgjoerelseDomstol"
+		   xmlns:aktoer="http://justishub.justisnett.no/felles/1.1/aktoer"
+		   targetNamespace="http://justishub.justisnett.no/felles/1.1/avgjoerelseDomstol">
+		   
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.1/basistyper" schemaLocation="basistyper.xsd"/>
+	<xs:import namespace="http://justishub.justisnett.no/felles/1.1/aktoer" schemaLocation="aktoer.xsd"/>
+
+	<xs:complexType name="AvgjoerelseReferanseType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Det er med flere detaljer i tillegg til avgjoerelseId for å håndtere de tilfellene vi ikke har en elektronisk avgjørelse. I overgangsperioden og hvis avgjørelsen ikke er kommet frem elektronisk fra domstolene ennå.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="avgjoerelseId" type="basis:UnikIdType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Unik id på avgjørelsen, hvis kjennelsen er kommet på papir/epost så har ikke påtale denne. Lages av domstol.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="saksnummer" type="basis:DomstolsaksnummerType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Lovisa saksnummer for avgjørelsen vil kunne være med hvis vi har mottatt anken elektronisk.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="domstol" type="aktoer:OrgenhetType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Tingrett eller lagmansrett som har avsagt kjennelse, beslutning, dom.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="avsagtDato" type="xs:date">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Dato for avsagt kjennelse, beslutning, dom.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+
+	</xs:complexType>
+
+</xs:schema>

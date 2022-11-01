@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Basis typer.
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://justishub.justisnett.no/felles/1.0/basistyper" targetNamespace="http://justishub.justisnett.no/felles/1.0/basistyper">
+	<xs:complexType name="AdresseType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Allt som ikke er postnummer/poststed er adresselinje. Det er ikke lov å sende adresse uten verdier på alle elementer.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="adresselinje" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="postnummer" type="xs:string" minOccurs="0"/>
+			<xs:element name="poststed" type="xs:string" minOccurs="0"/>
+			<xs:element name="landkode" type="LandkodeType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="EpostType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Lange epostadresser.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="FoedselsnummerType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Et foedselsnummer bestaar av 11 sifre. Et fødselsnummer kan også være et D nummer.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\d{11}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Vurder bruken av denne når vi begynner å bruke mer unike identifikatorer.-->
+	<xs:complexType name="IdentifikatorType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Identiteter som hvert enkelt system bruker til å kjenne igjen et objekt. Disse trenger ikke å være unike.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ident" type="IdentType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Identifikator verdi</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="type" type="xs:string">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Type beskriver hvilken verdi dette er f.eks. reaskjons ID i politiets systemer.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="system" type="SystemType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="SystemType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Koder som beskriver hvem sitt system som brukes
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="LOVISA"/>
+			<xs:enumeration value="BL"/>
+			<xs:enumeration value="KDI"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="IdentType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Identifikator laget egen type for å begrense lengde</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="50"/>
+			<xs:minLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KjoennsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Kjoenn representeres ved en bokstav: M for Mann, K for Kvinne.
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="M"/>
+			<xs:enumeration value="K"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="KodeType">
+		<xs:annotation>
+			<xs:documentation>For felles kodeverk mellom sektorene. Dette er definisjonen som skal brukes i meldinger, definisjon av felles kodeverk må også innehold gyldg fra/til mm.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="id" type="UnikIdType">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Unik nøkkel over alle kodetyper innenfor felles kodeverk. GUID eller annen unik nøkkel.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="kode" type="xs:string">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">kode, unik innenfor aktive kodeverk objekt av denne typen. En kode skal ikke gjenbrukes hvis det er en ny betydning av koden.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="type" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">SYSTEM, DOMSTOL, POLITIDISTRIKT, ...</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="navn" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Navn eller beskrivelse, f.eks. Øst politidistrikt, Agder statsadvokatembeter.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="LandkodeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">En landkode bestaar av tre storeFraURL bokstaver fra kodelisten ISO 3166-1-alpha-3. Brukes på nasjonalitet, men hva med Kosovo?</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\p{L}{3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="OrgnrType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Referanse til politidistrikt, embete osv.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+			<xs:minLength value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SSPNummerType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Må defineres, lurer på om vi tidligere brukte 13 tall.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\d{11}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AnmeldelsesnummerType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Anmeldelsesnummer (strasaknummer)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="30"/>
+			<xs:minLength value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TelefonnummerType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Husk vi må kunne håndtere utenlandske telefonnummer +1 (345) 3423 osv.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="50"/>
+			<xs:minLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="UnikIdType">
+		<xs:annotation>
+			<xs:documentation xml:lang="no">Unik id, vi bruker GUID, men kan være andre unike verdier (reaksjons calc kanskje?).</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="50"/>
+			<xs:minLength value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
