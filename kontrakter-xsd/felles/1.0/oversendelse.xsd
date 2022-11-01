@@ -8,6 +8,11 @@ Informasjon om avsender og mottaker som kan være felles for flere oversendelese
 	<xs:import namespace="http://justishub.justisnett.no/felles/1.0/aktoer" schemaLocation="aktoer.xsd"/>
 	<xs:complexType name="ForsendelsesType">
 		<xs:sequence>
+			<xs:element name="meldingsId" type="basis:UnikIdType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="no">Unik id på meldingen, kan brukes til sporing av meldinger.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<!-- Distrikt/særorgan og enhet feks Sør-Øst politidistrikt, Hønefoss og ansvarlig påtalejurist. Vi skal ikke bruke jusenhet-->
 			<xs:element name="avsender" type="OrgenhetType">
 				<xs:annotation>
