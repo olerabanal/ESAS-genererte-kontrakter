@@ -1,8 +1,8 @@
 {
   "melding": "oppdaterVaretekt",
   "forsendelse": {
-    "meldingsId": "31FB28A7-2356-43AC-92CB-E7CAFCBAF0F7",
-    "sendtTid": "2022-10-27T21:14:18+02:00",
+    "meldingsId": "090388AB-8B5E-47E7-9763-A7EB852823F4",
+    "sendtTid": "2022-11-03T10:19:59+02:00",
     "avsender": {
       "organisasjon": {
         "organisasjonsnummer": "983997953",
@@ -23,7 +23,8 @@
     }
   },
   "hovedStraffesaksnummer": "15434819",
-  "varetektSyklusId": "8DC17E1B-2B21-40D1-A4FE-EB9733CD8977",
+  "ordreId": "A96227B1-F3F7-460E-A7DE-DE27504BD7C0",
+  "varetektSyklusId": "49E8FCFD-0AA8-40C9-9D7A-1D1CAF7D7320",
   "personIVaretekt": {
     "internId": "700892414",
     "navn": {
@@ -50,7 +51,6 @@
       }
     }
   },
-  "ordreId": "EE1E4037-D40D-425C-B755-A065CF2B52C2",
   "ordreEllerKjennelseVaretekt": {
     "type": "ordreVaretekt",
     "ordreVaretekt": {
@@ -66,12 +66,12 @@
           "telefon": "55224411"
         }
       },
-      "tidspunkt": "2022-10-27T21:14:18+02:00",
+      "tidspunkt": "2022-11-03T10:19:59+02:00",
       "restriksjoner": {
         "merknad": "Ingen brev til denne personen",
         "restriksjoner": [
           {
-            "id": "CA18C2FE-EF9D-4AFD-8A5B-7BC737160B1A",
+            "id": "FF815BE6-CE92-4A55-8CAE-9BE0F1340101",
             "restriksjonsType": "BREV_OG_BESOEKSFORBUD",
             "lovbudEnkel": {
               "lovbudStreng": "Strpl. § 186, 2.ledd 1.pkt."
@@ -82,22 +82,22 @@
         "merknad": "Opphever isolasjon i morgen",
         "isolasjon": [
           {
-            "id": "58700F17-8ED5-4DA3-97F4-340980EBF1DF",
+            "id": "1B6547BE-ABC3-40B4-AFE1-D31DFD162668",
             "isolasjonsType": "FULL_ISOLASJON",
             "lovbudEnkel": {
               "lovbudStreng": "Strpl. § 186a"
             },
-            "tilDato": "2022-10-28T00:00:00"
+            "tilDato": "2022-11-04T00:00:00"
           }]
       }
     }
   },
-  "paagrepetTidspunkt": "2022-10-27T21:14:18+02:00",
+  "paagrepetTidspunkt": "2022-11-03T10:19:59+02:00",
   "dokumenter": [
     {
       "internId": "1234567879",
       "overskrift": "Begjæring om varetekt, Kiwi",
-      "skrevetDato": "2022-10-27T00:00:00",
+      "skrevetDato": "2022-11-03T00:00:00",
       "forsendelse": {
         "mimeType": "application/pdf",
         "uri": "file:///asdfasdf",
@@ -110,7 +110,7 @@
       "kategori": {
         "kode": "siktelse"
       },
-      "skrevetDato": "2022-10-07T00:00:00",
+      "skrevetDato": "2022-10-14T00:00:00",
       "forsendelse": {
         "mimeType": "application/pdf",
         "uri": "file:///asdfaasdfsdf",
