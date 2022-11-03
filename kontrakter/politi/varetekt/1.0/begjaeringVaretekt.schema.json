@@ -1,6 +1,6 @@
 {
-  "$schema": "http://json-schema.org/schema#",
-  "$id": "politi/fengsling/1.0/begjaeringVaretekt",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://politiet.no/politi/fengsling/1.0/begjaeringVaretekt",
   "description": "Skjema for begjæring av varetektsmeldinger fra påtale til tingretten, JSON Schema versjon 2020-12",
 
   "type": "object",
@@ -15,7 +15,7 @@
     "siktelse" : {"$ref" : "#/definitions/siktelseTiltale"},
     "straffesaker" : {"type": "array", "items": {"$ref" : "#/definitions/straffesakMedInvolverteSiktet"}, "minContains": 1},
     "aktoerer": {"type": "string"},
-    "dokumenter": {"type": "array", "items": {"$ref" : "#/definitions/dokument"}, "minContains": 0}
+    "dokumenter": {"type": "array", "items": {"$ref" : "#/definitions/dokument"}}
   },
   "required": ["forsendelse", "hovedStraffesaksnummer", "kravId","varetekt", "saksinformasjon", "straffesaker", "dokumenter"],
   "additionalProperties": false,
@@ -29,15 +29,15 @@
       "additionalProperties": false,
       "properties": {
         "fengsling": {"$ref": "#/definitions/fengsling"},
-        "restriksjoner": {"type": "array", "items" : {"$ref" : "#/definitions/restriksjonBegjaering"}, "minContains": 0},
-        "isolasjon": {"type": "array", "items" : {"$ref" : "#/definitions/isolasjonBegjaering"}, "minContains": 0}
+        "restriksjoner": {"type": "array", "items" : {"$ref" : "#/definitions/restriksjonBegjaering"}},
+        "isolasjon": {"type": "array", "items" : {"$ref" : "#/definitions/isolasjonBegjaering"}}
       }
     },
 
     "saksinformasjon": {
       "properties": {
         "varetektsType": {"$ref": "#/definitions/varetektsType"},
-        "forlengelse": {"type": "string"},
+        "forlengelse": {"$ref": "#/definitions/forlengelseInfo", "description": "Hvis det er en forlengelse så er dette elementet med"},
         "hovedforhandling" : {
           "type": "object",
           "description": "Hvis de tror hovedforhandling kommer før varetektsfengsling er ferdig",
@@ -78,7 +78,7 @@
         "aktor" : {"$ref" : "#/definitions/ansatt"}
       },
       "required": ["varetektsType", "paagrepetTidspunkt", "ansvarligPaatalejurist"],
-      "additionalProperties": true
+      "additionalProperties": false
     },
 
     "fengsling" : {
@@ -89,6 +89,16 @@
         "antallDager": {"type": "integer"}
       },
       "required": ["id", "antallDager"],
+      "additionalProperties": false
+    },
+    "forlengelseInfo": {
+      "description": "Hvis det er en forlengelse så referer vi til forrige fengsling, trenger domstolene mer informasjon ?",
+      "typ": "object",
+      "properties": {
+        "avgjoerelseId": {"type": "string", "description": "Domstolene sin nøkkel til den forrige fengslingskjennelsen"},
+        "beskrivelse": {"type": "string", "description": "Kanskje referanse til dokument etc"}
+      },
+      "required": ["beskrivelse"],
       "additionalProperties": false
     },
     "siktetInfo": {
@@ -111,7 +121,7 @@
       "additionalProperties": false
     },
     "varetektsType": {
-      "description": "Vanlig, brudd eller brudd på vilkår",
+      "description": "Vanlig, eller brudd på vilkår",
       "enum": [
         "VANLIG",
         "VILKAARSBRUDD"
@@ -157,7 +167,8 @@
         "kode" : {"type": "string", "pattern": "[A-Z]+", "minLength": 3, "maxLength": 3},
         "navn" : {"type": "string"}
         },
-      "required" : ["kode"]
+      "required" : ["kode"],
+      "additionalProperties": false
     },
     "organisasjon": {
       "description": "Organisasjon som kan sende eller motta JustisHub meldinger",
@@ -217,8 +228,7 @@
 				
 				"anketDato": {"type": "string", "format": "date"},
 				"anketAv": {"$ref": "#/definitions/anketAvType"},
-				"oppsettendeVirkning": {"type": "boolean"					
-				}
+				"oppsettendeVirkning": {"type": "boolean"}
 			}
 		},		
 		"anketAvType": {
@@ -237,17 +247,7 @@
         "kjennelse": {"type": "string"}
       }
     },
-    "fengsling": {
-      "description": "Basis fengsling med til og fra dato",
-      "type": "object",
-      "required": ["lovbud"],
-      "additionalProperties": false,
-      "properties": {
-        "lovbud": {"$ref": "#/definitions/lovbudEnkel"},
-        "fraDato": {"type": "string", "format": "date"},
-        "tilDato": {"type": "string", "format": "date"}
-      }
-    },
+
     "fengslingKjennelse": {
       "description": "Fengsling som en del av kjennelsen, uten datoer så er det ikke noe fengsel",
       "type": "object",
@@ -494,10 +494,10 @@
         "navn": {"$ref" : "#/definitions/personnavn"},
         "foedselsdato": {"type" : "string", "format" : "date"},
         "kjoenn": {"$ref" : "#/definitions/kjoenn"},
-        "statsborgerskap": {"type": "array", "items": {"$ref": "#/definitions/land"}, "minContains": 0},
-        "foedselsnummer": {"type": "array", "items": {"$ref": "#/definitions/foedselsnummer"}, "minContains": 0},
-        "sspNummer": {"type": "array", "items": {"$ref": "#/definitions/sspNummer"}, "minContains": 0},
-        "dNummer": {"type": "array", "items": {"$ref": "#/definitions/dNummer"}, "minContains": 0},
+        "statsborgerskap": {"type": "array", "items": {"$ref": "#/definitions/land"}},
+        "foedselsnummer": {"type": "array", "items": {"$ref": "#/definitions/foedselsnummer"}},
+        "sspNummer": {"type": "array", "items": {"$ref": "#/definitions/sspNummer"}},
+        "dNummer": {"type": "array", "items": {"$ref": "#/definitions/dNummer"}},
         "adresseGradering": {"$ref": "#/definitions/adresseGradering"},
         "personAdresse": {"$ref": "#/definitions/personAdresse"}
       },
@@ -608,12 +608,12 @@
     "involverteStraffesak": {
       "description": "siktede, vitner og fornærmede",
         "type": "object",
-        "additionalProperties": true,
+        "additionalProperties": false,
         "properties": {
           "siktet": {"$ref": "#/definitions/personMini"},
-          "medsiktede": {"type": "array", "items": {"$ref": "#/definitions/personForetakFull"}, "minContains": 0},
-          "fornaermede": {"type": "array", "items": {"$ref": "#/definitions/personForetakFull"}, "minContains": 0},
-          "vitne": {"type": "array", "items": {"$ref": "#/definitions/personFull"}, "minContains": 0}
+          "medsiktede": {"type": "array", "items": {"$ref": "#/definitions/personForetakFull"}},
+          "fornaermede": {"type": "array", "items": {"$ref": "#/definitions/personForetakFull"}},
+          "vitne": {"type": "array", "items": {"$ref": "#/definitions/personFull"}}
       },
       "required": ["medsiktede", "fornaermede", "vitne"]
     },
@@ -663,7 +663,7 @@
 	  "description": "Straffesak med også krimtype og lovbud, grunnlag samt de involverte",
       "type": "object",
       "required": ["straffesaksnummer","detaljer", "involverte"],
-      "additionalProperties": true,
+      "additionalProperties": false,
       "properties": {
         "straffesaksnummer": {"type": "string"},
         "detaljer": {"$ref": "#/definitions/straffesakDetaljer"},
