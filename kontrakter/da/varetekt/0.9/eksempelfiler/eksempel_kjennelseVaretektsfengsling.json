@@ -1,133 +1,187 @@
 {
-	"varetektKjennelse": {
-		"embete": {
-			"navn": "Buskerud tingrett",
-			"orgnr": "String"
-		},
-		"aktoerer": {
-			"avsender": {
-				"id": 1,
-				"foedselsdato": "1982-05-30+0200",
-				"etternavn": "Saksbehandler",
-				"fornavn": "Litt",
-				"mellomnavn": "Streng",
-				"tittel": "Saksbehandler"
-			},
-			"dommer": {
-				"id": 2,
-				"foedselsdato": "1978-05-30+0200",
-				"etternavn": "Dommer",
-				"fornavn": "Rettferdig",
-				"mellomnavn": "",
-				"tittel": "Tingrettsdommer"
-			},
-			"saksbehandler": {
-				"id": 1,
-				"foedselsdato": "1982-05-30+0200",
-				"etternavn": "Saksbehandler",
-				"fornavn": "Litt",
-				"mellomnavn": "Streng",
-				"tittel": "Saksbehandler"
-			}
-		},
-		"kravid": "16972F79-0A35-4EC7-90A1-81E4EFAE1E7E",
-		"siktede": {			
-			"fNr": "22097935495",
-			"yrke": "Sjåfør",
-			"epost": "kiwi@no",						
-			"formue": 40000,
-			"kjoenn": "M",
-			"tittel": "String",					
-			"inntekt": 290000,
-			"fornavn": "Stor",			
-			"mellomnavn": "Moden",			
-			"etternavn": "Kiwi",						
-			"foedselsdato": "1979-08-25+0200",
-			"nasjonalitet": "NOR",
-			"telefonnummer": "+4780808080",
-			"adresse": {
-				"kommune": "Oslo kommune",
-				"landkode": "NOR",
-				"poststed": "Oslo",
-				"postnummer": "0183",
-				"adresselinje": "Torggata 101",
-				"kommunenummer": "0301"
-			},	
-			"forsvarer": {
-				"epost": "luring@forsvar.com",
-				"tittel": "Forsvarer",
-				"fornavn": "Lur",
-				"etternavn": "Forsvarer",				
-				"foedselsdato": "String",
-				"telefonnummer": "+4790909090"
-			},
-			"verge": {
-				"epost": "String",
-				"tittel": "Verge",
-				"fornavn": "Passe",
-				"etternavn": "På",				
-				"foedselsdato": "1959-08-25+0200",
-				"telefonnummer": "+47707070"
-			}
-		},
-		"dokumentListe": {
-			"dokumentId": "??",
-			"dokumentforsendelse": {
-				"mimeType": "application/pdf",
-				"sjekksum": "1a2eced0-5792-4431-ae5c-ba0942c7e7ac",
-				"uri": "9c3eced0-5792-4431-ae5c-ba0942c7e7bb"
-			},
-			"dokumentNummer": "14,01,03",
-			"overskrift": "Påtegning varetektsfengsling",
-			"skrevetDato": "2022-07-06+0200"
-		},
-		"saksInformsjon": {
-			"saksnummer": "22-025462ENE-TBUS/TDRA",
-			"rettsmoeteTidFra": "2022-07-06T10:00:00+0200",
-			"rettsmoeteTidTil": "2022-07-06T14:00:00+0200",
-			"paagripelseDato": "2022-06-20+0200",			
-			"paategningsDato": "2022-07-05+0200",
-			"siktelseDato": "2022-06-22+0200",
-			"rettsmoeteTid": "2022-07-06T10:00:00+0200",
-			"avgjoerelse": {
-				"avgjoerelseType": "AA_KJE_FENG171",
-				"avsagtDato": "2022-07-06+0200",
-				"restriksjoner": {
-					"restriksjonsType": "BREV_OG_BESOEKSFORBUD",
-					"fraDato": "2022-07-07+0200",
-					"tilDato": "2022-07-21+0200",
-					"lovbud": {
-						"lovbudsId": "??",
-						"lovbudsReferanse": "§ 186 annet ledd"					
-					}					
-				},
-				"isolasjonsKrav": {
-					"isolasjonsType": "FULL",
-					"fraDato": "2022-07-07+0200",
-					"tilDato": "2022-07-14+0200",
-					"lovbud": {
-						"lovbudsId": "??",
-						"lovbudsReferanse": "strpl § 170 a",
-						"lovbudsNummer": "String"
-					}					
-				},
-				"fengsling": {
-					"fraDato": "2022-07-07+0200",
-					"tilDato": "2022-08-21+0200",
-					"fengslingsFristDato": "String",
-					"lovbud": {
-						"lovbudsId": "??",
-						"lovbudsReferanse": "strpl § 184, jf. § 185, jf. § 171 nr. 2"
-					},
-					"merknad": "",
-					"anke": {
-						"merknad": "4 uker er altfor lenge - jeg er uskyldig",
-						"anketDato": "2022-07-06+0200",
-						"anketAv": "SIKTET",
-						"oppsettendeVirkning": true
-					}
-				}
-			}			
-		}
-	}
+  "melding": "VARETEKT_KJENNELSE",
+  "forsendelse": {
+    "meldingsId": "2CB6929E-DE3F-49A4-8AE3-9625640DF0AA",
+    "sendtTid": "2022-07-06T16:35:00+02:00",
+    "avsender": {
+      "organisasjon": {
+        "orgnr": "826726342",
+        "navn": "Buskerud tingrett"
+      },
+      "avsender": {
+        "id": 1,
+        "foedselsdato": "2001-12-17",
+        "etternavn": "Saksbehandler",
+        "fornavn": "Litt",
+        "mellomnavn": "Streng",
+        "tittel": "Saksbehandler"
+      }
+    },
+    "mottaker": {
+      "organisasjon": {
+        "navn": "Innlandet politidistrikt",
+        "orgnr": "983997953"
+      }
+    }
+  },
+  "aktoerer": {
+    "dommer": {
+      "id": 2,
+      "foedselsdato": "2001-12-17",
+      "etternavn": "Dommersen",
+      "fornavn": "Lars",
+      "mellomnavn": "D.",
+      "tittel": "Dommerfullmeltig"
+    },
+    "saksbehandler": {
+      "id": 1,
+      "foedselsdato": "2001-12-17",
+      "etternavn": "Saksbehandler",
+      "fornavn": "Litt",
+      "mellomnavn": "R.",
+      "tittel": "Saksbehandler"
+    }
+  },
+  "siktede": {
+    "foedselsnummer": "14846399381",
+    "fornavn": "Morsom",
+    "etternavn": "Kivi",
+    "mellomnavn": "T.",
+    "yrke": "Sjåfør",
+    "epost": [
+      "kiwi@mail.no"
+    ],
+    "telefonnummer": ["+4780808080"],
+    "kjoenn": "MANN",
+    "tittel": "Senior Sjåfør",
+    "adresse": {
+      "land": {
+        "kode": "NOR",
+        "navn": "Norge"
+      },
+      "poststed": "ÅRDAL I RYFYLKE",
+      "postnummer": "4137",
+      "adresselinjer": ["Bjørklund 21"],
+      "kommune": "Hjelmeland",
+      "kommunenummer": "1133"
+    },
+    "foedselsdato": "1963-04-14",
+    "nasjonalitet": {
+      "kode": "NOR",
+      "navn": "Norge"
+    },
+    "forsvarer": {
+      "epost": "luring@forsvar.com",
+      "tittel": "Forsvarer",
+      "fornavn": "Lur",
+      "etternavn": "Forsvarer",
+      "foedselsdato": "2001-12-17",
+      "telefonnummer": "+4790909090"
+    },
+    "verge": [
+      {
+        "epost": "pp@meil.com",
+        "tittel": "Verge",
+        "fornavn": "Passe",
+        "etternavn": "På",
+        "foedselsdato": "1959-08-25",
+        "telefonnummer": "+4770707070"
+      }
+    ]
+  },
+  "dokumentListe": [
+    {
+      "dokumentId": "9c3eced0-5792-4431-ae5c-ba0942c7e7bb",
+      "dokumentforsendelse": {
+        "mimeType": "application/pdf",
+        "sjekksum": "1a2eced0-5792-4431-ae5c-ba0942c7e7ac",
+        "uri": "9c3eced0-5792-4431-ae5c-ba0942c7e7bb"
+      },
+      "dokumentNummer": "14,01,03",
+      "overskrift": "Påtegning varetektsfengsling",
+      "skrevetDato": "2022-07-06"
+    }
+  ],
+  "saksInformasjon": {
+    "saksnummer": "22-025462ENE-TBUS/TDRA",
+    "rettsmoeteTidFra": "2022-07-06T10:00:00+02:00",
+    "rettsmoeteTidTil": "2022-07-06T14:00:00+02:00",
+    "paagripelseDato": "2022-06-20",
+    "paategningsDato": "2022-07-05",
+    "siktelseDato": "2022-06-22",
+    "krav": [
+      {
+        "kravid": "16972F79-0A35-4EC7-90A1-81E4EFAE1E7E",
+        "kravType": "Fengsling {debug: Riktig?? FHFengsling}",
+        "avgjoerelse": {
+          "avgjoerelseId": "A7972F79-0A35-4EC7-90A1-81E4EFAE1E31",
+          "avgjoerelseType": "AA_KJE_FENG171",
+          "avsagtDato": "2022-07-05",
+          "restriksjoner": [
+            {
+              "restriksjonsType": "BREV_OG_BESOEKSFORBUD",
+              "fraDato": "2022-07-06",
+              "tilDato": "2022-07-20",
+              "lovbud": {
+                "lovbudsId": "String",
+                "lovbudStreng": "Strpl. § 186, 2.ledd 1.pkt.",
+                "lovbudsNummer": "String"
+              },
+              "anke": {
+                "merknad": "Brev og besøkskontroll burde være nok for hele perioden",
+                "anketDato": "2022-07-06",
+                "anketAv": "SIKTET",
+                "oppsettendeVirkning": true
+              }
+            },
+            {
+              "restriksjonsType": "BREV_OG_BESOEKSKONTROLL",
+              "fraDato": "2022-07-21",
+              "tilDato": "2022-08-06",
+              "lovbud": {
+                "lovbudsId": "String",
+                "lovbudStreng": "Strpl. § 186, 2.ledd 1.pkt.",
+                "lovbudsNummer": "String"
+              }
+            }
+          ],
+          "isolasjonsKrav": [
+            {
+              "isolasjonsType": "FULL",
+              "fraDato": "2022-07-06",
+              "tilDato": "2022-08-06",
+              "lovbud": {
+                "lovbudsId": "String",
+                "lovbudStreng": "Strpl. § 186a",
+                "lovbudsNummer": "String"
+              },
+              "anke": {
+                "merknad": "Full isolasjon i hele perioden var litt vel strengt",
+                "anketDato": "2022-07-06",
+                "anketAv": "SIKTET",
+                "oppsettendeVirkning": true
+              }
+            }
+          ],
+          "fengsling": {
+            "fraDato": "2022-07-06",
+            "tilDato": "2022-08-06",
+            "fengslingsFristDato": "2022-07-06",
+            "lovbud": {
+              "lovbudsId": "String {debug: // Usikker på denne}",
+              "lovbudStreng": "strpl § 184, jf. § 185, jf. § 171 nr. 2",
+              "lovbudsNummer": "String{debug: // Usikker på denne}"
+            },
+            "merknad": "Kiwi må i varetekt så fort som fy",
+            "anke": {
+              "merknad": "4 uker er altfor lenge - jeg er uskyldig",
+              "anketDato": "2022-07-06",
+              "anketAv": "SIKTET",
+              "oppsettendeVirkning": true
+            }
+          }
+        }
+      }
+    ]
+  }
 }
