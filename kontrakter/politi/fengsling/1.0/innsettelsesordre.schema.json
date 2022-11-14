@@ -1,20 +1,20 @@
 {
-  "$schema": "http://json-schema.org/schema#",
-  "$id": "politi/fengsling/1.0/innsettelsesordre",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://politiet.no/politi/fengsling/1.0/innsettelsesordre",
   "description": "Innsettelsesordre fra påtale til fengsel KDI, med ordre fra påtale eller kjennelse. Schema versjon 2020-12",
   "type": "object",
   "properties": {
     "melding": {"type": "string"},
     "forsendelse": {"$ref": "#/definitions/forsendelse"},
     "hovedStraffesaksnummer": {"type": "string"},
+    "ordreId": {"type": "string"},
     "kontaktPersonKDI": {"$ref": "#/definitions/ansatt"},
     "varetektSyklusId": {"type": "string"},
-    "ordreId": {"type": "string"},
+    "personVaretektInfo": {"$ref": "#/definitions/personVaretektInfo"},
     "ordreEllerKjennelseVaretekt": {"$ref": "#/definitions/ordreEllerKjennelseVaretekt"},
     "paagrepetTidspunkt": {"type": "string","format": "date-time"},
-    "personVaretektInfo": {"$ref": "#/definitions/personVaretektInfo"},
     "paategningsdokumentRef": {"$ref": "#/definitions/dokumentRef"},
-    "dokumenter": {"type": "array", "items": {"$ref" : "#/definitions/dokument"}, "minContains": 0}
+    "dokumenter": {"type": "array", "items": {"$ref" : "#/definitions/dokument"}}
   },
   "required": [
     "melding",
@@ -272,8 +272,8 @@
       "properties": {
         "merknad": {"type": "string"},
         "fengslingKjennelse": {"$ref": "#/definitions/fengslingKjennelse", "description": "Førstegangsfengslinger vil alltid inneholde fengslingskjennelse, men senere kan det komme med kun restriksjoner, isolasjon"},
-        "restriksjoner": {"type" : "array", "items": {"$ref": "#/definitions/restriksjonKjennelse"}, "minContains": 0},
-        "isolasjon": {"type" : "array", "items": {"$ref": "#/definitions/isolasjonKjennelse"}, "minContains": 0}
+        "restriksjoner": {"type" : "array", "items": {"$ref": "#/definitions/restriksjonKjennelse"}},
+        "isolasjon": {"type" : "array", "items": {"$ref": "#/definitions/isolasjonKjennelse"}}
       }
     },
 
@@ -293,7 +293,7 @@
         "lovbudId" : {"type" : "string"},
         "lovbudStreng" : {"type" : "string"},
         "gjengivelse" : {"type" : "string"},
-        "hjemmel" : {"type" : "array", "items": {"$ref": "#/definitions/lovreferanse"}, "minContains": 0},
+        "hjemmel" : {"type" : "array", "items": {"$ref": "#/definitions/lovreferanse"}},
         "strafferamme": {"type": "integer", "description": "Antall måneder"}
       },
       "required" : ["lovbudStreng", "gjengivelse", "hjemmel"],
@@ -560,10 +560,10 @@
         "navn": {"$ref" : "#/definitions/personnavn"},
         "foedselsdato": {"description": "Dato", "type" : "string", "format" : "date-time"},
         "kjoenn": {"$ref" : "#/definitions/kjoenn"},
-        "statsborgerskap": {"type": "array", "items": {"$ref": "#/definitions/land"}, "minContains": 0},
-        "foedselsnummer": {"type": "array", "items": {"$ref": "#/definitions/foedselsnummer"}, "minContains": 0},
-        "sspNummer": {"type": "array", "items": {"$ref": "#/definitions/sspNummer"}, "minContains": 0},
-        "dNummer": {"type": "array", "items": {"$ref": "#/definitions/dNummer"}, "minContains": 0},
+        "statsborgerskap": {"type": "array", "items": {"$ref": "#/definitions/land"}},
+        "foedselsnummer": {"type": "array", "items": {"$ref": "#/definitions/foedselsnummer"}},
+        "sspNummer": {"type": "array", "items": {"$ref": "#/definitions/sspNummer"}},
+        "dNummer": {"type": "array", "items": {"$ref": "#/definitions/dNummer"}},
         "adresseGradering": {"$ref": "#/definitions/adresseGradering"},
         "personAdresse": {"$ref": "#/definitions/personAdresse"}
       },
@@ -646,9 +646,9 @@
       "additionalProperties": true,
       "properties": {
         "siktet": {"$ref": "#/definitions/personMini"},
-        "medsiktede": {"type": "array", "items": {"$ref": "#/definitions/personForetakFull"}, "minContains": 0},
-        "fornaermede": {"type": "array", "items": {"$ref": "#/definitions/personForetakFull"}, "minContains": 0},
-        "vitne": {"type": "array", "items": {"$ref": "#/definitions/personFull"}, "minContains": 0}
+        "medsiktede": {"type": "array", "items": {"$ref": "#/definitions/personForetakFull"}},
+        "fornaermede": {"type": "array", "items": {"$ref": "#/definitions/personForetakFull"}},
+        "vitne": {"type": "array", "items": {"$ref": "#/definitions/personFull"}}
       },
       "required": ["medsiktede", "fornaermede", "vitne"]
     },
