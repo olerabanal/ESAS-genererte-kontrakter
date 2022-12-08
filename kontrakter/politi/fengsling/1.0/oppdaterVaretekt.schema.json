@@ -1,14 +1,15 @@
 {
-  "$schema": "http://json-schema.org/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://politiet.no/politi/fengsling/1.0/oppdaterVaretekt",
   "description": "Kjennelse fra domstolen eller oppdatering av restriksjoner/isolasjon fra påtale",
   "type": "object",
   "properties": {
     "melding": {"type": "string"},
     "forsendelse": {"$ref": "#/definitions/forsendelse"},
     "hovedStraffesaksnummer": {"type": "string"},
+    "ordreId": {"type": "string"},
     "varetektSyklusId": {"type": "string"},
     "personIVaretekt": {"$ref": "#/definitions/personFull"},
-    "ordreId": {"type": "string"},
     "ordreEllerKjennelseVaretekt": {"$ref": "#/definitions/ordreEllerKjennelseVaretekt"},
     "paagrepetTidspunkt": {"type": "string","format": "date-time"},
     "dokumenter": {"type": "array", "items": {"$ref" : "#/definitions/dokument"}, "minContains": 0}
@@ -615,7 +616,7 @@
     "involverteStraffesak": {
       "description": "siktede, vitner og fornærmede",
       "type": "object",
-      "additionalProperties": true,
+      "additionalProperties": false,
       "properties": {
         "siktet": {"$ref": "#/definitions/personMini"},
         "medsiktede": {"type": "array", "items": {"$ref": "#/definitions/personForetakFull"}, "minContains": 0},
@@ -648,7 +649,7 @@
 	  "description": "Straffesak med også krimtype og lovbud, grunnlag samt de involverte",
       "type": "object",
       "required": ["straffesaksnummer","detaljer", "involverte"],
-      "additionalProperties": true,
+      "additionalProperties": false,
       "properties": {
         "straffesaksnummer": {"type": "string"},
         "detaljer": {"$ref": "#/definitions/straffesakDetaljer"},
