@@ -325,7 +325,6 @@
     },
     "dokument": {
       "description": "Et dokument har en ID for at det skal kunne refereres til fra andre steder.",
-      "type": "object",
       "properties": {
         "internId": {
           "description": "Referanse/journal nummer fra BL, Lovisa eller KODA/Kompis",
@@ -481,8 +480,8 @@
         "adresselinjer": {
           "type": "array",
           "items": {"type": "string","minLength": 1, "maxLength": 500},
-          "minContains": 1,
-          "maxContains": 4
+          "minItems": 1,
+          "maxItems": 4
         },
         "kommune": {"type": "string"},
         "kommunenummer": {
@@ -511,6 +510,11 @@
     "personIdentifikator": {
       "description": "Fødselsnummer, D-nummer eller SSP nummer.",
       "type": "object",
+      "properties": {
+        "foedselsnummer": {"$ref": "#/definitions/foedselsnummer"},
+        "sspNummer": {"$ref": "#/definitions/sspNummer"},
+        "dNummer": {"$ref": "#/definitions/dNummer"}
+      },
       "oneOf": [
         {
           "properties": {
