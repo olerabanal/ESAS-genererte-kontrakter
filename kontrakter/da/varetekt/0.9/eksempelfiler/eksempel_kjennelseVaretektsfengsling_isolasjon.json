@@ -125,30 +125,7 @@
           "avgjoerelseId": "A7972F79-0A35-4EC7-90A1-81E4EFAE1E31",
           "avgjoerelseType": "AA_KJE_FENG171",
           "avsagtDato": "2022-07-05",
-          "restriksjoner": [
-            {
-              "restriksjonsType": "BREV_OG_BESOEKSFORBUD",
-              "fraDato": "2022-07-06",
-              "tilDato": "2022-07-20",
-              "lovbud": {                
-                "lovbudStreng": "Strpl. § 186, 2.ledd 1.pkt."               
-              },
-              "anke": {
-                "merknad": "Brev og besøkskontroll burde være nok for hele perioden",
-                "anketDato": "2022-07-06",
-                "anketAv": "SIKTET",
-                "oppsettendeVirkning": true
-              }
-            },
-            {
-              "restriksjonsType": "BREV_OG_BESOEKSKONTROLL",
-              "fraDato": "2022-07-21",
-              "tilDato": "2022-08-06",
-              "lovbud": {
-                "lovbudStreng": "Strpl. § 186, 2.ledd 1.pkt."
-              }
-            }
-          ],
+          "restriksjoner": [ ],
           "isolasjonsKrav": [
             {
               "isolasjonsType": "FULL",

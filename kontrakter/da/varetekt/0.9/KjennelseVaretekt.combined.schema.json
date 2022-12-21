@@ -39,7 +39,7 @@
       "$ref": "#/definitions/saksInformasjon"
     }
   },
-  "required": ["melding", "forsendelse", "aktoerer", "siktede", "saksInformasjon"],
+  "required": ["melding", "forsendelse", "aktoerer", "siktede", "saksInformasjon", "dokumentListe"],
   "type": "object",
   "additionalProperties": false,   
   "definitions": {  
@@ -80,7 +80,7 @@
           "minItems": 1
         }
       },
-      "required": ["saksnummer", "rettsmoeteTidFra", "rettsmoeteTidTil", "paategningsDato","krav"],
+      "required": ["saksnummer", "rettsmoeteTidFra", "rettsmoeteTidTil", "paategningsDato", "krav"],
       "type": "object",
       "additionalProperties": false
     },
@@ -128,7 +128,7 @@
           "$ref": "#/definitions/fengsling"
         }
       },
-      "required": ["avgjoerelseType", "avsagtDato","fengsling"],
+      "required": ["avgjoerelseType", "avsagtDato","fengsling", "restriksjoner", "isolasjonsKrav"],
       "type": "object",      
       "additionalProperties": false
     },
@@ -435,7 +435,7 @@
         "yrke": {"type": "string"},
         "formue": {"type": "integer"},
         "inntekt": {"type": "integer"},
-        "verge": {
+        "verger": {
           "type": "array",
           "description": "Referanse til person som er verge for denne personen.",
           "items": {
@@ -447,7 +447,7 @@
           "description": "Referanse til person som er forsvarer for den siktede."
         }
       },
-      "required": ["etternavn", "identitetsnummer", "tilleggsId" ],
+      "required": ["etternavn", "identitetsnummer", "tilleggsId", "epost", "telefonnummer", "verger" ],
       "type": "object",
       "additionalProperties": false
     },
