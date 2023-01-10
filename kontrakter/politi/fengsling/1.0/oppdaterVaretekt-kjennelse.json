@@ -40,7 +40,8 @@
       {
         "kode": "NOR",
         "navn": "Norge"
-      }],
+      }
+    ],
     "adresseGradering": "KLIENT_ADRESSE",
     "personAdresse": {
       "gradering": "KLIENT_ADRESSE",
@@ -98,7 +99,8 @@
             "fraDato": "2022-11-17T00:00:00",
             "tilDato": "2022-11-30T00:00:00"
           }
-        }],
+        }
+      ],
       "isolasjon": [
         {
           "domstol": {
@@ -114,7 +116,8 @@
             "fraDato": "2022-11-03T00:00:00",
             "tilDato": "2022-11-16T00:00:00"
           }
-        }]
+        }
+      ]
     }
   },
   "dokumenter": [
@@ -140,5 +143,6 @@
         "uri": "file:///asdfaasdfsdf",
         "sjekksum": "234asass"
       }
-    }]
+    }
+  ]
 }

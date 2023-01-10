@@ -25,7 +25,13 @@
       "$ref": "#/definitions/vedlegg"
     }
   },
-  "required": ["melding", "forsendelse", "hovedStraffesaksnummer", "begjaeringVaretekt", "vedlegg"],
+  "required": [
+    "melding",
+    "forsendelse",
+    "hovedStraffesaksnummer",
+    "begjaeringVaretekt",
+    "vedlegg"
+  ],
   "additionalProperties": false,
 
   "definitions": {
@@ -96,7 +102,7 @@
         },
         "isolasjon": {
           "type": "array",
-          "items": {"$ref": "#/definitions/isolasjonBegjaering"}
+          "items": { "$ref": "#/definitions/isolasjonBegjaering" }
         }
       }
     },
@@ -105,22 +111,25 @@
       "type": "object",
       "description": "Informasjon fengslingen",
       "properties": {
-        "varetektsType": {"$ref": "#/definitions/varetektsType"},
-        "forlengelse": {"$ref": "#/definitions/forlengelseInfo", "description": "Hvis det er en forlengelse så er dette elementet med"},
+        "varetektsType": { "$ref": "#/definitions/varetektsType" },
+        "forlengelse": {
+          "$ref": "#/definitions/forlengelseInfo",
+          "description": "Hvis det er en forlengelse så er dette elementet med"
+        },
         "hovedforhandling": {
           "type": "object",
           "description": "Hvis de tror hovedforhandling kommer før varetektsfengsling er ferdig",
-            "properties": {
-              "beskrivelse": {
-                "type": "string"
-              },
-              "berammetDato": {
-                "type": "string",
-                "format": "date"
-              }
+          "properties": {
+            "beskrivelse": {
+              "type": "string"
             },
-            "required": ["beskrivelse"],
-            "additionalProperties": false
+            "berammetDato": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          "required": ["beskrivelse"],
+          "additionalProperties": false
         },
         "paagrepetTidspunkt": {
           "type": "string",
@@ -130,10 +139,12 @@
           "type": "object",
           "properties": {
             "dato": {
-              "type": "string", "format": "date"
+              "type": "string",
+              "format": "date"
             },
             "tid": {
-              "type": "string", "format": "time"
+              "type": "string",
+              "format": "time"
             },
             "sted": {
               "type": "string"
@@ -148,7 +159,7 @@
           "properties": {
             "status": {
               "type": "string",
-              "enum": ["VARSLET_DOK","IKKE_ONSKET_FORSVARER"]
+              "enum": ["VARSLET_DOK", "IKKE_ONSKET_FORSVARER"]
             },
             "beskrivelse": {
               "type": "string"
@@ -158,11 +169,11 @@
           "additionalProperties": false
         },
         "varsleBistandsadvokat": {
-          "type":"string"
+          "type": "string"
         },
         "begrenseOffentlighet": {
-          "type":"string",
-          "enum":["LUKKEDE_DOERER", "FORBUD_GJENGIVELSE"]
+          "type": "string",
+          "enum": ["LUKKEDE_DOERER", "FORBUD_GJENGIVELSE"]
         },
         "ansvarligPaatalejurist": {
           "$ref": "#/definitions/ansatt"
@@ -171,7 +182,11 @@
           "$ref": "#/definitions/ansatt"
         }
       },
-      "required": ["varetektsType", "paagrepetTidspunkt", "ansvarligPaatalejurist"],
+      "required": [
+        "varetektsType",
+        "paagrepetTidspunkt",
+        "ansvarligPaatalejurist"
+      ],
       "additionalProperties": false
     },
 
@@ -250,19 +265,22 @@
     "varetektsType": {
       "type": "string",
       "description": "Vanlig, eller brudd på vilkår",
-      "enum": [
-        "VANLIG",
-        "VILKAARSBRUDD"
-      ]
+      "enum": ["VANLIG", "VILKAARSBRUDD"]
     },
     "vilkaarsType": {
       "type": "string",
       "description": "Hvilket vilkår gjelder for varetektsfengslingen. 173 brukes ved vilkårsbrudd.",
       "enum": [
-        "STRPL170A_FORHOLSMESSIGHET", "STRPL171_1_UNNDRAGELSESFARE", "STRPL171_2_BEVISFORSPILLELSE",
-        "STRPL171_3_GJENTAGELSESFARE", "STRPL171_4_FYLDESTGJOERENDE_GRUNNER", "STRPL172_A_10_AAR",
+        "STRPL170A_FORHOLSMESSIGHET",
+        "STRPL171_1_UNNDRAGELSESFARE",
+        "STRPL171_2_BEVISFORSPILLELSE",
+        "STRPL171_3_GJENTAGELSESFARE",
+        "STRPL171_4_FYLDESTGJOERENDE_GRUNNER",
+        "STRPL172_A_10_AAR",
         "STRPL172_B_GROV_VOLD",
-        "STRPL173A_A_UNNDRAGELSESFARE_VILK","STRPL173A_B_HINDRE_VILK", "STRPL173A_C_BEGJAERT_SIKTEDE"
+        "STRPL173A_A_UNNDRAGELSESFARE_VILK",
+        "STRPL173A_B_HINDRE_VILK",
+        "STRPL173A_C_BEGJAERT_SIKTEDE"
       ]
     },
     "vilkaar": {
@@ -301,7 +319,7 @@
         "land": {
           "$ref": "#/definitions/land"
         }
-        },
+      },
       "required": ["adresselinjer"],
       "additionalProperties": false
     },
@@ -358,7 +376,7 @@
           "type": "string"
         }
       },
-      "required": ["organisasjonsnummer","navn"],
+      "required": ["organisasjonsnummer", "navn"],
       "additionalProperties": false
     },
     "ansatt": {
@@ -368,7 +386,7 @@
         "brukeridentifikasjon": {
           "type": "string"
         },
-        "tittel":  {
+        "tittel": {
           "type": "string"
         },
         "navn": {
@@ -403,7 +421,12 @@
           "description": "Ønsket sted for rettsmøtet, f.eks. Brekstad i Trøndelag tingrett. Vil ikke bli implementert til å begynne med"
         }
       },
-      "required": ["meldingsId", "avsender", "mottakerOrganisasjon", "sendtTid"],
+      "required": [
+        "meldingsId",
+        "avsender",
+        "mottakerOrganisasjon",
+        "sendtTid"
+      ],
       "additionalProperties": false
     },
     "avsender": {
@@ -441,7 +464,7 @@
     "anketAvType": {
       "type": "string",
       "description": "Hvem av partene har anket",
-      "enum": ["SIKTET","FORSVARER", "AKTOR"]
+      "enum": ["SIKTET", "FORSVARER", "AKTOR"]
     },
     "avgjoerelseDomstol": {
       "type": "object",
@@ -495,20 +518,17 @@
           "$ref": "#/definitions/periodeStartAntall"
         }
       },
-      "required": ["id","isolasjonsType","lovbudEnkel","periode"]
+      "required": ["id", "isolasjonsType", "lovbudEnkel", "periode"]
     },
     "isolasjonsType": {
       "type": "string",
       "description": "Liste over de ulike isolasjonstyper",
-      "enum": [
-        "FULL_ISOLASJON",
-        "DELVIS_ISOLASJON"
-      ]
+      "enum": ["FULL_ISOLASJON", "DELVIS_ISOLASJON"]
     },
     "periodeStartAntall": {
       "type": "object",
       "description": "Periode for fensling eller restriksjon, bruker ikke å spesifisere startdato, derfor lengde og antall dager inn i fengslingen for restriksjoner",
-      "required": ["startDag","antallDager"],
+      "required": ["startDag", "antallDager"],
       "additionalProperties": false,
       "properties": {
         "startDag": {
@@ -521,12 +541,7 @@
     },
     "restriksjonBegjaering": {
       "type": "object",
-      "required": [
-        "id",
-        "restriksjonsType",
-        "lovbudEnkel",
-        "periode"
-      ],
+      "required": ["id", "restriksjonsType", "lovbudEnkel", "periode"],
       "additionalProperties": false,
       "properties": {
         "id": {
@@ -647,7 +662,7 @@
     "adresseGradering": {
       "type": "string",
       "description": "Samme enum som folkeregisteret, ugradert hvis den ikke er gradert",
-      "enum": ["KLIENT_ADRESSE","FORTROLIG","STRENGT_FORTROLIG"]
+      "enum": ["KLIENT_ADRESSE", "FORTROLIG", "STRENGT_FORTROLIG"]
     },
     "personnavn": {
       "type": "object",
@@ -661,7 +676,7 @@
         "etternavn": {
           "type": "string"
         }
-        },
+      },
       "required": ["etternavn"],
       "additionalProperties": false
     },
@@ -744,8 +759,8 @@
         "adresse": {
           "$ref": "#/definitions/adresse"
         }
-        },
-      "required": ["internId","navn"],
+      },
+      "required": ["internId", "navn"],
       "additionalProperties": false
     },
     "foretakEnkel": {
@@ -762,14 +777,14 @@
         "navn": {
           "type": "string"
         }
-        },
-      "required": ["internId","navn"],
+      },
+      "required": ["internId", "navn"],
       "additionalProperties": false
     },
     "kjoenn": {
       "type": "string",
       "description": "Samme enum som folkeregisteret",
-      "enum": ["KVINNE","MANN"]
+      "enum": ["KVINNE", "MANN"]
     },
     "personForetak": {
       "type": "object",
@@ -784,7 +799,7 @@
       },
       "oneOf": [
         {
-          "properties":{
+          "properties": {
             "person": {
               "$ref": "#/definitions/person"
             }
@@ -793,7 +808,7 @@
           "required": ["person"]
         },
         {
-          "properties":{
+          "properties": {
             "foretak": {
               "$ref": "#/definitions/foretak"
             }
@@ -816,7 +831,7 @@
       },
       "oneOf": [
         {
-          "properties":{
+          "properties": {
             "personEnkel": {
               "$ref": "#/definitions/personEnkel"
             }
@@ -825,7 +840,7 @@
           "additionalProperties": false
         },
         {
-          "properties":{
+          "properties": {
             "foretakEnkel": {
               "$ref": "#/definitions/foretak"
             }
@@ -892,7 +907,13 @@
           "$ref": "#/definitions/personAdresse"
         }
       },
-      "required": ["internId","navn","foedselsdato", "statsborgerskap", "tilleggsId"],
+      "required": [
+        "internId",
+        "navn",
+        "foedselsdato",
+        "statsborgerskap",
+        "tilleggsId"
+      ],
       "additionalProperties": false
     },
     "personEnkel": {
@@ -911,14 +932,14 @@
           "format": "date"
         }
       },
-      "required": ["internId","navn"],
+      "required": ["internId", "navn"],
       "additionalProperties": false
     },
     "profesjonellPerson": {
       "type": "object",
       "description": "Advokater, tolker, sakkyndige vitner",
       "properties": {
-        "tittel":  {
+        "tittel": {
           "type": "string"
         },
         "navn": {
@@ -976,7 +997,7 @@
           "minItems": 1
         }
       },
-      "required": ["grunnlagstekst","basissaker"],
+      "required": ["grunnlagstekst", "basissaker"],
       "additionalProperties": false
     },
     "punktDetaljer": {
@@ -1011,10 +1032,10 @@
         "nummer": {
           "type": "string"
         },
-        "prinsipalPunkt":{
+        "prinsipalPunkt": {
           "$ref": "#/definitions/punktDetaljer"
         },
-        "subsidiaerPunkt":{
+        "subsidiaerPunkt": {
           "$ref": "#/definitions/punktDetaljer"
         }
       },
@@ -1108,7 +1129,7 @@
           "$ref": "#/definitions/involverteStraffesak"
         }
       },
-      "required": ["straffesaksnummer","detaljer", "involverte"]
+      "required": ["straffesaksnummer", "detaljer", "involverte"]
     },
     "straffesakDetaljer": {
       "type": "object",
@@ -1125,7 +1146,7 @@
           "$ref": "#/definitions/kodeverk"
         }
       },
-      "required": ["hendelse","statistikkgruppe"]
+      "required": ["hendelse", "statistikkgruppe"]
     },
     "dokument": {
       "type": "object",

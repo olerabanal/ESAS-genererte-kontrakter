@@ -33,7 +33,8 @@
       {
         "kode": "full_isolasjon",
         "lovreferanse": "§ 186a - Fullstendig isolasjon"
-      }],
+      }
+    ],
     "merknad": "Hvilke varianter av brev og besøksforbud og delvs/full isolasjon er mulig.\r\nHva med annet, hvilken lovhjemmel er det og hva kan det være. Det er ikke mulig strukturert i dag"
   },
   "paagrepetTidspunkt": "2022-06-02T08:47:21",
@@ -58,7 +59,8 @@
         {
           "kode": "NOR",
           "navn": "Norge"
-        }],
+        }
+      ],
       "verge": "person hvis det er aktuelt",
       "forsvarer": "forsvarerinformasjon hvis den finnes"
     },
@@ -114,8 +116,10 @@
                 {
                   "kode": "NOR",
                   "navn": "Norge"
-                }]
-            }],
+                }
+              ]
+            }
+          ],
           "fornaermede": [
             {
               "internId": 700892735,
@@ -133,8 +137,10 @@
                 {
                   "kode": "NOR",
                   "navn": "Norge"
-                }]
-            }]
+                }
+              ]
+            }
+          ]
         }
       },
       {
@@ -187,8 +193,10 @@
                 {
                   "kode": "NOR",
                   "navn": "Norge"
-                }]
-            }],
+                }
+              ]
+            }
+          ],
           "vitner": [
             {
               "internId": 700892688,
@@ -206,8 +214,10 @@
                 {
                   "kode": "ARM",
                   "navn": "Armenia"
-                }]
-            }]
+                }
+              ]
+            }
+          ]
         }
       },
       {
@@ -258,8 +268,10 @@
                 {
                   "kode": "ITA",
                   "navn": "Italia"
-                }]
-            }]
+                }
+              ]
+            }
+          ]
         }
       },
       {
@@ -310,10 +322,13 @@
                 {
                   "kode": "NOR",
                   "navn": "Norge"
-                }]
-            }]
+                }
+              ]
+            }
+          ]
         }
-      }]
+      }
+    ]
   },
   "paategningsdokumentRef": "referanse til påtegningsdokument i dokumentlisten nedenfor",
   "dokumenter": "lister over dokumenter vedlagt format som tidligere"
