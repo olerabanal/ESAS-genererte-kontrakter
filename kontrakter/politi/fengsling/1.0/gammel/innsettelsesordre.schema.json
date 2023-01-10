@@ -3,7 +3,7 @@
 
   "type": "object",
   "properties": {
-	  "innsettelsesordre": {"$ref": "#/$defs/innsettelsesordre"}
+    "innsettelsesordre": { "$ref": "#/$defs/innsettelsesordre" }
   },
   "additionalProperties": false,
 
@@ -22,26 +22,31 @@
       ],
       "additionalProperties": false,
       "properties": {
-        "forsendelse": {"$ref": "#/references/forsendelse"},
-        "hovedStraffesaksnummer": {"type": "string"},
-        "kontaktPersonKDI": {"$ref": "#/references/ansatt"},
-        "varetektSyklusId": {"type": "string"},
-        "ordreId": {"type": "string"},
-        "ordreKjennelse": {"oneOf": [{"$ref": "#/references/ordrePaataleOneOf"},{"$ref": "#/references/kjennelseVaretektOneOf"}]},
-        "paagrepetTidspunkt": {"type": "string","format": "date-time"},
-        "personVaretektInfo": {"$ref": "#/$defs/personVaretektInfo"},
-        "paategningsdokumentRef": {"$ref": "#/references/dokumentRef"},
-        "dokumenter": {"type": "array", "items": {"$ref" : "#/references/dokument"}}
+        "forsendelse": { "$ref": "#/references/forsendelse" },
+        "hovedStraffesaksnummer": { "type": "string" },
+        "kontaktPersonKDI": { "$ref": "#/references/ansatt" },
+        "varetektSyklusId": { "type": "string" },
+        "ordreId": { "type": "string" },
+        "ordreKjennelse": {
+          "oneOf": [
+            { "$ref": "#/references/ordrePaataleOneOf" },
+            { "$ref": "#/references/kjennelseVaretektOneOf" }
+          ]
+        },
+        "paagrepetTidspunkt": { "type": "string", "format": "date-time" },
+        "personVaretektInfo": { "$ref": "#/$defs/personVaretektInfo" },
+        "paategningsdokumentRef": { "$ref": "#/references/dokumentRef" },
+        "dokumenter": {
+          "type": "array",
+          "items": { "$ref": "#/references/dokument" }
+        }
       }
     },
 
     "personVaretektInfo": {
       "title": "personVaretektInfo",
       "type": "object",
-      "required": [
-        "personVaretekt",
-        "straffesaker"
-      ],
+      "required": ["personVaretekt", "straffesaker"],
       "additionalProperties": false,
       "properties": {
         "personVaretekt": {
@@ -60,14 +65,30 @@
       }
     }
   },
- "references": {
-    "ansatt" : {"$ref" : "../../felles/1.0/basistyper.schema.json#/$defs/ansatt"},
-    "dokument": {"$ref": "../../felles/1.0/dokument.schema.json#/$defs/dokument"},
-    "dokumentRef": {"$ref": "../../felles/1.0/dokument.schema.json#/$defs/dokumentRef"},
-    "forsendelse": {"$ref": "../../felles/1.0/forsendelse.schema.json#/$defs/forsendelse"},
-    "kjennelseVaretektOneOf": {"$ref": "../../felles/1.0/varetekt.schema.json#/$defs/kjennelseVaretektOneOf"},
-    "ordrePaataleOneOf": {"$ref": "../../felles/1.0/varetekt.schema.json#/$defs/ordrePaataleOneOf"},
-    "personFull": {"$ref": "../../felles/1.0/person.schema.json#/$defs/personFull"},
-    "straffesakLovbudInvolverte": {"$ref": "../../felles/1.0/straffesak.schema.json#/$defs/straffesakLovbudInvolverte"}
+  "references": {
+    "ansatt": {
+      "$ref": "../../felles/1.0/basistyper.schema.json#/$defs/ansatt"
+    },
+    "dokument": {
+      "$ref": "../../felles/1.0/dokument.schema.json#/$defs/dokument"
+    },
+    "dokumentRef": {
+      "$ref": "../../felles/1.0/dokument.schema.json#/$defs/dokumentRef"
+    },
+    "forsendelse": {
+      "$ref": "../../felles/1.0/forsendelse.schema.json#/$defs/forsendelse"
+    },
+    "kjennelseVaretektOneOf": {
+      "$ref": "../../felles/1.0/varetekt.schema.json#/$defs/kjennelseVaretektOneOf"
+    },
+    "ordrePaataleOneOf": {
+      "$ref": "../../felles/1.0/varetekt.schema.json#/$defs/ordrePaataleOneOf"
+    },
+    "personFull": {
+      "$ref": "../../felles/1.0/person.schema.json#/$defs/personFull"
+    },
+    "straffesakLovbudInvolverte": {
+      "$ref": "../../felles/1.0/straffesak.schema.json#/$defs/straffesakLovbudInvolverte"
+    }
   }
 }
