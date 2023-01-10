@@ -28,7 +28,6 @@
   "required": ["melding", "forsendelse", "hovedStraffesaksnummer", "begjaeringVaretekt", "vedlegg"],
   "additionalProperties": false,
 
-
   "definitions": {
     "begjaeringVaretekt": {
       "type": "object",
@@ -477,7 +476,7 @@
           "$ref": "#/definitions/anke"
         }
       },
-      "required": ["fengsling", "domstol"],
+      "required": ["fengsling", "domstol"]
     },
     "isolasjonBegjaering": {
       "type": "object",
@@ -1183,4 +1182,3 @@
     }
   }
 }
-
