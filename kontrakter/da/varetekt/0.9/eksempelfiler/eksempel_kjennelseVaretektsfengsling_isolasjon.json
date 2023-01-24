@@ -44,17 +44,15 @@
     }
   },
   "siktede": {
-    "identitetsnummer": {	  
-	  "foedselsnummer": "14846399381"
-	},
-	"tilleggsId": [],
+    "identitetsnummer": {
+      "foedselsnummer": "14846399381"
+    },
+    "tilleggsId": [],
     "fornavn": "Morsom",
     "etternavn": "Kivi",
     "mellomnavn": "T.",
     "yrke": "Sjåfør",
-    "epost": [
-      "kiwi@mail.no"
-    ],
+    "epost": ["kiwi@mail.no"],
     "telefonnummer": ["+4780808080"],
     "kjoenn": "MANN",
     "tittel": "Senior Sjåfør",
@@ -107,7 +105,7 @@
       "kategori": {
         "kode": "DOKUMENTKATEGORI#RETTSBOK#1900-01-01",
         "navn": "Rettsbok"
-      }      
+      }
     }
   ],
   "saksInformasjon": {
@@ -125,7 +123,7 @@
           "avgjoerelseId": "A7972F79-0A35-4EC7-90A1-81E4EFAE1E31",
           "avgjoerelseType": "AA_KJE_FENG171",
           "avsagtDato": "2022-07-05",
-          "restriksjoner": [ ],
+          "restriksjoner": [],
           "isolasjonsKrav": [
             {
               "isolasjonsType": "FULL",

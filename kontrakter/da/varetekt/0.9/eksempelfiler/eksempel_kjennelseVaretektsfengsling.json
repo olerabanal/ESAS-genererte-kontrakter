@@ -44,17 +44,15 @@
     }
   },
   "siktede": {
-    "identitetsnummer": {	  
-	  "foedselsnummer": "14846399381"
-	},
-	"tilleggsId": [],
+    "identitetsnummer": {
+      "foedselsnummer": "14846399381"
+    },
+    "tilleggsId": [],
     "fornavn": "Morsom",
     "etternavn": "Kivi",
     "mellomnavn": "T.",
     "yrke": "Sjåfør",
-    "epost": [
-      "kiwi@mail.no"
-    ],
+    "epost": ["kiwi@mail.no"],
     "telefonnummer": ["+4780808080"],
     "kjoenn": "MANN",
     "tittel": "Senior Sjåfør",
@@ -107,7 +105,7 @@
       "kategori": {
         "kode": "DOKUMENTKATEGORI#RETTSBOK#1900-01-01",
         "navn": "Rettsbok"
-      }      
+      }
     }
   ],
   "saksInformasjon": {
@@ -130,8 +128,8 @@
               "restriksjonsType": "BREV_OG_BESOEKSFORBUD",
               "fraDato": "2022-07-06",
               "tilDato": "2022-07-20",
-              "lovbud": {                
-                "lovbudStreng": "Strpl. § 186, 2.ledd 1.pkt."               
+              "lovbud": {
+                "lovbudStreng": "Strpl. § 186, 2.ledd 1.pkt."
               },
               "anke": {
                 "merknad": "Brev og besøkskontroll burde være nok for hele perioden",

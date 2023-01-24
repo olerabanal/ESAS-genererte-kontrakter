@@ -46,7 +46,8 @@
         {
           "kode": "NOR",
           "navn": "Norge"
-        }],
+        }
+      ],
       "adresseGradering": "KLIENT_ADRESSE",
       "personAdresse": {
         "gradering": "KLIENT_ADRESSE",
@@ -121,7 +122,8 @@
                   {
                     "kode": "NOR",
                     "navn": "Norge"
-                  }]
+                  }
+                ]
               }
             },
             {
@@ -141,7 +143,8 @@
                   {
                     "kode": "NOR",
                     "navn": "Norge"
-                  }],
+                  }
+                ],
                 "personAdresse": {
                   "adresse": {
                     "adresselinjer": ["Rugdeberget 2"],
@@ -158,7 +161,8 @@
                 "organisasjonsnummer": "984954808",
                 "navn": "Obs"
               }
-            }],
+            }
+          ],
           "fornaermede": [
             {
               "type": "person",
@@ -177,7 +181,8 @@
                   {
                     "kode": "NOR",
                     "navn": "Norge"
-                  }],
+                  }
+                ],
                 "personAdresse": {
                   "adresse": {
                     "adresselinjer": ["Bratsberggata 29"],
@@ -186,7 +191,8 @@
                   }
                 }
               }
-            }],
+            }
+          ],
           "vitne": [
             {
               "internId": "700892775",
@@ -203,7 +209,8 @@
                 {
                   "kode": "NOR",
                   "navn": "Norge"
-                }],
+                }
+              ],
               "personAdresse": {
                 "adresse": {
                   "adresselinjer": ["Øvstedalsvegen 87"],
@@ -211,7 +218,8 @@
                   "poststed": "TRESFJORD"
                 }
               }
-            }]
+            }
+          ]
         }
       },
       {
@@ -276,7 +284,8 @@
                   {
                     "kode": "NOR",
                     "navn": "Norge"
-                  }],
+                  }
+                ],
                 "personAdresse": {
                   "adresse": {
                     "adresselinjer": ["Rugdeberget 2"],
@@ -285,7 +294,8 @@
                   }
                 }
               }
-            }],
+            }
+          ],
           "fornaermede": [
             {
               "type": "foretak",
@@ -294,7 +304,8 @@
                 "organisasjonsnummer": "976878442",
                 "navn": "Rema 100"
               }
-            }],
+            }
+          ],
           "vitne": [
             {
               "internId": "700892688",
@@ -311,8 +322,10 @@
                 {
                   "kode": "ARM",
                   "navn": "Armenia"
-                }]
-            }]
+                }
+              ]
+            }
+          ]
         }
       },
       {
@@ -378,9 +391,11 @@
                   {
                     "kode": "ITA",
                     "navn": "Italia"
-                  }]
+                  }
+                ]
               }
-            }],
+            }
+          ],
           "vitne": []
         }
       },
@@ -447,7 +462,8 @@
                   {
                     "kode": "NOR",
                     "navn": "Norge"
-                  }],
+                  }
+                ],
                 "personAdresse": {
                   "adresse": {
                     "adresselinjer": ["Bratsberggata 29"],
@@ -456,10 +472,12 @@
                   }
                 }
               }
-            }],
+            }
+          ],
           "vitne": []
         }
-      }]
+      }
+    ]
   },
   "ordreEllerKjennelseVaretekt": {
     "type": "kjennelseVaretekt",
@@ -508,7 +526,8 @@
             "fraDato": "2022-11-17T00:00:00",
             "tilDato": "2022-11-30T00:00:00"
           }
-        }],
+        }
+      ],
       "isolasjon": [
         {
           "domstol": {
@@ -524,7 +543,8 @@
             "fraDato": "2022-11-03T00:00:00",
             "tilDato": "2022-11-16T00:00:00"
           }
-        }]
+        }
+      ]
     }
   },
   "paagrepetTidspunkt": "2022-11-03T10:19:53+02:00",
@@ -554,5 +574,6 @@
         "uri": "file:///asdfaasdfsdf",
         "sjekksum": "234asass"
       }
-    }]
+    }
+  ]
 }

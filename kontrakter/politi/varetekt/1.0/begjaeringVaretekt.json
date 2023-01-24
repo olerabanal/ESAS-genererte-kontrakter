@@ -1,8 +1,8 @@
 {
   "melding": "begjaeringVaretekt",
   "forsendelse": {
-    "meldingsId": "DAFA84E5-4A1F-42C1-B636-1331D8E52120",
-    "sendtTid": "2022-11-21T21:42:16+02:00",
+    "meldingsId": "DA94615B-CA38-4063-A447-07DA58031994",
+    "sendtTid": "2022-12-11T18:21:37+02:00",
     "avsender": {
       "organisasjon": {
         "organisasjonsnummer": "983997953",
@@ -22,7 +22,7 @@
   },
   "hovedStraffesaksnummer": "15434819",
   "begjaeringVaretekt": {
-    "kravId": "0DC2273B-E508-43CB-8EA7-B0BAF6B9EA8E",
+    "kravId": "11A436D1-E434-4FFD-9B9D-F95E3A67F384",
     "siktet": {
       "person": {
         "internId": "700892415",
@@ -40,7 +40,8 @@
           {
             "kode": "NOR",
             "navn": "Norge"
-          }],
+          }
+        ],
         "personAdresse": {
           "adresse": {
             "adresselinjer": ["Rugdeberget 2"],
@@ -64,12 +65,10 @@
       },
       "paastandVaretekt": {
         "fengsling": {
-          "id": "765480B4-D99D-48DE-840B-DC8EB26298A1",
           "antallDager": 28
         },
         "restriksjoner": [
           {
-            "id": "E2369244-F5AF-4F7F-ACFB-CBFB03598583",
             "restriksjonsType": "BREV_OG_BESOEKSFORBUD",
             "lovbudEnkel": {
               "lovbudStreng": "Strpl. § 186, 2.ledd 1.pkt."
@@ -80,7 +79,6 @@
             }
           },
           {
-            "id": "41E9B953-2825-44AD-B40C-EA3804749D5F",
             "restriksjonsType": "BREV_OG_BESOEKSKONTROLL",
             "lovbudEnkel": {
               "lovbudStreng": "Strpl. § 186, 2.ledd 1.pkt."
@@ -89,10 +87,10 @@
               "startDag": 15,
               "antallDager": 14
             }
-          }],
+          }
+        ],
         "isolasjon": [
           {
-            "id": "E575A3E1-6C24-4914-88D8-D9EB4C04A3C8",
             "isolasjonsType": "FULL_ISOLASJON",
             "lovbudEnkel": {
               "lovbudStreng": "Strpl. § 186a"
@@ -101,37 +99,43 @@
               "startDag": 1,
               "antallDager": 14
             }
-          }]
+          }
+        ]
       },
       "vilkaar": [
         {
-          "lovbudStreng": "Strpl § 171 nr 2"
+          "type": "STRPL171_2_BEVISFORSPILLELSE",
+          "lovbudEnkel": {
+            "lovbudStreng": "Strpl § 171 nr 2"
+          }
         },
         {
-          "lovbudStreng": "Strpl § 171 nr 3"
+          "type": "STRPL171_3_GJENTAGELSESFARE",
+          "lovbudEnkel": {
+            "lovbudStreng": "Strpl § 171 nr 3"
+          }
         },
         {
-          "lovbudStreng": "Strpl § 185"
-        },
-        {
-          "lovbudStreng": "Strpl § 170a"
-        },
-        {
-          "lovbudStreng": "Strpl § 188"
-        }]
+          "type": "STRPL170A_FORHOLSMESSIGHET",
+          "lovbudEnkel": {
+            "lovbudStreng": "Strpl § 170a"
+          }
+        }
+      ]
     },
     "saksinformasjon": {
       "varetektsType": "VANLIG",
       "forlengelse": {
+        "avgjoerelseId": "12345678987654321",
         "beskrivelse": "Siktede ble fengslet ved <.................> tingretts kjennelse av <.................>, jf. dok. nr. <.................>. "
       },
       "hovedforhandling": {
         "beskrivelse": "Påtalemyndigheten har som mål å beramme hovedforhandling før varetektsperioden utløper, hovedforhandling starter ..",
-        "berammetDato": "2022-12-01"
+        "berammetDato": "2022-12-21"
       },
-      "paagrepetTidspunkt": "2022-10-22T21:42:16+02:00",
+      "paagrepetTidspunkt": "2022-11-11T18:21:37+02:00",
       "berammetFengslingsmoete": {
-        "dato": "2022-12-11",
+        "dato": "2022-12-31",
         "sted": "Sal 3, tinghuset"
       },
       "forsvarerSaksdokumenter": {
@@ -175,7 +179,8 @@
                 "lovbudId": "{0B0D6AED-3A43-4B70-AD86-8A4FE38B090B}",
                 "lovbudStreng": "Straffeloven § 232 annet ledd første straffalternativ, jf. § 231 første ledd, jf. straffeloven § 27",
                 "gjengivelse": "for ulovlig å ha tilvirket, innført, utført, ervervet, oppbevart, sendt eller overdratt narkotika. \r\n\r\nOvertredelsen omfatter en meget betydelig mengde.\r\n\r\nNår et straffebud er overtrådt av noen som har handlet på vegne av et foretak, kan foretaket straffes."
-              }],
+              }
+            ],
             "grunnlag": [
               {
                 "grunnlagstekst": "Campingbil med kokeutstyr og Breaking Bad DVD'er",
@@ -183,7 +188,6 @@
                   {
                     "straffesaksnummer": "15434820",
                     "personForetakEnkel": {
-                      "type": "personEnkel",
                       "personEnkel": {
                         "internId": "700892415",
                         "navn": {
@@ -197,7 +201,6 @@
                   {
                     "straffesaksnummer": "15434820",
                     "personForetakEnkel": {
-                      "type": "personEnkel",
                       "personEnkel": {
                         "internId": "700892414",
                         "navn": {
@@ -207,8 +210,10 @@
                         "foedselsdato": "1963-04-14"
                       }
                     }
-                  }]
-              }]
+                  }
+                ]
+              }
+            ]
           }
         },
         {
@@ -219,7 +224,8 @@
                 "lovbudId": "{664DC73B-828D-4196-9D94-5EB1D1811A9B}",
                 "lovbudStreng": "Straffeloven § 273",
                 "gjengivelse": "for å ha skadet en annens kropp eller helse, gjort en annen fysisk maktesløs eller fremkalt bevisstløshet eller liknende tilstand hos en annen."
-              }],
+              }
+            ],
             "grunnlag": [
               {
                 "grunnlagstekst": "Lormen Quatro ble lappet til av Morsom Kiwi så han blødde neseblod.",
@@ -227,7 +233,6 @@
                   {
                     "straffesaksnummer": "15434821",
                     "personForetakEnkel": {
-                      "type": "personEnkel",
                       "personEnkel": {
                         "internId": "700892414",
                         "navn": {
@@ -237,8 +242,10 @@
                         "foedselsdato": "1963-04-14"
                       }
                     }
-                  }]
-              }]
+                  }
+                ]
+              }
+            ]
           }
         },
         {
@@ -249,7 +256,8 @@
                 "lovbudId": "{1713FA29-4E82-7F97-E053-0B3EA30AAE0D}",
                 "lovbudStreng": "Straffeloven (1902) § 227 første straffalternativ og straffeloven § 263",
                 "gjengivelse": "for i ord eller handling å ha truet med en straffbar handling som kan medføre høyere straff enn 6 måneders fengsel, under slike omstendigheter at trusselen var skikket til å fremkalle alvorlig frykt"
-              }],
+              }
+            ],
             "grunnlag": [
               {
                 "grunnlagstekst": "Torsdag 1. januar 2015 kl. 00.00 i Walmannsvegen 81 i Eidskog truet Morsom Kiwi fornærmede med en avsaget hagle.",
@@ -257,7 +265,6 @@
                   {
                     "straffesaksnummer": "15434850",
                     "personForetakEnkel": {
-                      "type": "personEnkel",
                       "personEnkel": {
                         "internId": "700892414",
                         "navn": {
@@ -267,8 +274,10 @@
                         "foedselsdato": "1963-04-14"
                       }
                     }
-                  }]
-              }]
+                  }
+                ]
+              }
+            ]
           }
         },
         {
@@ -279,7 +288,8 @@
                 "lovbudId": "{DC423098-A15E-4408-BB35-85C101725AE0}",
                 "lovbudStreng": "Straffeloven § 323 første ledd, jf. § 321",
                 "gjengivelse": "for å ha tatt en gjenstand som tilhørte en annen, med forsett om å skaffe seg eller andre en uberettiget vinning ved å selge, forbruke eller på annen måte tilegne seg den. \r\n\r\nStraffskylden er liten fordi det gjelder en ubetydelig verdi og forholdene for øvrig tilsier det."
-              }],
+              }
+            ],
             "grunnlag": [
               {
                 "grunnlagstekst": "Lørdag 1. januar 2022 kl. 00.00 i Waldemar Carlsens veg 4 i Kongsvinger tok Morsom Kiwi og Masse Kiwi og grisebanket dama til Morsom Kiwi Sannferdig Kos. Sannferdig Kos fikk fire knekte ribbeing, knust nese og knekt fot.",
@@ -287,7 +297,6 @@
                   {
                     "straffesaksnummer": "15434819",
                     "personForetakEnkel": {
-                      "type": "personEnkel",
                       "personEnkel": {
                         "internId": "700892415",
                         "navn": {
@@ -301,7 +310,6 @@
                   {
                     "straffesaksnummer": "15434819",
                     "personForetakEnkel": {
-                      "type": "personEnkel",
                       "personEnkel": {
                         "internId": "700892414",
                         "navn": {
@@ -315,7 +323,16 @@
                   {
                     "straffesaksnummer": "15434819",
                     "personForetakEnkel": {
-                      "type": "personEnkel",
+                      "foretakEnkel": {
+                        "internId": "340078107",
+                        "organisasjonsnummer": "984954808",
+                        "navn": "Obs"
+                      }
+                    }
+                  },
+                  {
+                    "straffesaksnummer": "15434819",
+                    "personForetakEnkel": {
                       "personEnkel": {
                         "internId": "700893213",
                         "navn": {
@@ -325,21 +342,13 @@
                         "foedselsdato": "1975-12-12"
                       }
                     }
-                  },
-                  {
-                    "straffesaksnummer": "15434819",
-                    "personForetakEnkel": {
-                      "type": "foretakEnkel",
-                      "foretakEnkel": {
-                        "internId": "340078107",
-                        "organisasjonsnummer": "984954808",
-                        "navn": "Obs"
-                      }
-                    }
-                  }]
-              }]
+                  }
+                ]
+              }
+            ]
           }
-        }]
+        }
+      ]
     },
     "straffesaker": [
       {
@@ -374,7 +383,6 @@
           },
           "medsiktede": [
             {
-              "type": "person",
               "person": {
                 "internId": "700892414",
                 "navn": {
@@ -391,7 +399,8 @@
                   {
                     "kode": "NOR",
                     "navn": "Norge"
-                  }],
+                  }
+                ],
                 "personAdresse": {
                   "adresse": {
                     "adresselinjer": ["Bjørklund 21"],
@@ -402,7 +411,13 @@
               }
             },
             {
-              "type": "person",
+              "foretak": {
+                "internId": "340078107",
+                "organisasjonsnummer": "984954808",
+                "navn": "Obs"
+              }
+            },
+            {
               "person": {
                 "internId": "700893213",
                 "navn": {
@@ -416,20 +431,13 @@
                   {
                     "kode": "NOR",
                     "navn": "Norge"
-                  }]
+                  }
+                ]
               }
-            },
-            {
-              "type": "foretak",
-              "foretak": {
-                "internId": "340078107",
-                "organisasjonsnummer": "984954808",
-                "navn": "Obs"
-              }
-            }],
+            }
+          ],
           "fornaermede": [
             {
-              "type": "person",
               "person": {
                 "internId": "700892735",
                 "navn": {
@@ -446,7 +454,8 @@
                   {
                     "kode": "NOR",
                     "navn": "Norge"
-                  }],
+                  }
+                ],
                 "personAdresse": {
                   "adresse": {
                     "adresselinjer": ["Bratsberggata 29"],
@@ -455,33 +464,9 @@
                   }
                 }
               }
-            }],
+            }
+          ],
           "vitne": [
-            {
-              "internId": "700893306",
-              "navn": {
-                "fornavn": "Taktfull",
-                "etternavn": "HOPPE"
-              },
-              "identitetsnummer": {
-                "foedselsnummer": "14845795658"
-              },
-              "tilleggsId": [],
-              "kjoenn": "KVINNE",
-              "foedselsdato": "1957-04-14",
-              "statsborgerskap": [
-                {
-                  "kode": "NOR",
-                  "navn": "Norge"
-                }],
-              "personAdresse": {
-                "adresse": {
-                  "adresselinjer": ["Geisnesvegen 1505"],
-                  "postnummer": "7960",
-                  "poststed": "SALSBRUKET"
-                }
-              }
-            },
             {
               "internId": "700892775",
               "navn": {
@@ -498,7 +483,8 @@
                 {
                   "kode": "NOR",
                   "navn": "Norge"
-                }],
+                }
+              ],
               "personAdresse": {
                 "adresse": {
                   "adresselinjer": ["Øvstedalsvegen 87"],
@@ -506,7 +492,34 @@
                   "poststed": "TRESFJORD"
                 }
               }
-            }]
+            },
+            {
+              "internId": "700893306",
+              "navn": {
+                "fornavn": "Taktfull",
+                "etternavn": "HOPPE"
+              },
+              "identitetsnummer": {
+                "foedselsnummer": "14845795658"
+              },
+              "tilleggsId": [],
+              "kjoenn": "KVINNE",
+              "foedselsdato": "1957-04-14",
+              "statsborgerskap": [
+                {
+                  "kode": "NOR",
+                  "navn": "Norge"
+                }
+              ],
+              "personAdresse": {
+                "adresse": {
+                  "adresselinjer": ["Geisnesvegen 1505"],
+                  "postnummer": "7960",
+                  "poststed": "SALSBRUKET"
+                }
+              }
+            }
+          ]
         }
       },
       {
@@ -541,7 +554,6 @@
           },
           "medsiktede": [
             {
-              "type": "person",
               "person": {
                 "internId": "700892414",
                 "navn": {
@@ -558,7 +570,8 @@
                   {
                     "kode": "NOR",
                     "navn": "Norge"
-                  }],
+                  }
+                ],
                 "personAdresse": {
                   "adresse": {
                     "adresselinjer": ["Bjørklund 21"],
@@ -567,16 +580,17 @@
                   }
                 }
               }
-            }],
+            }
+          ],
           "fornaermede": [
             {
-              "type": "foretak",
               "foretak": {
                 "internId": "60044820",
                 "organisasjonsnummer": "976878442",
                 "navn": "Rema 100"
               }
-            }],
+            }
+          ],
           "vitne": [
             {
               "internId": "700892688",
@@ -591,8 +605,10 @@
                 {
                   "kode": "ARM",
                   "navn": "Armenia"
-                }]
-            }]
+                }
+              ]
+            }
+          ]
         }
       },
       {
@@ -619,7 +635,6 @@
         "involverte": {
           "medsiktede": [
             {
-              "type": "person",
               "person": {
                 "internId": "700892414",
                 "navn": {
@@ -636,7 +651,8 @@
                   {
                     "kode": "NOR",
                     "navn": "Norge"
-                  }],
+                  }
+                ],
                 "personAdresse": {
                   "adresse": {
                     "adresselinjer": ["Bjørklund 21"],
@@ -645,10 +661,10 @@
                   }
                 }
               }
-            }],
+            }
+          ],
           "fornaermede": [
             {
-              "type": "person",
               "person": {
                 "internId": "700892547",
                 "navn": {
@@ -662,9 +678,11 @@
                   {
                     "kode": "ITA",
                     "navn": "Italia"
-                  }]
+                  }
+                ]
               }
-            }],
+            }
+          ],
           "vitne": []
         }
       },
@@ -692,7 +710,6 @@
         "involverte": {
           "medsiktede": [
             {
-              "type": "person",
               "person": {
                 "internId": "700892414",
                 "navn": {
@@ -709,7 +726,8 @@
                   {
                     "kode": "NOR",
                     "navn": "Norge"
-                  }],
+                  }
+                ],
                 "personAdresse": {
                   "adresse": {
                     "adresselinjer": ["Bjørklund 21"],
@@ -718,10 +736,10 @@
                   }
                 }
               }
-            }],
+            }
+          ],
           "fornaermede": [
             {
-              "type": "person",
               "person": {
                 "internId": "700892735",
                 "navn": {
@@ -738,7 +756,8 @@
                   {
                     "kode": "NOR",
                     "navn": "Norge"
-                  }],
+                  }
+                ],
                 "personAdresse": {
                   "adresse": {
                     "adresselinjer": ["Bratsberggata 29"],
@@ -747,15 +766,17 @@
                   }
                 }
               }
-            }],
+            }
+          ],
           "vitne": []
         }
-      }],
+      }
+    ],
     "dokumenter": [
       {
         "internId": "1234567879",
         "overskrift": "Begjæring om varetekt, Kiwi",
-        "skrevetDato": "2022-11-21",
+        "skrevetDato": "2022-12-11",
         "forsendelse": {
           "mimeType": "application/pdf",
           "uri": "file:///asdfasdf",
@@ -768,12 +789,13 @@
         "kategori": {
           "kode": "siktelse"
         },
-        "skrevetDato": "2022-11-01",
+        "skrevetDato": "2022-11-21",
         "forsendelse": {
           "mimeType": "application/pdf",
           "uri": "file:///asdfaasdfsdf",
           "sjekksum": "234asass"
         }
-      }]
+      }
+    ]
   }
 }

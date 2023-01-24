@@ -5,10 +5,7 @@
     "beslutningType": {
       "title": "beslutning",
       "type": "object",
-      "required": [
-        "besluttetAv",
-        "tidspunkt"
-      ],
+      "required": ["besluttetAv", "tidspunkt"],
       "additionalProperties": false,
       "properties": {
         "besluttetAv": {
@@ -23,13 +20,13 @@
           "title": "restriksjoner",
           "items": {
             "type": "object",
-            "required": ["kode","lovreferanse"],
+            "required": ["kode", "lovreferanse"],
             "additionalProperties": false,
             "properties": {
-              "kode": {"type": "string"},
-              "lovreferanse": {"type": "string"},
-			  "startDato": {"type": "string", "format": "date"},
-			  "sluttDato": {"type": "string", "format": "date"}
+              "kode": { "type": "string" },
+              "lovreferanse": { "type": "string" },
+              "startDato": { "type": "string", "format": "date" },
+              "sluttDato": { "type": "string", "format": "date" }
             }
           }
         },
@@ -40,9 +37,7 @@
     },
     "kodeverkType": {
       "type": "object",
-      "required": [
-        "navn"
-      ],
+      "required": ["navn"],
       "additionalProperties": false,
       "properties": {
         "kode": {
@@ -55,13 +50,7 @@
     },
     "personFullType": {
       "type": "object",
-      "required": [
-        "internId",
-        "rolle",
-        "navn",
-        "kjoenn",
-        "foedselsdato"
-      ],
+      "required": ["internId", "rolle", "navn", "kjoenn", "foedselsdato"],
       "additionalProperties": false,
       "properties": {
         "internId": {
@@ -73,10 +62,7 @@
         "navn": {
           "title": "navn",
           "type": "object",
-          "required": [
-            "fornavn",
-            "etternavn"
-          ],
+          "required": ["fornavn", "etternavn"],
           "additionalProperties": false,
           "properties": {
             "fornavn": {
@@ -89,8 +75,8 @@
         },
         "foedselsnummer": {
           "type": "array",
-		  "description": "flere fødselsnummer mulig senere",
-		  "items": {"type": "string"}
+          "description": "flere fødselsnummer mulig senere",
+          "items": { "type": "string" }
         },
         "dNummer": {
           "type": "string"
@@ -127,11 +113,7 @@
     },
     "personEnkelType": {
       "type": "object",
-      "required": [
-        "internId",
-        "rolle",
-        "navn"
-      ],
+      "required": ["internId", "rolle", "navn"],
       "additionalProperties": false,
       "properties": {
         "internId": {
@@ -143,10 +125,7 @@
         "navn": {
           "title": "navn",
           "type": "object",
-          "required": [
-            "fornavn",
-            "etternavn"
-          ],
+          "required": ["fornavn", "etternavn"],
           "additionalProperties": false,
           "properties": {
             "fornavn": {
@@ -175,12 +154,7 @@
     "adresseType": {
       "title": "adresse",
       "type": "object",
-      "required": [
-        "adresseLinjer",
-        "postnummer",
-        "poststed",
-        "land"
-      ],
+      "required": ["adresseLinjer", "postnummer", "poststed", "land"],
       "additionalProperties": false,
       "properties": {
         "adresseLinjer": {
@@ -225,7 +199,7 @@
       }
     },
     "straffesakType": {
-	  "title": "straffesak",
+      "title": "straffesak",
       "type": "object",
       "required": [
         "straffesaksnummer",
@@ -250,10 +224,7 @@
         "prinsipalLovbud": {
           "title": "prinsipalLovbud",
           "type": "object",
-          "required": [
-            "lovreferanse",
-            "gjengivelse"
-          ],
+          "required": ["lovreferanse", "gjengivelse"],
           "additionalProperties": false,
           "properties": {
             "lovbudId": {
@@ -269,46 +240,43 @@
               "type": "string"
             },
             "strafferamme": {
-			  "description": "antall måneder",
+              "description": "antall måneder",
               "type": "number"
             }
           }
         },
         "involverte": {
-			"title": "involverte",
-			"description": "Siktede, domfelte, vitner og fornærmet i straffesaken",
-			"type": "object",
-			"additionalProperties": false,
-			"properties": {
-			"medsiktede": {
-			  "type" : "array",
-			  "items": {
-			    "$ref": "#/$defs/personFullType"
-			  }
-			},
-			"vitner": {
-			  "type" : "array",
-			  "items": {
-			    "$ref": "#/$defs/personEnkelType"
-			  }
-			},
-			"fornaermede": {
-			  "type" : "array",
-			  "items": {
-			    "$ref": "#/$defs/personEnkelType"
-			  }
-			}
-		  }
+          "title": "involverte",
+          "description": "Siktede, domfelte, vitner og fornærmet i straffesaken",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "medsiktede": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/personFullType"
+              }
+            },
+            "vitner": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/personEnkelType"
+              }
+            },
+            "fornaermede": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/personEnkelType"
+              }
+            }
+          }
         }
       }
     },
     "personVaretektInfoType": {
       "title": "personVaretektInfo",
       "type": "object",
-      "required": [
-        "personVaretekt",
-        "straffesaker"
-      ],
+      "required": ["personVaretekt", "straffesaker"],
       "additionalProperties": false,
       "properties": {
         "personVaretekt": {
@@ -329,15 +297,13 @@
     "orgenhetType": {
       "title": "organisasjonsnummer",
       "type": "object",
-      "required": [
-		"orgnr"
-      ],
+      "required": ["orgnr"],
       "additionalProperties": false,
       "properties": {
         "orgnr": {
           "type": "string"
         },
-        "navn" : {
+        "navn": {
           "type": "string"
         }
       }
@@ -345,25 +311,20 @@
     "avsenderInfoType": {
       "title": "avsenderinformasjon",
       "type": "object",
-      "required": [
-		"orgenhet",
-		"saksbehandler"
-      ],
+      "required": ["orgenhet", "saksbehandler"],
       "additionalProperties": false,
       "properties": {
         "orgenhet": {
           "$ref": "#/$defs/orgenhetType"
         },
-        "saksbehandler" : {
+        "saksbehandler": {
           "type": "object",
-		  "required": [
-			"navn"
-		  ],
-		  "additionalProperties": false,
-		  "properties": {
-		    "brukeridentifikasjon": {"type": "string"},
-			"navn": {"type": "string"}
-		  }
+          "required": ["navn"],
+          "additionalProperties": false,
+          "properties": {
+            "brukeridentifikasjon": { "type": "string" },
+            "navn": { "type": "string" }
+          }
         }
       }
     },
@@ -372,9 +333,9 @@
       "type": "object",
       "required": [
         "forsendelse",
-		"hovedStraffesaksnummer",
+        "hovedStraffesaksnummer",
         "kontaktPersonKDI",
-		"varetektSyklusId",
+        "varetektSyklusId",
         "kravId",
         "beslutning",
         "paagrepetTidspunkt",
@@ -385,32 +346,28 @@
         "forsendelse": {
           "title": "forsendelse",
           "type": "object",
-          "required": [
-			"meldingsId",
-            "avsender",
-            "mottaker"
-          ],
+          "required": ["meldingsId", "avsender", "mottaker"],
           "additionalProperties": false,
           "properties": {
-			"meldingsId": {
-			  "type": "string"
-			},
-				
+            "meldingsId": {
+              "type": "string"
+            },
+
             "avsender": {
               "$ref": "#/$defs/avsenderInfoType"
             },
             "mottaker": {
               "type": "object",
-			  "required": ["orgnr"],
-			  "additionalProperties": false,
-			  "properties": {
-			    "orgnr": {"type": "string"},
-				"navn":  {"type": "string"}
-			  }
+              "required": ["orgnr"],
+              "additionalProperties": false,
+              "properties": {
+                "orgnr": { "type": "string" },
+                "navn": { "type": "string" }
+              }
             }
           }
         },
-		"hovedStraffesaksnummer": {"type": "string"},
+        "hovedStraffesaksnummer": { "type": "string" },
         "kontaktPersonKDI": {
           "$ref": "#/$defs/kodeverkType"
         },
@@ -435,7 +392,7 @@
         },
         "dokumenter": {
           "type": "string"
-        }		
+        }
       }
     }
   }

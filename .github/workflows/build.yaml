@@ -1,7 +1,8 @@
 on:
+  pull_request:
   push:
     branches:
-      - 'main'
+      - "main"
 
 jobs:
   build:
@@ -9,11 +10,19 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 18
+
+      - run: npm ci
+      - run: npm run prettier:check
+
       - name: Set up Apache Maven Central
+        if: ${{ github.ref == 'refs/heads/main' }}
         uses: actions/setup-java@v3
         with: # running setup-java again overwrites the settings.xml
-          distribution: 'temurin'
-          java-version: '11'
+          distribution: "temurin"
+          java-version: "11"
           server-id: ossrh # Value of the distributionManagement/repository/id field of the pom.xml
           server-username: MAVEN_USERNAME # env variable for username in deploy
           server-password: MAVEN_CENTRAL_TOKEN # env variable for token in deploy
@@ -21,6 +30,7 @@ jobs:
           gpg-passphrase: MAVEN_GPG_PASSPHRASE # env variable for GPG private key passphrase
 
       - name: Publish to Apache Maven Central
+        if: ${{ github.ref == 'refs/heads/main' }}
         run: |
           DATE_FORMATTED=`date +%d%m%Y`
           GIT_SHA_SHORT=`echo $GITHUB_SHA | cut -c1-7`
