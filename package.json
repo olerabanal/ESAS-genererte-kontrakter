@@ -1,0 +1,23 @@
+{
+  "name": "esas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {
+    "prettier": "^2.8.2"
+  },
+  "scripts": {
+    "prettier:check": "prettier --check \"kontrakter/**/*.json\"",
+    "prettier:write": "prettier --write \"kontrakter/**/*.json\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/domstolene/ESAS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/domstolene/ESAS/issues"
+  },
+  "homepage": "https://github.com/domstolene/ESAS#readme"
+}
