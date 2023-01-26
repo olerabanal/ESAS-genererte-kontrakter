@@ -412,39 +412,6 @@
       "additionalProperties": false
     },
 
-    "dokumentforsendelse": {
-      "description": "Detaljer om lokasjon og type",
-      "properties": {
-        "mimeType": { "type": "string" },
-        "sjekksum": { "type": "string" },
-        "uri": { "type": "string" }
-      },
-      "required": ["mimeType", "sjekksum", "uri"],
-      "type": "object",
-      "additionalProperties": false
-    },
-
-    "ansattPerson": {
-      "$comment": "Hva med telefonnummer, epost, bid",
-      "description": "Type for personer som er ansatt hos påtale eller domstolen(saksbehandlere, påtaleadvokater, statsadvokater,...)",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "description": "Unik id i denne forsendesen (for de-duplisering)"
-        },
-        "foedselsdato": {
-          "$ref": "#/definitions/dato"
-        },
-        "etternavn": { "type": "string" },
-        "fornavn": { "type": "string" },
-        "mellomnavn": { "type": "string" },
-        "tittel": { "type": "string" }
-      },
-      "required": ["etternavn", "id"],
-      "type": "object",
-      "additionalProperties": false
-    },
-
     "privatPerson": {
       "description": "Person som har en rolle i en straffesak (siktet, mistenkt, osv) der det er krav om fødselsnummer for nordmenn. Andre identifikatorer kan være interne, DUF nummer, pass nummer ...",
       "properties": {
