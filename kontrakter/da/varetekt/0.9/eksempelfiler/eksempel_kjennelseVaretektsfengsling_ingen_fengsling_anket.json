@@ -5,7 +5,7 @@
     "sendtTid": "2022-07-06T16:35:00+02:00",
     "avsender": {
       "organisasjon": {
-        "orgnr": "826726342",
+        "organisasjonsnummer": "826726342",
         "navn": "Buskerud tingrett"
       },
       "person": {
@@ -18,8 +18,8 @@
     },
     "mottaker": {
       "organisasjon": {
-        "navn": "Innlandet politidistrikt",
-        "orgnr": "983997953"
+        "organisasjonsnummer": "983997953",
+        "navn": "Innlandet politidistrikt"
       }
     },
     "rettelse": false

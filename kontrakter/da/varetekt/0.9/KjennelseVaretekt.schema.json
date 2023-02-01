@@ -316,7 +316,7 @@
     },
     "avsender": {
       "properties": {
-        "organisasjon": { "$ref": "#/definitions/orgenhet" },
+        "organisasjon": { "$ref": "#/definitions/organisasjon" },
         "person": {
           "description": "Person som sender meldingen. Vanligvis dommeren eller saksbehandleren",
           "$ref": "#/definitions/ansattPerson"
@@ -328,27 +328,27 @@
     },
     "mottaker": {
       "properties": {
-        "organisasjon": { "$ref": "#/definitions/orgenhet" }
+        "organisasjon": { "$ref": "#/definitions/organisasjon" }
       },
       "required": ["organisasjon"],
       "type": "object",
       "additionalProperties": false
     },
-    "orgenhet": {
+    "organisasjon": {
       "description": "Entydig identifikator av juridisk enhet. F.eks et spesifikt domstol embete eller politidistrikt",
       "properties": {
         "navn": {
           "type": "string",
           "description": "F.eks. Nordland politidistrikt eller Oslo tingrett."
         },
-        "orgnr": {
+        "organisasjonsnummer": {
           "type": "string",
           "description": "Norsk organisasjonsnummer fra BRREG. Referanse til politidistrikt, embete osv.",
           "maxLength": 20,
           "minLength": 2
         }
       },
-      "required": ["orgnr"],
+      "required": ["organisasjonsnummer"],
       "type": "object",
       "additionalProperties": false
     },
@@ -436,7 +436,7 @@
         "epost": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/epostType"
+            "$ref": "#/definitions/epost"
           }
         },
         "foedselsdato": {
@@ -453,7 +453,7 @@
 
         "telefonnummer": {
           "type": "array",
-          "items": { "$ref": "#/definitions/telefonnummerType" }
+          "items": { "$ref": "#/definitions/telefonnummer" }
         },
         "tittel": { "type": "string" },
         "yrke": { "type": "string" },
@@ -488,16 +488,16 @@
         "fornavn": { "type": "string" },
         "mellomnavn": { "type": "string" },
         "epost": {
-          "$ref": "#/definitions/epostType",
-          "description": "Er ikke med i første leveranse."
+          "$ref": "#/definitions/epost",
+          "$comment": "Er ikke med i første leveranse."
         },
         "foedselsdato": {
           "$ref": "#/definitions/dato"
         },
 
         "telefonnummer": {
-          "$ref": "#/definitions/telefonnummerType",
-          "description": "Er ikke med i første leveranse."
+          "$ref": "#/definitions/telefonnummer",
+          "$comment": "Er ikke med i første leveranse."
         },
         "tittel": { "type": "string" }
       },
@@ -605,7 +605,7 @@
       "required": ["kode"],
       "additionalProperties": false
     },
-    "epostType": {
+    "epost": {
       "description": "Lange epostadresser.",
       "maxLength": 150,
       "minLength": 5,
@@ -617,7 +617,7 @@
       "type": "string"
     },
 
-    "telefonnummerType": {
+    "telefonnummer": {
       "description": "Ett telefonnummer. Husk vi må kunne håndtere utenlandske telefonnummer +1 (345) 3423.",
       "maxLength": 30,
       "minLength": 1,
