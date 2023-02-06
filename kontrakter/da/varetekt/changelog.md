@@ -13,3 +13,6 @@
 5. Endret bruk av OneOf i forhold til avtalte rettningslinjer
 6. Lagt inn ny property "rettelse"
 
+
+# Versjon 1.0
+1. Bump verskpm fra 0.9 til 1.0 
