@@ -1183,7 +1183,7 @@
           "$ref": "#/definitions/dokumentForsendelse"
         }
       },
-      "required": ["overskrift", "forsendelse"],
+      "required": ["overskrift", "skrevetDato", "forsendelse"],
       "additionalProperties": false
     },
     "dokumentForsendelse": {
