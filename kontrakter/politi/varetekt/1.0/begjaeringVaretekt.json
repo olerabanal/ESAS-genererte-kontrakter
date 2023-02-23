@@ -1,18 +1,16 @@
 {
-  "melding": "begjaeringVaretekt",
+  "melding": "BEGJAERING_VARETEKT",
   "forsendelse": {
-    "meldingsId": "DA94615B-CA38-4063-A447-07DA58031994",
-    "sendtTid": "2022-12-11T18:21:37+02:00",
+    "meldingsId": "199DFD12-ECFB-4657-86C7-181C5104E6A5",
+    "sendtTid": "2023-02-07T16:06:10+02:00",
     "avsender": {
       "organisasjon": {
         "organisasjonsnummer": "983997953",
         "navn": "Innlandet politidistrikt"
       },
-      "saksbehandler": {
+      "person": {
         "brukeridentifikasjon": "PD",
-        "navn": {
-          "etternavn": "Politiets Datatjeneste"
-        }
+        "etternavn": "Politiets Datatjeneste"
       }
     },
     "mottakerOrganisasjon": {
@@ -22,7 +20,7 @@
   },
   "hovedStraffesaksnummer": "15434819",
   "begjaeringVaretekt": {
-    "kravId": "11A436D1-E434-4FFD-9B9D-F95E3A67F384",
+    "kravId": "3ADF123F-9622-44CB-97E0-75B27B847B2F",
     "siktet": {
       "person": {
         "internId": "700892415",
@@ -125,17 +123,13 @@
     },
     "saksinformasjon": {
       "varetektsType": "VANLIG",
-      "forlengelse": {
-        "avgjoerelseId": "12345678987654321",
-        "beskrivelse": "Siktede ble fengslet ved <.................> tingretts kjennelse av <.................>, jf. dok. nr. <.................>. "
-      },
       "hovedforhandling": {
         "beskrivelse": "Påtalemyndigheten har som mål å beramme hovedforhandling før varetektsperioden utløper, hovedforhandling starter ..",
-        "berammetDato": "2022-12-21"
+        "berammetDato": "2023-02-17"
       },
-      "paagrepetTidspunkt": "2022-11-11T18:21:37+02:00",
+      "paagrepetTidspunkt": "2023-01-08T16:06:10+02:00",
       "berammetFengslingsmoete": {
-        "dato": "2022-12-31",
+        "dato": "2023-02-27",
         "sted": "Sal 3, tinghuset"
       },
       "forsvarerSaksdokumenter": {
@@ -147,23 +141,19 @@
       "ansvarligPaatalejurist": {
         "brukeridentifikasjon": "TEB012",
         "tittel": "Politifullmektig",
-        "navn": {
-          "fornavn": "Tom Erik Wassenaar",
-          "etternavn": "Berntsen"
-        },
+        "fornavn": "Tom Erik Wassenaar",
+        "etternavn": "Berntsen",
         "kontakt": {
-          "telefon": "55224411"
+          "telefonnummer": ["55224411"]
         }
       },
       "aktor": {
         "brukeridentifikasjon": "TEB012",
         "tittel": "Politifullmektig",
-        "navn": {
-          "fornavn": "Tom Erik Wassenaar",
-          "etternavn": "Berntsen"
-        },
+        "fornavn": "Tom Erik Wassenaar",
+        "etternavn": "Berntsen",
         "kontakt": {
-          "telefon": "55224411"
+          "telefonnummer": ["55224411"]
         }
       }
     }
@@ -776,7 +766,7 @@
       {
         "internId": "1234567879",
         "overskrift": "Begjæring om varetekt, Kiwi",
-        "skrevetDato": "2022-12-11",
+        "skrevetDato": "2023-02-07",
         "forsendelse": {
           "mimeType": "application/pdf",
           "uri": "file:///asdfasdf",
@@ -789,7 +779,7 @@
         "kategori": {
           "kode": "siktelse"
         },
-        "skrevetDato": "2022-11-21",
+        "skrevetDato": "2023-01-18",
         "forsendelse": {
           "mimeType": "application/pdf",
           "uri": "file:///asdfaasdfsdf",
