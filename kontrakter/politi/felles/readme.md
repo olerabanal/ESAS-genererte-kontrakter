@@ -19,3 +19,6 @@ Kommer, vi har ikke håndtering av denne foreløpig.
 Regner med at denne kan deles med Domstol, Kriminalomsorgen.
 Har laget et forslag der det kanskje blir slikt.
 (person-klient-adresse.json)
+
+### Folkeregister eksempler
+Se katalogen freg-eksempler
