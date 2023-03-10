@@ -109,61 +109,59 @@
     "straffesaksnummer": "15434820",
     "rettsmoeteTidFra": "2022-07-06T10:00:00+02:00",
     "rettsmoeteTidTil": "2022-07-06T14:00:00+02:00",
-    "paagripelsesDato": "2022-06-20",
-    "paategningsDato": "2022-07-05",
-    "siktelseDato": "2022-06-22",
-    "krav": [
-      {
-        "kravid": "16972F79-0A35-4EC7-90A1-81E4EFAE1E7E",
-        "kravType": "Fengsling {debug: Riktig?? FHFengsling}",
-        "avgjoerelse": {
-          "avgjoerelseId": "A7972F79-0A35-4EC7-90A1-81E4EFAE1E31",
-          "avsagtDato": "2022-07-05",
-          "restriksjoner": [
-            {
-              "restriksjonsId": "CCC72F79-0A35-4EC7-90A1-81E4EFAE1EEE",
-              "restriksjonsType": "BREV_OG_BESOEKSFORBUD",
-              "fraDato": "2022-07-06",
-              "tilDato": "2022-07-20",
-              "lovbud": {
-                "lovbudStreng": "Strpl. § 186, 2.ledd 1.pkt."
-              },
-              "anke": {
-                "merknad": "Brev og besøkskontroll burde være nok for hele perioden",
-                "anketDato": "2022-07-06",
-                "anketAv": "SIKTET",
-                "oppsettendeVirkning": true
-              }
-            },
-            {
-              "restriksjonsId": "DDD72F79-0A35-4EC7-90A1-81E4EFAE1FFF",
-              "restriksjonsType": "BREV_OG_BESOEKSKONTROLL",
-              "fraDato": "2022-07-21",
-              "tilDato": "2022-08-06",
-              "lovbud": {
-                "lovbudStreng": "Strpl. § 186, 2.ledd 1.pkt."
-              }
-            }
-          ],
-          "isolasjonsKrav": [],
-          "fengsling": {
-            "fengslingsId": "FFF72F79-0A35-4EC7-90A1-81E4EFAE1888",
-            "fraDato": "2022-07-06",
-            "tilDato": "2022-08-06",
-            "fengslingsFristDato": "2022-07-06",
-            "lovbud": {
-              "lovbudStreng": "strpl § 184, jf. § 185, jf. § 171 nr. 2"
-            },
-            "merknad": "Kiwi må i varetekt så fort som fy",
-            "anke": {
-              "merknad": "4 uker er altfor lenge - jeg er uskyldig",
-              "anketDato": "2022-07-06",
-              "anketAv": "SIKTET",
-              "oppsettendeVirkning": false
-            }
-          }
+    "avgjoerelse": {
+      "avgjoerelseId": "A7972F79-0A35-4EC7-90A1-81E4EFAE1E31",
+      "avsagtDato": "2022-07-05",
+      "kravid": "16972F79-0A35-4EC7-90A1-81E4EFAE1E7E",
+      "kravType": "Fengsling {debug: Riktig?? FHFengsling}",
+      "restriksjoner": [
+        {
+          "restriksjonsId": "CCC72F79-0A35-4EC7-90A1-81E4EFAE1EEE",
+          "restriksjonsType": "BREV_OG_BESOEKSFORBUD",
+          "fraDato": "2022-07-06",
+          "tilDato": "2022-07-20",
+          "lovbud": {
+            "lovbudStreng": "Strpl. § 186, 2.ledd 1.pkt."
+          },
+          "anke": {
+            "merknad": "Brev og besøkskontroll burde være nok for hele perioden",
+            "anketDato": "2022-07-06",
+            "anketAv": "SIKTET",
+            "stoetteskrivFrist": "2022-07-20",
+            "oppsettendeVirkning": false
+          },
+          "tattTilFoelge": true
+        },
+        {
+          "restriksjonsId": "DDD72F79-0A35-4EC7-90A1-81E4EFAE1FFF",
+          "restriksjonsType": "BREV_OG_BESOEKSKONTROLL",
+          "fraDato": "2022-07-21",
+          "tilDato": "2022-08-06",
+          "lovbud": {
+            "lovbudStreng": "Strpl. § 186, 2.ledd 1.pkt."
+          },
+          "tattTilFoelge": true
         }
+      ],
+      "isolasjonsKrav": [],
+      "fengsling": {
+        "fengslingsId": "FFF72F79-0A35-4EC7-90A1-81E4EFAE1888",
+        "fraDato": "2022-07-06",
+        "tilDato": "2022-08-06",
+        "fengslingsFristDato": "2022-07-06",
+        "lovbud": {
+          "lovbudStreng": "strpl § 184, jf. § 185, jf. § 171 nr. 2"
+        },
+        "merknad": "Kiwi må i varetekt så fort som fy",
+        "anke": {
+          "merknad": "4 uker er altfor lenge - jeg er uskyldig",
+          "anketDato": "2022-07-06",
+          "anketAv": "SIKTET",
+          "stoetteskrivFrist": "2022-07-20",
+          "oppsettendeVirkning": false
+        },
+        "tattTilFoelge": true
       }
-    ]
+    }
   }
 }
