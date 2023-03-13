@@ -109,29 +109,25 @@
     "straffesaksnummer": "15434820",
     "rettsmoeteTidFra": "2022-07-06T10:00:00+02:00",
     "rettsmoeteTidTil": "2022-07-06T14:00:00+02:00",
-    "paagripelsesDato": "2022-06-20",
-    "paategningsDato": "2022-07-05",
-    "siktelseDato": "2022-06-22",
-    "krav": [
-      {
-        "kravid": "16972F79-0A35-4EC7-90A1-81E4EFAE1E7E",
-        "kravType": "Fengsling {debug: Riktig?? FHFengsling}",
-        "avgjoerelse": {
-          "avgjoerelseId": "A7972F79-0A35-4EC7-90A1-81E4EFAE1E31",
-          "avsagtDato": "2022-07-05",
-          "restriksjoner": [],
-          "isolasjonsKrav": [],
-          "fengsling": {
-            "fengslingsId": "FFF72F79-0A35-4EC7-90A1-81E4EFAE1888",
-            "anke": {
-              "merknad": "Aktoretet mener dette er feil og Kiwi må varetekts-fengsles (se strpl § 184, jf. § 185, jf. § 171 nr. 2)",
-              "anketDato": "2022-07-06",
-              "anketAv": "AKTOR",
-              "oppsettendeVirkning": true
-            }
-          }
-        }
+    "avgjoerelse": {
+      "avgjoerelseId": "A7972F79-0A35-4EC7-90A1-81E4EFAE1E31",
+      "avsagtDato": "2022-07-05",
+      "kravid": "16972F79-0A35-4EC7-90A1-81E4EFAE1E7E",
+      "kravType": "Fengsling {debug: Riktig?? FHFengsling}",
+      "restriksjoner": [],
+      "isolasjonsKrav": [],
+      "fengsling": {
+        "fengslingsId": "FFF72F79-0A35-4EC7-90A1-81E4EFAE1888",
+        "anke": {
+          "merknad": "Aktoretet mener dette er feil og Kiwi må varetekts-fengsles (se strpl § 184, jf. § 185, jf. § 171 nr. 2)",
+          "anketDato": "2022-07-06",
+          "anketAv": "AKTOR",
+          "stoetteskrivFrist": "2022-07-20",
+          "oppsettendeVirkning": true,
+          "oppsettendeVirkningMerknad": "Kiwi må holdes fengslet inntil anken er behandlet pga. overhengende fare for gjentagelse"
+        },
+        "tattTilFoelge": false
       }
-    ]
+    }
   }
 }

@@ -66,9 +66,6 @@
         "rettsmoeteTidTil": {
           "$ref": "#/definitions/datoTid"
         },
-        "paagripelsesDato": {
-          "$ref": "#/definitions/dato"
-        },
         "forrigeFengslingsForlengelseDato": {
           "description": "Dato for forrige kjennelse av fengeslingsforlengelse",
           "$ref": "#/definitions/dato"
@@ -77,18 +74,8 @@
           "description": "Dato for første kjennelse av fengeslingsforlengelse",
           "$ref": "#/definitions/dato"
         },
-        "paategningsDato": {
-          "description": "Dato for påtegning",
-          "$ref": "#/definitions/dato"
-        },
-        "siktelseDato": {
-          "description": "Dato for siktelse",
-          "$ref": "#/definitions/dato"
-        },
-        "krav": {
-          "type": "array",
-          "items": { "$ref": "#/definitions/krav" },
-          "minItems": 1
+        "avgjoerelse": {
+          "$ref": "#/definitions/avgjoerelse"
         }
       },
       "required": [
@@ -96,27 +83,8 @@
         "straffesaksnummer",
         "rettsmoeteTidFra",
         "rettsmoeteTidTil",
-        "paategningsDato",
-        "krav"
+        "avgjoerelse"
       ],
-      "type": "object",
-      "additionalProperties": false
-    },
-    "krav": {
-      "properties": {
-        "kravid": {
-          "type": "string",
-          "description": "Kravid som opprettes i politiet"
-        },
-        "kravType": {
-          "type": "string",
-          "$comment": "Burde dette vært en enum i stedet? Eks: FHVaretekt"
-        },
-        "avgjoerelse": {
-          "$ref": "#/definitions/avgjoerelse"
-        }
-      },
-      "required": ["kravid", "kravType", "avgjoerelse"],
       "type": "object",
       "additionalProperties": false
     },
@@ -128,6 +96,14 @@
         },
         "avsagtDato": {
           "$ref": "#/definitions/dato"
+        },
+        "kravid": {
+          "type": "string",
+          "description": "Kravid som opprettes i politiet"
+        },
+        "kravType": {
+          "type": "string",
+          "$comment": "Burde dette vært en enum i stedet? Eks: FHVaretekt"
         },
         "restriksjoner": {
           "type": "array",
@@ -144,6 +120,8 @@
       "required": [
         "avgjoerelseId",
         "avsagtDato",
+        "kravid",
+        "kravType",
         "fengsling",
         "restriksjoner",
         "isolasjonsKrav"
@@ -176,9 +154,13 @@
         "anke": {
           "$ref": "#/definitions/anke",
           "description": "Settes kun dersom fengslingen ankes før kjennelsen sendes til påtale"
+        },
+        "tattTilFoelge": {
+          "type": "boolean",
+          "description": "Settes til true dersom det blir fengsling"
         }
       },
-      "required": ["fengslingsId"],
+      "required": ["fengslingsId", "tattTilFoelge"],
       "type": "object",
       "additionalProperties": false
     },
@@ -205,9 +187,13 @@
         "anke": {
           "$ref": "#/definitions/anke",
           "description": "Settes kun dersom restrikjsonen ankes før kjennelsen sendes til påtale"
+        },
+        "tattTilFoelge": {
+          "type": "boolean",
+          "description": "Settes til true dersom det blir kjennelse på denne restiksjonstypen"
         }
       },
-      "required": ["restriksjonsId"],
+      "required": ["restriksjonsId", "tattTilFoelge"],
       "type": "object",
       "additionalProperties": false
     },
@@ -221,10 +207,12 @@
           "$ref": "#/definitions/isolasjonsType"
         },
         "fraDato": {
-          "$ref": "#/definitions/dato"
+          "$ref": "#/definitions/dato",
+          "description": "Om begjæringen ikke tas til følge skal dette feltet settes til null"
         },
         "tilDato": {
-          "$ref": "#/definitions/dato"
+          "$ref": "#/definitions/dato",
+          "description": "Om begjæringen ikke tas til følge skal dette feltet settes til null"
         },
         "lovbud": {
           "$ref": "#/definitions/lovbud",
@@ -233,9 +221,13 @@
         "anke": {
           "$ref": "#/definitions/anke",
           "description": "Settes kun dersom isolasjonen ankes før kjennelsen sendes til påtale"
+        },
+        "tattTilFoelge": {
+          "type": "boolean",
+          "description": "Settes til true dersom det blir kjennelse på denne isolasjonstypen"
         }
       },
-      "required": ["isolasjonsId"],
+      "required": ["isolasjonsId", "tattTilFoelge"],
       "type": "object",
       "additionalProperties": false
     },
@@ -266,10 +258,18 @@
         "anketAv": {
           "$ref": "#/definitions/anketAvType"
         },
+        "stoetteskrivFrist": {
+          "$ref": "#/definitions/dato"
+        },
         "oppsettendeVirkning": {
           "type": "boolean"
+        },
+        "oppsettendeVirkningMerknad": {
+          "type": "string",
+          "description": "Merknad til oppsettende virkning"
         }
       },
+      "required": ["anketDato", "anketAv"],
       "type": "object",
       "additionalProperties": false
     },
