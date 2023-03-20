@@ -12,7 +12,6 @@
         "brukeridentifikasjon": "tbuslrs",
         "etternavn": "Saksbehandler",
         "fornavn": "Litt",
-        "mellomnavn": "Streng",
         "tittel": "Saksbehandler"
       }
     },
@@ -29,14 +28,12 @@
       "brukeridentifikasjon": "tbuslds",
       "etternavn": "Dommersen",
       "fornavn": "Lars",
-      "mellomnavn": "D.",
       "tittel": "Dommerfullmeltig"
     },
     "saksbehandler": {
       "brukeridentifikasjon": "tbuslrs",
       "etternavn": "Saksbehandler",
       "fornavn": "Litt",
-      "mellomnavn": "R.",
       "tittel": "Saksbehandler"
     }
   },
@@ -47,46 +44,12 @@
     "tilleggsId": [],
     "fornavn": "Morsom",
     "etternavn": "Kivi",
-    "mellomnavn": "T.",
-    "yrke": "Sjåfør",
-    "epost": ["kiwi@mail.no"],
-    "telefonnummer": ["+4780808080"],
     "kjoenn": "MANN",
-    "tittel": "Senior Sjåfør",
-    "adresse": {
-      "land": {
-        "kode": "NOR",
-        "navn": "Norge"
-      },
-      "poststed": "ÅRDAL I RYFYLKE",
-      "postnummer": "4137",
-      "adresselinjer": ["Bjørklund 21"],
-      "kommune": "Hjelmeland",
-      "kommunenummer": "1133"
-    },
     "foedselsdato": "1963-04-14",
     "nasjonalitet": {
       "kode": "NOR",
       "navn": "Norge"
-    },
-    "forsvarer": {
-      "epost": "luring@forsvar.com",
-      "tittel": "Forsvarer",
-      "fornavn": "Lur",
-      "etternavn": "Forsvarer",
-      "foedselsdato": "2001-12-17",
-      "telefonnummer": "+4790909090"
-    },
-    "verger": [
-      {
-        "epost": "pp@meil.com",
-        "tittel": "Verge",
-        "fornavn": "Passe",
-        "etternavn": "På",
-        "foedselsdato": "1959-08-25",
-        "telefonnummer": "+4770707070"
-      }
-    ]
+    }
   },
   "dokumenter": [
     {
@@ -124,10 +87,8 @@
             "lovbudStreng": "Strpl. § 186, 2.ledd 1.pkt."
           },
           "anke": {
-            "merknad": "Brev og besøkskontroll burde være nok for hele perioden",
             "anketDato": "2022-07-06",
             "anketAv": "SIKTET",
-            "stoetteskrivFrist": "2022-07-20",
             "oppsettendeVirkning": false
           },
           "tattTilFoelge": true
@@ -153,10 +114,8 @@
             "lovbudStreng": "Strpl. § 186a"
           },
           "anke": {
-            "merknad": "Full isolasjon i hele perioden var litt vel strengt",
             "anketDato": "2022-07-06",
             "anketAv": "SIKTET",
-            "stoetteskrivFrist": "2022-07-20",
             "oppsettendeVirkning": false
           },
           "tattTilFoelge": true
@@ -172,10 +131,8 @@
         },
         "merknad": "Kiwi må i varetekt så fort som fy",
         "anke": {
-          "merknad": "4 uker er altfor lenge - jeg er uskyldig",
           "anketDato": "2022-07-06",
           "anketAv": "SIKTET",
-          "stoetteskrivFrist": "2022-07-20",
           "oppsettendeVirkning": false
         },
         "tattTilFoelge": true

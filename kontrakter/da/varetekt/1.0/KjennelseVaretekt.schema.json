@@ -66,14 +66,6 @@
         "rettsmoeteTidTil": {
           "$ref": "#/definitions/datoTid"
         },
-        "forrigeFengslingsForlengelseDato": {
-          "description": "Dato for forrige kjennelse av fengeslingsforlengelse",
-          "$ref": "#/definitions/dato"
-        },
-        "foersteVaretekstfengslingDato": {
-          "description": "Dato for første kjennelse av fengeslingsforlengelse",
-          "$ref": "#/definitions/dato"
-        },
         "avgjoerelse": {
           "$ref": "#/definitions/avgjoerelse"
         }
@@ -190,7 +182,7 @@
         },
         "tattTilFoelge": {
           "type": "boolean",
-          "description": "Settes til true dersom det blir kjennelse på denne restiksjonstypen"
+          "description": "Settes til true dersom denne restriksjonstypen er begjært og det blir en kjennelse på den"
         }
       },
       "required": ["restriksjonsId", "tattTilFoelge"],
@@ -224,7 +216,7 @@
         },
         "tattTilFoelge": {
           "type": "boolean",
-          "description": "Settes til true dersom det blir kjennelse på denne isolasjonstypen"
+          "description": "Settes til true dersom denne isolasjonstypen er begjært og det blir kjennelse på den"
         }
       },
       "required": ["isolasjonsId", "tattTilFoelge"],
@@ -248,25 +240,14 @@
     },
     "anke": {
       "properties": {
-        "merknad": {
-          "type": "string",
-          "description": "Merknad til anken"
-        },
         "anketDato": {
           "$ref": "#/definitions/dato"
         },
         "anketAv": {
           "$ref": "#/definitions/anketAvType"
         },
-        "stoetteskrivFrist": {
-          "$ref": "#/definitions/dato"
-        },
         "oppsettendeVirkning": {
           "type": "boolean"
-        },
-        "oppsettendeVirkningMerknad": {
-          "type": "string",
-          "description": "Merknad til oppsettende virkning"
         }
       },
       "required": ["anketDato", "anketAv"],
@@ -289,7 +270,7 @@
     },
     "anketAvType": {
       "description": "Liste over alle som kan anke",
-      "enum": ["SIKTET", "FORSVARER", "AKTOR"],
+      "enum": ["SIKTET", "AKTOR"],
       "type": "string"
     },
     "forsendelse": {
@@ -395,7 +376,6 @@
     },
 
     "ansattPerson": {
-      "$comment": "Hva med telefonnummer, epost, bid",
       "description": "Type for personer som er ansatt hos påtale eller domstolen(saksbehandlere, påtaleadvokater, statsadvokater,...)",
       "properties": {
         "brukeridentifikasjon": {
@@ -404,7 +384,6 @@
         },
         "etternavn": { "type": "string" },
         "fornavn": { "type": "string" },
-        "mellomnavn": { "type": "string" },
         "tittel": { "type": "string" }
       },
       "required": ["etternavn", "brukeridentifikasjon"],
@@ -417,7 +396,6 @@
       "properties": {
         "etternavn": { "type": "string" },
         "fornavn": { "type": "string" },
-        "mellomnavn": { "type": "string" },
         "identitetsnummer": {
           "$ref": "#/definitions/personIdentifikator",
           "description": "Fødselsnummer, D-nummer eller SSP nummer. Alle personer som det er foretatt tvangsmidler mot skal ha et D-nummer eller fødselsnummer. Dersom politiet ikke har et slikt nummer vil de generere ett 'SSP nummer'"
@@ -429,16 +407,6 @@
           },
           "description": "Kan f.eks. være historiske SSP nummer. "
         },
-        "adresse": {
-          "$ref": "#/definitions/adresse",
-          "description": "Kanskje fordi domstolene vil trenge å ta kontakt? Trenger vi både postadresse og besøksadresse?"
-        },
-        "epost": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/epost"
-          }
-        },
         "foedselsdato": {
           "$ref": "#/definitions/dato",
           "description": "Påbudt i BL i dag, men er ikke sikkert politiet vet."
@@ -449,83 +417,9 @@
         "nasjonalitet": {
           "$ref": "#/definitions/landType",
           "description": "Nasjonalitet ikke med hvis det er ukjent."
-        },
-
-        "telefonnummer": {
-          "type": "array",
-          "items": { "$ref": "#/definitions/telefonnummer" }
-        },
-        "tittel": { "type": "string" },
-        "yrke": { "type": "string" },
-        "formue": { "type": "integer" },
-        "inntekt": { "type": "integer" },
-        "verger": {
-          "type": "array",
-          "description": "Referanse til person som er verge for denne personen.",
-          "items": {
-            "$ref": "#/definitions/profesjonellPerson"
-          }
-        },
-        "forsvarer": {
-          "$ref": "#/definitions/profesjonellPerson",
-          "description": "Referanse til person som er forsvarer for den siktede."
         }
       },
-      "required": [
-        "etternavn",
-        "identitetsnummer",
-        "tilleggsId",
-        "epost",
-        "telefonnummer",
-        "verger"
-      ],
-      "type": "object",
-      "additionalProperties": false
-    },
-    "profesjonellPerson": {
-      "properties": {
-        "etternavn": { "type": "string" },
-        "fornavn": { "type": "string" },
-        "mellomnavn": { "type": "string" },
-        "epost": {
-          "$ref": "#/definitions/epost",
-          "$comment": "Er ikke med i første leveranse."
-        },
-        "foedselsdato": {
-          "$ref": "#/definitions/dato"
-        },
-
-        "telefonnummer": {
-          "$ref": "#/definitions/telefonnummer",
-          "$comment": "Er ikke med i første leveranse."
-        },
-        "tittel": { "type": "string" }
-      },
-      "required": ["etternavn"],
-      "type": "object",
-      "additionalProperties": false
-    },
-    "adresse": {
-      "description": "En adresse består av en eller flere adresselinjer (gate eller postboks osv), et postnummer (fritekst for a tillate utenlandske postnumre), et poststed (fritekst), en landkode, et kommunenummer (fritekst) og et kommunenavn (fritekst).",
-      "properties": {
-        "adresselinjer": {
-          "type": "array",
-          "items": { "type": "string", "minLength": 1, "maxLength": 500 },
-          "minItems": 1,
-          "maxItems": 4
-        },
-        "kommune": { "type": "string" },
-        "kommunenummer": {
-          "type": "string",
-          "description": "Typen forelopig satt til string"
-        },
-        "postnummer": { "type": "string" },
-        "poststed": { "type": "string" },
-        "land": {
-          "$ref": "#/definitions/landType"
-        }
-      },
-      "required": ["adresselinjer"],
+      "required": ["etternavn", "identitetsnummer", "tilleggsId"],
       "type": "object",
       "additionalProperties": false
     },
@@ -615,13 +509,6 @@
     "kjoenn": {
       "description": "Samme enum som folkeregisteret",
       "enum": ["KVINNE", "MANN"],
-      "type": "string"
-    },
-
-    "telefonnummer": {
-      "description": "Ett telefonnummer. Husk vi må kunne håndtere utenlandske telefonnummer +1 (345) 3423.",
-      "maxLength": 30,
-      "minLength": 1,
       "type": "string"
     },
     "datoTid": {
