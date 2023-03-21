@@ -12,7 +12,6 @@
         "brukeridentifikasjon": "tbuslrs",
         "etternavn": "Saksbehandler",
         "fornavn": "Litt",
-        "mellomnavn": "Streng",
         "tittel": "Saksbehandler"
       }
     },
@@ -29,14 +28,12 @@
       "brukeridentifikasjon": "tbuslds",
       "etternavn": "Dommersen",
       "fornavn": "Lars",
-      "mellomnavn": "D.",
       "tittel": "Dommerfullmeltig"
     },
     "saksbehandler": {
       "brukeridentifikasjon": "tbuslrs",
       "etternavn": "Saksbehandler",
       "fornavn": "Litt",
-      "mellomnavn": "R.",
       "tittel": "Saksbehandler"
     }
   },
@@ -47,46 +44,11 @@
     "tilleggsId": [],
     "fornavn": "Morsom",
     "etternavn": "Kivi",
-    "mellomnavn": "T.",
-    "yrke": "Sjåfør",
-    "epost": ["kiwi@mail.no"],
-    "telefonnummer": ["+4780808080"],
-    "kjoenn": "MANN",
-    "tittel": "Senior Sjåfør",
-    "adresse": {
-      "land": {
-        "kode": "NOR",
-        "navn": "Norge"
-      },
-      "poststed": "ÅRDAL I RYFYLKE",
-      "postnummer": "4137",
-      "adresselinjer": ["Bjørklund 21"],
-      "kommune": "Hjelmeland",
-      "kommunenummer": "1133"
-    },
     "foedselsdato": "1963-04-14",
     "nasjonalitet": {
       "kode": "NOR",
       "navn": "Norge"
-    },
-    "forsvarer": {
-      "epost": "luring@forsvar.com",
-      "tittel": "Forsvarer",
-      "fornavn": "Lur",
-      "etternavn": "Forsvarer",
-      "foedselsdato": "2001-12-17",
-      "telefonnummer": "+4790909090"
-    },
-    "verger": [
-      {
-        "epost": "pp@meil.com",
-        "tittel": "Verge",
-        "fornavn": "Passe",
-        "etternavn": "På",
-        "foedselsdato": "1959-08-25",
-        "telefonnummer": "+4770707070"
-      }
-    ]
+    }
   },
   "dokumenter": [
     {
@@ -119,12 +81,9 @@
       "fengsling": {
         "fengslingsId": "FFF72F79-0A35-4EC7-90A1-81E4EFAE1888",
         "anke": {
-          "merknad": "Aktoretet mener dette er feil og Kiwi må varetekts-fengsles (se strpl § 184, jf. § 185, jf. § 171 nr. 2)",
           "anketDato": "2022-07-06",
           "anketAv": "AKTOR",
-          "stoetteskrivFrist": "2022-07-20",
-          "oppsettendeVirkning": true,
-          "oppsettendeVirkningMerknad": "Kiwi må holdes fengslet inntil anken er behandlet pga. overhengende fare for gjentagelse"
+          "oppsettendeVirkning": true
         },
         "tattTilFoelge": false
       }
