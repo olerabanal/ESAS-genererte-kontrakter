@@ -76,7 +76,6 @@
       "avgjoerelseId": "A7972F79-0A35-4EC7-90A1-81E4EFAE1E31",
       "avsagtDato": "2022-07-05",
       "kravid": "16972F79-0A35-4EC7-90A1-81E4EFAE1E7E",
-      "kravType": "Fengsling {debug: Riktig?? FHFengsling}",
       "restriksjoner": [
         {
           "restriksjonsId": "CCC72F79-0A35-4EC7-90A1-81E4EFAE1EEE",
@@ -85,13 +84,7 @@
           "tilDato": "2022-07-20",
           "lovbud": {
             "lovbudStreng": "Strpl. § 186, 2.ledd 1.pkt."
-          },
-          "anke": {
-            "anketDato": "2022-07-06",
-            "anketAv": "SIKTET",
-            "oppsettendeVirkning": false
-          },
-          "tattTilFoelge": true
+          }
         },
         {
           "restriksjonsId": "DDD72F79-0A35-4EC7-90A1-81E4EFAE1FFF",
@@ -100,8 +93,7 @@
           "tilDato": "2022-08-06",
           "lovbud": {
             "lovbudStreng": "Strpl. § 186, 2.ledd 1.pkt."
-          },
-          "tattTilFoelge": true
+          }
         }
       ],
       "isolasjonsKrav": [
@@ -112,13 +104,7 @@
           "tilDato": "2022-08-06",
           "lovbud": {
             "lovbudStreng": "Strpl. § 186a"
-          },
-          "anke": {
-            "anketDato": "2022-07-06",
-            "anketAv": "SIKTET",
-            "oppsettendeVirkning": false
-          },
-          "tattTilFoelge": true
+          }
         }
       ],
       "fengsling": {
@@ -129,13 +115,11 @@
         "lovbud": {
           "lovbudStreng": "strpl § 184, jf. § 185, jf. § 171 nr. 2"
         },
-        "merknad": "Kiwi må i varetekt så fort som fy",
-        "anke": {
-          "anketDato": "2022-07-06",
-          "anketAv": "SIKTET",
-          "oppsettendeVirkning": false
-        },
-        "tattTilFoelge": true
+        "merknad": "Kiwi må i varetekt så fort som fy"
+      },
+      "anke": {
+        "anketDato": "2022-07-06",
+        "oppsettendeVirkning": false
       }
     }
   }

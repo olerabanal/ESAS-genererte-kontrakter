@@ -74,7 +74,6 @@
     "avgjoerelse": {
       "avgjoerelseId": "A7972F79-0A35-4EC7-90A1-81E4EFAE1E31",
       "kravid": "16972F79-0A35-4EC7-90A1-81E4EFAE1E7E",
-      "kravType": "Fengsling {debug: Riktig?? FHFengsling}",
       "avsagtDato": "2022-07-05",
       "restriksjoner": [],
       "isolasjonsKrav": [
@@ -85,13 +84,7 @@
           "tilDato": "2022-08-06",
           "lovbud": {
             "lovbudStreng": "Strpl. § 186a"
-          },
-          "anke": {
-            "anketDato": "2022-07-06",
-            "anketAv": "SIKTET",
-            "oppsettendeVirkning": false
-          },
-          "tattTilFoelge": true
+          }
         }
       ],
       "fengsling": {
@@ -102,13 +95,11 @@
         "lovbud": {
           "lovbudStreng": "strpl § 184, jf. § 185, jf. § 171 nr. 2"
         },
-        "merknad": "Kiwi må i varetekt så fort som fy",
-        "anke": {
-          "anketDato": "2022-07-06",
-          "anketAv": "SIKTET",
-          "oppsettendeVirkning": false
-        },
-        "tattTilFoelge": true
+        "merknad": "Kiwi må i varetekt så fort som fy"
+      },
+      "anke": {
+        "anketDato": "2022-07-06",
+        "oppsettendeVirkning": false
       }
     }
   }
