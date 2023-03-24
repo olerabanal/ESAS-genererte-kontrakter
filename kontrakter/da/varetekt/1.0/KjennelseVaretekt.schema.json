@@ -93,10 +93,6 @@
           "type": "string",
           "description": "Kravid som opprettes i politiet"
         },
-        "kravType": {
-          "type": "string",
-          "$comment": "Burde dette vært en enum i stedet? Eks: FHVaretekt"
-        },
         "restriksjoner": {
           "type": "array",
           "items": { "$ref": "#/definitions/restriksjon" }
@@ -107,13 +103,16 @@
         },
         "fengsling": {
           "$ref": "#/definitions/fengsling"
+        },
+        "anke": {
+          "$ref": "#/definitions/anke",
+          "description": "Settes kun dersom hele eller deler av avgjørelsen ankes før kjennelsen sendes til påtale"
         }
       },
       "required": [
         "avgjoerelseId",
         "avsagtDato",
         "kravid",
-        "kravType",
         "fengsling",
         "restriksjoner",
         "isolasjonsKrav"
@@ -142,17 +141,9 @@
         "merknad": {
           "type": "string",
           "description": "Merknad til fengslingen"
-        },
-        "anke": {
-          "$ref": "#/definitions/anke",
-          "description": "Settes kun dersom fengslingen ankes før kjennelsen sendes til påtale"
-        },
-        "tattTilFoelge": {
-          "type": "boolean",
-          "description": "Settes til true dersom det blir fengsling"
         }
       },
-      "required": ["fengslingsId", "tattTilFoelge"],
+      "required": ["fengslingsId"],
       "type": "object",
       "additionalProperties": false
     },
@@ -172,20 +163,9 @@
         "tilDato": {
           "description": "Om begjæringen ikke tas til følge skal dette feltet settes til null",
           "$ref": "#/definitions/dato"
-        },
-        "lovbud": {
-          "$ref": "#/definitions/lovbud"
-        },
-        "anke": {
-          "$ref": "#/definitions/anke",
-          "description": "Settes kun dersom restrikjsonen ankes før kjennelsen sendes til påtale"
-        },
-        "tattTilFoelge": {
-          "type": "boolean",
-          "description": "Settes til true dersom denne restriksjonstypen er begjært og det blir en kjennelse på den"
         }
       },
-      "required": ["restriksjonsId", "tattTilFoelge"],
+      "required": ["restriksjonsId", "restriksjonsType"],
       "type": "object",
       "additionalProperties": false
     },
@@ -205,31 +185,15 @@
         "tilDato": {
           "$ref": "#/definitions/dato",
           "description": "Om begjæringen ikke tas til følge skal dette feltet settes til null"
-        },
-        "lovbud": {
-          "$ref": "#/definitions/lovbud",
-          "$comment": "Trenger vi dette for isolasjon??"
-        },
-        "anke": {
-          "$ref": "#/definitions/anke",
-          "description": "Settes kun dersom isolasjonen ankes før kjennelsen sendes til påtale"
-        },
-        "tattTilFoelge": {
-          "type": "boolean",
-          "description": "Settes til true dersom denne isolasjonstypen er begjært og det blir kjennelse på den"
         }
       },
-      "required": ["isolasjonsId", "tattTilFoelge"],
+      "required": ["isolasjonsId", "isolasjonsType"],
       "type": "object",
       "additionalProperties": false
     },
 
     "lovbud": {
       "properties": {
-        "lovbudsId": {
-          "type": "string",
-          "description": "Politiets interne lovbudsnummer. Blank om det er endret i domstolen eller ikke fått fra politi"
-        },
         "lovbudStreng": {
           "type": "string"
         }
@@ -243,14 +207,11 @@
         "anketDato": {
           "$ref": "#/definitions/dato"
         },
-        "anketAv": {
-          "$ref": "#/definitions/anketAvType"
-        },
         "oppsettendeVirkning": {
           "type": "boolean"
         }
       },
-      "required": ["anketDato", "anketAv"],
+      "required": ["anketDato"],
       "type": "object",
       "additionalProperties": false
     },
@@ -266,11 +227,6 @@
     "isolasjonsType": {
       "description": "Liste over de ulike isolasjonstyper",
       "enum": ["FULL", "DELVIS"],
-      "type": "string"
-    },
-    "anketAvType": {
-      "description": "Liste over alle som kan anke",
-      "enum": ["SIKTET", "AKTOR"],
       "type": "string"
     },
     "forsendelse": {
