@@ -75,17 +75,14 @@
       "avgjoerelseId": "A7972F79-0A35-4EC7-90A1-81E4EFAE1E31",
       "avsagtDato": "2022-07-05",
       "kravid": "16972F79-0A35-4EC7-90A1-81E4EFAE1E7E",
-      "kravType": "Fengsling {debug: Riktig?? FHFengsling}",
       "restriksjoner": [],
       "isolasjonsKrav": [],
       "fengsling": {
-        "fengslingsId": "FFF72F79-0A35-4EC7-90A1-81E4EFAE1888",
-        "anke": {
-          "anketDato": "2022-07-06",
-          "anketAv": "AKTOR",
-          "oppsettendeVirkning": true
-        },
-        "tattTilFoelge": false
+        "fengslingsId": "FFF72F79-0A35-4EC7-90A1-81E4EFAE1888"
+      },
+      "anke": {
+        "anketDato": "2022-07-06",
+        "oppsettendeVirkning": true
       }
     }
   }
