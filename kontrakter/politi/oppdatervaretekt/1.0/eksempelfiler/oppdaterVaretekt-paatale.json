@@ -8,18 +8,14 @@
         "organisasjonsnummer": "983997953",
         "navn": "Innlandet politidistrikt"
       },
-      "saksbehandler": {
+      "person": {
         "brukeridentifikasjon": "PD",
-        "navn": {
-          "etternavn": "Politiets Datatjeneste"
-        }
+        "etternavn": "Politiets Datatjeneste"
       }
     },
-    "mottaker": {
-      "organisasjon": {
-        "organisasjonsnummer": "890286712",
-        "navn": "Bjørgvin fengsel"
-      }
+    "mottakerOrganisasjon": {
+      "organisasjonsnummer": "890286712",
+      "navn": "Bjørgvin fengsel"
     }
   },
   "hovedStraffesaksnummer": "15434819",
