@@ -7,7 +7,7 @@ addFormats(ajv)
 
 const jsonSchemaFolders = [
     "kontrakter/politi/varetekt",
-    "kontrakter/politi/fengsling",
+    "kontrakter/politi/bestillvaretektsplass",
     "kontrakter/da/varetekt",
     "kontrakter/felles/kvittering"
 ]
