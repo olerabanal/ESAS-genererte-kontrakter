@@ -2,7 +2,6 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://politiet.no/politi/oppdatervaretekt/1.0/oppdaterVaretekt",
   "description": "Kjennelse fra domstolen eller oppdatering av restriksjoner/isolasjon fra påtale",
-
   "type": "object",
   "properties": {
     "melding": {
