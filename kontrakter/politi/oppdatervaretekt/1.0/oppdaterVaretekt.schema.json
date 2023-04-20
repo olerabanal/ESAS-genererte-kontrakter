@@ -1,13 +1,13 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://politiet.no/politi/fengsling/1.0/oppdaterVaretekt",
+  "$id": "https://politiet.no/politi/oppdatervaretekt/1.0/oppdaterVaretekt",
   "description": "Kjennelse fra domstolen eller oppdatering av restriksjoner/isolasjon fra påtale",
 
   "type": "object",
   "properties": {
     "melding": {
       "type": "string",
-      "const": ["OPPDATER_VARETEKT"],
+      "const": "OPPDATER_VARETEKT",
       "description": "Navnet på meldingen. Enkelt å se på en melding hvilken type det er."
     },
     "forsendelse": {
@@ -38,8 +38,7 @@
       "type": "array",
       "items": {
         "$ref": "#/definitions/dokument"
-      },
-      "minContains": 0
+      }
     }
   },
   "required": [
@@ -59,7 +58,7 @@
       "properties": {
         "adresselinjer": {
           "type": "array",
-          "items": {
+          "contains": {
             "type": "string",
             "minLength": 1,
             "maxLength": 500
@@ -89,8 +88,8 @@
       "description": "Anke av fengsling/restriksjon/kjennelse",
       "properties": {
         "anketDato": {
-          "description": "Dato",
-          "$ref": "#/definitions/dato"
+          "description": "Dato må alltid være date-time format i denne meldingen",
+          "$ref": "#/definitions/date-time"
         },
         "oppsettendeVirkning": {
           "type": "boolean"
@@ -142,9 +141,10 @@
       "required": ["organisasjon"],
       "additionalProperties": false
     },
-    "dato": {
+    "date-time": {
+      "description": "Dato må alltid være date-time format i denne meldingen",
       "type": "string",
-      "format": "date"
+      "format": "date-time"
     },
     "dNummer": {
       "type": "string",
@@ -211,15 +211,15 @@
         "mottakerOrganisasjon": {
           "$ref": "#/definitions/organisasjon",
           "description": "Kriminalomsorg som skal være mottaker"
-        },
-        "required": [
-          "meldingsId",
-          "avsender",
-          "mottakerOrganisasjon",
-          "sendtTid"
-        ],
-        "additionalProperties": false
-      }
+        }
+      },
+      "required": [
+        "meldingsId",
+        "avsender",
+        "mottakerOrganisasjon",
+        "sendtTid"
+      ],
+      "additionalProperties": false
     },
     "fengslingKjennelse": {
       "description": "Fengsling som en del av kjennelsen, uten datoer så er det ikke noe fengsel",
@@ -229,13 +229,16 @@
           "description": "fengslingsid som opprettes i DA (GUID)"
         },
         "fraDato": {
-          "$ref": "#/definitions/dato"
+          "description": "Dato må alltid være date-time format i denne meldingen",
+          "$ref": "#/definitions/date-time"
         },
         "tilDato": {
-          "$ref": "#/definitions/dato"
+          "description": "Dato må alltid være date-time format i denne meldingen",
+          "$ref": "#/definitions/date-time"
         },
         "fengslingsFristDato": {
-          "$ref": "#/definitions/dato"
+          "description": "Dato må alltid være date-time format i denne meldingen",
+          "$ref": "#/definitions/date-time"
         },
         "lovbud": {
           "$ref": "#/definitions/lovbudEnkel"
@@ -263,7 +266,7 @@
           "type": "string"
         },
         "organisasjonsnummer": {
-          "type": "string"
+          "$ref": "#/definitions/organisasjonsnummer"
         },
         "navn": {
           "type": "string"
@@ -336,12 +339,12 @@
           "$ref": "#/definitions/isolasjonsType"
         },
         "fraDato": {
-          "$ref": "#/definitions/dato",
-          "description": "Om begjæringen ikke tas til følge skal dette feltet settes til null"
+          "$ref": "#/definitions/date-time",
+          "description": "Om begjæringen ikke tas til følge skal dette feltet settes til null. Dato må være på date-time format"
         },
         "tilDato": {
-          "$ref": "#/definitions/dato",
-          "description": "Om begjæringen ikke tas til følge skal dette feltet settes til null"
+          "$ref": "#/definitions/date-time",
+          "description": "Om begjæringen ikke tas til følge skal dette feltet settes til null. Dato må være på date-time format"
         }
       },
       "required": ["isolasjonsId", "isolasjonsType"],
@@ -359,7 +362,7 @@
         },
         "isolasjon": {
           "type": "array",
-          "items": {
+          "contains": {
             "$ref": "#/definitions/isolasjon"
           },
           "minContains": 1
@@ -382,28 +385,26 @@
         "medsiktede": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/personForetakFull"
-          },
-          "minContains": 0
+            "$ref": "#/definitions/personForetak"
+          }
         },
         "fornaermede": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/personForetakFull"
-          },
-          "minContains": 0
+            "$ref": "#/definitions/personForetak"
+          }
         },
         "vitne": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/person"
-          },
-          "minContains": 0
+          }
         }
       },
       "required": ["medsiktede", "fornaermede", "vitne"]
     },
     "kodeverk": {
+      "type": "object",
       "properties": {
         "kode": {
           "type": "string"
@@ -416,6 +417,7 @@
       "additionalProperties": false
     },
     "kontaktInfo": {
+      "type": "object",
       "properties": {
         "epost": {
           "type": "string"
@@ -435,7 +437,8 @@
           "description": "Domstolen sin nøkkel til avgjørelsen. Kan bli brukt i forbindelse med anke/forlengelse"
         },
         "avsagtDato": {
-          "$ref": "#/definitions/dato"
+          "description": "Dato må alltid være date-time format i denne meldingen",
+          "$ref": "#/definitions/date-time"
         },
         "kravid": {
           "type": "string",
@@ -445,15 +448,13 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/restriksjonKjennelse"
-          },
-          "minContains": 0
+          }
         },
         "isolasjonsKrav": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/isolasjonKjennelse"
-          },
-          "minContains": 0
+          }
         },
         "fengsling": {
           "$ref": "#/definitions/fengslingKjennelse",
@@ -464,7 +465,14 @@
           "description": "Settes kun dersom hele eller deler av avgjørelsen ankes før kjennelsen sendes til påtale"
         }
       },
-      "required": ["restriksjoner", "isolasjon"],
+      "required": [
+        "avgjoerelseId",
+        "avsagtDato",
+        "kravid",
+        "fengsling",
+        "restriksjoner",
+        "isolasjonsKrav"
+      ],
       "additionalProperties": false
     },
     "kjoenn": {
@@ -534,6 +542,7 @@
       "required": ["kode"]
     },
     "lovbudFull": {
+      "type": "object",
       "description": "Lovvbudreferanse med gjengivelse og strafferamme",
       "properties": {
         "lovbudId": {
@@ -549,8 +558,7 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/lovreferanse"
-          },
-          "minContains": 0
+          }
         },
         "strafferamme": {
           "type": "integer",
@@ -561,6 +569,7 @@
       "additionalProperties": false
     },
     "lovbudEnkel": {
+      "type": "object",
       "description": "Enkel lovbudreferanse kun lovbudstreng",
       "properties": {
         "lovbudId": {
@@ -646,22 +655,24 @@
             "type": {
               "const": "ordreVaretekt"
             },
-            "kjennelseVaretekt": {
-              "type": "null"
+            "ordreVaretekt": {
+              "$ref": "#/definitions/ordreVaretekt"
             }
           },
-          "required": ["ordreVaretekt"]
+          "required": ["ordreVaretekt"],
+          "additionalProperties": false
         },
         {
           "properties": {
             "type": {
               "const": "kjennelseVaretekt"
             },
-            "ordreVaretekt": {
-              "type": "null"
+            "kjennelseVaretekt": {
+              "$ref": "#/definitions/kjennelseVaretekt"
             }
           },
-          "required": ["kjennelseVaretekt"]
+          "required": ["kjennelseVaretekt"],
+          "additionalProperties": false
         }
       ]
     },
@@ -719,15 +730,16 @@
       "required": ["etternavn"],
       "additionalProperties": false
     },
-    "personForetakFull": {
-      "description": "En siktet kan være en person eller et foretak, denne typen er enten person eller foretak.",
+    "personForetak": {
       "type": "object",
+      "description": "En siktet kan være en person eller et foretak, denne typen er enten person eller foretak.",
       "properties": {
         "type": {
           "enum": ["person", "foretak"]
         },
         "person": {
-          "$ref": "#/definitions/person"
+          "$ref": "#/definitions/person",
+          "description": "Siktede har alltid identitetsnummer (fødselsnummer, dnummer eller SSP nummer)"
         },
         "foretak": {
           "$ref": "#/definitions/foretak"
@@ -740,22 +752,24 @@
             "type": {
               "const": "person"
             },
-            "foretak": {
-              "type": "null"
+            "person": {
+              "$ref": "#/definitions/person"
             }
           },
-          "required": ["person"]
+          "required": ["person"],
+          "additionalProperties": false
         },
         {
           "properties": {
             "type": {
               "const": "foretak"
             },
-            "person": {
-              "type": "null"
+            "foretak": {
+              "$ref": "#/definitions/foretak"
             }
           },
-          "required": ["foretak"]
+          "required": ["foretak"],
+          "additionalProperties": false
         }
       ]
     },
@@ -785,7 +799,8 @@
           "$ref": "#/definitions/personnavn"
         },
         "foedselsdato": {
-          "$ref": "#/definitions/dato"
+          "description": "Dato må alltid være date-time format i denne meldingen",
+          "$ref": "#/definitions/date-time"
         },
         "kjoenn": {
           "$ref": "#/definitions/kjoenn",
@@ -883,12 +898,12 @@
           "$ref": "#/definitions/restriksjonsType"
         },
         "fraDato": {
-          "description": "Om begjæringen ikke tas til følge er dette feltet satt til null",
-          "$ref": "#/definitions/dato"
+          "description": "Om begjæringen ikke tas til følge er dette feltet satt til null. Dato må alltid være date-time format i denne meldingen",
+          "$ref": "#/definitions/date-time"
         },
         "tilDato": {
-          "description": "Om begjæringen ikke tas til følge er dette feltet satt til null",
-          "$ref": "#/definitions/dato"
+          "description": "Om begjæringen ikke tas til følge er dette feltet satt til null. Dato må alltid være date-time format i denne meldingen",
+          "$ref": "#/definitions/date-time"
         }
       },
       "required": ["restriksjonsId", "restriksjonsType"],
@@ -905,7 +920,7 @@
         },
         "restriksjoner": {
           "type": "array",
-          "items": {
+          "contains": {
             "$ref": "#/definitions/restriksjon"
           },
           "minContains": 1

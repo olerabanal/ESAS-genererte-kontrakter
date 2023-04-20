@@ -1,5 +1,5 @@
 {
-  "melding": "oppdaterVaretekt",
+  "melding": "OPPDATER_VARETEKT",
   "forsendelse": {
     "meldingsId": "090388AB-8B5E-47E7-9763-A7EB852823F4",
     "sendtTid": "2022-11-03T10:19:59+02:00",
@@ -27,17 +27,18 @@
       "fornavn": "Morsom",
       "etternavn": "KIWI"
     },
-    "foedselsnummer": ["14846399381"],
-    "sspNummer": [],
-    "dNummer": [],
-    "kjoenn": "MANN",
     "foedselsdato": "1963-04-14T00:00:00",
+    "kjoenn": "MANN",
     "statsborgerskap": [
       {
         "kode": "NOR",
         "navn": "Norge"
       }
     ],
+    "identitetsnummer": {
+      "foedselsnummer": "14846399381"
+    },
+    "tilleggsId": [],
     "adresseGradering": "KLIENT_ADRESSE",
     "personAdresse": {
       "gradering": "KLIENT_ADRESSE",
@@ -55,10 +56,8 @@
       "besluttetAv": {
         "brukeridentifikasjon": "TEB012",
         "tittel": "Politifullmektig",
-        "navn": {
-          "fornavn": "Tom Erik Wassenaar",
-          "etternavn": "Berntsen"
-        },
+        "fornavn": "Tom Erik Wassenaar",
+        "etternavn": "Berntsen",
         "kontakt": {
           "telefon": "55224411"
         }
@@ -81,7 +80,7 @@
         "isolasjon": [
           {
             "id": "1B6547BE-ABC3-40B4-AFE1-D31DFD162668",
-            "isolasjonsType": "FULL_ISOLASJON",
+            "isolasjonsType": "FULL",
             "lovbudEnkel": {
               "lovbudStreng": "Strpl. § 186a"
             },

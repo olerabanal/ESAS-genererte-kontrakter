@@ -53,42 +53,42 @@
     "type": "kjennelseVaretekt",
     "kjennelseVaretekt": {
       "avgjoerelseId": "A7972F79-0A35-4EC7-90A1-81E4EFAE1E31",
-      "avsagtDato": "2022-07-05",
+      "avsagtDato": "2022-07-05T00:00:00",
       "kravid": "16972F79-0A35-4EC7-90A1-81E4EFAE1E7E",
       "restriksjoner": [
         {
           "restriksjonsId": "CCC72F79-0A35-4EC7-90A1-81E4EFAE1EEE",
           "restriksjonsType": "BREV_OG_BESOEKSFORBUD",
-          "fraDato": "2022-07-06",
-          "tilDato": "2022-07-20"
+          "fraDato": "2022-07-06T00:00:00",
+          "tilDato": "2022-07-20T00:00:00"
         },
         {
           "restriksjonsId": "DDD72F79-0A35-4EC7-90A1-81E4EFAE1FFF",
           "restriksjonsType": "BREV_OG_BESOEKSKONTROLL",
-          "fraDato": "2022-07-21",
-          "tilDato": "2022-08-06"
+          "fraDato": "2022-07-21T00:00:00",
+          "tilDato": "2022-08-06T00:00:00"
         }
       ],
       "isolasjonsKrav": [
         {
           "isolasjonsId": "EEE72F79-0A35-4EC7-90A1-81E4EFAE1777",
           "isolasjonsType": "FULL",
-          "fraDato": "2022-07-06",
-          "tilDato": "2022-08-06"
+          "fraDato": "2022-07-06T00:00:00",
+          "tilDato": "2022-08-06T00:00:00"
         }
       ],
       "fengsling": {
         "fengslingsId": "FFF72F79-0A35-4EC7-90A1-81E4EFAE1888",
-        "fraDato": "2022-07-06",
-        "tilDato": "2022-08-06",
-        "fengslingsFristDato": "2022-07-06",
+        "fraDato": "2022-07-06T00:00:00",
+        "tilDato": "2022-08-06T00:00:00",
+        "fengslingsFristDato": "2022-07-06T00:00:00",
         "lovbud": {
           "lovbudStreng": "strpl § 184, jf. § 185, jf. § 171 nr. 2"
         },
         "merknad": "Kiwi må i varetekt så fort som fy"
       },
       "anke": {
-        "anketDato": "2022-07-06",
+        "anketDato": "2022-07-06T00:00:00",
         "oppsettendeVirkning": false
       }
     }
