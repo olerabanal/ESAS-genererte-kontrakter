@@ -27,7 +27,7 @@
       "fornavn": "Morsom",
       "etternavn": "KIWI"
     },
-    "foedselsdato": "1963-04-14T00:00:00",
+    "foedselsdato": "1963-04-14",
     "kjoenn": "MANN",
     "statsborgerskap": [
       {
@@ -84,7 +84,7 @@
             "lovbudEnkel": {
               "lovbudStreng": "Strpl. § 186a"
             },
-            "tilDato": "2022-11-04T00:00:00"
+            "tilDato": "2022-11-04"
           }
         ]
       }
@@ -95,7 +95,7 @@
     {
       "internId": "1234567879",
       "overskrift": "Begjæring om varetekt, Kiwi",
-      "skrevetDato": "2022-11-03T00:00:00",
+      "skrevetDato": "2022-11-03",
       "forsendelse": {
         "mimeType": "application/pdf",
         "uri": "file:///asdfasdf",
@@ -108,7 +108,7 @@
       "kategori": {
         "kode": "siktelse"
       },
-      "skrevetDato": "2022-10-14T00:00:00",
+      "skrevetDato": "2022-10-14",
       "forsendelse": {
         "mimeType": "application/pdf",
         "uri": "file:///asdfaasdfsdf",
