@@ -17,11 +17,9 @@
       "$ref": "#/definitions/straffesaksnummer",
       "description": "BL Saksbehandlersak er hovedsaken i et sakskompleks (som er 1 eller flere straffesaker)"
     },
-    "ordreId": {
-      "type": "string"
-    },
     "varetektSyklusId": {
-      "type": "string"
+      "type": "string",
+      "description": "En syklus fra pågripelse til løslatelse, vil ikke være med til å begynne med"
     },
     "personIVaretekt": {
       "$ref": "#/definitions/person"
@@ -44,9 +42,7 @@
     "melding",
     "forsendelse",
     "hovedStraffesaksnummer",
-    "varetektSyklusId",
     "personIVaretekt",
-    "ordreId",
     "ordreEllerKjennelseVaretekt",
     "dokumenter"
   ],
@@ -668,9 +664,14 @@
     "ordreVaretekt": {
       "description": "Påtale sin ordre/beslutning om fengsling i fengsel, før vi har en kjennelse fra retten og for å lette på restriksjoner, det er implisit at det er fengsling",
       "type": "object",
-      "required": ["besluttetAv", "tidspunkt"],
+      "required": ["besluttetAv", "tidspunkt", "ordreId"],
       "additionalProperties": false,
       "properties": {
+        "ordreId": {
+          "type": "string",
+          "description": "Identifikasjon av ordre fra påtale til Kriminalmsorgen. Skal returneres ved dialog på oppdatering av varetekt fra påtale"
+        },
+
         "merknad": {
           "type": "string"
         },
