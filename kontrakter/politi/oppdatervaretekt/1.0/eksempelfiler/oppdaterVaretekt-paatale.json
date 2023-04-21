@@ -59,7 +59,7 @@
         "fornavn": "Tom Erik Wassenaar",
         "etternavn": "Berntsen",
         "kontakt": {
-          "telefon": "55224411"
+          "telefonnummer": ["55224411"]
         }
       },
       "tidspunkt": "2022-11-03T10:19:59+02:00",

@@ -410,10 +410,12 @@
         "epost": {
           "type": "string"
         },
-        "telefon": {
-          "type": "string"
+        "telefonnummer": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/telefonnummer" }
         }
       },
+      "required": ["telefonnummer"],
       "additionalProperties": false
     },
     "kjennelseVaretekt": {
@@ -958,6 +960,12 @@
       "description": "Som regel et løpenummer, men kan i fremtiden også inneholde bokstaver",
       "minLength": 3,
       "maxLength": 30
+    },
+    "telefonnummer": {
+      "type": "string",
+      "description": "Ett telefonnummer, norsk eller utenlands, med eller uten land prefix",
+      "maxLength": 30,
+      "minLength": 1
     }
   }
 }
