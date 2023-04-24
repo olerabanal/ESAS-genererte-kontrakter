@@ -442,8 +442,7 @@
         {
           "properties": {
             "foedselsnummer": {
-              "$ref": "#/definitions/foedselsnummer",
-              "description": "Kun norsk fødselsnummer. Hvis det er et D-nummer så kommer det i eget felt."
+              "$ref": "#/definitions/foedselsnummer"
             }
           },
           "required": ["foedselsnummer"],
