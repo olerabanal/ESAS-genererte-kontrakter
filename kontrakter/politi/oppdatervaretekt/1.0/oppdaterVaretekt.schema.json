@@ -290,29 +290,6 @@
       }
     },
     "isolasjon": {
-      "description": "Basis isolasjon med til og fra dato, brukes uten datoer på innsettelsesordre",
-      "type": "object",
-      "required": ["isolasjonsType"],
-      "additionalProperties": false,
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "isolasjonsType": {
-          "$ref": "#/definitions/isolasjonsType"
-        },
-        "lovbudEnkel": {
-          "$ref": "#/definitions/lovbudEnkel"
-        },
-        "fraDato": {
-          "$ref": "#/definitions/date"
-        },
-        "tilDato": {
-          "$ref": "#/definitions/date"
-        }
-      }
-    },
-    "isolasjonKjennelse": {
       "description": "Isolasjon fra domstolen, når vi har mottatt den, uten til fra dato kun når det er anke",
       "properties": {
         "isolasjonsId": {
@@ -334,24 +311,6 @@
       "required": ["isolasjonsId", "isolasjonsType"],
       "type": "object",
       "additionalProperties": false
-    },
-    "isolasjonOrdre": {
-      "description": "Isolasjon fra påtale, dvs. fraDato eller tilDato vil ikke være utfylt før første kjennelse",
-      "type": "object",
-      "required": ["merknad", "isolasjon"],
-      "additionalProperties": false,
-      "properties": {
-        "merknad": {
-          "type": "string"
-        },
-        "isolasjon": {
-          "type": "array",
-          "contains": {
-            "$ref": "#/definitions/isolasjon"
-          },
-          "minContains": 1
-        }
-      }
     },
     "isolasjonsType": {
       "description": "Liste over de ulike isolasjonstyper",
@@ -432,13 +391,13 @@
         "restriksjoner": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/restriksjonKjennelse"
+            "$ref": "#/definitions/restriksjon"
           }
         },
         "isolasjonsKrav": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/isolasjonKjennelse"
+            "$ref": "#/definitions/isolasjon"
           }
         },
         "fengsling": {
@@ -671,7 +630,6 @@
           "type": "string",
           "description": "Identifikasjon av ordre fra påtale til Kriminalmsorgen. Skal returneres ved dialog på oppdatering av varetekt fra påtale"
         },
-
         "merknad": {
           "type": "string"
         },
@@ -683,10 +641,16 @@
           "format": "date-time"
         },
         "restriksjoner": {
-          "$ref": "#/definitions/restriksjonerOrdre"
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/restriksjon"
+          }
         },
-        "isolasjon": {
-          "$ref": "#/definitions/isolasjonOrdre"
+        "isolasjonsKrav": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/isolasjon"
+          }
         }
       }
     },
@@ -847,29 +811,6 @@
       "additionalProperties": false
     },
     "restriksjon": {
-      "description": "Basis restriksjon med til og fra dato,  brukes uten datoer på innsettelsesordre",
-      "type": "object",
-      "required": ["restriksjonsType"],
-      "additionalProperties": false,
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "restriksjonsType": {
-          "$ref": "#/definitions/restriksjonsType"
-        },
-        "lovbudEnkel": {
-          "$ref": "#/definitions/lovbudEnkel"
-        },
-        "fraDato": {
-          "$ref": "#/definitions/date"
-        },
-        "tilDato": {
-          "$ref": "#/definitions/date"
-        }
-      }
-    },
-    "restriksjonKjennelse": {
       "description": "Restriksjon fra domstolen, når vi har mottatt den, uten til fra dato kun når det er anke",
       "type": "object",
       "properties": {
@@ -891,24 +832,6 @@
       },
       "required": ["restriksjonsId", "restriksjonsType"],
       "additionalProperties": false
-    },
-    "restriksjonerOrdre": {
-      "description": "Restriksjon fra påtale, dvs. fraDato eller tilDato vil ikke være utfylt før første kjennelse",
-      "type": "object",
-      "required": ["merknad", "restriksjoner"],
-      "additionalProperties": false,
-      "properties": {
-        "merknad": {
-          "type": "string"
-        },
-        "restriksjoner": {
-          "type": "array",
-          "contains": {
-            "$ref": "#/definitions/restriksjon"
-          },
-          "minContains": 1
-        }
-      }
     },
     "restriksjonsType": {
       "description": "Liste over de ulike restriksjonene",

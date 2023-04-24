@@ -63,31 +63,19 @@
         }
       },
       "tidspunkt": "2022-11-03T10:19:59+02:00",
-      "restriksjoner": {
-        "merknad": "Ingen brev til denne personen",
-        "restriksjoner": [
-          {
-            "id": "FF815BE6-CE92-4A55-8CAE-9BE0F1340101",
-            "restriksjonsType": "BREV_OG_BESOEKSFORBUD",
-            "lovbudEnkel": {
-              "lovbudStreng": "Strpl. § 186, 2.ledd 1.pkt."
-            }
-          }
-        ]
-      },
-      "isolasjon": {
-        "merknad": "Opphever isolasjon i morgen",
-        "isolasjon": [
-          {
-            "id": "1B6547BE-ABC3-40B4-AFE1-D31DFD162668",
-            "isolasjonsType": "FULL",
-            "lovbudEnkel": {
-              "lovbudStreng": "Strpl. § 186a"
-            },
-            "tilDato": "2022-11-04"
-          }
-        ]
-      }
+      "restriksjoner": [
+        {
+          "restriksjonsId": "FF815BE6-CE92-4A55-8CAE-9BE0F1340101",
+          "restriksjonsType": "BREV_OG_BESOEKSFORBUD"
+        }
+      ],
+      "isolasjonsKrav": [
+        {
+          "isolasjonsId": "1B6547BE-ABC3-40B4-AFE1-D31DFD162668",
+          "isolasjonsType": "FULL",
+          "tilDato": "2022-11-04"
+        }
+      ]
     }
   },
   "paagrepetTidspunkt": "2022-11-03T10:19:59+02:00",
