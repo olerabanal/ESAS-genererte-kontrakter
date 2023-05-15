@@ -55,6 +55,7 @@
     <xs:all>
       <xs:element name="Distrikt" type="xs:string" nillable="false"/>
       <xs:element name="Enhet" type="xs:string" nillable="false"/>
+      <xs:element name="EnhetNr" type="xs:string" nillable="false"/>
     </xs:all>
   </xs:complexType>
 
@@ -197,7 +198,7 @@
       <xs:enumeration value="Løslatt kort tid før endt tid, §42.4"/>
       <xs:enumeration value="Løslatt kort tid før ½ eller 2/3 tid, §42"/>
       <xs:enumeration value="Løslatt ved kjennelsens utløp"/>
-      <xs:enumeration value="Overført til fortsatt soning av norsk i utlandet"/>
+      <xs:enumeration value="Overført til fortsatt soning av norsk dom i utlandet"/>
       <xs:enumeration value="Utvist fra Norge"/>
       <xs:enumeration value="Utlevert til utlandet etter begjæring"/>
       <xs:enumeration value="Løslatt etter 7/12 tid"/>
@@ -272,6 +273,8 @@
 	  <xs:enumeration value="Melding om straffavbrudd pga ny straffbar handling*"/>
 	  <xs:enumeration value="Avbrytelse av straff*"/>
 	  <xs:enumeration value="Unnveket/uteblitt fra fengsel"/>
+	  <xs:enumeration value="Autom. endret status fra AKT til STA"/>
+	  <xs:enumeration value="Periode for straffeavbrudd"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="LoeslatelseFraSamfunnAarsakType">
