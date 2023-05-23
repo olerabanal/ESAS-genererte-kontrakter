@@ -5,7 +5,7 @@
 
 **Authors**: Jostein Klakegg
 
-**Status**: Discussion
+**Status**: Beslutning (16.05.2023)
 
 ### Problemstilling
 
@@ -25,18 +25,16 @@ Routing-key er ikke nødvendigvis stabil ved endring i kø-oppset eller exchange
 
 ### Løsningsforslag
 
-Avsender legger på tre headere.
+Avsender legger på to headere.
 
 `SchemaName` : Unikt navn på skjema for melding.
 `SchemaVersion` : Semantisk versjon av skjema for melding.
-`SchemaId` : "Unikt namespace som definert av property $Id i skjema."
 
 
 ### Eksempel
 
 SchemaName = VARETEKT_KJENNELSE
 SchemaVersion = 1.0
-SchemaId = https://domstol.no/da/varetekt/1.0/KjennelseVaretekt.schema.json
 
 Pseudokode:
 
@@ -45,7 +43,6 @@ Pseudokode:
 Map<String,Object> headerMap = new HashMap<String,Object>();
 headerMap.put("SchemaName", "VARETEKT_KJENNELSE");
 headerMap.put("SchemaVersion", "1.0");
-headerMap.put("SchemaId", "https://domstol.no/da/varetekt/1.0/KjennelseVaretekt.schema.json");
 
 BasicProperties messageProperties = new BasicProperties.Builder()
 .headers(headerMap)
@@ -55,3 +52,8 @@ channel.basicPublish("",myQueue,messageProperties,message.getBytes())
 
 ```
 
+### Changelog: 
+
+01.05.2023: Opprettet RFC for header MessageName.
+10.05.2023: Endret RFC til å gjelde headere SchemaName, SchemaVersion, SchemaId. 
+16.05.2023: Besluttet å benytte SchemaName og SchemaVersion. SchemaId utgår. Oppdatert status på RFC til status Beslutning.
