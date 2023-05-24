@@ -348,7 +348,7 @@
       "properties": {
         "kode": {
           "type": "string",
-          "pattern": "[A-Z]+",
+          "pattern": "^[A-Z]+$",
           "minLength": 3,
           "maxLength": 3
         },
@@ -1228,7 +1228,7 @@
     "organisasjonsnummer": {
       "type": "string",
       "description": "Norsk organisasjonsnummer fra BRREG. Referanse til politistrikt, domstol, fengsel. https://www.brreg.no/om-oss/registrene-vare/om-enhetsregisteret/organisasjonsnummeret/",
-      "pattern": "[0-9]+",
+      "pattern": "^[0-9]+$",
       "minLength": 9,
       "maxLength": 9
     },

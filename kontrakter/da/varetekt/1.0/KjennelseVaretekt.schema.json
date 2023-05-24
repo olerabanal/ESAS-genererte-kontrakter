@@ -375,7 +375,7 @@
       "properties": {
         "kode": {
           "type": "string",
-          "pattern": "[A-Z]+",
+          "pattern": "^[A-Z]+$",
           "minLength": 3,
           "maxLength": 3
         },
