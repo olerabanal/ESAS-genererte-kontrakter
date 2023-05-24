@@ -695,7 +695,7 @@
     "foedselsnummer": {
       "type": "string",
       "description": "Se skatteetaten. Kan være vanlig med 6 sifret fødselsdato og fiktivt (Tenor) fødselsnummer med +80 på måned slik at noen født 10.01.1990 begynner fiktivt nummer med 108190",
-      "pattern": "^[0-3][0-9][0-1][0-9]+$",
+      "pattern": "^[0-3][0-9][0189][0-9]+$",
       "minLength": 11,
       "maxLength": 11
     },
