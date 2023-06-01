@@ -3,8 +3,8 @@ Denne meldingen brukes av politiet når de skal begjære om varetekt til en ting
 Det legges ved sakstyrende dokumenter som vedlegg til denne meldingen. Restene av dokumentene (politdokumentene) kommer som en sammenstilling med kobling
 til riktig begjæring om varetekt (kravId). Sammenstillingen lages vha. BL Straffesaksforsendelse.
 ## Headere forsendelse justisHub
-SchmaName=BEGJAERING_VARETEKT  
-SchemaVersion=1.0  
+SchemaName=BEGJAERING_VARETEKT
+SchemaVersion=1.0
 [RFC](../../../rfc/MessageName-header.md)
 
 ## Status på data som politiet klarer å fylle ut i dag
@@ -17,7 +17,7 @@ Forlengelse har ikke med noen referanse til forrige fengsling.
 
 ## Data endringer som ikke er med i JSON Schema
 ### Begrenset offentlighet
-Ønsker 
+Ønsker
 Kan være Domstolloven 130a eller b eller en kombinasjon.
 
 ### Forlengelser
