@@ -1,4 +1,4 @@
-# Versjon 0.9 
+# Versjon 0.9
 
 ### Endringer etter pull request https://github.com/domstolene/ESAS/pull/19
 1. Generell opprydning
@@ -15,5 +15,8 @@
 
 
 # Versjon 1.0
-1. Bump verskpm fra 0.9 til 1.0 
+1. Bump verskpm fra 0.9 til 1.0
 2. Fjernet utviklings-versjonen (0.9)
+
+# Versjon 1.1
+1. Legger til krav om at minst ett dokument er vedlagt meldingen.
