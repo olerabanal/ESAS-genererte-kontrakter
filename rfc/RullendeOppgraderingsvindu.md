@@ -15,7 +15,7 @@ Det er ulike virksomheter koblet til JustisHub det er derfor viktig at oppgrader
 
 ### Løsningsforslag
 
-Forslaget går ut på at ved en oppgradering av kontrakt er mottaker/konsument ansvarlig for håndtere mottak av alle versjoner av meldingen i en _grace periode_.
+Forslaget går ut på at ved en oppgradering av kontrakt er mottaker/konsument ansvarlig for å håndtere mottak av alle versjoner av meldingen i en _grace periode_.
 *Grace perioden* for et gitt miljø, blir man enige om på forhånd - f.eks. 1 måned (eller til at avsender har informert om at de ikke lenger kommer til å produsere tidligere versjoner).
 
 Header på meldingene må inneholde et versjonsnummer som tilsvarer versjonen på kontrakten meldingen skal reflektere slik at mottaker kan behandle meldingen korrekt (riktig versjon). Avsender/produsent av melding kan selv velge (innenfor grace-perioden) når man oppgraderer fra en versjon til en annen.
