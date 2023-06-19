@@ -1,0 +1,234 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://konfliktraadet.no/konfliktradet/oppdatertstatus/1.0/oppdatertStatusPaaSak",
+  "description": "Melding fra konfliktrådet når en sak endrer status hos de",
+  "type": "object",
+  "properties": {
+    "melding": {
+      "type": "string",
+      "const": "OPPDATERT_STATUS",
+      "description": "Navnet på meldingen. Enkelt å se på en melding hvilken type det er."
+    },
+    "forsendelse": {
+      "$ref": "#/definitions/forsendelse",
+      "description": "avsender og mottaker"
+    },
+    "straffesaksnummer": {
+      "$ref": "#/definitions/straffesaksnummer",
+      "description": "BL Saksbehandlersak er hovedsaken i et sakskompleks (som er 1 eller flere straffesaker)"
+    },
+    "statusOppdatering": {
+      "description": "Oppdatert statusinformasjon",
+      "type": "object",
+      "properties": {
+        "statusType": {
+          "$ref": "#/definitions/statusType"
+        },
+        "kommentar": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "statusType"
+      ]
+    },
+    "siktet": {
+      "$ref": "#/definitions/personMini"
+    }
+  },
+  "required": [
+    "melding",
+    "forsendelse",
+    "straffesaksnummer",
+    "statusOppdatering"
+  ],
+  "additionalProperties": false,
+  "definitions": {
+    "statusType": {
+      "description": "Liste over de ulike statusene som kan settes",
+      "type": "string",
+      "enum": [
+        "MEKLING_OPPSATT",
+        "MEKLING_GJENNOMFOERT",
+        "BEHANDLING_PAAGAAR",
+        "OPPFOELGING_PAAGAAR",
+        "BRUDD",
+        "STANS",
+        "FULLFOERT",
+        "FLYTTEMELDING_OVERFOERT",
+        "FORLENGELSE_AV_STRAFF"
+      ]
+    },
+    "ansattPerson": {
+      "type": "object",
+      "description": "Saksbehandler, jurist etterforsker hos politiet, ansatte hos domstolene, kriminalomsorgen eller konfliktrådet",
+      "properties": {
+        "brukeridentifikasjon": {
+          "type": "string",
+          "description": "Id som ikke endrer seg, vil være BID hos politiet til å begynne med, men vil endres"
+        },
+        "tittel": {
+          "type": "string"
+        },
+        "fornavn": {
+          "type": "string"
+        },
+        "mellomnavn": {
+          "type": "string"
+        },
+        "etternavn": {
+          "type": "string"
+        },
+        "kontakt": {
+          "$ref": "#/definitions/kontaktInfo",
+          "description": "Er ikke med i første fase, burde inneholde kontaktinformasjon på forsendelsen."
+        }
+      },
+      "required": [
+        "etternavn"
+      ],
+      "additionalProperties": false
+    },
+    "avsender": {
+      "type": "object",
+      "properties": {
+        "organisasjon": {
+          "$ref": "#/definitions/organisasjon"
+        },
+        "person": {
+          "$ref": "#/definitions/ansattPerson",
+          "description": "Person som er tilordnet saken hos konfliktrådet."
+        }
+      },
+      "required": [
+        "organisasjon"
+      ],
+      "additionalProperties": false
+    },
+    "forsendelse": {
+      "type": "object",
+      "description": "Sender (konfliktrådet) og mottaker (påtale) av meldingen",
+      "properties": {
+        "meldingsId": {
+          "type": "string"
+        },
+        "sendtTid": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "avsender": {
+          "$ref": "#/definitions/avsender"
+        },
+        "mottakerOrganisasjon": {
+          "$ref": "#/definitions/organisasjon",
+          "description": "Påtale."
+        }
+      },
+      "required": [
+        "meldingsId",
+        "avsender",
+        "mottakerOrganisasjon",
+        "sendtTid"
+      ],
+      "additionalProperties": false
+    },
+    "kontaktInfo": {
+      "type": "object",
+      "properties": {
+        "epost": {
+          "type": "string"
+        },
+        "telefonnummer": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/telefonnummer"
+          }
+        }
+      },
+      "required": [
+        "telefonnummer"
+      ],
+      "additionalProperties": false
+    },
+    "organisasjon": {
+      "description": "Entydig identifikator av juridisk enhet. F.eks en spesifik domstol, embete eller politidistrikt",
+      "type": "object",
+      "properties": {
+        "navn": {
+          "description": "F.eks. Oslo politidistikt, Riksadvokaten, Borgarting lagmannsrett",
+          "type": "string"
+        },
+        "organisasjonsnummer": {
+          "$ref": "#/definitions/organisasjonsnummer"
+        }
+      },
+      "required": [
+        "organisasjonsnummer",
+        "navn"
+      ],
+      "additionalProperties": false
+    },
+    "personMini": {
+      "description": "Kun navn og fødselsdato (hvis den finnes)",
+      "type": "object",
+      "properties": {
+        "internId": {
+          "type": "string"
+        },
+        "navn": {
+          "$ref": "#/definitions/personnavn"
+        },
+        "foedselsdato": {
+          "$ref": "#/definitions/date"
+        }
+      },
+      "required": [
+        "internId",
+        "navn"
+      ],
+      "additionalProperties": false
+    },
+    "personnavn": {
+      "type": "object",
+      "properties": {
+        "fornavn": {
+          "type": "string"
+        },
+        "mellomnavn": {
+          "type": "string"
+        },
+        "etternavn": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "etternavn"
+      ],
+      "additionalProperties": false
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "organisasjonsnummer": {
+      "type": "string",
+      "description": "Norsk organisasjonsnummer fra BRREG. Referanse til politistrikt, domstol, fengsel. https://www.brreg.no/om-oss/registrene-vare/om-enhetsregisteret/organisasjonsnummeret/",
+      "pattern": "[0-9]+",
+      "minLength": 9,
+      "maxLength": 9
+    },
+    "straffesaksnummer": {
+      "type": "string",
+      "description": "Som regel et løpenummer, men kan i fremtiden også inneholde bokstaver",
+      "minLength": 3,
+      "maxLength": 30
+    },
+    "telefonnummer": {
+      "type": "string",
+      "description": "Ett telefonnummer, norsk eller utenlands, med eller uten land prefix",
+      "maxLength": 30,
+      "minLength": 1
+    }
+  }
+}
