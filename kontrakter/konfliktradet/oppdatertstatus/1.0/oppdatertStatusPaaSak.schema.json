@@ -4,11 +4,6 @@
   "description": "Melding fra konfliktrådet når en sak endrer status hos de",
   "type": "object",
   "properties": {
-    "melding": {
-      "type": "string",
-      "const": "OPPDATERT_STATUS",
-      "description": "Navnet på meldingen. Enkelt å se på en melding hvilken type det er."
-    },
     "forsendelse": {
       "$ref": "#/definitions/forsendelse",
       "description": "avsender og mottaker"
@@ -35,12 +30,7 @@
       "$ref": "#/definitions/personMini"
     }
   },
-  "required": [
-    "melding",
-    "forsendelse",
-    "straffesaksnummer",
-    "statusOppdatering"
-  ],
+  "required": ["forsendelse", "straffesaksnummer", "statusOppdatering"],
   "additionalProperties": false,
   "definitions": {
     "statusType": {
@@ -162,9 +152,6 @@
       "description": "Kun navn og fødselsdato (hvis den finnes)",
       "type": "object",
       "properties": {
-        "internId": {
-          "type": "string"
-        },
         "navn": {
           "$ref": "#/definitions/personnavn"
         },
@@ -172,7 +159,7 @@
           "$ref": "#/definitions/date"
         }
       },
-      "required": ["internId", "navn"],
+      "required": ["navn"],
       "additionalProperties": false
     },
     "personnavn": {

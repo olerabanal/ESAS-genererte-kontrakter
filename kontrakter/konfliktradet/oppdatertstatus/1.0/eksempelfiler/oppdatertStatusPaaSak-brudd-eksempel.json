@@ -1,5 +1,4 @@
 {
-  "melding": "OPPDATERT_STATUS",
   "forsendelse": {
     "meldingsId": "C5E8E429-2B8E-48A9-A9D3-FDAA5F9BE5",
     "sendtTid": "2022-11-03T10:19:55+02:00",
@@ -24,7 +23,6 @@
     "kommentar": "Har ikke møtt opp til avtaler"
   },
   "siktet": {
-    "internId": "700892414",
     "navn": {
       "fornavn": "Morsom",
       "etternavn": "KIWI"
