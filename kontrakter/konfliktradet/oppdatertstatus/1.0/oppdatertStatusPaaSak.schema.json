@@ -29,9 +29,7 @@
         }
       },
       "additionalProperties": false,
-      "required": [
-        "statusType"
-      ]
+      "required": ["statusType"]
     },
     "siktet": {
       "$ref": "#/definitions/personMini"
@@ -85,9 +83,7 @@
           "description": "Er ikke med i første fase, burde inneholde kontaktinformasjon på forsendelsen."
         }
       },
-      "required": [
-        "etternavn"
-      ],
+      "required": ["etternavn"],
       "additionalProperties": false
     },
     "avsender": {
@@ -101,9 +97,7 @@
           "description": "Person som er tilordnet saken hos konfliktrådet."
         }
       },
-      "required": [
-        "organisasjon"
-      ],
+      "required": ["organisasjon"],
       "additionalProperties": false
     },
     "forsendelse": {
@@ -146,9 +140,7 @@
           }
         }
       },
-      "required": [
-        "telefonnummer"
-      ],
+      "required": ["telefonnummer"],
       "additionalProperties": false
     },
     "organisasjon": {
@@ -163,10 +155,7 @@
           "$ref": "#/definitions/organisasjonsnummer"
         }
       },
-      "required": [
-        "organisasjonsnummer",
-        "navn"
-      ],
+      "required": ["organisasjonsnummer", "navn"],
       "additionalProperties": false
     },
     "personMini": {
@@ -183,10 +172,7 @@
           "$ref": "#/definitions/date"
         }
       },
-      "required": [
-        "internId",
-        "navn"
-      ],
+      "required": ["internId", "navn"],
       "additionalProperties": false
     },
     "personnavn": {
@@ -202,9 +188,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "etternavn"
-      ],
+      "required": ["etternavn"],
       "additionalProperties": false
     },
     "date": {
