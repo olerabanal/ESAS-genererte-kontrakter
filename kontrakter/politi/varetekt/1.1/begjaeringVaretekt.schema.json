@@ -2,7 +2,6 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://politiet.no/politi/fengsling/1.1/begjaeringVaretekt",
   "description": "Skjema for begjæring av varetektsmeldinger fra påtale til tingretten, JSON Schema versjon 2020-12",
-
   "type": "object",
   "properties": {
     "forsendelse": {
@@ -27,7 +26,6 @@
     "vedlegg"
   ],
   "additionalProperties": false,
-
   "definitions": {
     "begjaeringVaretekt": {
       "type": "object",
@@ -78,7 +76,6 @@
       "required": ["straffesaker", "dokumenter"],
       "additionalProperties": false
     },
-
     "paastandVaretekt": {
       "type": "object",
       "description": "Påtale sier hvor hvor lenge i varetekt og hvilke restriksjoner/isolasjonskrav som de ønsker",
@@ -96,16 +93,19 @@
         },
         "isolasjon": {
           "type": "array",
-          "items": { "$ref": "#/definitions/isolasjonBegjaering" }
+          "items": {
+            "$ref": "#/definitions/isolasjonBegjaering"
+          }
         }
       }
     },
-
     "saksinformasjon": {
       "type": "object",
       "description": "Informasjon fengslingen",
       "properties": {
-        "varetektsType": { "$ref": "#/definitions/varetektsType" },
+        "varetektsType": {
+          "$ref": "#/definitions/varetektsType"
+        },
         "forlengelse": {
           "$ref": "#/definitions/forlengelseInfo",
           "description": "Hvis det er en forlengelse så er dette elementet med"
@@ -145,21 +145,6 @@
             }
           },
           "required": ["dato"],
-          "additionalProperties": false
-        },
-        "forsvarerSaksdokumenter": {
-          "description": "Er det oppnevnt forsvarer og sendt dokumenter?",
-          "type": "object",
-          "properties": {
-            "status": {
-              "type": "string",
-              "enum": ["VARSLET_DOK", "IKKE_ONSKET_FORSVARER"]
-            },
-            "beskrivelse": {
-              "type": "string"
-            }
-          },
-          "required": ["status"],
           "additionalProperties": false
         },
         "varsleBistandsadvokat": {
@@ -225,8 +210,8 @@
           "$ref": "#/definitions/person",
           "description": "Siktede har alltid identitetsnummer (fødselsnummer, dnummer eller SSP nummer)"
         },
-        "forsvarer": {
-          "$ref": "#/definitions/profesjonellPerson"
+        "forsvarerinformasjon": {
+          "$ref": "#/definitions/forsvarerinformasjon"
         },
         "verger": {
           "type": "array",
@@ -236,7 +221,7 @@
           }
         }
       },
-      "required": ["person", "verger"],
+      "required": ["person", "forsvarerinformasjon", "verger"],
       "additionalProperties": false
     },
     "varetektInfo": {
@@ -343,7 +328,9 @@
         },
         "telefonnummer": {
           "type": "array",
-          "items": { "$ref": "#/definitions/telefonnummer" }
+          "items": {
+            "$ref": "#/definitions/telefonnummer"
+          }
         }
       },
       "required": ["telefonnummer"],
@@ -763,6 +750,39 @@
           "additionalProperties": false
         }
       ]
+    },
+    "forsvarerinformasjon": {
+      "type": "object",
+      "description": "Er det oppnevnt forsvarer, hvis ja: legg ved forsvarerinfo",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/forsvarerstatus"
+        },
+        "forsvarer": {
+          "$ref": "#/definitions/forsvarer"
+        }
+      },
+      "required": ["status"],
+      "additionalProperties": false
+    },
+    "forsvarer": {
+      "type": "object",
+      "description": "Er det oppnevnt forsvarer, hvis ja: legg ved forsvarerinfo",
+      "properties": {
+        "person": {
+          "$ref": "#/definitions/profesjonellPerson"
+        },
+        "erVarsletOmFenglingsmoete": {
+          "type": "boolean"
+        }
+      },
+      "required": ["person", "erVarsletOmFenglingsmoete"],
+      "additionalProperties": false
+    },
+    "forsvarerstatus": {
+      "description": "Representasjon av: Siktede har fått oppnevnt forsvarer, siktede har fremsatt ønske om forsvarer, siktede har ikke fremsatt ønske om forsvarer",
+      "enum": ["OPPNEVNT", "FREMSATT_OENSKE", "IKKE_FREMSATT_OENSKE"],
+      "type": "string"
     },
     "foretak": {
       "type": "object",
