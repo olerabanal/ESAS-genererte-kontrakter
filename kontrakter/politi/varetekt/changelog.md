@@ -4,6 +4,15 @@
 | 1.1 | Første versjon til produksjon, pilot| | |
 | 1.0 | Brukertest juni 2023, ikke til produksjon | | |
 ## Versjon 1.1 - pilot 2023
+### Forsvareroppnevning
+Litt usikker på om der er riktig i begjæringsløpet ennå, forsvareroppnevning ser ut til å være en parallell prosess.
+Vi har 4 valg nå:
+1. Siktede har fått forsvarer: navn på forsvarer
+2. Siktede har fremsatt ønske om forsvarer: navn på forsvarer
+3. Forsvarerer er varslet.
+4. Siktede ønsker ikke forsvarer
+Kan velge 1 og 2. med forskjellig forsvarer. Må avklare med påtale og domstolene.
+
 ### Oppdatert begrense offentlighet
 Kan velge flere krav under begrense offentlighet, samt lagt til HEMMELIGHOLD som alternativ
 
