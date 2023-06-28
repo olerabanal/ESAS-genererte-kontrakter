@@ -1,0 +1,25 @@
+{
+  "kodeType": "SPRAKKATEGORI",
+  "koder": [
+    { "kode": "DAN", "beskrivelse": "Danish" },
+    { "kode": "FAO", "beskrivelse": "Faroese" },
+    { "kode": "FIN", "beskrivelse": "Finnish" },
+    { "kode": "ISL", "beskrivelse": "Icelandic" },
+    { "kode": "NOB", "beskrivelse": "Norwegian Bokmål" },
+    { "kode": "NNO", "beskrivelse": "Norwegian Nynorsk" },
+    { "kode": "SME", "beskrivelse": "Northern Sami" },
+    { "kode": "SWE", "beskrivelse": "Swedish" },
+    { "kode": "SQI", "beskrivelse": "Albanian" },
+    { "kode": "EUS", "beskrivelse": "Basque" },
+    { "kode": "CAT", "beskrivelse": "Catalan" },
+    { "kode": "COS", "beskrivelse": "Corsican" },
+    { "kode": "ITA", "beskrivelse": "Italian" },
+    { "kode": "MLT", "beskrivelse": "Maltese" },
+    { "kode": "POR", "beskrivelse": "Portuguese" },
+    { "kode": "SPA", "beskrivelse": "Spanish" },
+    { "kode": "RUS", "beskrivelse": "Russian" },
+    { "kode": "EST", "beskrivelse": "Estonian" },
+    { "kode": "LAV", "beskrivelse": "Latvian" },
+    { "kode": "LIT", "beskrivelse": "Lithuanian" }
+  ]
+}
