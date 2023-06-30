@@ -17,9 +17,9 @@
         <resources>
             <resource>
                 <targetPath>kodeverk</targetPath>
-                <directory>felles</directory>
+                <directory>./</directory>
                 <includes>
-                    <include>**/*.json</include>
+                    <include>*.json</include>
                 </includes>
             </resource>
         </resources>
