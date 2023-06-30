@@ -8,7 +8,7 @@
 
     <parent>
         <groupId>io.github.domstolene.esas</groupId>
-        <artifactId>kodeverk</artifactId>
+        <artifactId>kontrakter</artifactId>
         <version>tmp</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
