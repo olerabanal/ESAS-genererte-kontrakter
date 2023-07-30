@@ -22,10 +22,7 @@
     "kjennelseVaretekt": {
       "$ref": "#/definitions/kjennelseVaretekt"
     },
-    "paagrepetTidspunkt": {
-      "type": "string",
-      "format": "date-time"
-    },
+    "paagrepetTidspunkt": { "$ref": "#/definitions/datoTid" },
     "dokumenter": {
       "type": "array",
       "items": {
@@ -89,10 +86,8 @@
     "anke": {
       "description": "Anke av fengsling/restriksjon/kjennelse",
       "properties": {
-        "anketDato": { "$ref": "#/definitions/date" },
-        "oppsettendeVirkning": {
-          "type": "boolean"
-        }
+        "anketDato": { "$ref": "#/definitions/dato" },
+        "oppsettendeVirkning": { "type": "boolean" }
       },
       "type": "object",
       "required": ["anketDato"],
@@ -135,7 +130,7 @@
         "internId": { "type": "string" },
         "kategori": { "$ref": "#/definitions/kodeverk" },
         "overskrift": { "type": "string" },
-        "skrevetDato": { "$ref": "#/definitions/date" },
+        "skrevetDato": { "$ref": "#/definitions/dato" },
         "forsendelse": { "$ref": "#/definitions/dokumentForsendelse" }
       },
       "required": ["overskrift", "forsendelse"],
@@ -156,10 +151,7 @@
       "type": "object",
       "properties": {
         "meldingsId": { "type": "string" },
-        "sendtTid": {
-          "type": "string",
-          "format": "date-time"
-        },
+        "sendtTid": { "$ref": "#/definitions/datoTid" },
         "avsender": { "$ref": "#/definitions/avsender" },
         "mottakerOrganisasjon": {
           "$ref": "#/definitions/organisasjon",
@@ -181,9 +173,9 @@
           "type": "string",
           "description": "fengslingsid som opprettes i DA (GUID)"
         },
-        "fraDato": { "$ref": "#/definitions/date" },
-        "tilDato": { "$ref": "#/definitions/date" },
-        "fengslingsFristDato": { "$ref": "#/definitions/date" },
+        "fraDato": { "$ref": "#/definitions/dato" },
+        "tilDato": { "$ref": "#/definitions/dato" },
+        "fengslingsFristDato": { "$ref": "#/definitions/dato" },
         "lovbud": { "$ref": "#/definitions/lovbudEnkel" },
         "merknad": {
           "type": "string",
@@ -216,17 +208,9 @@
       ],
       "additionalProperties": false,
       "properties": {
-        "gjerningstidspunktFra": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "gjerningstidspunktTil": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "gjerningssted": {
-          "$ref": "#/definitions/adresse"
-        }
+        "gjerningstidspunktFra": { "$ref": "#/definitions/datoTid" },
+        "gjerningstidspunktTil": { "$ref": "#/definitions/datoTid" },
+        "gjerningssted": { "$ref": "#/definitions/adresse" }
       }
     },
     "isolasjon": {
@@ -240,11 +224,11 @@
           "$ref": "#/definitions/isolasjonsType"
         },
         "fraDato": {
-          "$ref": "#/definitions/date",
+          "$ref": "#/definitions/dato",
           "description": "Om begjæringen ikke tas til følge skal dette feltet settes til null."
         },
         "tilDato": {
-          "$ref": "#/definitions/date",
+          "$ref": "#/definitions/dato",
           "description": "Om begjæringen ikke tas til følge skal dette feltet settes til null."
         }
       },
@@ -309,7 +293,7 @@
           "type": "string",
           "description": "Domstolen sin nøkkel til avgjørelsen. Kan bli brukt i forbindelse med anke/forlengelse"
         },
-        "avsagtDato": { "$ref": "#/definitions/date" },
+        "avsagtDato": { "$ref": "#/definitions/dato" },
         "kravid": {
           "type": "string",
           "description": "Kravid som opprettes i politiet (begjæring om varetektsfengsling)"
@@ -479,7 +463,7 @@
           "description": "Intern id i melding, samme person i denne meldingen vil ha samme internId"
         },
         "navn": { "$ref": "#/definitions/personnavn" },
-        "foedselsdato": { "$ref": "#/definitions/date" },
+        "foedselsdato": { "$ref": "#/definitions/dato" },
         "kjoenn": {
           "$ref": "#/definitions/kjoenn",
           "description": "Ukjent kjønn hvis denne ikke er med"
@@ -529,7 +513,7 @@
           "description": "Intern som peker på samme person i en spesifikk melding"
         },
         "navn": { "$ref": "#/definitions/personnavn" },
-        "foedselsdato": { "$ref": "#/definitions/date" }
+        "foedselsdato": { "$ref": "#/definitions/dato" }
       },
       "required": ["internId", "navn"],
       "additionalProperties": false
@@ -545,7 +529,7 @@
         "tittel": { "type": "string" },
         "navn": { "$ref": "#/definitions/personnavn" },
         "foedselsdato": {
-          "$ref": "#/definitions/date",
+          "$ref": "#/definitions/dato",
           "description": "På de vi har det, sjekke om vi kan dele"
         },
         "kjoenn": {
@@ -571,11 +555,11 @@
         "restriksjonsType": { "$ref": "#/definitions/restriksjonsType" },
         "fraDato": {
           "description": "Om begjæringen ikke tas til følge er dette feltet satt til null.",
-          "$ref": "#/definitions/date"
+          "$ref": "#/definitions/dato"
         },
         "tilDato": {
           "description": "Om begjæringen ikke tas til følge er dette feltet satt til null.",
-          "$ref": "#/definitions/date"
+          "$ref": "#/definitions/dato"
         }
       },
       "required": ["restriksjonsId", "restriksjonsType"],
@@ -643,10 +627,6 @@
       "required": ["kode"],
       "additionalProperties": false
     },
-    "date": {
-      "type": "string",
-      "format": "date"
-    },
     "straffesaksnummer": {
       "type": "string",
       "description": "Som regel et løpenummer, men kan i fremtiden også inneholde bokstaver",
@@ -686,6 +666,14 @@
       "pattern": "^[0-9]+$",
       "minLength": 9,
       "maxLength": 9
+    },
+    "datoTid": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "dato": {
+      "type": "string",
+      "format": "date"
     }
   }
 }
