@@ -5,7 +5,7 @@ Det skal legges ved data om straffesakene, se nedenfor.
 Denne meldingen skal brukes på førstegangsfengslinger og fengslingsforlengelser og den erstatter [oppdaterVaretekt](../oppdatervaretekt/readme.md) sammen med meldingen [endreRestriksjoner](../endreRestriksjoner/readme.md)  
 Når politiet mottar en kjennelse på varetekt så blir denne meldingen sendt automatisk til Kriminalomsorgen og den vil inneholde kjennelsen strukturert og på PDF format fra domstolen samt data fra straffesaken hos politiet.
 
-[Endringslogg](changelog.md) - [RFC](../../../rfc/MessageName-header.md)
+[Endringslogg](changelog.md) 
 ## Headere forsendelse justisHub
 SchmaName=KJENNELSE_VARETEKT_POLITI  
 SchemaVersion=1.0  
@@ -14,7 +14,7 @@ SchemaVersion=1.0
 Versjon 1.0 er første versjon som skal til pilot høsten 2023 og er en del av oppdaterVaretekt som skal erstattes av kjennelseVaretektPoliti og 
 ## Status - ikke godkjent
 Begge parter må være enige om innholdet.  
-Ikke fått gått gjennom alle detaljer fra [PR 75](https://github.com/domstolene/ESAS/pull/75) som må svares ut fordi de er generelle kommentarer.
+Ikke fått gått gjennom alle detaljer fra [PR 53 innsettelsesordre](https://github.com/domstolene/ESAS/pull/53) som må svares ut fordi det er en del generelle kommentarer der.
 ## Data
 ### avsender og domstol
 Det er automatisk videresending av kjennelsen fra domstolen fra politiet, avsender vil være eierdistriktet for straffesaken. Informasjon om domstol, dommmer og saksbehandler kommer sammen med kjennelsen.
