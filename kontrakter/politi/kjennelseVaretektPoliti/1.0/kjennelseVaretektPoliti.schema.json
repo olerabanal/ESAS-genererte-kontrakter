@@ -507,7 +507,7 @@
         },
         "foedselsnummer": {
           "$ref": "#/definitions/foedselsnummer",
-          "description": "Fødselsnummer f.eks på verger, men usikker på om det er behov. Vil ikke være utfylt på advokater."
+          "description": "Fødselsnummer f.eks på verger. Vil ikke være utfylt på advokater."
         }
       },
       "required": ["internId", "navn"],
