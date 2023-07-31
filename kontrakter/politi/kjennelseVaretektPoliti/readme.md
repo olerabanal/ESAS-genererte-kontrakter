@@ -9,10 +9,12 @@ Når politiet mottar en kjennelse på varetekt så blir denne meldingen sendt au
 ## Headere forsendelse justisHub
 SchmaName=KJENNELSE_VARETEKT_POLITI  
 SchemaVersion=1.0  
+[RFC message name header](../../../rfc/MessageName-header.md)
 
 Versjon 1.0 er første versjon som skal til pilot høsten 2023 og er en del av oppdaterVaretekt som skal erstattes av kjennelseVaretektPoliti og 
 ## Status - ikke godkjent
-Begge parter må være enige om innholdet.
+Begge parter må være enige om innholdet.  
+Ikke fått gått gjennom alle detaljer fra [PR 75](https://github.com/domstolene/ESAS/pull/75) som må svares ut fordi de er generelle kommentarer.
 ## Data
 ### avsender og domstol
 Det er automatisk videresending av kjennelsen fra domstolen fra politiet, avsender vil være eierdistriktet for straffesaken. Informasjon om domstol, dommmer og saksbehandler kommer sammen med kjennelsen.

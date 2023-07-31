@@ -13,7 +13,7 @@
       "description": "BL Saksbehandlersak er hovedsaken i et sakskompleks (som er 1 eller flere straffesaker)"
     },
     "varetektSyklusId": {
-      "type": "string",
+      "$ref": "#/definitions/unikId",
       "description": "En syklus fra pågripelse til løslatelse, vil ikke være med til å begynne med"
     },
     "personVaretektInfo": {
@@ -54,7 +54,7 @@
         },
         "postnummer": { "type": "string" },
         "poststed": { "type": "string" },
-        "land": { "$ref": "#/definitions/landType" }
+        "land": { "$ref": "#/definitions/land" }
       },
       "required": ["adresselinjer"],
       "additionalProperties": false
@@ -112,9 +112,7 @@
     "avsender": {
       "type": "object",
       "properties": {
-        "organisasjon": {
-          "$ref": "#/definitions/organisasjon"
-        },
+        "organisasjon": { "$ref": "#/definitions/organisasjon" },
         "person": {
           "$ref": "#/definitions/ansattPerson",
           "description": "Person som trykker på send til domstolen."
@@ -198,21 +196,6 @@
       "required": ["internId", "navn"],
       "additionalProperties": false
     },
-    "hendelse": {
-      "title": "hendelse",
-      "type": "object",
-      "required": [
-        "gjerningstidspunktFra",
-        "gjerningstidspunktTil",
-        "gjerningssted"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "gjerningstidspunktFra": { "$ref": "#/definitions/datoTid" },
-        "gjerningstidspunktTil": { "$ref": "#/definitions/datoTid" },
-        "gjerningssted": { "$ref": "#/definitions/adresse" }
-      }
-    },
     "isolasjon": {
       "description": "Isolasjon fra domstolen, når vi har mottatt den, uten til fra dato kun når det er anke",
       "properties": {
@@ -242,9 +225,8 @@
       "type": "string"
     },
     "involverteStraffesak": {
-      "description": "siktede, vitner og fornærmede",
       "type": "object",
-      "additionalProperties": false,
+      "description": "siktede, vitner og fornærmede",
       "properties": {
         "siktet": { "$ref": "#/definitions/personEnkel" },
         "medsiktede": {
@@ -260,7 +242,8 @@
           "items": { "$ref": "#/definitions/person" }
         }
       },
-      "required": ["medsiktede", "fornaermede", "vitner"]
+      "required": ["medsiktede", "fornaermede", "vitner"],
+      "additionalProperties": false
     },
     "kodeverk": {
       "type": "object",
@@ -373,20 +356,6 @@
         }
       ]
     },
-    "landType": {
-      "description": "En landkode bestaar av tre store bokstaver fra kodelisten ISO 3166-1-alpha-3. Hentes fra kodeverk nationality.xml",
-      "type": "object",
-      "properties": {
-        "kode": {
-          "type": "string",
-          "pattern": "[A-Z]+",
-          "minLength": 3,
-          "maxLength": 3
-        },
-        "navn": { "type": "string" }
-      },
-      "required": ["kode"]
-    },
     "lovbudEnkel": {
       "type": "object",
       "description": "Enkel lovbudreferanse kun lovbudstreng",
@@ -402,8 +371,8 @@
       "description": "Entydig identifikator av juridisk enhet. F.eks en spesifik domstol eller kriminalomsorg",
       "properties": {
         "navn": {
-          "description": "F.eks. Oslo politidistikt, Riksadvokaten, Borgarting lagmannsrett",
-          "type": "string"
+          "type": "string",
+          "description": "F.eks. Oslo politidistikt, Riksadvokaten, Borgarting lagmannsrett"
         },
         "organisasjonsnummer": { "$ref": "#/definitions/organisasjonsnummer" }
       },
@@ -575,15 +544,15 @@
       ]
     },
     "straffesakInvolverte": {
-      "description": "Straffesak med statistikkgrupper, krimtype og de involverte",
       "type": "object",
-      "required": ["straffesaksnummer", "detaljer", "involverte"],
-      "additionalProperties": true,
+      "description": "Straffesak med statistikkgrupper, krimtype og de involverte",
       "properties": {
         "straffesaksnummer": { "$ref": "#/definitions/straffesaksnummer" },
         "detaljer": { "$ref": "#/definitions/straffesakDetaljer" },
         "involverte": { "$ref": "#/definitions/involverteStraffesak" }
-      }
+      },
+      "required": ["straffesaksnummer", "detaljer", "involverte"],
+      "additionalProperties": false
     },
     "domstolsaktoerer": {
       "type": "object",
@@ -610,6 +579,21 @@
         "krimtype": { "$ref": "#/definitions/kodeverk" }
       },
       "required": ["hendelse", "statistikkgruppe"],
+      "additionalProperties": false
+    },
+    "hendelse": {
+      "type": "object",
+      "description": "Tid og sted for den straffbare handlingen",
+      "properties": {
+        "gjerningstidspunktFra": { "$ref": "#/definitions/datoTid" },
+        "gjerningstidspunktTil": { "$ref": "#/definitions/datoTid" },
+        "gjerningssted": { "$ref": "#/definitions/adresse" }
+      },
+      "required": [
+        "gjerningstidspunktFra",
+        "gjerningstidspunktTil",
+        "gjerningssted"
+      ],
       "additionalProperties": false
     },
     "land": {
@@ -666,6 +650,12 @@
       "pattern": "^[0-9]+$",
       "minLength": 9,
       "maxLength": 9
+    },
+    "unikId": {
+      "type": "string",
+      "description": "GUID eller andre unike id'er. Trenger ikke være global unik.",
+      "maxLength": 40,
+      "minLength": 1
     },
     "datoTid": {
       "type": "string",
