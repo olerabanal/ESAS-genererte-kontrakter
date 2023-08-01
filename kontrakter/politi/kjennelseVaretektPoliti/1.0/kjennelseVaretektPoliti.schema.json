@@ -25,7 +25,7 @@
     "paagrepetSted": {
       "type": "string",
       "description": "Sted for pågripelse. Vil være satt i ca 20% av tilfellene"
-    }
+    },
     "paagrepetTidspunkt": { "$ref": "#/definitions/datoTid" },
     "dokumenter": {
       "type": "array",
