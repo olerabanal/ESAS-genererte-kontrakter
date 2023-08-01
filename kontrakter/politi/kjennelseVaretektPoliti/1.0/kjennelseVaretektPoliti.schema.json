@@ -225,7 +225,7 @@
     },
     "isolasjonsType": {
       "description": "Liste over de ulike isolasjonstyper",
-      "enum": ["FULL", "DELVIS"],
+      "enum": ["FULL", "DELVIS", "INGEN"],
       "type": "string"
     },
     "involverteStraffesak": {
@@ -299,11 +299,13 @@
         },
         "restriksjoner": {
           "type": "array",
-          "items": { "$ref": "#/definitions/restriksjon" }
+          "items": { "$ref": "#/definitions/restriksjon" },
+          "minContains": 1,
         },
         "isolasjonsKrav": {
           "type": "array",
-          "items": { "$ref": "#/definitions/isolasjon" }
+          "items": { "$ref": "#/definitions/isolasjon" },
+          "minContains": 1,
         },
         "anke": {
           "$ref": "#/definitions/anke",
@@ -544,7 +546,8 @@
       "enum": [
         "BREV_OG_BESOEKSFORBUD",
         "BREV_OG_BESOEKSKONTROLL",
-        "MEDIEFORBUD"
+        "MEDIEFORBUD",
+        "INGEN"
       ]
     },
     "straffesakInvolverte": {
