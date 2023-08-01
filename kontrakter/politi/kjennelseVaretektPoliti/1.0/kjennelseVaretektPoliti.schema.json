@@ -300,12 +300,12 @@
         "restriksjoner": {
           "type": "array",
           "items": { "$ref": "#/definitions/restriksjon" },
-          "minContains": 1,
+          "minContains": 1
         },
         "isolasjonsKrav": {
           "type": "array",
           "items": { "$ref": "#/definitions/isolasjon" },
-          "minContains": 1,
+          "minContains": 1
         },
         "anke": {
           "$ref": "#/definitions/anke",
