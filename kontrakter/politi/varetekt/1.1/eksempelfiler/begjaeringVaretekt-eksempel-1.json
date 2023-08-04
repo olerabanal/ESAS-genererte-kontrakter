@@ -51,8 +51,17 @@
         "spraak": "CMN"
       },
       "forsvarerinformasjon": {
-        "status": "OPPNEVNT",
-        "forsvarer": {
+        "oppnevntForsvarer": {
+          "person": {
+            "tittel": "Advokat",
+            "navn": {
+              "fornavn": "Ole",
+              "etternavn": "Olsen"
+            }
+          },
+          "erVarsletOmFenglingsmoete": true
+        },
+        "oensketForsvarer": {
           "person": {
             "tittel": "Advokat",
             "navn": {

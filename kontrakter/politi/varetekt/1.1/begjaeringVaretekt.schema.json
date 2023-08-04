@@ -797,14 +797,13 @@
       "type": "object",
       "description": "Er det oppnevnt forsvarer, hvis ja: legg ved forsvarerinfo",
       "properties": {
-        "status": {
-          "$ref": "#/definitions/forsvarerstatus"
+        "oppnevntForsvarer": {
+          "$ref": "#/definitions/forsvarer"
         },
-        "forsvarer": {
+        "oensketForsvarer": {
           "$ref": "#/definitions/forsvarer"
         }
       },
-      "required": ["status"],
       "additionalProperties": false
     },
     "forsvarer": {
@@ -820,11 +819,6 @@
       },
       "required": ["person", "erVarsletOmFenglingsmoete"],
       "additionalProperties": false
-    },
-    "forsvarerstatus": {
-      "description": "Representasjon av: Siktede har fått oppnevnt forsvarer, siktede har fremsatt ønske om forsvarer, siktede har ikke fremsatt ønske om forsvarer",
-      "enum": ["OPPNEVNT", "FREMSATT_OENSKE", "IKKE_FREMSATT_OENSKE"],
-      "type": "string"
     },
     "foretak": {
       "type": "object",
