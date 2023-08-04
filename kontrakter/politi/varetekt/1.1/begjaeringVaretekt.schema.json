@@ -236,8 +236,12 @@
         "tolk": {
           "type": "object",
           "properties": {
-            "behov": { "$ref": "#/definitions/behovForTolkType" },
-            "spraak": { "$ref": "#/definitions/spraakkodeType" }
+            "behov": {
+              "$ref": "#/definitions/behovForTolkType"
+            },
+            "spraak": {
+              "$ref": "#/definitions/spraakkodeType"
+            }
           },
           "required": ["behov"],
           "additionalProperties": false
@@ -795,7 +799,7 @@
     },
     "forsvarerinformasjon": {
       "type": "object",
-      "description": "Er det oppnevnt forsvarer, hvis ja: legg ved forsvarerinfo",
+      "description": "Informasjon om det er oppnevnt og/eller ønsket forsvarer",
       "properties": {
         "oppnevntForsvarer": {
           "$ref": "#/definitions/forsvarer"
@@ -808,7 +812,7 @@
     },
     "forsvarer": {
       "type": "object",
-      "description": "Er det oppnevnt forsvarer, hvis ja: legg ved forsvarerinfo",
+      "description": "Informasjon om en forsvarer og om forsvarer er varslet om fengslingsmøte",
       "properties": {
         "person": {
           "$ref": "#/definitions/profesjonellPerson"
