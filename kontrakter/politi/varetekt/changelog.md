@@ -15,6 +15,9 @@ Kan velge 1 og 2. med forskjellig forsvarer. Må avklare med påtale og domstole
 
 ### Oppdatert begrense offentlighet
 Kan velge flere krav under begrense offentlighet, samt lagt til HEMMELIGHOLD som alternativ
+### Varetekt til hovedforhandlingsdato
+Saksinformasjon inneholder hovedforhandlingsdato, og fengsling, restriksjoner og isolasjon inneholder en ny definisjon - varighet. 
+Varighet defineres ved å enten spesifisere antall dager i varetekt eller til hovedforhandling.
 
 Endringer fra brukertest til pilot, her er noen endringer som kommer:
 1. Tolk.
