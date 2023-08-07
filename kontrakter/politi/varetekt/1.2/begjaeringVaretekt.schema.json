@@ -136,21 +136,6 @@
           "required": ["dato"],
           "additionalProperties": false
         },
-        "forsvarerSaksdokumenter": {
-          "description": "Er det oppnevnt forsvarer og sendt dokumenter?",
-          "type": "object",
-          "properties": {
-            "status": {
-              "type": "string",
-              "enum": ["VARSLET_DOK", "IKKE_ONSKET_FORSVARER"]
-            },
-            "beskrivelse": {
-              "type": "string"
-            }
-          },
-          "required": ["status"],
-          "additionalProperties": false
-        },
         "varsleBistandsadvokat": {
           "type": "string"
         },
@@ -257,8 +242,8 @@
           "required": ["behov"],
           "additionalProperties": false
         },
-        "forsvarer": {
-          "$ref": "#/definitions/profesjonellPerson"
+        "forsvarerinformasjon": {
+          "$ref": "#/definitions/forsvarerinformasjon"
         },
         "verger": {
           "type": "array",
@@ -280,6 +265,33 @@
       "type": "string",
       "description": "Er det behov for tolk",
       "enum": ["JA_POLITIET_STILLER", "JA_DOMSTOLEN_STILLER"]
+    },
+    "forsvarerinformasjon": {
+      "type": "object",
+      "description": "Informasjon om det er oppnevnt og/eller ønsket forsvarer",
+      "properties": {
+        "oppnevntForsvarer": {
+          "$ref": "#/definitions/forsvarer"
+        },
+        "oensketForsvarer": {
+          "$ref": "#/definitions/forsvarer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "forsvarer": {
+      "type": "object",
+      "description": "Informasjon om en forsvarer og om forsvarer er varslet om fengslingsmøte",
+      "properties": {
+        "person": {
+          "$ref": "#/definitions/profesjonellPerson"
+        },
+        "erVarsletOmFenglingsmoete": {
+          "type": "boolean"
+        }
+      },
+      "required": ["person", "erVarsletOmFenglingsmoete"],
+      "additionalProperties": false
     },
     "varetektInfo": {
       "type": "object",
