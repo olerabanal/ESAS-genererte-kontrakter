@@ -46,6 +46,10 @@
           }
         }
       },
+      "tolk": {
+        "behov": "JA_POLITIET_STILLER",
+        "spraak": "CMN"
+      },
       "forsvarer": {
         "tittel": "Advokat",
         "navn": {
@@ -61,7 +65,9 @@
       },
       "paastandVaretekt": {
         "fengsling": {
-          "antallDager": 28
+          "varighet": {
+            "antallDager": 28
+          }
         },
         "restriksjoner": [
           {
@@ -71,7 +77,9 @@
             },
             "periode": {
               "startDag": 1,
-              "antallDager": 14
+              "varighet": {
+                "antallDager": 14
+              }
             }
           },
           {
@@ -81,7 +89,9 @@
             },
             "periode": {
               "startDag": 15,
-              "antallDager": 14
+              "varighet": {
+                "antallDager": 14
+              }
             }
           }
         ],
@@ -93,7 +103,9 @@
             },
             "periode": {
               "startDag": 1,
-              "antallDager": 14
+              "varighet": {
+                "tilHovedforhandling": true
+              }
             }
           }
         ]
@@ -124,10 +136,6 @@
       "forlengelse": {
         "beskrivelse": "forlengelse"
       },
-      "hovedforhandling": {
-        "beskrivelse": "Påtalemyndigheten har som mål å beramme hovedforhandling før varetektsperioden utløper, hovedforhandling starter ..",
-        "berammetDato": "2023-04-09"
-      },
       "paagrepetTidspunkt": "2023-02-28T17:21:27+02:00",
       "berammetFengslingsmoete": {
         "dato": "2023-04-19",
@@ -138,7 +146,7 @@
         "beskrivelse": "Forsvarer er varslet om fengslingsmøtet og har fått gjenpart av saksdokumentene"
       },
       "varsleBistandsadvokat": "Retten anmodes om å varsle bistandsadvokaten om tidspunktet for rettsmøtet, jf. straffeprosessloven § 107c, 2. led",
-      "begrenseOffentlighet": "FORBUD_GJENGIVELSE",
+      "begrenseOffentlighet": ["FORBUD_GJENGIVELSE"],
       "ansvarligPaatalejurist": {
         "brukeridentifikasjon": "BLC218",
         "fornavn": "BLC218",
