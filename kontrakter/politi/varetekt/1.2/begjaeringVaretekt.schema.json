@@ -2,7 +2,6 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://politiet.no/politi/fengsling/1.2/begjaeringVaretekt",
   "description": "Skjema for begjæring av varetektsmeldinger fra påtale til tingretten, JSON Schema versjon 2020-12",
-
   "type": "object",
   "properties": {
     "forsendelse": {
@@ -27,7 +26,6 @@
     "vedlegg"
   ],
   "additionalProperties": false,
-
   "definitions": {
     "begjaeringVaretekt": {
       "type": "object",
@@ -78,7 +76,6 @@
       "required": ["straffesaker", "dokumenter"],
       "additionalProperties": false
     },
-
     "paastandVaretekt": {
       "type": "object",
       "description": "Påtale sier hvor hvor lenge i varetekt og hvilke restriksjoner/isolasjonskrav som de ønsker",
@@ -96,16 +93,19 @@
         },
         "isolasjon": {
           "type": "array",
-          "items": { "$ref": "#/definitions/isolasjonBegjaering" }
+          "items": {
+            "$ref": "#/definitions/isolasjonBegjaering"
+          }
         }
       }
     },
-
     "saksinformasjon": {
       "type": "object",
       "description": "Informasjon fengslingen",
       "properties": {
-        "varetektsType": { "$ref": "#/definitions/varetektsType" },
+        "varetektsType": {
+          "$ref": "#/definitions/varetektsType"
+        },
         "forlengelse": {
           "$ref": "#/definitions/forlengelseInfo",
           "description": "Hvis det er en forlengelse så er dette elementet med"
@@ -236,8 +236,12 @@
         "tolk": {
           "type": "object",
           "properties": {
-            "behov": { "$ref": "#/definitions/behovForTolkType" },
-            "spraak": { "$ref": "#/definitions/spraakkodeType" }
+            "behov": {
+              "$ref": "#/definitions/behovForTolkType"
+            },
+            "spraak": {
+              "$ref": "#/definitions/spraakkodeType"
+            }
           },
           "required": ["behov"],
           "additionalProperties": false
@@ -268,29 +272,34 @@
     },
     "forsvarerinformasjon": {
       "type": "object",
-      "description": "Informasjon om det er oppnevnt og/eller ønsket forsvarer",
+      "description": "Informasjon om det er oppnevnt og/eller ønsket forsvarer. Dersom hverken oppnevnt eller ønsket forsvarer er satt, betyr dette at domstolen skal oppnevne en forsvarer",
       "properties": {
         "oppnevntForsvarer": {
-          "$ref": "#/definitions/forsvarer"
+          "type": "object",
+          "description": "Informasjon om oppnevnt forsvarer. Det er personen som står som forsvarer når begjæringen blir sendt, som skal varsles om fengslingsmøte.",
+          "properties": {
+            "person": {
+              "$ref": "#/definitions/profesjonellPerson"
+            },
+            "erVarsletOmFenglingsmoete": {
+              "type": "boolean"
+            }
+          },
+          "required": ["person", "erVarsletOmFenglingsmoete"],
+          "additionalProperties": false
         },
         "oensketForsvarer": {
-          "$ref": "#/definitions/forsvarer"
+          "type": "object",
+          "description": "Informasjon om ønsket forsvarer. Kan ikke ha vært varslet om fengslingsmøte, da ny forsvarer evnt. oppnevnes av domsstolen og ikke kan ha fått beskjed i forkant av begjæringen.",
+          "properties": {
+            "person": {
+              "$ref": "#/definitions/profesjonellPerson"
+            }
+          },
+          "required": ["person"],
+          "additionalProperties": false
         }
       },
-      "additionalProperties": false
-    },
-    "forsvarer": {
-      "type": "object",
-      "description": "Informasjon om en forsvarer og om forsvarer er varslet om fengslingsmøte",
-      "properties": {
-        "person": {
-          "$ref": "#/definitions/profesjonellPerson"
-        },
-        "erVarsletOmFenglingsmoete": {
-          "type": "boolean"
-        }
-      },
-      "required": ["person", "erVarsletOmFenglingsmoete"],
       "additionalProperties": false
     },
     "varetektInfo": {
@@ -397,7 +406,9 @@
         },
         "telefonnummer": {
           "type": "array",
-          "items": { "$ref": "#/definitions/telefonnummer" }
+          "items": {
+            "$ref": "#/definitions/telefonnummer"
+          }
         }
       },
       "required": ["telefonnummer"],
