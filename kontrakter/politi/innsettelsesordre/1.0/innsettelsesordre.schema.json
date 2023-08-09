@@ -865,7 +865,8 @@
         "statsborgerskap",
         "tilleggsId",
         "personAdresse",
-        "verger"
+        "verger",
+        "identitetsnummer"
       ],
       "additionalProperties": false
     },
@@ -881,7 +882,7 @@
           "$ref": "#/definitions/personnavn"
         },
         "foedselsdato": {
-          "$ref": "#/definitions/date"
+          "$ref": "#/definitions/dato"
         }
       },
       "required": ["internId", "navn"],
@@ -902,7 +903,7 @@
           "$ref": "#/definitions/personnavn"
         },
         "foedselsdato": {
-          "$ref": "#/definitions/date",
+          "$ref": "#/definitions/dato",
           "description": "På de vi har det, sjekke om vi kan dele"
         },
         "kjoenn": {
@@ -911,7 +912,7 @@
         },
         "foedselsnummer": {
           "$ref": "#/definitions/foedselsnummer",
-          "description": "Fødselsnummer f.eks på verger, men usikker på om det er behov. Vil ikke være utfylt på advokater."
+          "description": "Fødselsnummer på verger. Vil ikke være utfylt på advokater."
         }
       },
       "required": ["internId", "navn"],
