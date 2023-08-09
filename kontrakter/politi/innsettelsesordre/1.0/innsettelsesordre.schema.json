@@ -46,7 +46,7 @@
     "personVaretektInfo": {
       "title": "personVaretektInfo",
       "type": "object",
-      "required": ["personVaretekt", "straffesaker", "paagripelse"],
+      "required": ["personVaretekt", "straffesaker", "paagripelse", "risikoOgHelseInfo"],
       "additionalProperties": false,
       "properties": {
         "personVaretekt": {
@@ -115,7 +115,7 @@
       "additionalProperties": false,
       "properties": {
         "anketDato": {
-          "$ref": "#/definitions/date"
+          "$ref": "#/definitions/dato"
         },
         "oppsettendeVirkning": {
           "type": "boolean"
@@ -131,7 +131,7 @@
         },
         "person": {
           "$ref": "#/definitions/ansattPerson",
-          "description": "Person som trykker på send til domstolen."
+          "description": "Person som trykker på send til Kriminalomsorgen."
         }
       },
       "required": ["organisasjon"],
@@ -157,7 +157,7 @@
       "description": "Tid og sted for pågripelse",
       "properties": {
         "tidspunkt": {
-          "$ref": "#/definitions/dateTime"
+          "$ref": "#/definitions/datoTid"
         },
         "sted": {
           "type": "string",
@@ -182,7 +182,7 @@
           "type": "string"
         },
         "skrevetDato": {
-          "$ref": "#/definitions/date"
+          "$ref": "#/definitions/dato"
         },
         "forsendelse": { "$ref": "#/definitions/dokumentForsendelse" }
       },
@@ -216,10 +216,7 @@
         "meldingsId": {
           "type": "string"
         },
-        "sendtTid": {
-          "type": "string",
-          "format": "date-time"
-        },
+        "sendtTid": { "$ref": "#/definitions/datoTid" },
         "avsender": {
           "$ref": "#/definitions/avsender"
         },
@@ -254,35 +251,48 @@
     "isolasjonsType": {
       "type": "string",
       "description": "Liste over de ulike isolasjonstyper",
-      "enum": ["FULL_ISOLASJON", "DELVIS_ISOLASJON"]
+      "enum": ["FULL", "DELVIS", "INGEN"]
     },
-
     "kjennelseVaretekt": {
-      "description": "Kopi av kjennelse på varetekt fra domstolen",
+      "description": "Kjennelse på varetektsfengsling fra domstolen som sendes videre til Kriminalomsorgen",
       "type": "object",
       "properties": {
+        "domstol": { "$ref": "#/definitions/organisasjon" },
+        "domstolsaktoerer": { "$ref": "#/definitions/domstolsaktoerer" },
         "avgjoerelseId": {
           "type": "string",
           "description": "Domstolen sin nøkkel til avgjørelsen. Kan bli brukt i forbindelse med anke/forlengelse"
         },
-        "avsagtDato": {
-          "$ref": "#/definitions/date"
+        "kjennelseSendtTid": {
+          "$ref": "#/definitions/datoTid",
+          "description": "Tidspunktet kjennelsen ble sendt fra domstolen"
+        },
+        "avsagtDato": { "$ref": "#/definitions/dato" },
+        "kravid": {
+          "type": "string",
+          "description": "Kravid som opprettes i politiet (begjæring om varetektsfengsling)"
+        },
+        "personVaretektDomstol": {
+          "$ref": "#/definitions/person",
+          "description": "Persondata fra domstolene, kan være forskjellig fra politiet sine data"
+        },
+        "forlengelse": {
+          "type": "boolean",
+          "description": "Forlengelse = true også hvis det er en endring i restriksjoner fra domstolene"
+        },
+        "fengsling": {
+          "$ref": "#/definitions/fengsling",
+          "description": "Førstegangsfengslinger vil alltid inneholde fengsling, men senere kan det komme med kun restriksjoner, isolasjon."
         },
         "restriksjoner": {
           "type": "array",
-          "items": {
-            "$ref": "#/definitions/restriksjon"
-          }
+          "items": { "$ref": "#/definitions/restriksjon" },
+          "minItems": 1
         },
         "isolasjonsKrav": {
           "type": "array",
-          "items": {
-            "$ref": "#/definitions/isolasjon"
-          }
-        },
-        "fengsling": {
-          "$ref": "#/definitions/fengslingKjennelse",
-          "description": "Førstegangsfengslinger vil alltid inneholde fengslingskjennelse, men senere kan det komme med kun restriksjoner, isolasjon"
+          "items": { "$ref": "#/definitions/isolasjon" },
+          "minItems": 1
         },
         "anke": {
           "$ref": "#/definitions/anke",
@@ -290,40 +300,53 @@
         }
       },
       "required": [
+        "domstol",
+        "domstolsaktoerer",
         "avgjoerelseId",
+        "kjennelseSendtTid",
         "avsagtDato",
-        "fengsling",
+        "personVaretektDomstol",
+        "kravid",
+        "forlengelse",
         "restriksjoner",
         "isolasjonsKrav"
       ],
       "additionalProperties": false
     },
-    "fengslingKjennelse": {
-      "type": "object",
-      "description": "Fengsling som en del av kjennelsen, uten datoer så er det ikke noe fengsel",
+    "fengsling": {
+      "description": "Fengsling som en del av kjennelsen, uten datoer så er det ikke noe fengsel nå.",
       "properties": {
         "fengslingsId": {
           "type": "string",
           "description": "fengslingsid som opprettes i DA (GUID)"
         },
-        "fraDato": {
-          "$ref": "#/definitions/date"
-        },
-        "tilDato": {
-          "$ref": "#/definitions/date"
-        },
-        "fengslingsFristDato": {
-          "$ref": "#/definitions/date"
-        },
-        "lovbud": {
-          "$ref": "#/definitions/lovbudEnkel"
-        },
+        "fraDato": { "$ref": "#/definitions/dato" },
+        "tilDato": { "$ref": "#/definitions/dato" },
+        "fengslingsFristDato": { "$ref": "#/definitions/dato" },
+        "lovbud": { "$ref": "#/definitions/lovbudEnkel" },
         "merknad": {
           "type": "string",
           "description": "Merknad til fengslingen"
         }
       },
       "required": ["fengslingsId"],
+      "type": "object",
+      "additionalProperties": false
+    },
+    "domstolsaktoerer": {
+      "type": "object",
+      "description": "Aktører fra domstolen",
+      "properties": {
+        "dommer": {
+          "$ref": "#/definitions/ansattPerson",
+          "description": "Dommer på saken"
+        },
+        "saksbehandler": {
+          "$ref": "#/definitions/ansattPerson",
+          "description": "Saksbehandler på saken"
+        }
+      },
+      "required": ["dommer"],
       "additionalProperties": false
     },
     "restriksjon": {
@@ -339,11 +362,11 @@
         },
         "fraDato": {
           "description": "Om begjæringen ikke tas til følge er dette feltet satt til null.",
-          "$ref": "#/definitions/date"
+          "$ref": "#/definitions/dato"
         },
         "tilDato": {
           "description": "Om begjæringen ikke tas til følge er dette feltet satt til null.",
-          "$ref": "#/definitions/date"
+          "$ref": "#/definitions/dato"
         }
       },
       "required": ["restriksjonsId", "restriksjonsType"],
@@ -360,11 +383,11 @@
           "$ref": "#/definitions/isolasjonsType"
         },
         "fraDato": {
-          "$ref": "#/definitions/date",
+          "$ref": "#/definitions/dato",
           "description": "Om begjæringen ikke tas til følge skal dette feltet settes til null."
         },
         "tilDato": {
-          "$ref": "#/definitions/date",
+          "$ref": "#/definitions/dato",
           "description": "Om begjæringen ikke tas til følge skal dette feltet settes til null."
         }
       },
@@ -501,10 +524,7 @@
         "besluttetAv": {
           "$ref": "#/definitions/ansattPerson"
         },
-        "tidspunkt": {
-          "type": "string",
-          "format": "date-time"
-        },
+        "tidspunkt": { "$ref": "#/definitions/datoTid" },
         "restriksjoner": {
           "$ref": "#/definitions/restriksjonerOrdre"
         },
@@ -567,7 +587,7 @@
         "BREV_OG_BESOEKSFORBUD",
         "BREV_OG_BESOEKSKONTROLL",
         "MEDIEFORBUD",
-        "ANNET"
+        "INGEN"
       ],
       "type": "string"
     },
@@ -609,14 +629,8 @@
       ],
       "additionalProperties": false,
       "properties": {
-        "gjerningstidspunktFra": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "gjerningstidspunktTil": {
-          "type": "string",
-          "format": "date-time"
-        },
+        "gjerningstidspunktFra": { "$ref": "#/definitions/datoTid" },
+        "gjerningstidspunktTil": { "$ref": "#/definitions/datoTid" },
         "gjerningssted": {
           "$ref": "#/definitions/adresse"
         }
@@ -676,14 +690,28 @@
       "type": "object",
       "description": "Saksbehandler, jurist etterforsker hos politiet, ansatte hos domstolene eller kriminalomsorgen",
       "properties": {
-        "tittel": {
-          "type": "string"
-        },
-        "navn": {
-          "$ref": "#/definitions/personnavn"
+        "tittel": { "type": "string" },
+        "fornavn": { "type": "string" },
+        "mellomnavn": { "type": "string" },
+        "etternavn": { "type": "string" },
+        "kontakt": {
+          "$ref": "#/definitions/kontaktInfo",
+          "description": "Er ikke med i første fase, burde inneholde kontaktinformasjon på forsendelsen."
         }
       },
-      "required": ["navn"],
+      "required": ["etternavn"],
+      "additionalProperties": false
+    },
+    "kontaktInfo": {
+      "type": "object",
+      "properties": {
+        "epost": { "type": "string" },
+        "telefonnummer": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/telefonnummer" }
+        }
+      },
+      "required": ["telefonnummer"],
       "additionalProperties": false
     },
     "kodeverk": {
@@ -792,7 +820,7 @@
           "$ref": "#/definitions/personnavn"
         },
         "foedselsdato": {
-          "$ref": "#/definitions/date"
+          "$ref": "#/definitions/dato"
         },
         "kjoenn": {
           "$ref": "#/definitions/kjoenn",
@@ -836,6 +864,7 @@
         "foedselsdato",
         "statsborgerskap",
         "tilleggsId",
+        "personAdresse",
         "verger"
       ],
       "additionalProperties": false
@@ -1050,14 +1079,14 @@
           "type": "array",
           "description": "Valg av hvilken tilstand",
           "items": {
-            "$ref": "#/definitions/tilstandArrestenTyper"
+            "$ref": "#/definitions/tilstandArrestenType"
           },
           "minItems": 1
         },
         "beskrivelse": { "type": "string" }
       }
     },
-    "tilstandArrestenTyper": {
+    "tilstandArrestenType": {
       "type": "string",
       "description": "Tilstand i arresten",
       "enum": [
@@ -1065,7 +1094,6 @@
         "OPPFOERSEL",
         "FARE_PSYKISK_FYSISK_HELSE",
         "SELVMORDSRISIKO",
-        "MEDISINER",
         "UKJENT",
         "INGEN"
       ]
@@ -1143,11 +1171,11 @@
       "maxLength": 40,
       "minLength": 1
     },
-    "date": {
+    "dato": {
       "type": "string",
       "format": "date"
     },
-    "dateTime": {
+    "datoTid": {
       "type": "string",
       "format": "date-time"
     }
