@@ -1,19 +1,19 @@
 {
   "forsendelse": {
-    "meldingsId": "A1D283D1-7436-411A-B2F8-20CB9CFB11C2",
+    "meldingsId": "33777935-916c-472e-94ee-b50106b76fa6",
     "sendtTid": "2023-03-30T17:21:27+02:00",
     "avsender": {
       "organisasjon": {
-        "organisasjonsnummer": "983997953",
-        "navn": "Innlandet politidistrikt"
+        "organisasjonsnummer": "983998631",
+        "navn": "Trøndelag politidistrikt"
       },
       "person": {
         "etternavn": "Politiets Datatjeneste"
       }
     },
     "mottakerOrganisasjon": {
-      "organisasjonsnummer": "926723480",
-      "navn": "Agder tingrett"
+      "organisasjonsnummer": "926722794",
+      "navn": "TTRO / Trøndelag tingrett"
     }
   },
   "hovedStraffesaksnummer": "15434819",
@@ -150,6 +150,7 @@
       "forlengelse": {
         "beskrivelse": "forlengelse"
       },
+      "hovedforhandlingsdato": "2023-12-11",
       "paagrepetTidspunkt": "2023-02-28T17:21:27+02:00",
       "berammetFengslingsmoete": {
         "dato": "2023-04-19",
