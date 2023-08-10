@@ -21,8 +21,8 @@
     "personVaretektInfo": {
       "$ref": "#/definitions/personVaretektInfo"
     },
-    "ordreEllerKjennelseVaretekt": {
-      "$ref": "#/definitions/ordreEllerKjennelseVaretekt"
+    "ordreeVaretekt": {
+      "$ref": "#/definitions/ordreVaretekt"
     },
     "paategningsdokumentRef": {
       "$ref": "#/definitions/dokumentRef"
@@ -36,7 +36,7 @@
     "forsendelse",
     "hovedStraffesaksnummer",
     "ordreId",
-    "ordreEllerKjennelseVaretekt",
+    "ordreeVaretekt",
     "personVaretektInfo",
     "dokumenter"
   ],
@@ -253,66 +253,6 @@
       "description": "Liste over de ulike isolasjonstyper",
       "enum": ["FULL", "DELVIS", "INGEN"]
     },
-    "kjennelseVaretekt": {
-      "description": "Kjennelse på varetektsfengsling fra domstolen som sendes videre til Kriminalomsorgen",
-      "type": "object",
-      "properties": {
-        "domstol": { "$ref": "#/definitions/organisasjon" },
-        "domstolsaktoerer": { "$ref": "#/definitions/domstolsaktoerer" },
-        "avgjoerelseId": {
-          "type": "string",
-          "description": "Domstolen sin nøkkel til avgjørelsen. Kan bli brukt i forbindelse med anke/forlengelse"
-        },
-        "kjennelseSendtTid": {
-          "$ref": "#/definitions/datoTid",
-          "description": "Tidspunktet kjennelsen ble sendt fra domstolen"
-        },
-        "avsagtDato": { "$ref": "#/definitions/dato" },
-        "kravid": {
-          "type": "string",
-          "description": "Kravid som opprettes i politiet (begjæring om varetektsfengsling)"
-        },
-        "personVaretektDomstol": {
-          "$ref": "#/definitions/person",
-          "description": "Persondata fra domstolene, kan være forskjellig fra politiet sine data"
-        },
-        "forlengelse": {
-          "type": "boolean",
-          "description": "Forlengelse = true også hvis det er en endring i restriksjoner fra domstolene"
-        },
-        "fengsling": {
-          "$ref": "#/definitions/fengsling",
-          "description": "Førstegangsfengslinger vil alltid inneholde fengsling, men senere kan det komme med kun restriksjoner, isolasjon."
-        },
-        "restriksjoner": {
-          "type": "array",
-          "items": { "$ref": "#/definitions/restriksjon" },
-          "minItems": 1
-        },
-        "isolasjonsKrav": {
-          "type": "array",
-          "items": { "$ref": "#/definitions/isolasjon" },
-          "minItems": 1
-        },
-        "anke": {
-          "$ref": "#/definitions/anke",
-          "description": "Settes kun dersom hele eller deler av avgjørelsen ankes før kjennelsen sendes til påtale"
-        }
-      },
-      "required": [
-        "domstol",
-        "domstolsaktoerer",
-        "avgjoerelseId",
-        "kjennelseSendtTid",
-        "avsagtDato",
-        "personVaretektDomstol",
-        "kravid",
-        "forlengelse",
-        "restriksjoner",
-        "isolasjonsKrav"
-      ],
-      "additionalProperties": false
-    },
     "fengsling": {
       "description": "Fengsling som en del av kjennelsen, uten datoer så er det ikke noe fengsel nå.",
       "properties": {
@@ -331,22 +271,6 @@
       },
       "required": ["fengslingsId"],
       "type": "object",
-      "additionalProperties": false
-    },
-    "domstolsaktoerer": {
-      "type": "object",
-      "description": "Aktører fra domstolen",
-      "properties": {
-        "dommer": {
-          "$ref": "#/definitions/ansattPerson",
-          "description": "Dommer på saken"
-        },
-        "saksbehandler": {
-          "$ref": "#/definitions/ansattPerson",
-          "description": "Saksbehandler på saken"
-        }
-      },
-      "required": ["dommer"],
       "additionalProperties": false
     },
     "restriksjon": {
@@ -477,39 +401,6 @@
       },
       "required": ["type", "verdi"],
       "additionalProperties": false
-    },
-
-    "ordreEllerKjennelseVaretekt": {
-      "description": "Innsettelsesordren kommer enten som en ordre fra påtale før kjennelsen fra retten eller sammen med kjennelsen fra retten og da med data fra kjennelsen.",
-      "type": "object",
-      "properties": {
-        "ordreVaretekt": {
-          "$ref": "#/definitions/ordreVaretekt"
-        },
-        "kjennelseVaretekt": {
-          "$ref": "#/definitions/kjennelseVaretekt"
-        }
-      },
-      "oneOf": [
-        {
-          "properties": {
-            "kjennelseVaretekt": {
-              "$ref": "#/definitions/kjennelseVaretekt"
-            }
-          },
-          "additionalProperties": false,
-          "required": ["kjennelseVaretekt"]
-        },
-        {
-          "properties": {
-            "ordreVaretekt": {
-              "$ref": "#/definitions/ordreVaretekt"
-            }
-          },
-          "additionalProperties": false,
-          "required": ["ordreVaretekt"]
-        }
-      ]
     },
 
     "ordreVaretekt": {
