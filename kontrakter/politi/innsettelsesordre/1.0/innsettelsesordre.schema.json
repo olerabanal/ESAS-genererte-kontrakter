@@ -253,26 +253,6 @@
       "description": "Liste over de ulike isolasjonstyper",
       "enum": ["FULL", "DELVIS", "INGEN"]
     },
-    "fengsling": {
-      "description": "Fengsling som en del av kjennelsen, uten datoer så er det ikke noe fengsel nå.",
-      "properties": {
-        "fengslingsId": {
-          "type": "string",
-          "description": "fengslingsid som opprettes i DA (GUID)"
-        },
-        "fraDato": { "$ref": "#/definitions/dato" },
-        "tilDato": { "$ref": "#/definitions/dato" },
-        "fengslingsFristDato": { "$ref": "#/definitions/dato" },
-        "lovbud": { "$ref": "#/definitions/lovbudEnkel" },
-        "merknad": {
-          "type": "string",
-          "description": "Merknad til fengslingen"
-        }
-      },
-      "required": ["fengslingsId"],
-      "type": "object",
-      "additionalProperties": false
-    },
     "restriksjon": {
       "type": "object",
       "description": "Restriksjon fra domstolen, når vi har mottatt den, uten til fra dato kun når det er anke",
