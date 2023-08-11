@@ -39,6 +39,7 @@
     "ordreId",
     "ordreeVaretekt",
     "personVaretektInfo",
+    "bestillingAvVaretektsplassId",
     "dokumenter"
   ],
   "additionalProperties": false,
