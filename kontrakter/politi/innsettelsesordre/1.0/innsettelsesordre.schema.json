@@ -254,7 +254,7 @@
         },
         "mottakerOrganisasjon": {
           "$ref": "#/definitions/organisasjon",
-          "description": "Kriminalomsorgen/eller fengsel tror jeg."
+          "description": "Fengsel der siktede har fått plass."
         }
       },
       "required": [
