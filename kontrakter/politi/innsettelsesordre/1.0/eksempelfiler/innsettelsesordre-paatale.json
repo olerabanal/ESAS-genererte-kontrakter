@@ -93,9 +93,6 @@
                   "etternavn": "OTTERSTAD"
                 },
                 "tilleggsId": [],
-                "identitetsnummer": {
-                  "foedselsnummer": "14846399381"
-                },
                 "personAdresse": {
                   "gradering": "KLIENT_ADRESSE",
                   "adresse": {
