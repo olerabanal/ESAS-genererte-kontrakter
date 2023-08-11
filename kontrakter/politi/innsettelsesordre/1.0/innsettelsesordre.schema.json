@@ -19,9 +19,6 @@
       "$ref": "#/definitions/unikId",
       "description": "Unik identifikator på denne innsettelsesordren (ikke meldingen). Samme id vil bli brukt hvis vi skal oppdatere (som vi ikke har bestemt ennå)"
     },
-    "kontaktPersonKDI": {
-      "$ref": "#/definitions/ansattPerson"
-    },
     "personVaretektInfo": {
       "$ref": "#/definitions/personVaretektInfo"
     },
