@@ -93,6 +93,15 @@
                   "etternavn": "OTTERSTAD"
                 },
                 "tilleggsId": [],
+
+                "personAdresse": {
+                  "gradering": "KLIENT_ADRESSE",
+                  "adresse": {
+                    "adresselinjer": ["Bjørklund 21"],
+                    "postnummer": "4137",
+                    "poststed": "ÅRDAL I RYFYLKE"
+                  }
+                },
                 "kjoenn": "MANN",
                 "foedselsdato": "1975-12-12",
                 "statsborgerskap": [
