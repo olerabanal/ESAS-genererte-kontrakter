@@ -92,6 +92,9 @@
                   "fornavn": "Per",
                   "etternavn": "OTTERSTAD"
                 },
+                "identitetsnummer": {
+                  "foedselsnummer": "14846399381"
+                },
                 "tilleggsId": [],
                 "personAdresse": {
                   "gradering": "KLIENT_ADRESSE",
