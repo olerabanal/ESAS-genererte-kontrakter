@@ -8,6 +8,10 @@
       "$ref": "#/definitions/forsendelse",
       "description": "avsender og mottaker"
     },
+    "bestillingAvVaretektsplassId": {
+      "$ref": "#/definitions/unikId",
+      "description": "Nøkkel på opprinnelig bestilling."
+    },
     "hovedStraffesaksnummer": {
       "$ref": "#/definitions/straffesaksnummer"
     },
@@ -21,11 +25,8 @@
     "personVaretektInfo": {
       "$ref": "#/definitions/personVaretektInfo"
     },
-    "ordreeVaretekt": {
+    "ordreVaretekt": {
       "$ref": "#/definitions/ordreVaretekt"
-    },
-    "paategningsdokumentRef": {
-      "$ref": "#/definitions/dokumentRef"
     },
     "dokumenter": {
       "type": "array",
@@ -46,7 +47,7 @@
     "personVaretektInfo": {
       "title": "personVaretektInfo",
       "type": "object",
-      "required": ["personVaretekt", "straffesaker", "paagripelse", "risikoOgHelseInfo"],
+      "required": ["personVaretekt", "straffesaker"],
       "additionalProperties": false,
       "properties": {
         "personVaretekt": {
@@ -56,25 +57,74 @@
           "$ref": "#/definitions/unikId",
           "description": "Løpenummer nå, UUID senere. Samme identifikator fra pågripelse til du slipper ut av varetekt, se dokumentasjon melding readme.md"
         },
-        "paagripelse": {
-          "$ref": "#/definitions/paagripelse",
-          "description": "Tid og sted for pågripelse i denne varetektsyklusen"
-        },
-        "risikoOgHelseInfo": {
-          "$ref": "#/definitions/risikoOgHelseInfo",
-          "description": "Samme som sendes i bestilling av varetekt melding."
-        },
         "straffesaker": {
           "type": "array",
           "title": "straffesaker",
           "items": {
-            "$ref": "#/definitions/straffesakLovbudInvolverte"
+            "$ref": "#/definitions/straffesakInvolverte"
           },
           "minItems": 1
         }
       }
     },
-
+    "straffesakInvolverte": {
+      "type": "object",
+      "description": "Straffesak med statistikkgrupper, krimtype og de involverte",
+      "properties": {
+        "straffesaksnummer": { "$ref": "#/definitions/straffesaksnummer" },
+        "detaljer": { "$ref": "#/definitions/straffesakDetaljer" },
+        "involverte": { "$ref": "#/definitions/involverteStraffesak" }
+      },
+      "required": ["straffesaksnummer", "detaljer", "involverte"],
+      "additionalProperties": false
+    },
+    "involverteStraffesak": {
+      "type": "object",
+      "description": "siktede, vitner og fornærmede",
+      "properties": {
+        "siktet": { "$ref": "#/definitions/personEnkel" },
+        "medsiktede": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/personForetak" }
+        },
+        "fornaermede": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/personForetak" }
+        },
+        "vitner": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/person" }
+        }
+      },
+      "required": ["medsiktede", "fornaermede", "vitner"],
+      "additionalProperties": false
+    },
+    "straffesakDetaljer": {
+      "type": "object",
+      "description": "Detaljer rundt straffesaken, OBS krimType er ikke klart ennå-.s",
+      "properties": {
+        "hendelse": { "$ref": "#/definitions/hendelse" },
+        "statistikkgruppe": { "$ref": "#/definitions/kodeverk" },
+        "krimtype": { "$ref": "#/definitions/kodeverk" }
+      },
+      "required": ["hendelse", "statistikkgruppe"],
+      "additionalProperties": false
+    },
+    "hendelse": {
+      "type": "object",
+      "description": "Tid og sted for den straffbare handlingen",
+      "properties": {
+        "gjerningstidspunktFra": { "$ref": "#/definitions/datoTid" },
+        "gjerningstidspunktTil": { "$ref": "#/definitions/datoTid" },
+        "gjerningssted": { "$ref": "#/definitions/adresse" }
+      },
+      "required": [
+        "gjerningstidspunktFra",
+        "gjerningstidspunktTil",
+        "gjerningssted"
+      ],
+      "additionalProperties": false
+    },
     "adresse": {
       "type": "object",
       "properties": {
@@ -152,22 +202,6 @@
         }
       }
     },
-    "paagripelse": {
-      "type": "object",
-      "description": "Tid og sted for pågripelse",
-      "properties": {
-        "tidspunkt": {
-          "$ref": "#/definitions/datoTid"
-        },
-        "sted": {
-          "type": "string",
-          "description": "KDI trenger kommune, men foreløpig har vi ikke strukturert sted for pågripelsen."
-        }
-      },
-      "required": ["tidspunkt"],
-      "additionalProperties": false
-    },
-
     "dokument": {
       "description": "Dokument som oversendes på justishub",
       "type": "object",
@@ -461,101 +495,6 @@
         "INGEN"
       ],
       "type": "string"
-    },
-    "straffesakMedInvolverteSiktet": {
-      "description": "Straffesak med involverte listet samt enkel versjon av siktede",
-      "type": "object",
-      "required": ["straffesaksnummer", "detaljer", "involverte"],
-      "additionalProperties": false,
-      "properties": {
-        "straffesaksnummer": {
-          "$ref": "#/definitions/straffesaksnummer"
-        },
-        "detaljer": {
-          "$ref": "#/definitions/straffesakDetaljer"
-        },
-        "involverte": {
-          "$ref": "#/definitions/involverteStraffesak"
-        }
-      }
-    },
-    "straffesakDetaljer": {
-      "description": "Detaljer rundt straffesaken",
-      "type": "object",
-      "required": ["hendelse", "statistikkgruppe"],
-      "additionalProperties": false,
-      "properties": {
-        "hendelse": { "$ref": "#/definitions/hendelse" },
-        "statistikkgruppe": { "$ref": "#/definitions/kodeverk" },
-        "krimtype": { "$ref": "#/definitions/kodeverk" }
-      }
-    },
-    "hendelse": {
-      "title": "hendelse",
-      "type": "object",
-      "required": [
-        "gjerningstidspunktFra",
-        "gjerningstidspunktTil",
-        "gjerningssted"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "gjerningstidspunktFra": { "$ref": "#/definitions/datoTid" },
-        "gjerningstidspunktTil": { "$ref": "#/definitions/datoTid" },
-        "gjerningssted": {
-          "$ref": "#/definitions/adresse"
-        }
-      }
-    },
-    "involverteStraffesak": {
-      "description": "siktede, vitner og fornærmede",
-      "type": "object",
-      "additionalProperties": true,
-      "properties": {
-        "siktet": { "$ref": "#/definitions/personEnkel" },
-        "medsiktede": {
-          "type": "array",
-          "items": { "$ref": "#/definitions/personForetak" }
-        },
-        "fornaermede": {
-          "type": "array",
-          "items": { "$ref": "#/definitions/personForetak" }
-        },
-        "vitne": {
-          "type": "array",
-          "items": { "$ref": "#/definitions/person" }
-        }
-      },
-      "required": ["medsiktede", "fornaermede", "vitne"]
-    },
-    "siktelsesinfo": {
-      "description": "Siktelsesinformasjon fra straffesaken.",
-      "type": "object",
-      "required": ["lovbud"],
-      "additionalProperties": false,
-      "properties": {
-        "lovbud": { "$ref": "#/definitions/lovbudFull" },
-        "grunnlagstekst": { "type": "string" }
-      }
-    },
-    "straffesakLovbudInvolverte": {
-      "description": "Straffesak med også krimtype og lovbud, grunnlag samt de involverte",
-      "type": "object",
-      "required": ["straffesaksnummer", "detaljer", "involverte"],
-      "additionalProperties": true,
-      "properties": {
-        "straffesaksnummer": {
-          "$ref": "#/definitions/straffesaksnummer"
-        },
-        "detaljer": {
-          "$ref": "#/definitions/straffesakDetaljer"
-        },
-        "siktelsesinfo": {
-          "$ref": "#/definitions/siktelsesinfo",
-          "description": "lovbud og grunnlagsinformasjon som brukes i siktelsen"
-        },
-        "involverte": { "$ref": "#/definitions/involverteStraffesak" }
-      }
     },
     "ansattPerson": {
       "type": "object",
@@ -888,109 +827,6 @@
       },
       "required": ["internId", "navn"],
       "additionalProperties": false
-    },
-
-    "risikoOgHelseInfo": {
-      "type": "object",
-      "description": "Liste over risikovurderinger og tilstand i arresten (helse)",
-      "required": ["risikovurdering", "helseInfo", "tilstandArresten"],
-      "additionalProperties": false,
-      "properties": {
-        "risikovurdering": {
-          "$ref": "#/definitions/risikovurdering",
-          "description": "Opplysninger av betydning for risikovurdering, skal alltid fylles ut."
-        },
-        "helseInfo": {
-          "$ref": "#/definitions/helseInfo",
-          "description": "helseopplysninger skal alltid fylles ut"
-        },
-        "tilstandArresten": {
-          "$ref": "#/definitions/tilstandArresten",
-          "description": "Tilstand til siktede i arresten, skal alltid fylles ut."
-        }
-      }
-    },
-    "risikovurdering": {
-      "type": "object",
-      "description": "Vurdering avkrysning og mulighet for beskrivelse i fritekst",
-      "required": ["risiko"],
-      "additionalProperties": false,
-      "properties": {
-        "risiko": {
-          "type": "array",
-          "description": "Valg av vilke risikotyper, hvis det er ingen risiko så skal INGER_RISIKO brukes.",
-          "items": {
-            "$ref": "#/definitions/risikoVurderingTyper"
-          },
-          "minItems": 1
-        },
-        "beskrivelse": { "type": "string" }
-      }
-    },
-    "risikoVurderingTyper": {
-      "type": "string",
-      "description": "Risikovurderinger",
-      "enum": [
-        "VOLDSHISTORIKK",
-        "PSYKIATRI",
-        "UOENSKET_HENDELSE",
-        "ROEMNINGSFARE",
-        "FARE_ANSLAG",
-        "ANNET",
-        "UKJENT",
-        "INGEN"
-      ]
-    },
-    "tilstandArresten": {
-      "type": "object",
-      "description": "Valg av tilstand i arresten med beskrivelse",
-      "required": ["tilstand"],
-      "additionalProperties": false,
-      "properties": {
-        "tilstand": {
-          "type": "array",
-          "description": "Valg av hvilken tilstand",
-          "items": {
-            "$ref": "#/definitions/tilstandArrestenType"
-          },
-          "minItems": 1
-        },
-        "beskrivelse": { "type": "string" }
-      }
-    },
-    "tilstandArrestenType": {
-      "type": "string",
-      "description": "Tilstand i arresten",
-      "enum": [
-        "RUSET",
-        "OPPFOERSEL",
-        "FARE_PSYKISK_FYSISK_HELSE",
-        "SELVMORDSRISIKO",
-        "UKJENT",
-        "INGEN"
-      ]
-    },
-    "helseInfo": {
-      "type": "object",
-      "description": "Helsetilstanden til personen i arresten",
-      "required": ["helse"],
-      "additionalProperties": false,
-      "properties": {
-        "helse": {
-          "type": "array",
-          "description": "Helseinformasjon, velger ingen hvis det ikke er noe å bemerke.",
-          "items": {
-            "$ref": "#/definitions/helseTyper"
-          },
-          "minItems": 1
-        },
-        "beskrivelse": { "type": "string" }
-      }
-    },
-    "helseTyper": {
-      "type": "string",
-      "description": "Helseopplysninger",
-      "enum": ["OVERVEKT", "HOEYDE", "HANDIKAP", "MEDISINER", "UKJENT", "INGEN"]
     },
     "kjoenn": {
       "description": "Samme enum som folkeregisteret",
