@@ -8,9 +8,7 @@
         "navn": "Innlandet politidistrikt"
       },
       "person": {
-        "navn": {
-          "etternavn": "Politiets Datatjeneste"
-        }
+        "etternavn": "Politiets Datatjeneste"
       }
     },
     "mottakerOrganisasjon": {
