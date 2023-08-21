@@ -4,11 +4,6 @@
   "description": "Bestilling av varetektsplass fra påtale til fengsel KDI. Schema versjon 2020-12",
   "type": "object",
   "properties": {
-    "melding": {
-      "type": "string",
-      "const": "BESTILLING_VARETEKTSPLASS",
-      "description": "Navnet på meldingen. Enkelt å se på en melding hvilken type det er."
-    },
     "forsendelse": {
       "$ref": "#/definitions/forsendelse",
       "description": "avsender og mottaker"
@@ -35,7 +30,6 @@
     }
   },
   "required": [
-    "melding",
     "forsendelse",
     "hovedStraffesaksnummer",
     "bestillingAvVaretektsplassId",
@@ -147,9 +141,8 @@
         "kategori": { "$ref": "#/definitions/kodeverk" },
         "overskrift": { "type": "string" },
         "skrevetDato": {
-          "description": "Dato",
           "type": "string",
-          "format": "date-time"
+          "format": "date"
         },
         "forsendelse": { "$ref": "#/definitions/dokumentForsendelse" }
       },
@@ -175,14 +168,14 @@
       "properties": {
         "lovbudEnkel": { "$ref": "#/definitions/lovbudEnkel" },
         "fraDato": {
-          "description": "Dato, som domstolene spesifiserer",
+          "description": "Dato som domstolene spesifiserer",
           "type": "string",
-          "format": "date-time"
+          "format": "date"
         },
         "tilDato": {
-          "description": "Dato, som domstolene spesifiserer",
+          "description": "Dato som domstolene spesifiserer",
           "type": "string",
-          "format": "date-time"
+          "format": "date"
         }
       }
     },
@@ -338,7 +331,7 @@
       "additionalProperties": false
     },
     "restriksjon": {
-      "description": "Basis restriksjon med til og fra dato",
+      "description": "Basis restriksjon",
       "type": "object",
       "required": ["restriksjonsType"],
       "additionalProperties": false,
@@ -678,9 +671,8 @@
           "$ref": "#/definitions/personnavn"
         },
         "foedselsdato": {
-          "description": "Dato",
           "type": "string",
-          "format": "date-time"
+          "format": "date"
         },
         "kjoenn": {
           "description": "Ukjent kjønn hvis denne ikke er med",
@@ -741,8 +733,7 @@
         },
         "foedselsdato": {
           "type": "string",
-          "description": "Dato",
-          "format": "date-time"
+          "format": "date"
         }
       },
       "required": ["internId", "navn"],
