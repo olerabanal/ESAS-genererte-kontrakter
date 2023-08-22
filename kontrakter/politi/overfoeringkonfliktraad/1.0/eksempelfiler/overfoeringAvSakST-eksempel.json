@@ -7,12 +7,12 @@
         "organisasjonsnummer": "983997953",
         "navn": "Innlandet politidistrikt"
       },
-      "person": {
+      "jurist": {
         "brukeridentifikasjon": "XYZ233",
         "etternavn": "Årdal"
       }
     },
-    "mottakerOrganisasjon": {
+    "mottaker": {
       "organisasjonsnummer": "986074465",
       "navn": "Konfliktrådet Oslo"
     }
@@ -28,8 +28,10 @@
       "identitetsnummer": {
         "foedselsnummer": "31907499858"
       },
-      "tilleggsId": [],
-      "kjoenn": "KVINNE",
+      "kontakt": {
+        "epost": "sannferdig@kos.no",
+        "telefonnummer": ["99999999"]
+      },
       "personAdresse": {
         "adresse": {
           "adresselinjer": ["Bratsberggata 29"],
@@ -38,8 +40,57 @@
         }
       }
     },
+    "verger": [],
     "samtykke": true
   },
+  "fornaermede": [
+    {
+      "person": {
+        "navn": {
+          "fornavn": "Fornærma",
+          "etternavn": "KOKOS"
+        },
+        "foedselsdato": "1964-11-01",
+        "identitetsnummer": {
+          "foedselsnummer": "01116499858"
+        },
+        "kontakt": {
+          "epost": "fornaerma@kokos.no",
+          "telefonnummer": ["55555555"]
+        },
+        "personAdresse": {
+          "adresse": {
+            "adresselinjer": ["Bratsberggata 39"],
+            "postnummer": "3714",
+            "poststed": "SKIEN"
+          }
+        }
+      },
+      "verger": [
+        {
+          "navn": {
+            "fornavn": "Mor",
+            "etternavn": "KOKOS"
+          },
+          "foedselsdato": "1940-11-14",
+          "identitetsnummer": {
+            "foedselsnummer": "14114099858"
+          },
+          "kontakt": {
+            "epost": "fornaerma@kokos.no",
+            "telefonnummer": []
+          },
+          "personAdresse": {
+            "adresse": {
+              "adresselinjer": ["Bratsberggata 39"],
+              "postnummer": "3714",
+              "poststed": "SKIEN"
+            }
+          }
+        }
+      ]
+    }
+  ],
   "saksinformasjon": {
     "sakstype": "ST",
     "lovbud": {
