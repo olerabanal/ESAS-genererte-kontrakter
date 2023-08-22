@@ -51,6 +51,7 @@
         "personVaretekt": {
           "$ref": "#/definitions/person"
         },
+        "forsvarer": { "$ref": "#/definitions/profesjonellPerson" },
         "varetektSyklusId": {
           "$ref": "#/definitions/unikId",
           "description": "Løpenummer nå, UUID senere. Samme identifikator fra pågripelse til du slipper ut av varetekt, se dokumentasjon melding readme.md"
@@ -64,6 +65,36 @@
           "minItems": 1
         }
       }
+    },
+    "profesjonellPerson": {
+      "type": "object",
+      "description": "Advokater, tolker, sakkyndige vitner",
+      "properties": {
+        "tittel": {
+          "type": "string"
+        },
+        "navn": {
+          "type": "object",
+          "properties": {
+            "fornavn": {
+              "type": "string"
+            },
+            "mellomnavn": {
+              "type": "string"
+            },
+            "etternavn": {
+              "type": "string"
+            }
+          },
+          "required": ["etternavn"],
+          "additionalProperties": false
+        },
+        "kontakt": {
+          "$ref": "#/definitions/kontaktInfo"
+        }
+      },
+      "required": ["navn"],
+      "additionalProperties": false
     },
     "straffesakInvolverte": {
       "type": "object",
@@ -428,6 +459,8 @@
           "$ref": "#/definitions/ansattPerson"
         },
         "tidspunkt": { "$ref": "#/definitions/datoTid" },
+        "fengslingFradato": { "$ref": "#/definitions/dato" },
+        "fengslingTildato": { "$ref": "#/definitions/dato" },
         "restriksjoner": {
           "$ref": "#/definitions/restriksjonerOrdre"
         },
@@ -672,9 +705,7 @@
         "foedselsdato",
         "statsborgerskap",
         "tilleggsId",
-        "personAdresse",
-        "verger",
-        "identitetsnummer"
+        "verger"
       ],
       "additionalProperties": false
     },
