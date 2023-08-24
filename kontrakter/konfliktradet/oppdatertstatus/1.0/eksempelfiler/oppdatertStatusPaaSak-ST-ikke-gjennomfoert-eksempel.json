@@ -8,19 +8,28 @@
         "navn": "Konfliktrådet Oslo"
       },
       "person": {
-        "brukeridentifikasjon": "XYZ233",
-        "etternavn": "Årdal"
+        "tittel": "Saksansvarlig",
+        "etternavn": "Årdal",
+        "kontakt": {
+          "telefonnummer": ["999999999"]
+        }
       }
     },
-    "mottakerOrganisasjon": {
+    "mottaker": {
       "organisasjonsnummer": "983997953",
       "navn": "Innlandet politidistrikt"
     }
   },
   "straffesaksnummer": "15434811",
   "statusOppdatering": {
-    "statusType": "BRUDD",
-    "kommentar": "Har ikke møtt opp til avtaler"
+    "saksType": {
+      "straffesakStatus": {
+        "meklingIkkeGjennomfoert": {
+          "resultat": "IKKE_MEKLET",
+          "aarsak": "SAMTYKKE_TRUKKET"
+        }
+      }
+    }
   },
   "siktet": {
     "navn": {
