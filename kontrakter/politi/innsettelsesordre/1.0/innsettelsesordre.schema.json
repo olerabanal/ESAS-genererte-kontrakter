@@ -452,8 +452,8 @@
       "required": [
         "besluttetAv",
         "tidspunkt",
-        "fengslingFradato",
-        "fengslingTildato"
+        "fengslingFraDato",
+        "fengslingTilDato"
       ],
       "additionalProperties": false,
       "properties": {
@@ -464,8 +464,8 @@
           "$ref": "#/definitions/ansattPerson"
         },
         "tidspunkt": { "$ref": "#/definitions/datoTid" },
-        "fengslingFradato": { "$ref": "#/definitions/dato" },
-        "fengslingTildato": { "$ref": "#/definitions/dato" },
+        "fengslingFraDato": { "$ref": "#/definitions/dato" },
+        "fengslingTilDato": { "$ref": "#/definitions/dato" },
         "restriksjoner": {
           "$ref": "#/definitions/restriksjonerOrdre"
         },
