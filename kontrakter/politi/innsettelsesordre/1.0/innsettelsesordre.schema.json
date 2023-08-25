@@ -449,7 +449,7 @@
     "ordreVaretekt": {
       "description": "Påtale sin ordre/beslutning om fengsling i fengsel, før vi har en kjennelse fra retten og for å lette på restriksjoner, det er implisit at det er fengsling",
       "type": "object",
-      "required": ["besluttetAv", "tidspunkt"],
+      "required": ["besluttetAv", "tidspunkt", "fengslingFradato", "fengslingTildato"],
       "additionalProperties": false,
       "properties": {
         "merknad": {
