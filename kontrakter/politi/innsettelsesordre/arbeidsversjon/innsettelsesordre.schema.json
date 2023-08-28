@@ -455,6 +455,7 @@
         "fengslingFraDato",
         "fengslingTilDato"
       ],
+
       "additionalProperties": false,
       "properties": {
         "merknad": {
