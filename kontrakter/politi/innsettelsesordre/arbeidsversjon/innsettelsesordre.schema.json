@@ -40,7 +40,6 @@
     "dokumenter"
   ],
   "additionalProperties": false,
-
   "definitions": {
     "personVaretektInfo": {
       "title": "personVaretektInfo",
