@@ -128,7 +128,7 @@
     },
     "fengslingFraDato": "2023-01-01",
     "fengslingTilDato": "2023-01-03",
-    "tidspunkt": "2022-11-03T10:19:56+02:00",
+    "beslutningsTidspunkt": "2022-11-03T10:19:56+02:00",
     "restriksjoner": {
       "merknad": "Ingen brev til denne personen",
       "restriksjoner": ["BREV_OG_BESOEKSFORBUD"]
