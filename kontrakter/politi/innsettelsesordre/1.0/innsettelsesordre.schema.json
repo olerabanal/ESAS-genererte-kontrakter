@@ -4,7 +4,7 @@
   "description": "Innsettelsesordre fra påtale til fengsel KDI, med ordre fra påtale eller kjennelse. Schema versjon 2020-12",
   "type": "object",
   "properties": {
-    "forsendelse": {f
+    "forsendelse": {
       "$ref": "#/definitions/forsendelse",
       "description": "avsender og mottaker"
     },
