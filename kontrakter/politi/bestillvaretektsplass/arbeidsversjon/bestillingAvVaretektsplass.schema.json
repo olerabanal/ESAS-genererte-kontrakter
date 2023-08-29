@@ -23,7 +23,11 @@
     },
     "personVaretektInfo": { "$ref": "#/definitions/personVaretektInfo" },
     "restriksjonIsolasjon": { "$ref": "#/definitions/restriksjonIsolasjon" },
-    "paagripelse": { "$ref": "#/definitions/paagripelse" },
+    "paagrepetTidspunkt": { "type": "string", "format": "date-time" },
+    "paagrepetSted": {
+      "type": "string",
+      "description": "Sted for pågripelsen."
+    },
     "dokumenter": {
       "type": "array",
       "items": { "$ref": "#/definitions/dokument" }
@@ -33,25 +37,12 @@
     "forsendelse",
     "hovedStraffesaksnummer",
     "bestillingAvVaretektsplassId",
-    "paagripelse",
+    "paagrepetTidspunkt",
     "personVaretektInfo"
   ],
   "additionalProperties": false,
 
   "definitions": {
-    "paagripelse": {
-      "type": "object",
-      "description": "Tid og sted for pågripelse",
-      "properties": {
-        "tidspunkt": { "type": "string", "format": "date-time" },
-        "sted": {
-          "type": "string",
-          "description": "Sted for pågripelsen."
-        }
-      },
-      "required": ["tidspunkt"],
-      "additionalProperties": false
-    },
     "personVaretektInfo": {
       "title": "personVaretektInfo",
       "type": "object",
