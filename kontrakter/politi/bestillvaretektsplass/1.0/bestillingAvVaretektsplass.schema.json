@@ -24,6 +24,10 @@
     "personVaretektInfo": { "$ref": "#/definitions/personVaretektInfo" },
     "restriksjonIsolasjon": { "$ref": "#/definitions/restriksjonIsolasjon" },
     "paagrepetTidspunkt": { "type": "string", "format": "date-time" },
+    "paagrepetSted": {
+      "type": "string",
+      "description": "Sted for pågripelsen."
+    },
     "dokumenter": {
       "type": "array",
       "items": { "$ref": "#/definitions/dokument" }
