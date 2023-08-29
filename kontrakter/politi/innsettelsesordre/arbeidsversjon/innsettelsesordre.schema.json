@@ -450,7 +450,7 @@
       "type": "object",
       "required": [
         "besluttetAv",
-        "tidspunkt",
+        "beslutningsTidspunkt",
         "fengslingFraDato",
         "fengslingTilDato"
       ],
@@ -463,7 +463,7 @@
         "besluttetAv": {
           "$ref": "#/definitions/ansattPerson"
         },
-        "tidspunkt": { "$ref": "#/definitions/datoTid" },
+        "beslutningsTidspunkt": { "$ref": "#/definitions/datoTid" },
         "fengslingFraDato": { "$ref": "#/definitions/dato" },
         "fengslingTilDato": { "$ref": "#/definitions/dato" },
         "restriksjoner": {
