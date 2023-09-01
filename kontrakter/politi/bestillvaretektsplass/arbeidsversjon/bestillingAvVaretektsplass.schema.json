@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://politiet.no/politi/fengsling/1.0/bestillingAvVaretektsplass",
+  "$id": "https://politiet.no/politi/fengsling/current/bestillingAvVaretektsplass",
   "description": "Bestilling av varetektsplass fra påtale til fengsel KDI. Schema versjon 2020-12",
   "type": "object",
   "properties": {
