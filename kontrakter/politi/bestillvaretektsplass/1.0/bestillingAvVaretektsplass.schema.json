@@ -442,6 +442,7 @@
             "$ref": "#/definitions/restriksjon"
           }
         },
+        "beskrivelseRestriksjon": { "type": "string" },
         "isolasjon": {
           "type": "array",
           "description": "0 til flere isolasjonskrav",
@@ -449,7 +450,7 @@
             "$ref": "#/definitions/isolasjon"
           }
         },
-        "beskrivelse": { "type": "string" }
+        "beskrivelseIsolasjon": { "type": "string" }
       }
     },
     "risikoOgHelseInfo": {
