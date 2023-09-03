@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://politiet.no/kriminalomsorg/fengsling/1.0/rekvirerePersonundersoekelse",
+  "$id": "https://kriminalomsorg.no/kriminalomsorg/1.0/rekvisisjonPersonundersoekelse",
   "description": "Rekvirering / anmodning om personundersøkelse fra påtale til kriminalomsorg. Schema versjon 2020-12",
   "type": "object",
   "properties": {
@@ -11,6 +11,10 @@
     "hovedStraffesaksnummer": {
       "$ref": "#/definitions/straffesaksnummer",
       "description": "BL Saksbehandlersak er hovedsaken i et sakskompleks (som er 1 eller flere straffesaker)"
+    },
+    "rekvisisjonPersonundersoekelseId": {
+      "$ref": "#/definitions/unikId",
+      "description": "ID  på rekvisisjonen. "
     },
     "kontaktPersonKDI": { "$ref": "#/definitions/ansattPerson" },
     "varetektSyklusId": {
@@ -318,27 +322,6 @@
       "required": ["organisasjonsnummer", "navn"],
       "additionalProperties": false
     },
-    "restriksjon": {
-      "description": "Basis restriksjon med til og fra dato",
-      "type": "object",
-      "required": ["restriksjonsType"],
-      "additionalProperties": false,
-      "properties": {
-        "id": { "type": "string" },
-        "restriksjonsType": { "$ref": "#/definitions/restriksjonsType" },
-        "lovbudEnkel": { "$ref": "#/definitions/lovbudEnkel" }
-      }
-    },
-    "restriksjonsType": {
-      "description": "Liste over de ulike restriksjonene",
-      "type": "string",
-      "enum": [
-        "BREV_OG_BESOEKSFORBUD",
-        "BREV_OG_BESOEKSKONTROLL",
-        "MEDIEFORBUD",
-        "ANNET"
-      ]
-    },
     "straffesakDetaljer": {
       "description": "Detaljer rundt straffesaken",
       "type": "object",
@@ -412,132 +395,6 @@
         },
         "involverte": { "$ref": "#/definitions/involverteStraffesak" }
       }
-    },
-    "restriksjonIsolasjon": {
-      "type": "object",
-      "description": "Hvilke restriksjoner og isolasjonskrav skal gjelde (til kjennelse kommer)",
-      "required": ["restriksjon", "isolasjon"],
-      "additionalProperties": false,
-      "properties": {
-        "restriksjon": {
-          "type": "array",
-          "description": "0 til flere restriksjoner",
-          "items": {
-            "$ref": "#/definitions/restriksjon"
-          }
-        },
-        "isolasjon": {
-          "type": "array",
-          "description": "0 til flere isolasjonskrav",
-          "items": {
-            "$ref": "#/definitions/isolasjon"
-          }
-        },
-        "beskrivelse": { "type": "string" }
-      }
-    },
-    "risikoOgHelseInfo": {
-      "type": "object",
-      "description": "Liste over risikovurderinger og tilstand i arresten (helse)",
-      "required": ["risikovurdering", "helseInfo", "tilstandArresten"],
-      "additionalProperties": false,
-      "properties": {
-        "risikovurdering": {
-          "$ref": "#/definitions/risikovurdering",
-          "description": "Opplysninger av betydning for risikovurdering, skal alltid fylles ut."
-        },
-        "helseInfo": {
-          "$ref": "#/definitions/helseInfo",
-          "description": "helseopplysninger skal alltid fylles ut"
-        },
-        "tilstandArresten": {
-          "$ref": "#/definitions/tilstandArresten",
-          "description": "Tilstand til siktede i arresten, skal alltid fylles ut."
-        }
-      }
-    },
-    "risikovurdering": {
-      "type": "object",
-      "description": "Vurdering avkrysning og mulighet for beskrivelse i fritekst",
-      "required": ["risiko"],
-      "additionalProperties": false,
-      "properties": {
-        "risiko": {
-          "type": "array",
-          "description": "Valg av vilke risikotyper, hvis det er ingen risiko så skal INGER_RISIKO brukes.",
-          "items": {
-            "$ref": "#/definitions/risikoVurderingTyper"
-          },
-          "minItems": 1
-        },
-        "beskrivelse": { "type": "string" }
-      }
-    },
-    "risikoVurderingTyper": {
-      "type": "string",
-      "description": "Risikovurderinger",
-      "enum": [
-        "VOLDSHISTORIKK",
-        "PSYKIATRI",
-        "UOENSKET_HENDELSE",
-        "ROEMNINGSFARE",
-        "FARE_ANSLAG",
-        "ANNET",
-        "UKJENT",
-        "INGEN"
-      ]
-    },
-    "tilstandArresten": {
-      "type": "object",
-      "description": "Valg av tilstand i arresten med beskrivelse",
-      "required": ["tilstand"],
-      "additionalProperties": false,
-      "properties": {
-        "tilstand": {
-          "type": "array",
-          "description": "Valg av hvilken tilstand",
-          "items": {
-            "$ref": "#/definitions/tilstandArrestenTyper"
-          },
-          "minItems": 1
-        },
-        "beskrivelse": { "type": "string" }
-      }
-    },
-    "tilstandArrestenTyper": {
-      "type": "string",
-      "description": "Tilstand i arresten",
-      "enum": [
-        "RUSET",
-        "OPPFOERSEL",
-        "FARE_PSYKISK_FYSISK_HELSE",
-        "SELVMORDSRISIKO",
-        "MEDISINER",
-        "UKJENT",
-        "INGEN"
-      ]
-    },
-    "helseInfo": {
-      "type": "object",
-      "description": "Helsetilstanden til personen i arresten",
-      "required": ["helse"],
-      "additionalProperties": false,
-      "properties": {
-        "helse": {
-          "type": "array",
-          "description": "Helseinformasjon, velger ingen hvis det ikke er noe å bemerke.",
-          "items": {
-            "$ref": "#/definitions/helseTyper"
-          },
-          "minItems": 1
-        },
-        "beskrivelse": { "type": "string" }
-      }
-    },
-    "helseTyper": {
-      "type": "string",
-      "description": "Helseopplysninger",
-      "enum": ["OVERVEKT", "HOEYDE", "HANDIKAP", "MEDISINER", "UKJENT", "INGEN"]
     },
     "foretak": {
       "description": "Foretak/ organisasjon som er med i en straffesak som f.eks. fornærmet",
