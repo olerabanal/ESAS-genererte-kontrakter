@@ -1,0 +1,302 @@
+{
+  "forsendelse": {
+    "meldingsId": "C5E8E429-2B8E-48A9-A9D3-FDAA5F9BE2",
+    "sendtTid": "2022-11-03T10:19:55+02:00",
+    "avsender": {
+      "organisasjon": {
+        "organisasjonsnummer": "983997953",
+        "navn": "Innlandet politidistrikt"
+      },
+      "person": {
+        "brukeridentifikasjon": "XYZ233",
+        "etternavn": "Årdal"
+      }
+    },
+    "mottakerOrganisasjon": {
+      "organisasjonsnummer": "890286712",
+      "navn": "Bjørgvin fengsel"
+    }
+  },
+  "hovedStraffesaksnummer": "15434811",
+  "kontaktPersonKDI": {
+    "fornavn": "Peder",
+    "etternavn": "Superduper"
+  },
+  "kontaktopplysningerAdvokater": {
+    "paataleansvarligNavn": { "etternavn": "Paatalesen" },
+    "paataleansvarligKontaktInfo": { "telefonnummer": ["11 22 33 44"] },
+    "forsvarerNavn": {
+      "fornavn": "Fjodor",
+      "etternavn": "Feit"
+    },
+    "forsvarerKontaktInfo": {
+      "telefonnummer": ["(+47) 99 88 77 66"],
+      "epost": "Feit@fatboysfix.com"
+    }
+  },
+  "personundersoekelseInfo": {
+    "personundersoekelseType": "MINDREAARIG",
+    "personForPersonundersoekelse": {
+      "internId": "700892414",
+      "navn": {
+        "fornavn": "Morsom",
+        "etternavn": "KIWI"
+      },
+      "identitetsnummer": {
+        "foedselsnummer": "14846399381"
+      },
+      "tilleggsId": [],
+      "kjoenn": "MANN",
+      "foedselsdato": "1963-04-14T00:00:00+02:00",
+      "statsborgerskap": [
+        {
+          "kode": "NOR",
+          "navn": "Norge"
+        }
+      ],
+      "adresseGradering": "KLIENT_ADRESSE",
+      "personAdresse": {
+        "gradering" : "KLIENT_ADRESSE",
+        "adresseType" : "BOSTEDSADRESSE",
+        "adresse": {
+          "adresselinjer": ["Bjørklund 21"],
+          "postnummer": "4137",
+          "poststed": "ÅRDAL I RYFYLKE"
+        }
+      },
+      "verger": [
+        {
+          "profesjonellPerson": {
+            "navn": {
+              "fornavn": "Varg",
+              "etternavn": "Vergenes"
+            },
+            "identitetsnummer": {
+              "foedselsnummer": "01018012345"
+            }
+          }
+        }
+      ]
+    },
+    "straffesaker": [
+      {
+        "straffesaksnummer": "15434811",
+        "detaljer": {
+          "hendelse": {
+            "gjerningstidspunktFra": "2022-01-01T00:00:00+02:00",
+            "gjerningstidspunktTil": "2022-01-01T00:00:00+02:00",
+            "gjerningssted": {
+              "adresselinjer": ["Waldemar Carlsens veg 4"],
+              "postnummer": "2214",
+              "poststed": "KONGSVINGER",
+              "land": {
+                "kode": "NOR",
+                "navn": "Norge"
+              }
+            }
+          },
+          "statistikkgruppe": {
+            "kode": "0933",
+            "navn": "Mindre tyveri diverse"
+          },
+          "krimtype": {
+            "kode": "02",
+            "navn": "Vinning"
+          }
+        },
+        "siktelsesinfo": {
+          "lovbud": {
+            "lovbudId": "{DC423098-A15E-4408-BB35-85C101725AE0}",
+            "lovbudStreng": "Straffeloven § 323 første ledd, jf. § 321",
+            "gjengivelse": "for å ha tatt en gjenstand som tilhørte en annen, med forsett om å skaffe seg eller andre en uberettiget vinning ved å selge, forbruke eller på annen måte tilegne seg den. \r\n\r\nStraffskylden er liten fordi det gjelder en ubetydelig verdi og forholdene for øvrig tilsier det.",
+            "hjemmel": [],
+            "strafferamme": 0
+          },
+          "grunnlagstekst": "Lørdag 1. januar 2022 kl. 00.00 i Waldemar Carlsens veg 4 i Kongsvinger tok Morsom Kiwi og Masse Kiwi og grisebanket dama til Morsom Kiwi Sannferdig Kos. Sannferdig Kos fikk fire knekte ribbeing, knust nese og knekt fot."
+        },
+        "involverte": {
+          "siktet": {
+            "internId": "700892414",
+            "navn": {
+              "fornavn": "Morsom",
+              "etternavn": "KIWI"
+            },
+            "foedselsdato": "1963-04-14T00:00:00+02:00"
+          },
+          "medsiktede": [
+            {
+              "person": {
+                "internId": "700893213",
+                "navn": {
+                  "fornavn": "Per",
+                  "etternavn": "OTTERSTAD"
+                },
+                "tilleggsId": [],
+                "kjoenn": "MANN",
+                "foedselsdato": "1975-12-12T00:00:00+02:00",
+                "statsborgerskap": [
+                  {
+                    "kode": "NOR",
+                    "navn": "Norge"
+                  }
+                ],
+                "verger": []
+              }
+            },
+            {
+              "person": {
+                "internId": "700892415",
+                "navn": {
+                  "fornavn": "Masse",
+                  "etternavn": "KIWI"
+                },
+                "identitetsnummer": {
+                  "foedselsnummer": "19877099302"
+                },
+                "tilleggsId": [],
+                "kjoenn": "MANN",
+                "foedselsdato": "1970-07-19T00:00:00+02:00",
+                "statsborgerskap": [
+                  {
+                    "kode": "NOR",
+                    "navn": "Norge"
+                  }
+                ],
+                "personAdresse": {
+                  "adresseType" : "BOSTEDSADRESSE",
+                  "adresse": {
+                    "adresselinjer": ["Rugdeberget 2"],
+                    "postnummer": "1266",
+                    "poststed": "OSLO"
+                  }
+                },
+                "verger": []
+              }
+            },
+            {
+              "foretak": {
+                "internId": "340078107",
+                "organisasjonsnummer": "984954808",
+                "navn": "Obs"
+              }
+            }
+          ],
+          "fornaermede": [
+            {
+              "person": {
+                "internId": "700892735",
+                "navn": {
+                  "fornavn": "Sannferdig",
+                  "etternavn": "KOS"
+                },
+                "identitetsnummer": {
+                  "foedselsnummer": "31907499858"
+                },
+                "tilleggsId": [],
+                "kjoenn": "KVINNE",
+                "foedselsdato": "1974-10-31T00:00:00+02:00",
+                "statsborgerskap": [
+                  {
+                    "kode": "NOR",
+                    "navn": "Norge"
+                  }
+                ],
+                "personAdresse": {
+                  "adresseType" : "BOSTEDSADRESSE",
+                  "adresse": {
+                    "adresselinjer": ["Bratsberggata 29"],
+                    "postnummer": "3714",
+                    "poststed": "SKIEN"
+                  }
+                },
+                "verger": [
+                  {
+                    "profesjonellPerson": {
+                      "navn": {
+                        "fornavn": "Birger",
+                        "etternavn": "Berg-Vergenes"
+                      },
+                      "identitetsnummer": {
+                        "foedselsnummer": "01018012346"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "vitne": [
+            {
+              "internId": "700892775",
+              "navn": {
+                "fornavn": "Naturstridig",
+                "etternavn": "BALLONG"
+              },
+              "identitetsnummer": {
+                "foedselsnummer": "21907699738"
+              },
+              "tilleggsId": [],
+              "kjoenn": "MANN",
+              "foedselsdato": "1976-10-21T00:00:00+02:00",
+              "statsborgerskap": [
+                {
+                  "kode": "NOR",
+                  "navn": "Norge"
+                }
+              ],
+              "personAdresse": {
+                "adresseType" : "BOSTEDSADRESSE",
+                "adresse": {
+                  "adresselinjer": ["Øvstedalsvegen 87"],
+                  "postnummer": "6391",
+                  "poststed": "TRESFJORD"
+                }
+              },
+              "verger": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "paagrepetTidspunkt": "2022-11-03T10:19:56+02:00",
+  "paagrepetSted": "Sinsenkrysset, 0570 OSLO kommune fritekst",
+  "dokumenter": [
+    {
+      "internId": "1234567879",
+      "overskrift": "Personaliarapport, Kiwi",
+      "skrevetDato": "2022-11-03T00:00:00+02:00",
+      "forsendelse": {
+        "mimeType": "application/pdf",
+        "uri": "file:///asdfasdf",
+        "sjekksum": "234s"
+      }
+    },
+    {
+      "internId": "123234567871",
+      "overskrift": "Siktelse",
+      "kategori": {
+        "kode": "Siktelse"
+      },
+      "skrevetDato": "2022-10-14T00:00:00+02:00",
+      "forsendelse": {
+        "mimeType": "application/pdf",
+        "uri": "file:///asdfaasdfsdfu",
+        "sjekksum": "234asass"
+      }
+    },
+    {
+      "internId": "123234567871",
+      "overskrift": "Straffeattest",
+      "kategori": {
+        "kode": "Straffeattest"
+      },
+      "skrevetDato": "2022-10-14T00:00:00+02:00",
+      "forsendelse": {
+        "mimeType": "application/pdf",
+        "uri": "file:///asdfaasdfsdfx",
+        "sjekksum": "234asass"
+      }
+    }
+  ]
+}
