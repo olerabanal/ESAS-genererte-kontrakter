@@ -9,7 +9,8 @@
       },
       "person": {
         "brukeridentifikasjon": "XYZ233",
-        "etternavn": "Årdal"
+        "etternavn": "Årdal",
+        "telefonnummer" : "22 11 00 11"
       }
     },
     "mottakerOrganisasjon": {
@@ -19,10 +20,6 @@
   },
   "hovedStraffesaksnummer": "15434811",
   "rekvisisjonPersonundersoekelseId": "0322B3E2-B12B-40B6-8940-799C48706123",
-  "kontaktPersonKDI": {
-    "fornavn": "Peder",
-    "etternavn": "Superduper"
-  },
   "kontaktopplysningerAdvokater": {
     "paataleansvarligNavn": { "etternavn": "Paatalesen" },
     "paataleansvarligKontaktInfo": { "telefonnummer": ["11 22 33 44"] },
@@ -35,25 +32,8 @@
       "epost": "Feit@fatboysfix.com"
     }
   },
-  "kontaktpersonerForInnhentingAvOpplysningerFraKilder": {
-    "kontaktpersonBarnevernNavn": { "etternavn": "Barnevernsen" },
-    "kontaktpersonBarnevernKontaktInfo": { "telefonnummer": ["11 22 33 55"] },
-    "kontaktpersonPoltiNavn": { "etternavn": "Mikke Snusen" },
-    "kontaktpersonPolitiKontaktInfo": {"epost": "msnus@polti.no",
-  "telefonnummer": ["33 22 11 00"]},
-    "kontaktpersonUngdomskoordinatorNavn": {"fornavn": "Grei",
-    "mellomnavn": "Kul",
-    "etternavn": "Kompis"},
-    "kontaktpersonUngdomskoordinatorKontaktInfo": {"telefonnummer": ["22 22 00 00"] }
-  x
-  },
-  "prioriteringsdetaljer": {
-    "oensketFristForFerdigPersonundersoekelse": "2023-01-02",
-    "berammetDatoForHovedforhandling": "2023-01-14"
-  },
   "personundersoekelseInfo": {
-    "personundersoekelseType": "MINDREAARIG",
-    "initiativtakerTilUndersoekelse" :"FORSVARER",
+    "personundersoekelseType": "GENERELL_PERSONUNDERSOEKELSE",
     "personForPersonundersoekelse": {
       "internId": "700892414",
       "navn": {
@@ -81,21 +61,8 @@
           "postnummer": "4137",
           "poststed": "ÅRDAL I RYFYLKE"
         }
+      }
       },
-      "verger": [
-        {
-          "profesjonellPerson": {
-            "navn": {
-              "fornavn": "Varg",
-              "etternavn": "Vergenes"
-            },
-            "identitetsnummer": {
-              "foedselsnummer": "01018012345"
-            }
-          }
-        }
-      ]
-    },
     "straffesaker": [
       {
         "straffesaksnummer": "15434811",
@@ -228,17 +195,6 @@
                   }
                 },
                 "verger": [
-                  {
-                    "profesjonellPerson": {
-                      "navn": {
-                        "fornavn": "Birger",
-                        "etternavn": "Berg-Vergenes"
-                      },
-                      "identitetsnummer": {
-                        "foedselsnummer": "01018012346"
-                      }
-                    }
-                  }
                 ]
               }
             }
