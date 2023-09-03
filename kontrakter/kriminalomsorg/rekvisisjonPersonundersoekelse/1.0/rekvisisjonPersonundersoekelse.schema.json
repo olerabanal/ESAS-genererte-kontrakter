@@ -33,7 +33,10 @@
     "kontaktpersonerForInnhentingAvOpplysningerFraKilder": {
       "$ref": "#/definitions/kontaktpersonerForInnhentingAvOpplysningerFraKilder"
     },
-
+    "prioriteringsdetaljer": {
+      "$ref": "#/definitions/prioriteringsdetaljer"
+    },
+    
     "dokumenter": {
       "type": "array",
       "items": { "$ref": "#/definitions/dokument" }
@@ -107,6 +110,19 @@
       "required": [],
       "additionalProperties": false
     },
+
+    "prioriteringsdetaljer": {
+      "description": "Opplysninger som ønsket frist for ferdig personundersøkelse, melding om berammingsdato for hovedforhandling.",
+      "title": "prioriteringsdetaljer",
+      "type": "object",
+      "properties": {
+        "oensketFristForFerdigPersonundersoekelse" : {"type": "string", "format": "date-time" },
+        "berammetDatoForHovedforhandling": { "type": "string", "format": "date-time" }}
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+
 
     "adresse": {
       "type": "object",

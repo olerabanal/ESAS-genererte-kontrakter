@@ -37,7 +37,19 @@
   },
   "kontaktpersonerForInnhentingAvOpplysningerFraKilder": {
     "kontaktpersonBarnevernNavn": { "etternavn": "Barnevernsen" },
-    "kontaktpersonBarnevernKontaktInfo": { "telefonnummer": ["11 22 33 55"] }
+    "kontaktpersonBarnevernKontaktInfo": { "telefonnummer": ["11 22 33 55"] },
+    "kontaktpersonPoltiNavn": { "etternavn": "Mikke Snusen" },
+    "kontaktpersonPolitiKontaktInfo": {"epost": "msnus@polti.no",
+  "telefonnummer": ["33 22 11 00"]},
+    "kontaktpersonUngdomskoordinatorNavn": {"fornavn": "Grei",
+    "mellomnavn": "Kul",
+    "etternavn": "Kompis"},
+    "kontaktpersonUngdomskoordinatorKontaktInfo": {"telefonnummer": ["22 22 00 00"] }
+  x
+  },
+  "prioriteringsdetaljer": {
+    "oensketFristForFerdigPersonundersoekelse": "2023-01-02",
+    "berammetDatoForHovedforhandling": "2023-01-14"
   },
   "personundersoekelseInfo": {
     "personundersoekelseType": "MINDREAARIG",
