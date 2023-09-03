@@ -30,6 +30,10 @@
     "kontaktopplysningerAdvokater": {
       "$ref": "#/definitions/kontaktopplysningerAdvokater"
     },
+    "kontaktpersonerForInnhentingAvOpplysningerFraKilder": {
+      "$ref": "#/definitions/kontaktpersonerForInnhentingAvOpplysningerFraKilder"
+    },
+
     "dokumenter": {
       "type": "array",
       "items": { "$ref": "#/definitions/dokument" }
@@ -51,14 +55,20 @@
       "required": ["personundersoekelseType", "personForPersonundersoekelse", "straffesaker"],
       "additionalProperties": false,
       "properties": {
+        "personForPersonundersoekelse": {
+          "$ref": "#/definitions/person"
+        },
         "personundersoekelseType" : {
           "description" :  "Typen og formålet med personundersøkelse man rekvirerer. (Det kan revireres både en spesialisert undersøkelse  eller  generell personundesøkelse).",
           "type" : "string",
           "enum" :["MINDREAARIG", "NARKOTIKAPROGRAM", "RUSKJOERING", "FORVARING", "GENERELL_PERSONUNDERSOEKELSE"]
         },
-        "personForPersonundersoekelse": {
-          "$ref": "#/definitions/person"
+        "initiativtakerTilUndersoekelse" : {
+          "description" :  "Firvillig: Indikerer hvem som har tatt initiativ til personundersøkelse.  Forsvarer, Domstol eller  Påtale etc. ... ",
+          "type" : "string",
+          "enum" :["FORSVARER", "PAATALE", "DOMSTOL"]
         },
+
         "straffesaker": {
           "type": "array",
           "title": "straffesaker",
@@ -82,6 +92,22 @@
       "required": [],
       "additionalProperties": false
     },
+    "kontaktpersonerForInnhentingAvOpplysningerFraKilder": {
+      "description": "Kontaktopplysninger for kilder i personundersøkelsen.  Fylles ut der politiet har informasjonen. Formålet er at KO slipper bruker tid på å ringe rundt og politiet slipper bruke tid på å svare ut dette. ",
+      "title": "kontaktpersonerForInnhentingAvOpplysningerFraKilder",
+      "type": "object",
+      "properties": {
+        "kontaktpersonBarnevernNavn": { "$ref": "#/definitions/personnavn" },
+        "kontaktpersonBarnevernKontaktInfo": { "$ref": "#/definitions/kontaktInfo" },
+        "kontaktpersonUngdomskoordinatorNavn": { "$ref": "#/definitions/personnavn" },
+        "kontaktpersonUngdomskoordinatorKontaktInfo": { "$ref": "#/definitions/kontaktInfo" },
+        "kontaktpersonPoltiNavn": { "$ref": "#/definitions/personnavn" },
+        "kontaktpersonPolitiKontaktInfo": { "$ref": "#/definitions/kontaktInfo" }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+
     "adresse": {
       "type": "object",
       "properties": {

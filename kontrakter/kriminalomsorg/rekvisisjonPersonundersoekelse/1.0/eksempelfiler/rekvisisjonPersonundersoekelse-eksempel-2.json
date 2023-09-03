@@ -35,12 +35,17 @@
       "epost": "Feit@fatboysfix.com"
     }
   },
+  "kontaktpersonerForInnhentingAvOpplysningerFraKilder": {
+    "kontaktpersonBarnevernNavn": { "etternavn": "Barnevernsen" },
+    "kontaktpersonBarnevernKontaktInfo": { "telefonnummer": ["11 22 33 55"] }
+  },
   "personundersoekelseInfo": {
     "personundersoekelseType": "MINDREAARIG",
+    "initiativtakerTilUndersoekelse" :"FORSVARER",
     "personForPersonundersoekelse": {
       "internId": "700892414",
       "navn": {
-        "fornavn": "Morsom",
+        "fornavn": "Ung",
         "etternavn": "KIWI"
       },
       "identitetsnummer": {
@@ -48,7 +53,7 @@
       },
       "tilleggsId": [],
       "kjoenn": "MANN",
-      "foedselsdato": "1963-04-14T00:00:00+02:00",
+      "foedselsdato": "2008-01-01T00:00:00+02:00",
       "statsborgerskap": [
         {
           "kode": "NOR",
@@ -113,16 +118,16 @@
             "hjemmel": [],
             "strafferamme": 0
           },
-          "grunnlagstekst": "Lørdag 1. januar 2022 kl. 00.00 i Waldemar Carlsens veg 4 i Kongsvinger tok Morsom Kiwi og Masse Kiwi og grisebanket dama til Morsom Kiwi Sannferdig Kos. Sannferdig Kos fikk fire knekte ribbeing, knust nese og knekt fot."
+          "grunnlagstekst": "Lørdag 1. januar 2022 kl. 00.00 i Waldemar Carlsens veg 4 i Kongsvinger tok Ung  Kiwi og Masse Kiwi og grisebanket dama til Morsom Kiwi Sannferdig Kos. Sannferdig Kos fikk fire knekte ribbeing, knust nese og knekt fot."
         },
         "involverte": {
           "siktet": {
             "internId": "700892414",
             "navn": {
-              "fornavn": "Morsom",
+              "fornavn": "Ung",
               "etternavn": "KIWI"
             },
-            "foedselsdato": "1963-04-14T00:00:00+02:00"
+            "foedselsdato": "2008-01-01T00:00:00+02:00"
           },
           "medsiktede": [
             {

@@ -22,8 +22,13 @@ Evt. verger bør identifiseres med fødselsnummer for informasjonssikkerheten. (
 
 Merk at man kan rekvirere en PUM selv om siktede ikke er mindreårig per i dag. Det er alderen på gjerningstidspunktet som avgjør.
 
+Formålet med undersøkelse, vurdering av hensiktsmessighet av fengsling etc. kan være utstrukturert i PDF i denne omgang.
+
+KOG-delen kan også tas som fritekst - konfliktrådet ville potensielt ha nytte av en strukturering av dette, men de får ikke denne meldingen direkte i denne omgang. Potensielt forbedring i senere versjon.
 
 
 ## Ønsker / mangler
 Synk adressemodell og adressetyper mot folkeregisterets modell her - og generelt?
+
+Tolkespråk er ønsket. Det finnes p.t. støtte for "statsborgerskap" som dekker deler av behovet - men klarer vi noe mer her, er det ønskelig.
 
