@@ -9,7 +9,10 @@
       },
       "person": {
         "brukeridentifikasjon": "XYZ233",
-        "etternavn": "Årdal"
+        "etternavn": "Årdal",
+        "kontakt": {
+          "telefonnummer": ["22 99 33 44"]
+        }
       }
     },
     "mottakerOrganisasjon": {
@@ -39,20 +42,26 @@
     "kontaktpersonBarnevernNavn": { "etternavn": "Barnevernsen" },
     "kontaktpersonBarnevernKontaktInfo": { "telefonnummer": ["11 22 33 55"] },
     "kontaktpersonPoltiNavn": { "etternavn": "Mikke Snusen" },
-    "kontaktpersonPolitiKontaktInfo": {"epost": "msnus@polti.no",
-  "telefonnummer": ["33 22 11 00"]},
-    "kontaktpersonUngdomskoordinatorNavn": {"fornavn": "Grei",
-    "mellomnavn": "Kul",
-    "etternavn": "Kompis"},
-    "kontaktpersonUngdomskoordinatorKontaktInfo": {"telefonnummer": ["22 22 00 00"] }
+    "kontaktpersonPolitiKontaktInfo": {
+      "epost": "msnus@polti.no",
+      "telefonnummer": ["33 22 11 00"]
+    },
+    "kontaktpersonUngdomskoordinatorNavn": {
+      "fornavn": "Grei",
+      "mellomnavn": "Kul",
+      "etternavn": "Kompis"
+    },
+    "kontaktpersonUngdomskoordinatorKontaktInfo": {
+      "telefonnummer": ["22 22 00 00"]
+    }
   },
   "prioriteringsdetaljer": {
-    "oensketFristForFerdigPersonundersoekelse": "2023-01-02",
-    "berammetDatoForHovedforhandling": "2023-01-14"
+    "oensketFristForFerdigPersonundersoekelse": "2023-01-02T10:00:00+02:00",
+    "berammetDatoForHovedforhandling": "2023-01-14T10:00:00+02:00"
   },
   "personundersoekelseInfo": {
     "personundersoekelseType": "MINDREAARIG",
-    "initiativtakerTilUndersoekelse" :"FORSVARER",
+    "initiativtakerTilUndersoekelse": "FORSVARER",
     "personForPersonundersoekelse": {
       "internId": "700892414",
       "navn": {
@@ -73,8 +82,8 @@
       ],
       "adresseGradering": "KLIENT_ADRESSE",
       "personAdresse": {
-        "gradering" : "KLIENT_ADRESSE",
-        "adresseType" : "BOSTEDSADRESSE",
+        "gradering": "KLIENT_ADRESSE",
+        "adresseType": "BOSTEDSADRESSE",
         "adresse": {
           "adresselinjer": ["Bjørklund 21"],
           "postnummer": "4137",
@@ -180,7 +189,7 @@
                   }
                 ],
                 "personAdresse": {
-                  "adresseType" : "BOSTEDSADRESSE",
+                  "adresseType": "BOSTEDSADRESSE",
                   "adresse": {
                     "adresselinjer": ["Rugdeberget 2"],
                     "postnummer": "1266",
@@ -219,7 +228,7 @@
                   }
                 ],
                 "personAdresse": {
-                  "adresseType" : "BOSTEDSADRESSE",
+                  "adresseType": "BOSTEDSADRESSE",
                   "adresse": {
                     "adresselinjer": ["Bratsberggata 29"],
                     "postnummer": "3714",
@@ -262,7 +271,7 @@
                 }
               ],
               "personAdresse": {
-                "adresseType" : "BOSTEDSADRESSE",
+                "adresseType": "BOSTEDSADRESSE",
                 "adresse": {
                   "adresselinjer": ["Øvstedalsvegen 87"],
                   "postnummer": "6391",

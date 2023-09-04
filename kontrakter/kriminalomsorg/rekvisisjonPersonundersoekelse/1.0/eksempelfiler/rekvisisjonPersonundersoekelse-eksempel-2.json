@@ -10,7 +10,9 @@
       "person": {
         "brukeridentifikasjon": "XYZ233",
         "etternavn": "Årdal",
-        "telefonnummer" : "22 11 00 11"
+        "kontakt": {
+          "telefonnummer" : ["22 99 33 44"]
+        }  
       }
     },
     "mottakerOrganisasjon": {
@@ -54,15 +56,15 @@
       ],
       "adresseGradering": "KLIENT_ADRESSE",
       "personAdresse": {
-        "gradering" : "KLIENT_ADRESSE",
-        "adresseType" : "BOSTEDSADRESSE",
+        "gradering": "KLIENT_ADRESSE",
+        "adresseType": "BOSTEDSADRESSE",
         "adresse": {
           "adresselinjer": ["Bjørklund 21"],
           "postnummer": "4137",
           "poststed": "ÅRDAL I RYFYLKE"
         }
       }
-      },
+    },
     "straffesaker": [
       {
         "straffesaksnummer": "15434811",
@@ -148,7 +150,7 @@
                   }
                 ],
                 "personAdresse": {
-                  "adresseType" : "BOSTEDSADRESSE",
+                  "adresseType": "BOSTEDSADRESSE",
                   "adresse": {
                     "adresselinjer": ["Rugdeberget 2"],
                     "postnummer": "1266",
@@ -187,15 +189,14 @@
                   }
                 ],
                 "personAdresse": {
-                  "adresseType" : "BOSTEDSADRESSE",
+                  "adresseType": "BOSTEDSADRESSE",
                   "adresse": {
                     "adresselinjer": ["Bratsberggata 29"],
                     "postnummer": "3714",
                     "poststed": "SKIEN"
                   }
                 },
-                "verger": [
-                ]
+                "verger": []
               }
             }
           ],
@@ -219,7 +220,7 @@
                 }
               ],
               "personAdresse": {
-                "adresseType" : "BOSTEDSADRESSE",
+                "adresseType": "BOSTEDSADRESSE",
                 "adresse": {
                   "adresselinjer": ["Øvstedalsvegen 87"],
                   "postnummer": "6391",

@@ -21,7 +21,9 @@
       "$ref": "#/definitions/unikId",
       "description": "Til å begynne med vil dette være et løpenummer, kan endres til GUID senere. Første forsendelsene vil ikke inneholde dette."
     },
-    "personundersoekelseInfo": { "$ref": "#/definitions/personundersoekelseInfo" },
+    "personundersoekelseInfo": {
+      "$ref": "#/definitions/personundersoekelseInfo"
+    },
     "paagrepetTidspunkt": { "type": "string", "format": "date-time" },
     "paagrepetSted": {
       "type": "string",
@@ -36,7 +38,7 @@
     "prioriteringsdetaljer": {
       "$ref": "#/definitions/prioriteringsdetaljer"
     },
-    
+
     "dokumenter": {
       "type": "array",
       "items": { "$ref": "#/definitions/dokument" }
@@ -55,21 +57,31 @@
     "personundersoekelseInfo": {
       "title": "personundersoekelseInfo",
       "type": "object",
-      "required": ["personundersoekelseType", "personForPersonundersoekelse", "straffesaker"],
+      "required": [
+        "personundersoekelseType",
+        "personForPersonundersoekelse",
+        "straffesaker"
+      ],
       "additionalProperties": false,
       "properties": {
         "personForPersonundersoekelse": {
           "$ref": "#/definitions/person"
         },
-        "personundersoekelseType" : {
-          "description" :  "Typen og formålet med personundersøkelse man rekvirerer. (Det kan revireres både en spesialisert undersøkelse  eller  generell personundesøkelse).",
-          "type" : "string",
-          "enum" :["MINDREAARIG", "NARKOTIKAPROGRAM", "RUSKJOERING", "FORVARING", "GENERELL_PERSONUNDERSOEKELSE"]
+        "personundersoekelseType": {
+          "description": "Typen og formålet med personundersøkelse man rekvirerer. (Det kan revireres både en spesialisert undersøkelse  eller  generell personundesøkelse).",
+          "type": "string",
+          "enum": [
+            "MINDREAARIG",
+            "NARKOTIKAPROGRAM",
+            "RUSKJOERING",
+            "FORVARING",
+            "GENERELL_PERSONUNDERSOEKELSE"
+          ]
         },
-        "initiativtakerTilUndersoekelse" : {
-          "description" :  "Firvillig: Indikerer hvem som har tatt initiativ til personundersøkelse.  Forsvarer, Domstol eller  Påtale etc. ... ",
-          "type" : "string",
-          "enum" :["FORSVARER", "PAATALE", "DOMSTOL"]
+        "initiativtakerTilUndersoekelse": {
+          "description": "Firvillig: Indikerer hvem som har tatt initiativ til personundersøkelse.  Forsvarer, Domstol eller  Påtale etc. ... ",
+          "type": "string",
+          "enum": ["FORSVARER", "PAATALE", "DOMSTOL"]
         },
 
         "straffesaker": {
@@ -101,11 +113,19 @@
       "type": "object",
       "properties": {
         "kontaktpersonBarnevernNavn": { "$ref": "#/definitions/personnavn" },
-        "kontaktpersonBarnevernKontaktInfo": { "$ref": "#/definitions/kontaktInfo" },
-        "kontaktpersonUngdomskoordinatorNavn": { "$ref": "#/definitions/personnavn" },
-        "kontaktpersonUngdomskoordinatorKontaktInfo": { "$ref": "#/definitions/kontaktInfo" },
+        "kontaktpersonBarnevernKontaktInfo": {
+          "$ref": "#/definitions/kontaktInfo"
+        },
+        "kontaktpersonUngdomskoordinatorNavn": {
+          "$ref": "#/definitions/personnavn"
+        },
+        "kontaktpersonUngdomskoordinatorKontaktInfo": {
+          "$ref": "#/definitions/kontaktInfo"
+        },
         "kontaktpersonPoltiNavn": { "$ref": "#/definitions/personnavn" },
-        "kontaktpersonPolitiKontaktInfo": { "$ref": "#/definitions/kontaktInfo" }
+        "kontaktpersonPolitiKontaktInfo": {
+          "$ref": "#/definitions/kontaktInfo"
+        }
       },
       "required": [],
       "additionalProperties": false
@@ -116,13 +136,18 @@
       "title": "prioriteringsdetaljer",
       "type": "object",
       "properties": {
-        "oensketFristForFerdigPersonundersoekelse" : {"type": "string", "format": "date-time" },
-        "berammetDatoForHovedforhandling": { "type": "string", "format": "date-time" }
+        "oensketFristForFerdigPersonundersoekelse": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "berammetDatoForHovedforhandling": {
+          "type": "string",
+          "format": "date-time"
+        }
       },
       "required": [],
       "additionalProperties": false
     },
-
 
     "adresse": {
       "type": "object",
@@ -155,10 +180,10 @@
       "type": "string",
       "enum": ["KLIENT_ADRESSE", "FORTROLIG", "STRENGT_FORTROLIG"]
     },
-    "adresseType" : {
-      "description" :  "Spesifisere bosted, evt. oppholdsadresse.",
-      "type" : "string",
-      "enum" :["BOSTEDSADRESSE", "OPPHOLDSADRESSE", "POSTADRESSE"]
+    "adresseType": {
+      "description": "Spesifisere bosted, evt. oppholdsadresse.",
+      "type": "string",
+      "enum": ["BOSTEDSADRESSE", "OPPHOLDSADRESSE", "POSTADRESSE"]
     },
     "ansattPerson": {
       "type": "object",
