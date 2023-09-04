@@ -117,7 +117,7 @@
       "type": "object",
       "properties": {
         "oensketFristForFerdigPersonundersoekelse" : {"type": "string", "format": "date-time" },
-        "berammetDatoForHovedforhandling": { "type": "string", "format": "date-time" }}
+        "berammetDatoForHovedforhandling": { "type": "string", "format": "date-time" }
       },
       "required": [],
       "additionalProperties": false
