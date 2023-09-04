@@ -224,7 +224,7 @@
     },
     "isolasjonsType": {
       "description": "Liste over de ulike isolasjonstyper",
-      "enum": ["FULL_ISOLASJON", "DELVIS_ISOLASJON"],
+      "enum": ["FULL", "DELVIS", "INGEN"],
       "type": "string"
     },
     "kontaktInfo": {
@@ -352,7 +352,7 @@
         "BREV_OG_BESOEKSFORBUD",
         "BREV_OG_BESOEKSKONTROLL",
         "MEDIEFORBUD",
-        "ANNET"
+        "INGEN"
       ]
     },
     "straffesakDetaljer": {
@@ -437,19 +437,22 @@
       "properties": {
         "restriksjon": {
           "type": "array",
-          "description": "0 til flere restriksjoner",
+          "description": "1 til flere restriksjoner.- Velg ingen dersom ingen restriksjoner er gitt",
           "items": {
             "$ref": "#/definitions/restriksjon"
-          }
+          },
+          "minItems": 1
         },
+        "beskrivelseRestriksjon": { "type": "string" },
         "isolasjon": {
           "type": "array",
-          "description": "0 til flere isolasjonskrav",
+          "description": "1 til flere isolasjonskrav. Velg ingen dersom ingen isolasjonskrav er gitt",
           "items": {
             "$ref": "#/definitions/isolasjon"
-          }
+          },
+          "minItems": 1
         },
-        "beskrivelse": { "type": "string" }
+        "beskrivelseIsolasjon": { "type": "string" }
       }
     },
     "risikoOgHelseInfo": {
