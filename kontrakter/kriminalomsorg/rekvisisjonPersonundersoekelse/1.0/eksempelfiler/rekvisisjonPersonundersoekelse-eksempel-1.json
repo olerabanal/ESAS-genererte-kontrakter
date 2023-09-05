@@ -16,8 +16,8 @@
       }
     },
     "mottakerOrganisasjon": {
-      "organisasjonsnummer": "890286712",
-      "navn": "Bjørgvin fengsel"
+      "organisasjonsnummer": "911830868",
+      "navn": "Akershus friomsorgskontor"
     }
   },
   "hovedStraffesaksnummer": "15434811",
@@ -90,19 +90,7 @@
           "poststed": "ÅRDAL I RYFYLKE"
         }
       },
-      "verger": [
-        {
-          "profesjonellPerson": {
-            "navn": {
-              "fornavn": "Varg",
-              "etternavn": "Vergenes"
-            },
-            "identitetsnummer": {
-              "foedselsnummer": "01018012345"
-            }
-          }
-        }
-      ]
+      "verger": []
     },
     "straffesaker": [
       {
@@ -235,19 +223,7 @@
                     "poststed": "SKIEN"
                   }
                 },
-                "verger": [
-                  {
-                    "profesjonellPerson": {
-                      "navn": {
-                        "fornavn": "Birger",
-                        "etternavn": "Berg-Vergenes"
-                      },
-                      "identitetsnummer": {
-                        "foedselsnummer": "01018012346"
-                      }
-                    }
-                  }
-                ]
+                "verger": []
               }
             }
           ],

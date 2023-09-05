@@ -11,13 +11,13 @@
         "brukeridentifikasjon": "XYZ233",
         "etternavn": "Årdal",
         "kontakt": {
-          "telefonnummer" : ["22 99 33 44"]
-        }  
+          "telefonnummer": ["22 99 33 44"]
+        }
       }
     },
     "mottakerOrganisasjon": {
-      "organisasjonsnummer": "890286712",
-      "navn": "Bjørgvin fengsel"
+      "organisasjonsnummer": "911830868",
+      "navn": "Akershus friomsorgskontor"
     }
   },
   "hovedStraffesaksnummer": "15434811",
@@ -63,7 +63,20 @@
           "postnummer": "4137",
           "poststed": "ÅRDAL I RYFYLKE"
         }
-      }
+      },
+      "verger": [
+        {
+          "profesjonellPerson": {
+            "navn": {
+              "fornavn": "Varg",
+              "etternavn": "Vergenes"
+            },
+            "identitetsnummer": {
+              "foedselsnummer": "01018012345"
+            }
+          }
+        }
+      ]
     },
     "straffesaker": [
       {
@@ -196,7 +209,20 @@
                     "poststed": "SKIEN"
                   }
                 },
-                "verger": []
+
+                "verger": [
+                  {
+                    "profesjonellPerson": {
+                      "navn": {
+                        "fornavn": "Birger",
+                        "etternavn": "Berg-Vergenes"
+                      },
+                      "identitetsnummer": {
+                        "foedselsnummer": "01018012346"
+                      }
+                    }
+                  }
+                ]
               }
             }
           ],
