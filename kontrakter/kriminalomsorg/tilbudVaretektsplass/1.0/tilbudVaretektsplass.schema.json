@@ -4,11 +4,6 @@
   "description": "Tilbud om varetektsplass fra KO til påtale. Schema versjon 2020-12",
   "type": "object",
   "properties": {
-    "melding": {
-      "type": "string",
-      "const": "TILBUD_VARETEKTSPLASS",
-      "description": "Navnet på meldingen. Enkelt å se på en melding hvilken type det er."
-    },
     "forsendelse": {
       "$ref": "#/definitions/forsendelse",
       "description": "avsender og mottaker"
