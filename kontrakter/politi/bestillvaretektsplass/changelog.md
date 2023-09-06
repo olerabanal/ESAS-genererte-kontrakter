@@ -9,3 +9,4 @@ melding og forsendelse justeringer i hennhold til [begjaering varetekt](../varet
 3. restriksjon / isolasjon fjernet fraDato og tilDato fordi det ikke er mulig å fylle inn det nå.
 4. Nytt fritekstfelt på restriksjoner/isolasjon så noe omstrukturering.
 5. Risiko og helseopplysninger nå med egne element for risiko, helse, tilstand.
+6. Utvidet paagripelse med sted

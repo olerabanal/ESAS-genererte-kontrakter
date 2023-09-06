@@ -4,11 +4,6 @@
   "description": "Bestilling av varetektsplass fra påtale til fengsel KDI. Schema versjon 2020-12",
   "type": "object",
   "properties": {
-    "melding": {
-      "type": "string",
-      "const": "BESTILLING_VARETEKTSPLASS",
-      "description": "Navnet på meldingen. Enkelt å se på en melding hvilken type det er."
-    },
     "forsendelse": {
       "$ref": "#/definitions/forsendelse",
       "description": "avsender og mottaker"
@@ -29,13 +24,16 @@
     "personVaretektInfo": { "$ref": "#/definitions/personVaretektInfo" },
     "restriksjonIsolasjon": { "$ref": "#/definitions/restriksjonIsolasjon" },
     "paagrepetTidspunkt": { "type": "string", "format": "date-time" },
+    "paagrepetSted": {
+      "type": "string",
+      "description": "Sted for pågripelsen."
+    },
     "dokumenter": {
       "type": "array",
       "items": { "$ref": "#/definitions/dokument" }
     }
   },
   "required": [
-    "melding",
     "forsendelse",
     "hovedStraffesaksnummer",
     "bestillingAvVaretektsplassId",
@@ -147,9 +145,8 @@
         "kategori": { "$ref": "#/definitions/kodeverk" },
         "overskrift": { "type": "string" },
         "skrevetDato": {
-          "description": "Dato",
           "type": "string",
-          "format": "date-time"
+          "format": "date"
         },
         "forsendelse": { "$ref": "#/definitions/dokumentForsendelse" }
       },
@@ -175,14 +172,14 @@
       "properties": {
         "lovbudEnkel": { "$ref": "#/definitions/lovbudEnkel" },
         "fraDato": {
-          "description": "Dato, som domstolene spesifiserer",
+          "description": "Dato som domstolene spesifiserer",
           "type": "string",
-          "format": "date-time"
+          "format": "date"
         },
         "tilDato": {
-          "description": "Dato, som domstolene spesifiserer",
+          "description": "Dato som domstolene spesifiserer",
           "type": "string",
-          "format": "date-time"
+          "format": "date"
         }
       }
     },
@@ -227,7 +224,7 @@
     },
     "isolasjonsType": {
       "description": "Liste over de ulike isolasjonstyper",
-      "enum": ["FULL_ISOLASJON", "DELVIS_ISOLASJON"],
+      "enum": ["FULL", "DELVIS", "INGEN"],
       "type": "string"
     },
     "kontaktInfo": {
@@ -338,7 +335,7 @@
       "additionalProperties": false
     },
     "restriksjon": {
-      "description": "Basis restriksjon med til og fra dato",
+      "description": "Basis restriksjon",
       "type": "object",
       "required": ["restriksjonsType"],
       "additionalProperties": false,
@@ -355,7 +352,7 @@
         "BREV_OG_BESOEKSFORBUD",
         "BREV_OG_BESOEKSKONTROLL",
         "MEDIEFORBUD",
-        "ANNET"
+        "INGEN"
       ]
     },
     "straffesakDetaljer": {
@@ -440,19 +437,22 @@
       "properties": {
         "restriksjon": {
           "type": "array",
-          "description": "0 til flere restriksjoner",
+          "description": "1 til flere restriksjoner.- Velg ingen dersom ingen restriksjoner er gitt",
           "items": {
             "$ref": "#/definitions/restriksjon"
-          }
+          },
+          "minItems": 1
         },
+        "beskrivelseRestriksjon": { "type": "string" },
         "isolasjon": {
           "type": "array",
-          "description": "0 til flere isolasjonskrav",
+          "description": "1 til flere isolasjonskrav. Velg ingen dersom ingen isolasjonskrav er gitt",
           "items": {
             "$ref": "#/definitions/isolasjon"
-          }
+          },
+          "minItems": 1
         },
-        "beskrivelse": { "type": "string" }
+        "beskrivelseIsolasjon": { "type": "string" }
       }
     },
     "risikoOgHelseInfo": {
@@ -678,9 +678,8 @@
           "$ref": "#/definitions/personnavn"
         },
         "foedselsdato": {
-          "description": "Dato",
           "type": "string",
-          "format": "date-time"
+          "format": "date"
         },
         "kjoenn": {
           "description": "Ukjent kjønn hvis denne ikke er med",
@@ -741,8 +740,7 @@
         },
         "foedselsdato": {
           "type": "string",
-          "description": "Dato",
-          "format": "date-time"
+          "format": "date"
         }
       },
       "required": ["internId", "navn"],
