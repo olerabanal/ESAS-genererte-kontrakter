@@ -32,7 +32,6 @@
     }
   },
   "required": [
-    "melding",
     "forsendelse",
     "hovedStraffesaksnummer",
     "bestillingAvVaretektsplassId",
