@@ -7,6 +7,14 @@
       "alg": "RS256",
       "kid": "politiet-1",
       "use": "sig"
+    },
+    {
+      "kty": "RSA",
+      "n": "vUkXROok3qORnQtgfWO5DqigyjbkbjOFOy-fHRuxuGsJ5KuxSI1KufkoXDJYfQwMPxwzB7SO4-Ztos2-VG45P_KtMIxJHDuyUjrsWJADlVWWjmC9eFk3MzB1ZFGR5Chcia-2BPjRIKd2a7f_vbKNRwugeE0IvqcypuqPe_tsOGWNSbP7vg702ss-6xpPlxkPIGPXl3vsHJF7jWQWtjCvM3Shm0NTpqWi7-sPjsYywoqVoEQM0JD13QixOj4pH0cxoDy7nIw6YgYs_7jIsVlsX4Gk8T6dJMg6tlQ253wVM3ZlDFRe5rSGNgg5A3QMHbT_LASdQTQi7fVeJCoZB2kGuQ",
+      "e": "AQAB",
+      "alg": "RS256",
+      "kid": "domstol-1",
+      "use": "sig"
     }
   ]
 }
