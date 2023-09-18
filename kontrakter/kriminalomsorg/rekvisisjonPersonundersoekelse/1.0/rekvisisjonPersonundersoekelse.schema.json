@@ -61,12 +61,16 @@
       "required": [
         "personundersoekelseType",
         "personForPersonundersoekelse",
+        "kontaktInfo",
         "straffesaker"
       ],
       "additionalProperties": false,
       "properties": {
         "personForPersonundersoekelse": {
           "$ref": "#/definitions/person"
+        },
+        "kontaktInfo": {
+          "$ref": "#/definitions/kontaktInfo"
         },
         "personundersoekelseType": {
           "description": "Typen og formålet med personundersøkelse man rekvirerer. (Det kan revireres både en spesialisert undersøkelse  eller  generell personundesøkelse).",

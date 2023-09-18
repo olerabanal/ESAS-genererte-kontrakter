@@ -84,6 +84,9 @@
         }
       ]
     },
+    "kontaktInfo" : {
+      "telefonnummer": ["11 22 33 99", "11 22 33 98"]
+    }, 
     "straffesaker": [
       {
         "straffesaksnummer": "15434811",
