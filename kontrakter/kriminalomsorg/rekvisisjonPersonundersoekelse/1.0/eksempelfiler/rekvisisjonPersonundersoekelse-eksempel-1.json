@@ -34,20 +34,10 @@
     }
   },
   "kontaktpersonerForInnhentingAvOpplysningerFraKilder": {
-    "kontaktpersonBarnevernNavn": { "etternavn": "Barnevernsen" },
-    "kontaktpersonBarnevernKontaktInfo": { "telefonnummer": ["11 22 33 55"] },
     "kontaktpersonPoltiNavn": { "etternavn": "Mikke Snusen" },
     "kontaktpersonPolitiKontaktInfo": {
       "epost": "msnus@polti.no",
       "telefonnummer": ["33 22 11 00"]
-    },
-    "kontaktpersonUngdomskoordinatorNavn": {
-      "fornavn": "Grei",
-      "mellomnavn": "Kul",
-      "etternavn": "Kompis"
-    },
-    "kontaktpersonUngdomskoordinatorKontaktInfo": {
-      "telefonnummer": ["22 22 00 00"]
     }
   },
   "prioriteringsdetaljer": {
@@ -55,7 +45,7 @@
     "berammetDatoForHovedforhandling": "2023-01-14T10:00:00+02:00"
   },
   "personundersoekelseInfo": {
-    "personundersoekelseType": "MINDREAARIG",
+    "personundersoekelseType": "GENERELL_PERSONUNDERSOEKELSE",
     "initiativtakerTilUndersoekelse": "FORSVARER",
     "personForPersonundersoekelse": {
       "internId": "700892414",
@@ -75,12 +65,13 @@
           "navn": "Norge"
         }
       ],
+      "kontaktInfo": {
+        "telefonnummer": ["11 22 33 40"]
+      },
       "tolk": {
         "behov": false
       },
-      "adresseGradering": "KLIENT_ADRESSE",
       "personAdresse": {
-        "gradering": "KLIENT_ADRESSE",
         "adresseType": "BOSTEDSADRESSE",
         "adresse": {
           "adresselinjer": ["Bjørklund 21"],
@@ -90,9 +81,6 @@
       },
       "verger": []
     },
-    "kontaktInfo" : {
-      "telefonnummer": ["11 22 33 99", "11 22 33 98"]
-    }, 
     "straffesaker": [
       {
         "straffesaksnummer": "15434811",

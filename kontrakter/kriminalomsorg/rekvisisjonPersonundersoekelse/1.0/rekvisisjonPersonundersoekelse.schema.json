@@ -16,11 +16,6 @@
       "$ref": "#/definitions/unikId",
       "description": "ID  på rekvisisjonen. "
     },
-    "kontaktPersonKDI": { "$ref": "#/definitions/ansattPerson" },
-    "varetektSyklusId": {
-      "$ref": "#/definitions/unikId",
-      "description": "Til å begynne med vil dette være et løpenummer, kan endres til GUID senere. Første forsendelsene vil ikke inneholde dette."
-    },
     "personundersoekelseInfo": {
       "$ref": "#/definitions/personundersoekelseInfo"
     },
@@ -50,7 +45,7 @@
     "paagrepetTidspunkt",
     "paagrepetSted",
     "kontaktopplysningerAdvokater",
-    "personundersoekelseInfo"    
+    "personundersoekelseInfo"
   ],
   "additionalProperties": false,
 
@@ -61,16 +56,13 @@
       "required": [
         "personundersoekelseType",
         "personForPersonundersoekelse",
-        "kontaktInfo",
         "straffesaker"
       ],
       "additionalProperties": false,
       "properties": {
         "personForPersonundersoekelse": {
+          "description": "Subjektet for personundersøkelsen. Den siktede det anmodes om personundersøkelse av.",
           "$ref": "#/definitions/person"
-        },
-        "kontaktInfo": {
-          "$ref": "#/definitions/kontaktInfo"
         },
         "personundersoekelseType": {
           "description": "Typen og formålet med personundersøkelse man rekvirerer. (Det kan revireres både en spesialisert undersøkelse  eller  generell personundesøkelse).",
@@ -83,7 +75,7 @@
             "GENERELL_PERSONUNDERSOEKELSE"
           ]
         },
-        "tekstligUdypingAvFormaalet" :{
+        "tekstligUdypingAvFormaalet": {
           "description": "Mulighet for å beskrive formålet med anmodningen videre i fritekst.",
           "type": "string"
         },
@@ -92,7 +84,6 @@
           "type": "string",
           "enum": ["FORSVARER", "PAATALE", "DOMSTOL"]
         },
-
         "straffesaker": {
           "type": "array",
           "title": "straffesaker",
@@ -181,7 +172,7 @@
           "$ref": "#/definitions/land"
         }
       },
-      "required": ["adresselinjer"],
+      "required": ["postnummer"],
       "additionalProperties": false
     },
     "adresseGradering": {
@@ -192,7 +183,7 @@
     "adresseType": {
       "description": "Spesifisere bosted, evt. oppholdsadresse.",
       "type": "string",
-      "enum": ["BOSTEDSADRESSE", "OPPHOLDSADRESSE", "POSTADRESSE"]
+      "enum": ["BOSTEDSADRESSE", "SISTE_KJENTE_ADRESSE", "POSTADRESSE"]
     },
     "ansattPerson": {
       "type": "object",
@@ -216,7 +207,7 @@
         },
         "kontakt": {
           "$ref": "#/definitions/kontaktInfo",
-          "description": "Er ikke med i første fase, burde inneholde kontaktinformasjon på forsendelsen."
+          "description": "Kontaktinformasjon på forsendelsen."
         }
       },
       "required": ["etternavn", "kontakt"],
@@ -230,7 +221,7 @@
         },
         "person": {
           "$ref": "#/definitions/ansattPerson",
-          "description": "Person som trykker på send til domstolen."
+          "description": "Person som trykker på send til kriminalomsorgen."
         }
       },
       "required": ["organisasjon", "person"],
@@ -621,20 +612,24 @@
         "tolk": {
           "type": "object",
           "properties": {
-            "behov": { "type" : "boolean"},
+            "behov": { "type": "boolean" },
             "spraak": {
               "$ref": "#/definitions/spraakkodeType"
             }
           },
           "required": ["behov"],
           "additionalProperties": false
-    		},
+        },
         "adresseGradering": {
           "$ref": "#/definitions/adresseGradering",
           "description": "Settes hvis en person har en beskyttet adresse. Fortrolig så sendes ikke adresse, strengt fortrolig så sendes pboks. adresse f.eks. SOT6, klient adresse vet ikke ennå"
         },
         "personAdresse": {
+          "description": "Adressen påtale mener er rett sted å nå personen. Ofte en bostedsadresse, men kan være en siste kjente adresse der en person er på institusjon, i arrest/varetekt, eller uten fast bopel.",
           "$ref": "#/definitions/personAdresse"
+        },
+        "kontaktInfo": {
+          "$ref": "#/definitions/kontaktInfo"
         },
         "verger": {
           "type": "array",
@@ -651,6 +646,7 @@
         "navn",
         "foedselsdato",
         "statsborgerskap",
+        "addresse",
         "tolk",
         "verger"
       ],
