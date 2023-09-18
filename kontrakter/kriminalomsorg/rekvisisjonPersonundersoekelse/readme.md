@@ -29,7 +29,8 @@ Sikker identitet er nødvendig for å hente korrekte og sensitive personopplysni
 
 Evt. verger bør identifiseres med fødselsnummer for informasjonssikkerheten. Dette gir en robusthet i tilfelle adressebytter, flere personer med like/liknende navn, etc.
 
-KO forventer straffeattest, siktelse og personaliarapport alltid legges ved (PDF).
+KO forventer straffeattest og siktelsealltid legges ved (PDF).
+Rettsbok fra tingrett (dom fra lavere intans) legges ved (PDF) for en evt. PeU i en sak som går for 2.instans.
 
 Merk at man kan rekvirere en PUM selv om siktede ikke er mindreårig per i dag. Det er alderen på gjerningstidspunktet som avgjør.
 

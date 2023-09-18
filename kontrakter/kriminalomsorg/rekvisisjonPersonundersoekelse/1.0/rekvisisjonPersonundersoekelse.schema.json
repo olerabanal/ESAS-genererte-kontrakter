@@ -449,7 +449,7 @@
     "straffesakLovbudInvolverte": {
       "description": "Straffesak med også krimtype og lovbud, grunnlag samt de involverte",
       "type": "object",
-      "required": ["straffesaksnummer", "detaljer", "involverte"],
+      "required": ["straffesaksnummer", "detaljer"],
       "additionalProperties": true,
       "properties": {
         "straffesaksnummer": {
