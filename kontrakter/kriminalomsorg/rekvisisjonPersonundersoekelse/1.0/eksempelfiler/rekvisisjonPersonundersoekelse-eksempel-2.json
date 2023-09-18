@@ -35,17 +35,19 @@
     }
   },
   "personundersoekelseInfo": {
-    "personundersoekelseType": "GENERELL_PERSONUNDERSOEKELSE",
+    "personundersoekelseType": "MINDREAARIG",
+    "tekstligUdypingAvFormaalet": "Kombinert problematikk. Mindreårig på gjerningstidspunkt  - og hva er rett her? Ubetinget, eller ND-program, eller RK?",
+    "initiativtakerTilUndersoekelse": "PAATALE",
     "personForPersonundersoekelse": {
       "internId": "700892414",
-      "navn": {
-        "fornavn": "Ung",
-        "etternavn": "KIWI"
-      },
       "identitetsnummer": {
         "foedselsnummer": "14846399381"
       },
       "tilleggsId": [],
+      "navn": {
+        "fornavn": "Ung",
+        "etternavn": "KIWI"
+      },
       "kjoenn": "MANN",
       "foedselsdato": "2008-01-01T00:00:00+02:00",
       "statsborgerskap": [
@@ -54,6 +56,10 @@
           "navn": "Norge"
         }
       ],
+      "tolk": {
+        "behov": true,
+        "spraak": "DEU"
+      },
       "adresseGradering": "KLIENT_ADRESSE",
       "personAdresse": {
         "gradering": "KLIENT_ADRESSE",
@@ -123,76 +129,19 @@
             },
             "foedselsdato": "2008-01-01T00:00:00+02:00"
           },
-          "medsiktede": [
-            {
-              "person": {
-                "internId": "700893213",
-                "navn": {
-                  "fornavn": "Per",
-                  "etternavn": "OTTERSTAD"
-                },
-                "tilleggsId": [],
-                "kjoenn": "MANN",
-                "foedselsdato": "1975-12-12T00:00:00+02:00",
-                "statsborgerskap": [
-                  {
-                    "kode": "NOR",
-                    "navn": "Norge"
-                  }
-                ],
-                "verger": []
-              }
-            },
-            {
-              "person": {
-                "internId": "700892415",
-                "navn": {
-                  "fornavn": "Masse",
-                  "etternavn": "KIWI"
-                },
-                "identitetsnummer": {
-                  "foedselsnummer": "19877099302"
-                },
-                "tilleggsId": [],
-                "kjoenn": "MANN",
-                "foedselsdato": "1970-07-19T00:00:00+02:00",
-                "statsborgerskap": [
-                  {
-                    "kode": "NOR",
-                    "navn": "Norge"
-                  }
-                ],
-                "personAdresse": {
-                  "adresseType": "BOSTEDSADRESSE",
-                  "adresse": {
-                    "adresselinjer": ["Rugdeberget 2"],
-                    "postnummer": "1266",
-                    "poststed": "OSLO"
-                  }
-                },
-                "verger": []
-              }
-            },
-            {
-              "foretak": {
-                "internId": "340078107",
-                "organisasjonsnummer": "984954808",
-                "navn": "Obs"
-              }
-            }
-          ],
+          "medsiktede": [],           
           "fornaermede": [
             {
               "person": {
                 "internId": "700892735",
+                "identitetsnummer": {
+                  "foedselsnummer": "31907499858"
+                },       
+                "tilleggsId": [],        
                 "navn": {
                   "fornavn": "Sannferdig",
                   "etternavn": "KOS"
-                },
-                "identitetsnummer": {
-                  "foedselsnummer": "31907499858"
-                },
-                "tilleggsId": [],
+                },                
                 "kjoenn": "KVINNE",
                 "foedselsdato": "1974-10-31T00:00:00+02:00",
                 "statsborgerskap": [
@@ -201,6 +150,10 @@
                     "navn": "Norge"
                   }
                 ],
+                "tolk": {
+                  "behov": true,
+                  "spraak": "ARA"
+                },
                 "personAdresse": {
                   "adresseType": "BOSTEDSADRESSE",
                   "adresse": {
@@ -229,14 +182,14 @@
           "vitne": [
             {
               "internId": "700892775",
-              "navn": {
-                "fornavn": "Naturstridig",
-                "etternavn": "BALLONG"
-              },
               "identitetsnummer": {
                 "foedselsnummer": "21907699738"
               },
               "tilleggsId": [],
+              "navn": {
+                "fornavn": "Naturstridig",
+                "etternavn": "BALLONG"
+              },
               "kjoenn": "MANN",
               "foedselsdato": "1976-10-21T00:00:00+02:00",
               "statsborgerskap": [
@@ -245,6 +198,9 @@
                   "navn": "Norge"
                 }
               ],
+              "tolk": {
+                "behov": false
+              },
               "personAdresse": {
                 "adresseType": "BOSTEDSADRESSE",
                 "adresse": {

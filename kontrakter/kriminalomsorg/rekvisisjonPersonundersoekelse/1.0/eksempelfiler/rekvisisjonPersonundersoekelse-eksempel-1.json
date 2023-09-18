@@ -8,7 +8,6 @@
         "navn": "Innlandet politidistrikt"
       },
       "person": {
-        "brukeridentifikasjon": "XYZ233",
         "etternavn": "Årdal",
         "kontakt": {
           "telefonnummer": ["22 99 33 44"]
@@ -60,14 +59,14 @@
     "initiativtakerTilUndersoekelse": "FORSVARER",
     "personForPersonundersoekelse": {
       "internId": "700892414",
-      "navn": {
-        "fornavn": "Ung",
-        "etternavn": "KIWI"
-      },
       "identitetsnummer": {
         "foedselsnummer": "14846399381"
       },
       "tilleggsId": [],
+      "navn": {
+        "fornavn": "Ung",
+        "etternavn": "KIWI"
+      },
       "kjoenn": "MANN",
       "foedselsdato": "2008-01-01T00:00:00+02:00",
       "statsborgerskap": [
@@ -76,6 +75,9 @@
           "navn": "Norge"
         }
       ],
+      "tolk": {
+        "behov": false
+      },
       "adresseGradering": "KLIENT_ADRESSE",
       "personAdresse": {
         "gradering": "KLIENT_ADRESSE",

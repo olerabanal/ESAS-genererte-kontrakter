@@ -49,7 +49,8 @@
     "hovedStraffesaksnummer",
     "paagrepetTidspunkt",
     "paagrepetSted",
-    "personundersoekelseInfo"
+    "kontaktopplysningerAdvokater",
+    "personundersoekelseInfo"    
   ],
   "additionalProperties": false,
 
@@ -77,6 +78,10 @@
             "FORVARING",
             "GENERELL_PERSONUNDERSOEKELSE"
           ]
+        },
+        "tekstligUdypingAvFormaalet" :{
+          "description": "Mulighet for å beskrive formålet med anmodningen videre i fritekst.",
+          "type": "string"
         },
         "initiativtakerTilUndersoekelse": {
           "description": "Firvillig: Indikerer hvem som har tatt initiativ til personundersøkelse.  Forsvarer, Domstol eller  Påtale etc. ... ",
@@ -210,7 +215,7 @@
           "description": "Er ikke med i første fase, burde inneholde kontaktinformasjon på forsendelsen."
         }
       },
-      "required": ["etternavn"],
+      "required": ["etternavn", "kontakt"],
       "additionalProperties": false
     },
     "avsender": {
@@ -224,7 +229,7 @@
           "description": "Person som trykker på send til domstolen."
         }
       },
-      "required": ["organisasjon"],
+      "required": ["organisasjon", "person"],
       "additionalProperties": false
     },
     "dokument": {
@@ -580,6 +585,17 @@
           "description": "Intern id i melding, samme person i denne meldingen vil ha samme internId",
           "type": "string"
         },
+        "identitetsnummer": {
+          "description": "Fødselsnummer, D-nummer eller SSP nummer som er den i bruk",
+          "$ref": "#/definitions/personIdentifikator"
+        },
+        "tilleggsId": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/personIdentifikator"
+          },
+          "description": "Kan være SSP nummer hvis person har D-nummer, fremtidig historiske nummer?"
+        },
         "navn": {
           "$ref": "#/definitions/personnavn"
         },
@@ -598,17 +614,17 @@
             "$ref": "#/definitions/land"
           }
         },
-        "identitetsnummer": {
-          "description": "Fødselsnummer, D-nummer eller SSP nummer som er den i bruk",
-          "$ref": "#/definitions/personIdentifikator"
-        },
-        "tilleggsId": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/personIdentifikator"
+        "tolk": {
+          "type": "object",
+          "properties": {
+            "behov": { "type" : "boolean"},
+            "spraak": {
+              "$ref": "#/definitions/spraakkodeType"
+            }
           },
-          "description": "Kan være SSP nummer hvis person har D-nummer, fremtidig historiske nummer?"
-        },
+          "required": ["behov"],
+          "additionalProperties": false
+    		},
         "adresseGradering": {
           "$ref": "#/definitions/adresseGradering",
           "description": "Settes hvis en person har en beskyttet adresse. Fortrolig så sendes ikke adresse, strengt fortrolig så sendes pboks. adresse f.eks. SOT6, klient adresse vet ikke ennå"
@@ -626,10 +642,12 @@
       },
       "required": [
         "internId",
+        "identitetsnummer",
+        "tilleggsId",
         "navn",
         "foedselsdato",
         "statsborgerskap",
-        "tilleggsId",
+        "tolk",
         "verger"
       ],
       "additionalProperties": false
@@ -765,6 +783,16 @@
       "description": "Ett telefonnummer, norsk eller utenlands, med eller uten land prefix",
       "maxLength": 30,
       "minLength": 1
+    },
+    "spraakkodeType": {
+      "description": "En spraakkode bestaar av tre store bokstaver fra kodelisten ISO 639-3 som representerer spraak",
+      "pattern": "^([A-Z]{3,3})$",
+      "type": "string"
+    },
+    "behovForTolkType": {
+      "type": "string",
+      "description": "Er det behov for tolk",
+      "enum": ["JA_POLITIET_STILLER", "JA_DOMSTOLEN_STILLER"]
     },
     "unikId": {
       "type": "string",
