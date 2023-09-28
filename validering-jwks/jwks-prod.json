@@ -15,6 +15,14 @@
       "alg": "RS256",
       "kid": "domstol-1",
       "use": "sig"
+    },
+    {
+      "kty": "RSA",
+      "n": "sJBuo4Z7d6MrrHXOxLkcyJwuKJSYZ88FVTNznlsWJttEZVDCbqyj5h2ZSIu05rwqXFE7gdUTbbaFvqjCIHlI1VPDzk6hPUE0u8NNuKB17Megutw2XUpZNUGQRhCtPJDiEhGa1lxhA1oc5khLjifumRvxQsTv5FUQqSnyujDGT9uu2mbxFF15ZUo54blkuXzyInLstVVOSzBuj89aXAAlIXC1SS873rS7ZZ9X4Glp04aEuMoYu1XA39xrVSKy9qMqjTogX0C6RKOB4_kgvcV3Q8EEyFC5doqki5rSsOQqB13yDz1esNZ5oCUQwS8L3x2vew7kXGC0VJMJwQ-X5ToJyw",
+      "e": "AQAB",
+      "alg": "RS256",
+      "kid": "kdi",
+      "use": "sig"
     }
   ]
 }
