@@ -25,6 +25,11 @@
     "ordreVaretekt": {
       "$ref": "#/definitions/ordreVaretekt"
     },
+    "paagrepetTidspunkt": { "type": "string", "format": "date-time" },
+    "paagrepetSted": {
+      "type": "string",
+      "description": "Sted for pågripelsen."
+    },
     "dokumenter": {
       "type": "array",
       "items": { "$ref": "#/definitions/dokument" }
@@ -37,6 +42,7 @@
     "ordreVaretekt",
     "personVaretektInfo",
     "bestillingAvVaretektsplassId",
+    "paagrepetTidspunkt",
     "dokumenter"
   ],
   "additionalProperties": false,
