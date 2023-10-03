@@ -470,7 +470,10 @@
           "$ref": "#/definitions/ansattPerson"
         },
         "beslutningsTidspunkt": { "$ref": "#/definitions/datoTid" },
-        "fengslingFraDato": { "$ref": "#/definitions/dato" },
+        "fengslingFraDato": {
+          "$ref": "#/definitions/dato",
+          "description": "Denne vil alltid være lik pågripelsestidspunkt, og kan muligens fases ut"
+        },
         "fengslingTilDato": { "$ref": "#/definitions/dato" },
         "restriksjoner": {
           "$ref": "#/definitions/restriksjonerOrdre"
