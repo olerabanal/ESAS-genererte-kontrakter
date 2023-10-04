@@ -56,22 +56,18 @@
           "description": "Politiet sitt interne saksnummer"
         },
         "rettsmoeteTidFra": {
-          "$ref": "#/definitions/datoTid"
+          "$ref": "#/definitions/datoTid",
+          "description": "Dersom rettsmøte ikke avholdes, f.eks. ved kontorforrenting, skal dette feltet ikke fylles"
         },
         "rettsmoeteTidTil": {
-          "$ref": "#/definitions/datoTid"
+          "$ref": "#/definitions/datoTid",
+          "description": "Dersom rettsmøte ikke avholdes, f.eks. ved kontorforrenting, skal dette feltet ikke fylles"
         },
         "avgjoerelse": {
           "$ref": "#/definitions/avgjoerelse"
         }
       },
-      "required": [
-        "saksnummer",
-        "straffesaksnummer",
-        "rettsmoeteTidFra",
-        "rettsmoeteTidTil",
-        "avgjoerelse"
-      ],
+      "required": ["saksnummer", "straffesaksnummer", "avgjoerelse"],
       "type": "object",
       "additionalProperties": false
     },
