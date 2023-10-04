@@ -337,7 +337,7 @@
     "restriksjon": {
       "description": "Basis restriksjon",
       "type": "object",
-      "required": ["isolasjonsId", "restriksjonsType"],
+      "required": ["restriksjonsId", "restriksjonsType"],
       "additionalProperties": false,
       "properties": {
         "restriksjonsId": { "type": "string" },
