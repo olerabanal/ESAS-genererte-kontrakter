@@ -214,10 +214,10 @@
     "isolasjon": {
       "description": "Basis isolasjon med til og fra dato",
       "type": "object",
-      "required": ["isolasjonsType"],
+      "required": ["isolasjonsId", "isolasjonsType"],
       "additionalProperties": false,
       "properties": {
-        "id": { "type": "string" },
+        "isolasjonsId": { "type": "string" },
         "isolasjonsType": { "$ref": "#/definitions/isolasjonsType" },
         "lovbudEnkel": { "$ref": "#/definitions/lovbudEnkel" }
       }
@@ -337,10 +337,10 @@
     "restriksjon": {
       "description": "Basis restriksjon",
       "type": "object",
-      "required": ["restriksjonsType"],
+      "required": ["restriksjonsId", "restriksjonsType"],
       "additionalProperties": false,
       "properties": {
-        "id": { "type": "string" },
+        "restriksjonsId": { "type": "string" },
         "restriksjonsType": { "$ref": "#/definitions/restriksjonsType" },
         "lovbudEnkel": { "$ref": "#/definitions/lovbudEnkel" }
       }
