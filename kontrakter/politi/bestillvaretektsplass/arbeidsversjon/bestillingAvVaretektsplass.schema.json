@@ -18,20 +18,43 @@
       "$ref": "#/definitions/unikId",
       "description": "Til å begynne med vil dette være et løpenummer, kan endres til GUID senere. Første forsendelsene vil ikke inneholde dette."
     },
-    "dokumenter": {
-      "description": "Inneholder kun dokumenter med informasjon fra straffesaken. Vi sender ikke fra alle i siktelsen.",
-      "type": "array",
-      "items": { "$ref": "#/definitions/dokument" }
+    "bestillingVaretekt": {
+      "$ref": "#/definitions/bestillingVaretekt",
+      "description": "Inneholder selve bestillingen"
+    },
+    "vedlegg": {
+      "$ref": "#/definitions/vedlegg"
     }
   },
   "required": [
     "forsendelse",
     "hovedStraffesaksnummer",
-    "bestillingVaretekt"
+    "bestillingVaretekt",
+    "vedlegg"
   ],
   "additionalProperties": false,
-
   "definitions": {
+    "vedlegg": {
+      "type": "object",
+      "description": "Bekgrunsinformasjon (grunnlag) som retten trenger som dokumenter, informasjon om straffesaken (vitner, fornærmede), siktelse og dokumenter.",
+      "properties": {
+        "straffesaker": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/straffesakMedInvolverteSiktet"
+          },
+          "minItems": 1
+        },
+        "dokumenter": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/dokument"
+          }
+        }
+      },
+      "required": ["straffesaker", "dokumenter"],
+      "additionalProperties": false
+    },
     "bestillingVaretekt": {
       "title": "bestillingVaretekt",
       "type": "object",
@@ -61,7 +84,7 @@
     "personVaretektInfo": {
       "title": "personVaretektInfo",
       "type": "object",
-      "required": ["personVaretekt", "straffesaker", "risikoOgHelseInfo"],
+      "required": ["personVaretekt", "risikoOgHelseInfo"],
       "additionalProperties": false,
       "properties": {
         "personVaretekt": {
@@ -69,12 +92,6 @@
         },
         "forsvarerinformasjon": {
           "$ref": "#/definitions/forsvarerinformasjon"
-        },
-        "straffesaker": {
-          "type": "array",
-          "title": "straffesaker",
-          "items": { "$ref": "#/definitions/straffesakLovbudInvolverte" },
-          "minItems": 1
         },
         "risikoOgHelseInfo": {
           "description": "Risiko og helsevurderinger, ingen betyr at det ikke er noen slike vurderinger ",
@@ -476,22 +493,22 @@
         "grunnlagstekst": { "type": "string" }
       }
     },
-    "straffesakLovbudInvolverte": {
-      "description": "Straffesak med også krimtype og lovbud, grunnlag samt de involverte",
+    "straffesakMedInvolverteSiktet": {
       "type": "object",
-      "required": ["straffesaksnummer", "detaljer", "involverte"],
-      "additionalProperties": true,
+      "description": "Straffesak med involverte listet samt enkel versjon av siktede",
       "properties": {
         "straffesaksnummer": {
-          "$ref": "#/definitions/straffesaksnummer"
+          "type": "string"
         },
-        "detaljer": { "$ref": "#/definitions/straffesakDetaljer" },
-        "siktelsesinfo": {
-          "$ref": "#/definitions/siktelsesinfo",
-          "description": "lovbud og grunnlagsinformasjon som brukes i siktelsen"
+        "detaljer": {
+          "$ref": "#/definitions/straffesakDetaljer"
         },
-        "involverte": { "$ref": "#/definitions/involverteStraffesak" }
-      }
+        "involverte": {
+          "$ref": "#/definitions/involverteStraffesak"
+        }
+      },
+      "required": ["straffesaksnummer", "detaljer", "involverte"],
+      "additionalProperties": false
     },
     "restriksjonIsolasjon": {
       "type": "object",
