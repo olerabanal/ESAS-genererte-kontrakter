@@ -67,6 +67,9 @@
         "personVaretekt": {
           "$ref": "#/definitions/person"
         },
+        "forsvarerinformasjon": {
+          "$ref": "#/definitions/forsvarerinformasjon"
+        },
         "straffesaker": {
           "type": "array",
           "title": "straffesaker",
@@ -136,6 +139,24 @@
         }
       },
       "required": ["etternavn"],
+      "additionalProperties": false
+    },
+    "forsvarerinformasjon": {
+      "type": "object",
+      "description": "Informasjon om det er oppnevnt og/eller ønsket forsvarer. Dersom hverken oppnevnt eller ønsket forsvarer er satt, betyr dette at domstolen skal oppnevne en forsvarer",
+      "properties": {
+        "oppnevntForsvarer": {
+          "type": "object",
+          "description": "Informasjon om oppnevnt forsvarer. Det er personen som står som forsvarer når begjæringen blir sendt, som skal varsles om fengslingsmøte.",
+          "properties": {
+            "person": {
+              "$ref": "#/definitions/profesjonellPerson"
+            }
+          },
+          "required": ["person"],
+          "additionalProperties": false
+        }
+      },
       "additionalProperties": false
     },
     "ansattPerson": {
