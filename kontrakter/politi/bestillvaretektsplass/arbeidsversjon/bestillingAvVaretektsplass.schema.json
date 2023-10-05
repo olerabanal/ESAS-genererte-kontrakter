@@ -12,23 +12,14 @@
       "$ref": "#/definitions/straffesaksnummer",
       "description": "BL Saksbehandlersak er hovedsaken i et sakskompleks (som er 1 eller flere straffesaker)"
     },
-    "bestillingAvVaretektsplassId": {
-      "$ref": "#/definitions/unikId",
-      "description": "Nøkkel på bestillingen, alle svar på bestilling skal koble til den samme nøkkelen."
-    },
+
     "kontaktPersonKDI": { "$ref": "#/definitions/ansattPerson" },
     "varetektSyklusId": {
       "$ref": "#/definitions/unikId",
       "description": "Til å begynne med vil dette være et løpenummer, kan endres til GUID senere. Første forsendelsene vil ikke inneholde dette."
     },
-    "personVaretektInfo": { "$ref": "#/definitions/personVaretektInfo" },
-    "restriksjonIsolasjon": { "$ref": "#/definitions/restriksjonIsolasjon" },
-    "paagrepetTidspunkt": { "type": "string", "format": "date-time" },
-    "paagrepetSted": {
-      "type": "string",
-      "description": "Sted for pågripelsen."
-    },
     "dokumenter": {
+      "description": "Inneholder kun dokumenter med informasjon fra straffesaken. Vi sender ikke fra alle i siktelsen.",
       "type": "array",
       "items": { "$ref": "#/definitions/dokument" }
     }
@@ -36,13 +27,37 @@
   "required": [
     "forsendelse",
     "hovedStraffesaksnummer",
-    "bestillingAvVaretektsplassId",
-    "paagrepetTidspunkt",
-    "personVaretektInfo"
+    "bestillingVaretekt"
   ],
   "additionalProperties": false,
 
   "definitions": {
+    "bestillingVaretekt": {
+      "title": "bestillingVaretekt",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "bestillingAvVaretektsplassId",
+        "paagrepetTidspunkt",
+        "personVaretektInfo"
+      ],
+      "properties": {
+        "bestillingAvVaretektsplassId": {
+          "$ref": "#/definitions/unikId",
+          "description": "Nøkkel på bestillingen, alle svar på bestilling skal koble til den samme nøkkelen."
+        },
+        "personVaretektInfo": { "$ref": "#/definitions/personVaretektInfo" },
+        "restriksjonIsolasjon": { "$ref": "#/definitions/restriksjonIsolasjon" },
+        "paagrepetTidspunkt": { "type": "string", "format": "date-time" },
+        "paagrepetSted": {
+          "type": "string",
+          "description": "Sted for pågripelsen."
+        },
+        "ansvarligPaatalejurist": {
+          "$ref": "#/definitions/paataleJurist"
+        }
+      }
+    },
     "personVaretektInfo": {
       "title": "personVaretektInfo",
       "type": "object",
@@ -94,6 +109,34 @@
       "description": "Samme enum som folkeregisteret, ugradert hvis den ikke er gradert",
       "type": "string",
       "enum": ["KLIENT_ADRESSE", "FORTROLIG", "STRENGT_FORTROLIG"]
+    },
+    "paataleJurist": {
+      "type": "object",
+      "description": "Jurister hos påtale som er ansvarlig for straffesaker og aktorerer saker. Beholder brukeridentifikasjon pga. av gammel historikk og behov for identifisering.",
+      "properties": {
+        "brukeridentifikasjon": {
+          "type": "string",
+          "description": "BID hos politiet nå"
+        },
+        "tittel": {
+          "type": "string"
+        },
+        "fornavn": {
+          "type": "string"
+        },
+        "mellomnavn": {
+          "type": "string"
+        },
+        "etternavn": {
+          "type": "string"
+        },
+        "kontakt": {
+          "$ref": "#/definitions/kontaktInfo",
+          "description": "Er ikke med i første fase, burde inneholde kontaktinformasjon på forsendelsen."
+        }
+      },
+      "required": ["etternavn"],
+      "additionalProperties": false
     },
     "ansattPerson": {
       "type": "object",
