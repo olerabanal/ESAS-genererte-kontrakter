@@ -20,3 +20,4 @@
 
 # Versjon 1.1
 1. Legger til krav om at minst ett dokument er vedlagt meldingen.
+2. Fjerner 'required' på 'rettsmoeteTidFra' og 'rettsmoeteTidTil'
