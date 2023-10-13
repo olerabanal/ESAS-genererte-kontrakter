@@ -2,7 +2,7 @@
 
 | Versjon | Beskrivelse                               | Aktiv fra  | Aktiv til  |
 |---------|-------------------------------------------|------------|------------|
-| 1.3     | Andre versjon til produksjon, pilot       |            |            |
+| 1.3     | Håndter vitner uten identifikator         |            |            |
 | 1.2     | Første versjon til produksjon, pilot      | 09.10.2023 |            |
 | 1.1     | Tolk og til hovedforhandling              | 01.08.2023 | 09.10.2023 |
 | 1.0     | Brukertest juni 2023, ikke til produksjon |            | 01.08.2023 |
