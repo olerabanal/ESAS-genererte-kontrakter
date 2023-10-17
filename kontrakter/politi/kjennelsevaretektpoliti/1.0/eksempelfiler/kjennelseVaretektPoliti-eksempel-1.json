@@ -101,32 +101,7 @@
             }
           ],
           "fornaermede": [],
-          "vitner": [
-            {
-              "internId": "700892775",
-              "navn": {
-                "fornavn": "Naturstridig",
-                "etternavn": "BALLONG"
-              },
-              "identitetsnummer": {
-                "foedselsnummer": "21907699738"
-              },
-              "kjoenn": "MANN",
-              "statsborgerskap": [
-                {
-                  "kode": "NOR",
-                  "navn": "Norge"
-                }
-              ],
-              "personAdresse": {
-                "adresse": {
-                  "adresselinjer": ["Øvstedalsvegen 87"],
-                  "postnummer": "6391",
-                  "poststed": "TRESFJORD"
-                }
-              }
-            }
-          ]
+          "vitner": []
         }
       }
     ]
@@ -167,6 +142,7 @@
       "tilleggsId": [],
       "verger": []
     },
+
     "forlengelse": false,
     "restriksjoner": [
       {
