@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://konfliktraadet.no/konfliktradet/oppdatertstatus/1.0/oppdatertStatusPaaSak",
+  "$id": "https://konfliktraadet.no/konfliktradet/oppdatertstatus/1.0/oppdatertSaksstatus",
   "description": "Melding fra konfliktrådet når en sak endrer status hos de",
   "type": "object",
   "properties": {
