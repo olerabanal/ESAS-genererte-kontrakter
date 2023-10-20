@@ -16,32 +16,32 @@
       "description": "Oppdatert statusinformasjon",
       "type": "object",
       "properties": {
-        "saksType": {
-          "$ref": "#/definitions/saksType"
+        "status": {
+          "$ref": "#/definitions/status"
         },
         "kommentar": {
           "type": "string"
         }
       },
       "additionalProperties": false,
-      "required": ["saksType"]
+      "required": ["status"]
     },
     "siktet": {
-      "$ref": "#/definitions/personMini"
+      "$ref": "#/definitions/personEnkel"
     }
   },
   "required": ["forsendelse", "straffesaksnummer", "statusOppdatering"],
   "additionalProperties": false,
   "definitions": {
-    "saksType": {
+    "status": {
       "type": "object",
       "description": "object med status fra enten straffesak-object eller ungdomsoppfløging/ungdomsstraff-object",
       "properties": {
         "straffesakStatus": {
           "$ref": "#/definitions/straffesakStatus"
         },
-        "ungdomsReaksjonStatus": {
-          "$ref": "#/definitions/ungdomsReaksjonStatus"
+        "ungdomsreaksjonStatus": {
+          "$ref": "#/definitions/ungdomsreaksjonStatus"
         }
       },
       "oneOf": [
@@ -56,11 +56,11 @@
         },
         {
           "properties": {
-            "ungdomsReaksjonStatus": {
-              "$ref": "#/definitions/ungdomsReaksjonStatus"
+            "ungdomsreaksjonStatus": {
+              "$ref": "#/definitions/ungdomsreaksjonStatus"
             }
           },
-          "required": ["ungdomsReaksjonStatus"],
+          "required": ["ungdomsreaksjonStatus"],
           "additionalProperties": false
         }
       ],
@@ -122,7 +122,7 @@
         }
       ]
     },
-    "ungdomsReaksjonStatus": {
+    "ungdomsreaksjonStatus": {
       "type": "object",
       "description": "Status på ungdomsreaksjon (enten ungdomsoppfølging eller ungdomsstraff)",
       "properties": {
@@ -303,9 +303,12 @@
           "type": "integer",
           "description": "Straffens totale lengde"
         },
-        "avsluttendeDokument": {
-          "$ref": "#/definitions/dokumentRef",
-          "description": "Referanse til avsluttende dokument som er vedlagt meldingen"
+        "dokumenter": {
+          "type": "array",
+          "description": "Avsluttende dokumenter",
+          "items": {
+            "$ref": "#/definitions/dokument"
+          }
         }
       },
       "required": ["aarsak"],
@@ -431,15 +434,17 @@
       "required": ["mimeType", "uri", "sjekksum"],
       "additionalProperties": false
     },
-    "dokumentRef": {
+    "kodeverk": {
       "type": "object",
-      "description": "Referanse internt i melding til dokumenter i dokumentlisten",
       "properties": {
-        "internId": {
+        "kode": {
+          "type": "string"
+        },
+        "navn": {
           "type": "string"
         }
       },
-      "required": ["internId"],
+      "required": ["kode"],
       "additionalProperties": false
     },
     "ansattPerson": {
@@ -534,7 +539,7 @@
       "required": ["organisasjonsnummer", "navn"],
       "additionalProperties": false
     },
-    "personMini": {
+    "personEnkel": {
       "description": "Kun navn og fødselsdato (hvis den finnes)",
       "type": "object",
       "properties": {
