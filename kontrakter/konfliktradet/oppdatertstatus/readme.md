@@ -1,4 +1,4 @@
-# oppdatertStatusPaaSak
+# oppdatertSaksstatus
 Når en sak behandles hos konfliktrådet er det noen nøkkelstatuser som påtale hos politiet har behov for,
 slik at de kjenner sakens status. 
 
