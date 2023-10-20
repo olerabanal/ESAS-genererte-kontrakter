@@ -22,7 +22,7 @@
   },
   "straffesaksnummer": "15434811",
   "statusOppdatering": {
-    "saksType": {
+    "status": {
       "straffesakStatus": {
         "meklingIkkeGjennomfoert": {
           "resultat": "IKKE_MEKLET",
