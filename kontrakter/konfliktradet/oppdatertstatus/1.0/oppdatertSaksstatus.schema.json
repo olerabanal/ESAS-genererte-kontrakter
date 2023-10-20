@@ -63,8 +63,7 @@
           "required": ["ungdomsreaksjonStatus"],
           "additionalProperties": false
         }
-      ],
-      "additionalProperties": false
+      ]
     },
     "straffesakStatus": {
       "type": "object",
@@ -135,8 +134,8 @@
         "stansUngdomsreaksjon": {
           "$ref": "#/definitions/stansUngdomsreaksjon"
         },
-        "oppstartEtterStansUngdomsreaksjon": {
-          "$ref": "#/definitions/oppstartEtterStansUngdomsreaksjon"
+        "oppstartEtterStans": {
+          "$ref": "#/definitions/oppstartEtterStans"
         },
         "avsluttetUngdomsreaksjon": {
           "$ref": "#/definitions/avsluttetUngdomsreaksjon"
@@ -175,11 +174,11 @@
         },
         {
           "properties": {
-            "oppstartEtterStansUngdomsreaksjon": {
-              "$ref": "#/definitions/oppstartEtterStansUngdomsreaksjon"
+            "oppstartEtterStans": {
+              "$ref": "#/definitions/oppstartEtterStans"
             }
           },
-          "required": ["oppstartEtterStansUngdomsreaksjon"],
+          "required": ["oppstartEtterStans"],
           "additionalProperties": false
         },
         {
@@ -281,7 +280,7 @@
       "required": ["aarsak"],
       "additionalProperties": false
     },
-    "oppstartEtterStansUngdomsreaksjon": {
+    "oppstartEtterStans": {
       "type": "object",
       "description": "Oppstart i gjennomføring av ungdomsreaksjon etter stans",
       "properties": {
@@ -500,12 +499,17 @@
         "avsender": {
           "$ref": "#/definitions/avsender"
         },
-        "mottaker": {
+        "mottakerOrganisasjon": {
           "$ref": "#/definitions/organisasjon",
           "description": "Påtale."
         }
       },
-      "required": ["meldingsId", "avsender", "mottaker", "sendtTid"],
+      "required": [
+        "meldingsId",
+        "avsender",
+        "mottakerOrganisasjon",
+        "sendtTid"
+      ],
       "additionalProperties": false
     },
     "kontaktInfo": {
