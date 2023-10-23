@@ -17,7 +17,7 @@
         <resources>
             <resource>
                 <targetPath>schema</targetPath>
-                <directory>..</directory>
+                <directory>./</directory>
                 <includes>
                     <include>**/*.json</include>
                 </includes>
