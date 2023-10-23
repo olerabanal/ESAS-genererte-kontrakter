@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://politiet.no/politi/overfoeringkonfliktrad/1.0/overfoeringAvSak",
+  "$id": "https://politiet.no/politi/overfoeringkonfliktrad/1.0/overfoereSak",
   "description": "Melding fra politiet til konfliktrådet når en sak skal overføres dit",
   "type": "object",
   "properties": {
