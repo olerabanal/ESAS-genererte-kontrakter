@@ -3,5 +3,5 @@ Når en sak behandles hos konfliktrådet er det noen nøkkelstatuser som påtale
 slik at de kjenner sakens status. 
 
 * [JSON Schema](1.0/oppdatertSaksstatus.schema.json)
-* [Eksempler](1.0/eksempelfiler/)
+* [Eksempler](../1.0/eksempelfiler/)
 * [Endringslogg](changelog.md)
