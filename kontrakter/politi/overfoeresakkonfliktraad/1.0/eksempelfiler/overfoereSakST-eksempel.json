@@ -7,12 +7,15 @@
         "organisasjonsnummer": "983997953",
         "navn": "Innlandet politidistrikt"
       },
-      "jurist": {
+      "person": {
         "brukeridentifikasjon": "XYZ233",
-        "etternavn": "Årdal"
+        "etternavn": "Årdal",
+        "kontaktInfo": {
+          "telefonnummer": ["99999999"]
+        }
       }
     },
-    "mottaker": {
+    "mottakerOrganisasjon": {
       "organisasjonsnummer": "986074465",
       "navn": "Konfliktrådet Oslo"
     }
@@ -28,7 +31,7 @@
       "identitetsnummer": {
         "foedselsnummer": "31907499858"
       },
-      "kontakt": {
+      "kontaktInfo": {
         "epost": "sannferdig@kos.no",
         "telefonnummer": ["99999999"]
       },
@@ -38,9 +41,9 @@
           "postnummer": "3714",
           "poststed": "SKIEN"
         }
-      }
+      },
+      "verger": []
     },
-    "verger": [],
     "samtykke": true
   },
   "fornaermede": [
@@ -54,7 +57,7 @@
         "identitetsnummer": {
           "foedselsnummer": "01116499858"
         },
-        "kontakt": {
+        "kontaktInfo": {
           "epost": "fornaerma@kokos.no",
           "telefonnummer": ["55555555"]
         },
@@ -64,31 +67,31 @@
             "postnummer": "3714",
             "poststed": "SKIEN"
           }
-        }
-      },
-      "verger": [
-        {
-          "navn": {
-            "fornavn": "Mor",
-            "etternavn": "KOKOS"
-          },
-          "foedselsdato": "1940-11-14",
-          "identitetsnummer": {
-            "foedselsnummer": "14114099858"
-          },
-          "kontakt": {
-            "epost": "fornaerma@kokos.no",
-            "telefonnummer": []
-          },
-          "personAdresse": {
-            "adresse": {
-              "adresselinjer": ["Bratsberggata 39"],
-              "postnummer": "3714",
-              "poststed": "SKIEN"
+        },
+        "verger": [
+          {
+            "navn": {
+              "fornavn": "Mor",
+              "etternavn": "KOKOS"
+            },
+            "foedselsdato": "1940-11-14",
+            "identitetsnummer": {
+              "foedselsnummer": "14114099858"
+            },
+            "kontaktInfo": {
+              "epost": "fornaerma@kokos.no",
+              "telefonnummer": []
+            },
+            "personAdresse": {
+              "adresse": {
+                "adresselinjer": ["Bratsberggata 39"],
+                "postnummer": "3714",
+                "poststed": "SKIEN"
+              }
             }
           }
-        }
-      ]
+        ]
+      }
     }
   ],
   "saksinformasjon": {
@@ -111,7 +114,6 @@
     },
     "dokumenter": [
       {
-        "internId": "9c3eced0-5792-4431-ae5c-ba0942c7e7bb",
         "forsendelse": {
           "mimeType": "application/pdf",
           "sjekksum": "1a2eced0-5792-4431-ae5c-ba0942c7e7ac",

@@ -19,13 +19,6 @@
           "$ref": "#/definitions/person",
           "description": "Personen som skal behandles i konfliktrådet"
         },
-        "verger": {
-          "type": "array",
-          "description": "Verge skal være med på siktet, fornærmet.",
-          "items": {
-            "$ref": "#/definitions/person"
-          }
-        },
         "samtykke": {
           "type": "boolean",
           "description": "Er samtykke for behandling i konfliktrådet innhentet"
@@ -44,7 +37,7 @@
       "type": "object",
       "properties": {
         "sakstype": {
-          "$ref": "#/definitions/saksType"
+          "$ref": "#/definitions/sakstype"
         },
         "lovbud": {
           "$ref": "#/definitions/lovbudEnkel"
@@ -67,9 +60,16 @@
       "additionalProperties": false
     }
   },
+  "required": [
+    "forsendelse",
+    "straffesaksnummer",
+    "siktet",
+    "fornaermede",
+    "saksinformasjon"
+  ],
   "additionalProperties": false,
   "definitions": {
-    "saksType": {
+    "sakstype": {
       "description": "Straffesak(ST), henlagt sak(HS), ungdomsoppfølging(UO), ungdomsstraff(US), oppfølging i konfliktråd(OK)",
       "type": "string",
       "enum": ["ST", "SH", "UO", "US", "OK"]
@@ -87,12 +87,17 @@
         "avsender": {
           "$ref": "#/definitions/avsender"
         },
-        "mottaker": {
+        "mottakerOrganisasjon": {
           "$ref": "#/definitions/organisasjon",
           "description": "Konfliktråd som skal være mottaker"
         }
       },
-      "required": ["meldingsId", "avsender", "mottaker", "sendtTid"],
+      "required": [
+        "meldingsId",
+        "avsender",
+        "mottakerOrganisasjon",
+        "sendtTid"
+      ],
       "additionalProperties": false
     },
     "hendelse": {
@@ -179,7 +184,7 @@
         "organisasjon": {
           "$ref": "#/definitions/organisasjon"
         },
-        "jurist": {
+        "person": {
           "$ref": "#/definitions/ansattPerson",
           "description": "Person som overfører saken til konfliktrådet."
         }
@@ -222,7 +227,7 @@
         "etternavn": {
           "type": "string"
         },
-        "kontakt": {
+        "kontaktInfo": {
           "$ref": "#/definitions/kontaktInfo",
           "description": "Er ikke med i første fase, burde inneholde kontaktinformasjon på forsendelsen."
         }
@@ -256,19 +261,60 @@
         "foedselsdato": {
           "$ref": "#/definitions/date"
         },
-        "kontakt": {
+        "kjoenn": {
+          "$ref": "#/definitions/kjoenn",
+          "description": "Ukjent kjønn hvis denne ikke er med"
+        },
+        "kontaktInfo": {
           "$ref": "#/definitions/kontaktInfo",
           "description": "kontaktinformasjon epost og telefon."
         },
         "identitetsnummer": {
           "$ref": "#/definitions/personIdentifikator",
-          "description": "Fødselsnummer eller D-nummer som er i bruk. Siktede vil alltid ha med denne."
+          "description": "Fødselsnummer, SSP-nummer eller D-nummer som er i bruk. Siktede vil alltid ha med denne."
+        },
+        "personAdresse": {
+          "$ref": "#/definitions/personAdresse"
+        },
+        "verger": {
+          "type": "array",
+          "description": "Verge skal være med på siktet, fornærmet. Tom array hvis ingen.",
+          "items": {
+            "$ref": "#/definitions/personRelatert"
+          }
+        }
+      },
+      "required": ["navn", "foedselsdato", "verger"],
+      "additionalProperties": false
+    },
+    "personRelatert": {
+      "type": "object",
+      "description": "Personer relatert til straffesaken som verger",
+      "properties": {
+        "navn": {
+          "$ref": "#/definitions/personnavn"
+        },
+        "foedselsdato": {
+          "$ref": "#/definitions/date",
+          "description": "På de vi har det, sjekke om vi kan dele"
+        },
+        "kjoenn": {
+          "$ref": "#/definitions/kjoenn",
+          "description": "Ukjent kjønn hvis denne ikke er med"
+        },
+        "kontaktInfo": {
+          "$ref": "#/definitions/kontaktInfo",
+          "description": "kontaktinformasjon epost og telefon."
+        },
+        "identitetsnummer": {
+          "$ref": "#/definitions/personIdentifikator",
+          "description": "Fødselsnummer, SSP-nummer eller D-nummer som er i bruk. Siktede vil alltid ha med denne."
         },
         "personAdresse": {
           "$ref": "#/definitions/personAdresse"
         }
       },
-      "required": ["navn", "foedselsdato"],
+      "required": ["navn"],
       "additionalProperties": false
     },
     "adresseGradering": {
@@ -337,62 +383,24 @@
       "type": "string",
       "format": "date"
     },
-    "kontaktInfo": {
-      "type": "object",
-      "properties": {
-        "epost": {
-          "type": "string"
-        },
-        "telefonnummer": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/telefonnummer"
-          }
-        }
-      },
-      "required": ["telefonnummer"],
-      "additionalProperties": false
-    },
     "personForetak": {
-      "description": "En fornærmet kan være en person eller et foretak, denne typen er enten person eller foretak.",
+      "description": "En siktet eller fornærmet kan være en person eller et foretak, denne typen er enten person eller foretak.",
       "type": "object",
       "properties": {
-        "person": {
-          "$ref": "#/definitions/person"
-        },
-        "verger": {
-          "type": "array",
-          "description": "Verge skal være med på siktet, fornærmet.",
-          "items": {
-            "$ref": "#/definitions/person"
-          }
-        },
-        "foretak": {
-          "$ref": "#/definitions/foretak"
-        }
+        "person": { "$ref": "#/definitions/person" },
+        "foretak": { "$ref": "#/definitions/foretak" }
       },
       "oneOf": [
         {
           "properties": {
-            "person": {
-              "$ref": "#/definitions/person"
-            },
-            "verger": {
-              "type": "array",
-              "description": "Verge skal være med på siktet, fornærmet.",
-              "items": {
-                "$ref": "#/definitions/person"
-              }
-            }
+            "person": { "$ref": "#/definitions/person" }
           },
           "additionalProperties": false,
           "required": ["person"]
         },
         {
           "properties": {
-            "foretak": {
-              "$ref": "#/definitions/foretak"
-            }
+            "foretak": { "$ref": "#/definitions/foretak" }
           },
           "additionalProperties": false,
           "required": ["foretak"]
@@ -433,11 +441,14 @@
       "required": ["kode"]
     },
     "personIdentifikator": {
-      "description": "Fødselsnummer eller D-nummer.",
       "type": "object",
+      "description": "Fødselsnummer, D-nummer eller SSP nummer",
       "properties": {
         "foedselsnummer": {
           "$ref": "#/definitions/foedselsnummer"
+        },
+        "sspNummer": {
+          "$ref": "#/definitions/sspNummer"
         },
         "dNummer": {
           "$ref": "#/definitions/dNummer"
@@ -455,6 +466,15 @@
         },
         {
           "properties": {
+            "sspNummer": {
+              "$ref": "#/definitions/sspNummer"
+            }
+          },
+          "required": ["sspNummer"],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
             "dNummer": {
               "$ref": "#/definitions/dNummer"
             }
@@ -467,6 +487,13 @@
     "foedselsnummer": {
       "type": "string",
       "pattern": "[0-9]+",
+      "minLength": 11,
+      "maxLength": 11
+    },
+    "sspNummer": {
+      "type": "string",
+      "description": "Personidentifikator brukt av det sentrale straffe- og personopplysningsregisteret (SSP) hvis personen ikke har fødselsnummer. Validerer som et fødselsnummer med +20 på måned så noen født 10.01.1990 begynner med 102190",
+      "pattern": "^[0-3][0-9][2-3][0-9]+$",
       "minLength": 11,
       "maxLength": 11
     },
