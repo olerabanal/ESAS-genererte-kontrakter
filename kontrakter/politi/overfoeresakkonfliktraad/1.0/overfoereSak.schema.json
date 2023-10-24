@@ -36,8 +36,8 @@
     "saksinformasjon": {
       "type": "object",
       "properties": {
-        "saksType": {
-          "$ref": "#/definitions/saksType"
+        "sakstype": {
+          "$ref": "#/definitions/sakstype"
         },
         "lovbud": {
           "$ref": "#/definitions/lovbudEnkel"
@@ -56,7 +56,7 @@
           }
         }
       },
-      "required": ["saksType", "lovbud", "hendelse", "dokumenter"],
+      "required": ["sakstype", "lovbud", "hendelse", "dokumenter"],
       "additionalProperties": false
     }
   },
@@ -69,7 +69,7 @@
   ],
   "additionalProperties": false,
   "definitions": {
-    "saksType": {
+    "sakstype": {
       "description": "Straffesak(ST), henlagt sak(HS), ungdomsoppfølging(UO), ungdomsstraff(US), oppfølging i konfliktråd(OK)",
       "type": "string",
       "enum": ["ST", "SH", "UO", "US", "OK"]
