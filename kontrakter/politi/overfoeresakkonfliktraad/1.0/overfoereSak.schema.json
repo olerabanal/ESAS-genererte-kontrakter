@@ -33,7 +33,7 @@
         "$ref": "#/definitions/personForetak"
       }
     },
-    "saksInformasjon": {
+    "saksinformasjon": {
       "type": "object",
       "properties": {
         "saksType": {
@@ -65,7 +65,7 @@
     "straffesaksnummer",
     "siktet",
     "fornaermede",
-    "saksInformasjon"
+    "saksinformasjon"
   ],
   "additionalProperties": false,
   "definitions": {
