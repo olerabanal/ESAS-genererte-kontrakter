@@ -40,6 +40,7 @@
         <module>kontrakter/politi/overfoeresakkonfliktraad</module>
         <module>kontrakter/politi/bestillvaretektsplass</module>
         <module>kontrakter/politi/innsettelsesordre</module>
+        <module>kontrakter/politi/overfoeresakkonfliktraad</module>
         <module>kontrakter/da/varetekt</module>
         <module>kontrakter/kriminalomsorg/tilbudVaretektsplass</module>
         <module>kontrakter/kriminalomsorg/rekvisisjonPersonundersoekelse</module>
