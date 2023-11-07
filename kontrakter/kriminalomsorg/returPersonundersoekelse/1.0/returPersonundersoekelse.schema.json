@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://kriminalomsorg.no/kriminalomsorg/1.0/returPersonundersoekelse",
-  "description": "Retur med svar på en rekvirering / anmodning om personundersøkelse fra påtale til kriminalomsorg. Schema versjon 2020-12",
+  "description": "Retur som svarer ut en rekvirert personundersøkelse. Inneholder normalt den ferdige PeU-rapporten (PDF). Sendes fra kriminalomsorgen til politiet. Schema versjon 2020-12",
   "type": "object",
   "properties": {
     "forsendelse": {
@@ -121,7 +121,7 @@
         },
         "mottakerOrganisasjon": {
           "$ref": "#/definitions/organisasjon",
-          "description": "Politiet ruter videre internt basert på rekvisisjonsID."
+          "description": "Returneres til rekvirerende enhet hos politiet. Politiet ruter videre internt basert på rekvisisjonsID."
         }
       },
       "required": [
