@@ -202,6 +202,9 @@
       <xs:enumeration value="Utvist fra Norge"/>
       <xs:enumeration value="Utlevert til utlandet etter begjæring"/>
       <xs:enumeration value="Løslatt etter 7/12 tid"/>
+      <xs:enumeration value="Løslatt endt tid og utvist (soning)"/>
+      <xs:enumeration value="Prøveløslatt strgjfl. § 42.1 og utvist (soning) (prøveløslatelse 2/3-tid)"/>
+      <xs:enumeration value="Prøveløslatt strgjfl. § 42.4 og utvist (soning) (kort tid før endt tid)"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="EndringOppdaterteDatoerAarsakType">
