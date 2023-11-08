@@ -7,6 +7,10 @@ Versjon 1.0 er første versjon som vi skal i produksjon med.
 
 [Se changelog for endringer](changelog.md)
 
+## Headere forsendelse justisHub
+SchemaName=RETUR_PERSONUNDERSOEKELSE  
+SchemaVersion=1.0
+
 ## Avklaringer
 Retur / svar på en rekvisisjon. 
 Inneholder i første versjon metadata for å rute meldingen hos rekvirent (saksreferanse+rekvisisjonsID) samt selve rapporten som vedlegg.  
