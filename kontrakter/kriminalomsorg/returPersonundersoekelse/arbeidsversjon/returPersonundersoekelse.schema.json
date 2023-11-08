@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://kriminalomsorg.no/kriminalomsorg/1.0/returPersonundersoekelse",
+  "$id": "https://kriminalomsorg.no/kriminalomsorg/current/returPersonundersoekelse",
   "description": "Retur som svarer ut en rekvirert personundersøkelse. Inneholder normalt den ferdige PeU-rapporten (PDF). Sendes fra kriminalomsorgen til politiet. Schema versjon 2020-12",
   "type": "object",
   "properties": {
