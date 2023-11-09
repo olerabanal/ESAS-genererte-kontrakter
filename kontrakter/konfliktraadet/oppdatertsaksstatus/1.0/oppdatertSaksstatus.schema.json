@@ -555,7 +555,7 @@
           "description": "Fødselsnummer, SSP-nummer eller D-nummer som er i bruk."
         }
       },
-      "required": ["navn"],
+      "required": ["navn", "identitetsnummer"],
       "additionalProperties": false
     },
     "personIdentifikator": {
