@@ -36,6 +36,8 @@
       "fornavn": "Morsom",
       "etternavn": "KIWI"
     },
-    "foedselsdato": "2000-04-14"
+    "identitetsnummer": {
+      "foedselsnummer": "31907499858"
+    }
   }
 }
