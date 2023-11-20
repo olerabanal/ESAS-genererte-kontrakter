@@ -15,8 +15,8 @@ const jsonSchemaFolders = [
   "kontrakter/felles/kvittering",
   "kontrakter/felles/kodeverk",
   "kontrakter/konfliktraadet/oppdatertsaksstatus",
-  "kontrakter/kriminalomsorg/rekvisisjonPersonundersoekelse",
-  "kontrakter/kriminalomsorg/returPersonundersoekelse",
+  "kontrakter/fagomraader/personundersoekelse/rekvisisjonPersonundersoekelse",
+  "kontrakter/fagomraader/personundersoekelse/returPersonundersoekelse",
 ];
 
 const jsonKodeverkFolders = ["kodeverk/felles"];
