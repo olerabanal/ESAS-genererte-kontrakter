@@ -25,6 +25,11 @@
     "ordreVaretekt": {
       "$ref": "#/definitions/ordreVaretekt"
     },
+    "paagrepetTidspunkt": { "type": "string", "format": "date-time" },
+    "paagrepetSted": {
+      "type": "string",
+      "description": "Sted for pågripelsen."
+    },
     "dokumenter": {
       "type": "array",
       "items": { "$ref": "#/definitions/dokument" }
@@ -37,6 +42,7 @@
     "ordreVaretekt",
     "personVaretektInfo",
     "bestillingAvVaretektsplassId",
+    "paagrepetTidspunkt",
     "dokumenter"
   ],
   "additionalProperties": false,
@@ -122,7 +128,7 @@
         },
         "vitner": {
           "type": "array",
-          "items": { "$ref": "#/definitions/person" }
+          "items": { "$ref": "#/definitions/personVitne" }
         }
       },
       "required": ["medsiktede", "fornaermede", "vitner"],
@@ -464,7 +470,10 @@
           "$ref": "#/definitions/ansattPerson"
         },
         "beslutningsTidspunkt": { "$ref": "#/definitions/datoTid" },
-        "fengslingFraDato": { "$ref": "#/definitions/dato" },
+        "fengslingFraDato": {
+          "$ref": "#/definitions/dato",
+          "description": "Denne vil alltid være lik pågripelsestidspunkt, og kan muligens fases ut"
+        },
         "fengslingTilDato": { "$ref": "#/definitions/dato" },
         "restriksjoner": {
           "$ref": "#/definitions/restriksjonerOrdre"
@@ -762,6 +771,46 @@
       "required": ["internId", "navn"],
       "additionalProperties": false
     },
+    "personVitne": {
+      "type": "object",
+      "description": "Representasjon av vitner",
+      "properties": {
+        "internId": {
+          "type": "string",
+          "description": "Intern id i melding, samme person i denne meldingen vil ha samme internId"
+        },
+        "navn": {
+          "$ref": "#/definitions/personnavn"
+        },
+        "foedselsdato": {
+          "type": "string",
+          "format": "date"
+        },
+        "kjoenn": {
+          "$ref": "#/definitions/kjoenn",
+          "description": "Ukjent kjønn hvis denne ikke er med"
+        },
+        "statsborgerskap": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/land"
+          }
+        },
+        "identitetsnummer": {
+          "$ref": "#/definitions/personFregIdentifikator",
+          "description": "Fødselsnummer eller D-nummer. Vitner skal aldri ha SSP nummer"
+        },
+        "adresseGradering": {
+          "$ref": "#/definitions/adresseGradering",
+          "description": "Settes hvis en person har en beskyttet adresse. Fortrolig så sendes ikke adresse, strengt fortrolig så sendes pboks. adresse f.eks. SOT6, klient adresse vet ikke ennå"
+        },
+        "personAdresse": {
+          "$ref": "#/definitions/personAdresse"
+        }
+      },
+      "required": ["internId", "navn", "statsborgerskap"],
+      "additionalProperties": false
+    },
     "personnavn": {
       "type": "object",
       "properties": {
@@ -777,6 +826,38 @@
       },
       "required": ["etternavn"],
       "additionalProperties": false
+    },
+    "personFregIdentifikator": {
+      "type": "object",
+      "description": "Fødselsnummer eller D-nummer. I bruk på de som aldri vil ha SSP nummer",
+      "properties": {
+        "foedselsnummer": {
+          "$ref": "#/definitions/foedselsnummer"
+        },
+        "dNummer": {
+          "$ref": "#/definitions/dNummer"
+        }
+      },
+      "oneOf": [
+        {
+          "properties": {
+            "foedselsnummer": {
+              "$ref": "#/definitions/foedselsnummer"
+            }
+          },
+          "required": ["foedselsnummer"],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "dNummer": {
+              "$ref": "#/definitions/dNummer"
+            }
+          },
+          "required": ["dNummer"],
+          "additionalProperties": false
+        }
+      ]
     },
     "personIdentifikator": {
       "type": "object",

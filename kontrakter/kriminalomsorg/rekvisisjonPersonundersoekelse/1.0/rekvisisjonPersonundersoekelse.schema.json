@@ -41,6 +41,7 @@
   },
   "required": [
     "forsendelse",
+    "rekvisisjonPersonundersoekelseId",
     "hovedStraffesaksnummer",
     "paagrepetTidspunkt",
     "paagrepetSted",
@@ -646,7 +647,7 @@
         "navn",
         "foedselsdato",
         "statsborgerskap",
-        "addresse",
+        "personAdresse",
         "tolk",
         "verger"
       ],
