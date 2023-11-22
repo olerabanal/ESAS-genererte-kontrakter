@@ -2,11 +2,18 @@
 
 | Versjon | Beskrivelse                               | Aktiv fra  | Aktiv til  |
 |---------|-------------------------------------------|------------|------------|
-| 1.2     | Første versjon til produksjon, pilot      |            |            |
-| 1.1     | Tolk og til hovedforhandling              | 01.08.2023 |            |
+| 1.3     | Håndter vitner uten identifikator         |            |            |
+| 1.2     | Første versjon til produksjon, pilot      | 09.10.2023 |            |
+| 1.1     | Tolk og til hovedforhandling              | 01.08.2023 | 09.10.2023 |
 | 1.0     | Brukertest juni 2023, ikke til produksjon |            | 01.08.2023 |
 
-## Versjon 1.2 (under arbeid)
+## Versjon 1.3
+
+### Fødselsdato på vitner er optional
+
+Fødselsdato for vitner er gjort optional. Dette er noe vi mangler for enkelte, ofte når vitner er politi. 
+
+## Versjon 1.2
 
 ### Fengsling utløper dato ved forlengelse
 

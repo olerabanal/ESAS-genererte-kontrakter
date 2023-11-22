@@ -1,9 +1,14 @@
 # kjennelseVaretekt til Kriminalomsrogen
-| Versjon | Beskrivelse                                  | Aktiv fra | Aktiv til |
-|---------|----------------------------------------------|-----------|-----------|
-| 1.0     | Første versjon til produksjon, pilot dato ?? |           |           |
+| Versjon | Beskrivelse                                  | Aktiv fra  | Aktiv til |
+|---------|----------------------------------------------|------------|-----------|
+| 1.1     | Håndter vitner uten identifikator |            |           |
+| 1.0     | Første versjon til produksjon, pilot dato ?? | 09.10.2023 |           |
 
 Denne meldingen sammen med [endreRestriksjoner](../endreRestriksjoner/readme.md) erstatter oppdaterVaretekt (slettet)
+## Versjon 1.1
+### Fødselsdato på vitner er optional
+
+Fødselsdato for vitner er gjort optional. Dette er noe vi mangler for enkelte, ofte når vitner er politi.
 ## Versjon 1.0
 Nyeste endringer øverst.
 ### Sendt tid fra domstolen 08.08.2023

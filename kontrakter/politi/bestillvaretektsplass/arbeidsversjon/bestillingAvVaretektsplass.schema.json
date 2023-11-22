@@ -397,7 +397,7 @@
         },
         "vitne": {
           "type": "array",
-          "items": { "$ref": "#/definitions/person" }
+          "items": { "$ref": "#/definitions/personRelatert" }
         }
       },
       "required": ["medsiktede", "fornaermede", "vitne"]
@@ -580,6 +580,38 @@
       "required": ["etternavn"],
       "additionalProperties": false
     },
+    "personFregIdentifikator": {
+      "type": "object",
+      "description": "Fødselsnummer eller D-nummer. I bruk på de som aldri vil ha SSP nummer",
+      "properties": {
+        "foedselsnummer": {
+          "$ref": "#/definitions/foedselsnummer"
+        },
+        "dNummer": {
+          "$ref": "#/definitions/dNummer"
+        }
+      },
+      "oneOf": [
+        {
+          "properties": {
+            "foedselsnummer": {
+              "$ref": "#/definitions/foedselsnummer"
+            }
+          },
+          "required": ["foedselsnummer"],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "dNummer": {
+              "$ref": "#/definitions/dNummer"
+            }
+          },
+          "required": ["dNummer"],
+          "additionalProperties": false
+        }
+      ]
+    },
     "personIdentifikator": {
       "description": "Fødselsnummer, D-nummer eller SSP nummer",
       "type": "object",
@@ -666,6 +698,46 @@
       "required": ["adresse"],
       "additionalProperties": false
     },
+    "personRelatert": {
+      "type": "object",
+      "description": "Personer som er involverte, men ikke siktet. Kan være verger, vitner, etc.",
+      "properties": {
+        "internId": {
+          "type": "string",
+          "description": "Intern id i melding, samme person i denne meldingen vil ha samme internId"
+        },
+        "navn": {
+          "$ref": "#/definitions/personnavn"
+        },
+        "foedselsdato": {
+          "type": "string",
+          "format": "date"
+        },
+        "kjoenn": {
+          "$ref": "#/definitions/kjoenn",
+          "description": "Ukjent kjønn hvis denne ikke er med"
+        },
+        "statsborgerskap": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/land"
+          }
+        },
+        "identitetsnummer": {
+          "$ref": "#/definitions/personFregIdentifikator",
+          "description": "Fødselsnummer eller D-nummer. Vitner og verger skal aldri ha SSP nummer"
+        },
+        "adresseGradering": {
+          "$ref": "#/definitions/adresseGradering",
+          "description": "Settes hvis en person har en beskyttet adresse. Fortrolig så sendes ikke adresse, strengt fortrolig så sendes pboks. adresse f.eks. SOT6, klient adresse vet ikke ennå"
+        },
+        "personAdresse": {
+          "$ref": "#/definitions/personAdresse"
+        }
+      },
+      "required": ["internId", "navn", "statsborgerskap"],
+      "additionalProperties": false
+    },
     "person": {
       "description": "Person med alle nyttige data som fødselsnummer adresse osv., SSP nummer kun på siktede, tiltalte.",
       "type": "object",
@@ -713,7 +785,7 @@
           "type": "array",
           "description": "Verge skal være med på siktet, fornærmet, vitne.",
           "items": {
-            "$ref": "#/definitions/personEnkel"
+            "$ref": "#/definitions/personRelatert"
           }
         }
       },

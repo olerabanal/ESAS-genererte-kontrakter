@@ -197,9 +197,7 @@
               "identitetsnummer": {
                 "foedselsnummer": "21907699738"
               },
-              "tilleggsId": [],
               "kjoenn": "MANN",
-              "foedselsdato": "1976-10-21",
               "statsborgerskap": [
                 {
                   "kode": "NOR",
@@ -212,8 +210,7 @@
                   "postnummer": "6391",
                   "poststed": "TRESFJORD"
                 }
-              },
-              "verger": []
+              }
             }
           ]
         }
@@ -309,7 +306,6 @@
                 "fornavn": "Ariane",
                 "etternavn": "HUFSETE"
               },
-              "tilleggsId": [],
               "kjoenn": "KVINNE",
               "foedselsdato": "1970-01-01",
               "statsborgerskap": [
@@ -317,8 +313,7 @@
                   "kode": "ARM",
                   "navn": "Armenia"
                 }
-              ],
-              "verger": []
+              ]
             }
           ]
         }
