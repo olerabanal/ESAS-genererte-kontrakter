@@ -84,7 +84,6 @@
       "adresseGradering": "KLIENT_ADRESSE",
       "personAdresse": {
         "gradering": "KLIENT_ADRESSE",
-        "adresseType": "SISTE_KJENTE_ADRESSE",
         "adresse": {
           "adresselinjer": ["Institusjonsveien 1"],
           "postnummer": "0177",

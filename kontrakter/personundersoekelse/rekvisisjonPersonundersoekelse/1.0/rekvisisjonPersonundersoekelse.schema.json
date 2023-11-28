@@ -606,10 +606,9 @@
       "type": "object",
       "properties": {
         "gradering": { "$ref": "#/definitions/adresseGradering" },
-        "adresseType": { "$ref": "#/definitions/adresseType" },
         "adresse": { "$ref": "#/definitions/adresse" }
       },
-      "required": ["adresse", "adresseType"],
+      "required": ["adresse"],
       "additionalProperties": false
     },
     "person": {
@@ -637,7 +636,7 @@
         "foedselsdato": {
           "description": "Dato",
           "type": "string",
-          "format": "date-time"
+          "format": "date"
         },
         "kjoenn": {
           "description": "Ukjent kjønn hvis denne ikke er med",
@@ -706,7 +705,7 @@
         "foedselsdato": {
           "type": "string",
           "description": "Dato",
-          "format": "date-time"
+          "format": "date<zxcvb9"
         }
       },
       "required": ["internId", "navn"],
