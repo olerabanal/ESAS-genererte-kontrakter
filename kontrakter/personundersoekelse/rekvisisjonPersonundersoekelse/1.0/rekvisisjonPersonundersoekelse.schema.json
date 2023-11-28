@@ -555,7 +555,7 @@
           }
         },
         "identitetsnummer": {
-          "$ref": "#/definitions/personFregIdentifikator",
+          "$ref": "#/definitions/personIdentifikator",
           "description": "Fødselsnummer eller D-nummer. Vitner og verger skal aldri ha SSP nummer"
         },
         "adresseGradering": {
