@@ -705,7 +705,7 @@
         "foedselsdato": {
           "type": "string",
           "description": "Dato",
-          "format": "date<zxcvb9"
+          "format": "date"
         }
       },
       "required": ["internId", "navn"],
