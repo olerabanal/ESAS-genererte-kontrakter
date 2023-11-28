@@ -70,7 +70,7 @@
         "etternavn": "KIWI"
       },
       "kjoenn": "MANN",
-      "foedselsdato": "2008-01-01T00:00:00+02:00",
+      "foedselsdato": "2008-01-01",
       "statsborgerskap": [
         {
           "kode": "NOR",
@@ -150,7 +150,7 @@
               "fornavn": "Ung",
               "etternavn": "KIWI"
             },
-            "foedselsdato": "2008-01-01T00:00:00+02:00"
+            "foedselsdato": "2008-01-01"
           },
           "medsiktede": [],
           "fornaermede": [
@@ -166,7 +166,7 @@
                   "etternavn": "KOS"
                 },
                 "kjoenn": "KVINNE",
-                "foedselsdato": "1974-10-31T00:00:00+02:00",
+                "foedselsdato": "1974-10-31",
                 "statsborgerskap": [
                   {
                     "kode": "NOR",
@@ -178,7 +178,6 @@
                   "spraak": "ARA"
                 },
                 "personAdresse": {
-                  "adresseType": "BOSTEDSADRESSE",
                   "adresse": {
                     "adresselinjer": ["Bratsberggata 29"],
                     "postnummer": "3714",
