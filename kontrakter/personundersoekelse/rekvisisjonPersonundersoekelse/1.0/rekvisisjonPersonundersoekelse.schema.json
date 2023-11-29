@@ -44,7 +44,6 @@
     "rekvisisjonPersonundersoekelseId",
     "hovedStraffesaksnummer",
     "paagrepetTidspunkt",
-    "paagrepetSted",
     "kontaktopplysningerAdvokater",
     "personundersoekelseInfo"
   ],
@@ -393,7 +392,7 @@
     "straffesakDetaljer": {
       "description": "Detaljer rundt straffesaken",
       "type": "object",
-      "required": ["hendelse", "statistikkgruppe", "krimtype"],
+      "required": ["hendelse", "statistikkgruppe"],
       "additionalProperties": false,
       "properties": {
         "hendelse": { "$ref": "#/definitions/hendelse" },
@@ -432,7 +431,7 @@
         },
         "vitne": {
           "type": "array",
-          "items": { "$ref": "#/definitions/person" }
+          "items": { "$ref": "#/definitions/personRelatert" }
         }
       },
       "required": ["medsiktede", "fornaermede", "vitne"]
@@ -530,6 +529,46 @@
         }
       ]
     },
+    "personRelatert": {
+      "type": "object",
+      "description": "Personer som er involverte, men ikke siktet. Kan være verger, vitner, etc.",
+      "properties": {
+        "internId": {
+          "type": "string",
+          "description": "Intern id i melding, samme person i denne meldingen vil ha samme internId"
+        },
+        "navn": {
+          "$ref": "#/definitions/personnavn"
+        },
+        "foedselsdato": {
+          "type": "string",
+          "format": "date"
+        },
+        "kjoenn": {
+          "$ref": "#/definitions/kjoenn",
+          "description": "Ukjent kjønn hvis denne ikke er med"
+        },
+        "statsborgerskap": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/land"
+          }
+        },
+        "identitetsnummer": {
+          "$ref": "#/definitions/personIdentifikator",
+          "description": "Fødselsnummer eller D-nummer. Vitner og verger skal aldri ha SSP nummer"
+        },
+        "adresseGradering": {
+          "$ref": "#/definitions/adresseGradering",
+          "description": "Settes hvis en person har en beskyttet adresse. Fortrolig så sendes ikke adresse, strengt fortrolig så sendes pboks. adresse f.eks. SOT6, klient adresse vet ikke ennå"
+        },
+        "personAdresse": {
+          "$ref": "#/definitions/personAdresse"
+        }
+      },
+      "required": ["internId", "navn", "statsborgerskap"],
+      "additionalProperties": false
+    },
     "personForetak": {
       "description": "En siktet eller fornærmet kan være en person eller et foretak, denne typen er enten person eller foretak.",
       "type": "object",
@@ -567,10 +606,9 @@
       "type": "object",
       "properties": {
         "gradering": { "$ref": "#/definitions/adresseGradering" },
-        "adresseType": { "$ref": "#/definitions/adresseType" },
         "adresse": { "$ref": "#/definitions/adresse" }
       },
-      "required": ["adresse", "adresseType"],
+      "required": ["adresse"],
       "additionalProperties": false
     },
     "person": {
@@ -598,7 +636,7 @@
         "foedselsdato": {
           "description": "Dato",
           "type": "string",
-          "format": "date-time"
+          "format": "date"
         },
         "kjoenn": {
           "description": "Ukjent kjønn hvis denne ikke er med",
@@ -667,7 +705,7 @@
         "foedselsdato": {
           "type": "string",
           "description": "Dato",
-          "format": "date-time"
+          "format": "date"
         }
       },
       "required": ["internId", "navn"],
