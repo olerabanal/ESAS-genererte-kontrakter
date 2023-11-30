@@ -16,32 +16,14 @@
       "description": "Oppdatert statusinformasjon",
       "type": "object",
       "properties": {
-        "status": {
-          "$ref": "#/definitions/status"
-        },
-        "kommentar": {
-          "type": "string"
-        }
-      },
-      "additionalProperties": false,
-      "required": ["status"]
-    },
-    "siktet": {
-      "$ref": "#/definitions/personEnkel"
-    }
-  },
-  "required": ["forsendelse", "straffesaksnummer", "statusOppdatering"],
-  "additionalProperties": false,
-  "definitions": {
-    "status": {
-      "type": "object",
-      "description": "object med status fra enten straffesak-object eller ungdomsoppfløging/ungdomsstraff-object",
-      "properties": {
         "straffesakStatus": {
           "$ref": "#/definitions/straffesakStatus"
         },
         "ungdomsreaksjonStatus": {
           "$ref": "#/definitions/ungdomsreaksjonStatus"
+        },
+        "kommentar": {
+          "type": "string"
         }
       },
       "oneOf": [
@@ -49,6 +31,9 @@
           "properties": {
             "straffesakStatus": {
               "$ref": "#/definitions/straffesakStatus"
+            },
+            "kommentar": {
+              "type": "string"
             }
           },
           "required": ["straffesakStatus"],
@@ -58,13 +43,24 @@
           "properties": {
             "ungdomsreaksjonStatus": {
               "$ref": "#/definitions/ungdomsreaksjonStatus"
+            },
+            "kommentar": {
+              "type": "string"
             }
           },
           "required": ["ungdomsreaksjonStatus"],
           "additionalProperties": false
         }
-      ]
+      ],
+      "additionalProperties": false
     },
+    "siktet": {
+      "$ref": "#/definitions/personEnkel"
+    }
+  },
+  "required": ["forsendelse", "straffesaksnummer", "statusOppdatering"],
+  "additionalProperties": false,
+  "definitions": {
     "straffesakStatus": {
       "type": "object",
       "description": "Status på straffesak",
@@ -80,6 +76,9 @@
         },
         "meklingIkkeGjennomfoert": {
           "$ref": "#/definitions/meklingIkkeGjennomfoert"
+        },
+        "kommentar": {
+          "type": "string"
         }
       },
       "oneOf": [
