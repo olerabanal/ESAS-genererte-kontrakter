@@ -70,7 +70,7 @@
         "etternavn": "KIWI"
       },
       "kjoenn": "MANN",
-      "foedselsdato": "2008-01-01T00:00:00+02:00",
+      "foedselsdato": "2008-01-01",
       "statsborgerskap": [
         {
           "kode": "NOR",
@@ -84,7 +84,6 @@
       "adresseGradering": "KLIENT_ADRESSE",
       "personAdresse": {
         "gradering": "KLIENT_ADRESSE",
-        "adresseType": "SISTE_KJENTE_ADRESSE",
         "adresse": {
           "adresselinjer": ["Institusjonsveien 1"],
           "postnummer": "0177",
@@ -151,7 +150,7 @@
               "fornavn": "Ung",
               "etternavn": "KIWI"
             },
-            "foedselsdato": "2008-01-01T00:00:00+02:00"
+            "foedselsdato": "2008-01-01"
           },
           "medsiktede": [],
           "fornaermede": [
@@ -167,7 +166,7 @@
                   "etternavn": "KOS"
                 },
                 "kjoenn": "KVINNE",
-                "foedselsdato": "1974-10-31T00:00:00+02:00",
+                "foedselsdato": "1974-10-31",
                 "statsborgerskap": [
                   {
                     "kode": "NOR",
@@ -179,7 +178,6 @@
                   "spraak": "ARA"
                 },
                 "personAdresse": {
-                  "adresseType": "BOSTEDSADRESSE",
                   "adresse": {
                     "adresselinjer": ["Bratsberggata 29"],
                     "postnummer": "3714",
@@ -206,34 +204,27 @@
           "vitne": [
             {
               "internId": "700892775",
-              "identitetsnummer": {
-                "foedselsnummer": "21907699738"
-              },
-              "tilleggsId": [],
               "navn": {
                 "fornavn": "Naturstridig",
                 "etternavn": "BALLONG"
               },
+              "identitetsnummer": {
+                "foedselsnummer": "21907699738"
+              },
               "kjoenn": "MANN",
-              "foedselsdato": "1976-10-21T00:00:00+02:00",
               "statsborgerskap": [
                 {
                   "kode": "NOR",
                   "navn": "Norge"
                 }
               ],
-              "tolk": {
-                "behov": false
-              },
               "personAdresse": {
-                "adresseType": "BOSTEDSADRESSE",
                 "adresse": {
                   "adresselinjer": ["Øvstedalsvegen 87"],
                   "postnummer": "6391",
                   "poststed": "TRESFJORD"
                 }
-              },
-              "verger": []
+              }
             }
           ]
         }
