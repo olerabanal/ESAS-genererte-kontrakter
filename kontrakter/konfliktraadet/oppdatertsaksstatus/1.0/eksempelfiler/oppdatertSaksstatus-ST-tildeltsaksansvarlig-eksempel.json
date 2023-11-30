@@ -24,13 +24,11 @@
   "statusOppdatering": {
     "straffesakStatus": {
       "tildeltSaksansvarlig": {
-        "saksansvarlig": {
-          "tittel": "Saksansvarlig",
-          "fornavn": "Ansvarlig",
-          "etternavn": "Tester",
-          "kontakt": {
-            "telefonnummer": ["77777777"]
-          }
+        "tittel": "Saksansvarlig",
+        "fornavn": "Ansvarlig",
+        "etternavn": "Tester",
+        "kontakt": {
+          "telefonnummer": ["77777777"]
         }
       }
     }

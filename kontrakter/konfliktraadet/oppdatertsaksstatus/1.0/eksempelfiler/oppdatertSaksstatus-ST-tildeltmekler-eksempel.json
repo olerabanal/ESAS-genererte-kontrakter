@@ -24,13 +24,11 @@
   "statusOppdatering": {
     "straffesakStatus": {
       "tildeltMekler": {
-        "mekler": {
-          "tittel": "Mekler",
-          "fornavn": "Ansvarlig",
-          "etternavn": "Tester",
-          "kontakt": {
-            "telefonnummer": ["77777777"]
-          }
+        "tittel": "Mekler",
+        "fornavn": "Ansvarlig",
+        "etternavn": "Tester",
+        "kontakt": {
+          "telefonnummer": ["77777777"]
         }
       }
     }

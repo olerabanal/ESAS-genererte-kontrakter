@@ -66,10 +66,10 @@
       "description": "Status på straffesak",
       "properties": {
         "tildeltSaksansvarlig": {
-          "$ref": "#/definitions/tildeltSaksansvarlig"
+          "$ref": "#/definitions/ansattPerson"
         },
         "tildeltMekler": {
-          "$ref": "#/definitions/tildeltMekler"
+          "$ref": "#/definitions/ansattPerson"
         },
         "meklingGjennomfoert": {
           "$ref": "#/definitions/meklingGjennomfoert"
@@ -85,7 +85,7 @@
         {
           "properties": {
             "tildeltSaksansvarlig": {
-              "$ref": "#/definitions/tildeltSaksansvarlig"
+              "$ref": "#/definitions/ansattPerson"
             }
           },
           "required": ["tildeltSaksansvarlig"],
@@ -94,7 +94,7 @@
         {
           "properties": {
             "tildeltMekler": {
-              "$ref": "#/definitions/tildeltMekler"
+              "$ref": "#/definitions/ansattPerson"
             }
           },
           "required": ["tildeltMekler"],
@@ -125,7 +125,7 @@
       "description": "Status på ungdomsreaksjon (enten ungdomsoppfølging eller ungdomsstraff)",
       "properties": {
         "tildeltSaksansvarlig": {
-          "$ref": "#/definitions/tildeltSaksansvarlig"
+          "$ref": "#/definitions/ansattPerson"
         },
         "ungdomsplanSignert": {
           "$ref": "#/definitions/ungdomsplanSignert"
@@ -147,7 +147,7 @@
         {
           "properties": {
             "tildeltSaksansvarlig": {
-              "$ref": "#/definitions/tildeltSaksansvarlig"
+              "$ref": "#/definitions/ansattPerson"
             }
           },
           "required": ["tildeltSaksansvarlig"],
@@ -200,17 +200,6 @@
         }
       ]
     },
-    "tildeltSaksansvarlig": {
-      "type": "object",
-      "description": "Saken har blitt tildelt saksansvarlig/rådgiver hos konfliktrådet",
-      "properties": {
-        "saksansvarlig": {
-          "$ref": "#/definitions/ansattPerson"
-        }
-      },
-      "required": ["saksansvarlig"],
-      "additionalProperties": false
-    },
     "meklingGjennomfoert": {
       "type": "object",
       "description": "Mekling gjennomført og resultat av mekling",
@@ -237,17 +226,6 @@
         }
       },
       "required": ["resultat", "aarsak"],
-      "additionalProperties": false
-    },
-    "tildeltMekler": {
-      "type": "object",
-      "description": "Saken har blitt tildelt mekler hos konfliktrådet",
-      "properties": {
-        "mekler": {
-          "$ref": "#/definitions/ansattPerson"
-        }
-      },
-      "required": ["mekler"],
       "additionalProperties": false
     },
     "ungdomsplanSignert": {
