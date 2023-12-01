@@ -93,19 +93,7 @@
       "kontaktInfo": {
         "telefonnummer": ["11 22 33 40", "11 22 33 41"]
       },
-      "verger": [
-        {
-          "profesjonellPerson": {
-            "navn": {
-              "fornavn": "Varg",
-              "etternavn": "Vergenes"
-            },
-            "identitetsnummer": {
-              "foedselsnummer": "01018012345"
-            }
-          }
-        }
-      ]
+      "verger": []
     },
     "straffesaker": [
       {
@@ -157,14 +145,14 @@
             {
               "person": {
                 "internId": "700892735",
-                "identitetsnummer": {
-                  "foedselsnummer": "31907499858"
-                },
-                "tilleggsId": [],
                 "navn": {
                   "fornavn": "Sannferdig",
                   "etternavn": "KOS"
                 },
+                "identitetsnummer": {
+                  "foedselsnummer": "31907499858"
+                },
+                "tilleggsId": [],
                 "kjoenn": "KVINNE",
                 "foedselsdato": "1974-10-31",
                 "statsborgerskap": [
@@ -175,7 +163,7 @@
                 ],
                 "tolk": {
                   "behov": true,
-                  "spraak": "ARA"
+                  "spraak": "DEU"
                 },
                 "personAdresse": {
                   "adresse": {
@@ -184,20 +172,7 @@
                     "poststed": "SKIEN"
                   }
                 },
-
-                "verger": [
-                  {
-                    "profesjonellPerson": {
-                      "navn": {
-                        "fornavn": "Birger",
-                        "etternavn": "Berg-Vergenes"
-                      },
-                      "identitetsnummer": {
-                        "foedselsnummer": "01018012346"
-                      }
-                    }
-                  }
-                ]
+                "verger": []
               }
             }
           ],
