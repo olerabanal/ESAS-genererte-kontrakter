@@ -56,6 +56,13 @@
     },
     "siktet": {
       "$ref": "#/definitions/personEnkel"
+    },
+    "dokumenter": {
+      "type": "array",
+      "description": "Aktuelle saks dokumenter",
+      "items": {
+        "$ref": "#/definitions/dokument"
+      }
     }
   },
   "required": ["forsendelse", "straffesaksnummer", "statusOppdatering"],
@@ -278,13 +285,6 @@
         "totalLengde": {
           "type": "integer",
           "description": "Straffens totale lengde"
-        },
-        "dokumenter": {
-          "type": "array",
-          "description": "Avsluttende dokumenter",
-          "items": {
-            "$ref": "#/definitions/dokument"
-          }
         }
       },
       "required": ["aarsak"],
