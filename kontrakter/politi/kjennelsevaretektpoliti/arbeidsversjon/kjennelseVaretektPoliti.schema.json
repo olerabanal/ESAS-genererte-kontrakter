@@ -176,7 +176,10 @@
           "description": "fengslingsid som opprettes i DA (GUID)"
         },
         "fraDato": { "$ref": "#/definitions/dato" },
-        "tilDato": { "$ref": "#/definitions/dato" },
+        "tilDato": {
+          "$ref": "#/definitions/dato",
+          "description": "Ikke utover gitt til-dato. Dvs til-og-med."
+        }
         "fengslingsFristDato": { "$ref": "#/definitions/dato" },
         "lovbud": { "$ref": "#/definitions/lovbudEnkel" },
         "merknad": {
@@ -216,7 +219,7 @@
         },
         "tilDato": {
           "$ref": "#/definitions/dato",
-          "description": "Om begjæringen ikke tas til følge skal dette feltet settes til null."
+          "description": "Om begjæringen ikke tas til følge skal dette feltet settes til null. Ikke utover gitt til-dato. Dvs til-og-med."
         }
       },
       "required": ["isolasjonsId", "isolasjonsType"],
@@ -609,7 +612,7 @@
           "$ref": "#/definitions/dato"
         },
         "tilDato": {
-          "description": "Om begjæringen ikke tas til følge er dette feltet satt til null.",
+          "description": "Om begjæringen ikke tas til følge er dette feltet satt til null. Ikke utover gitt til-dato. Dvs til-og-med.",
           "$ref": "#/definitions/dato"
         }
       },
