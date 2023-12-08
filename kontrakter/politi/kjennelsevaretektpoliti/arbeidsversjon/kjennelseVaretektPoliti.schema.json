@@ -179,7 +179,7 @@
         "tilDato": {
           "$ref": "#/definitions/dato",
           "description": "Ikke utover gitt til-dato. Dvs til-og-med."
-        }
+        },
         "fengslingsFristDato": { "$ref": "#/definitions/dato" },
         "lovbud": { "$ref": "#/definitions/lovbudEnkel" },
         "merknad": {
