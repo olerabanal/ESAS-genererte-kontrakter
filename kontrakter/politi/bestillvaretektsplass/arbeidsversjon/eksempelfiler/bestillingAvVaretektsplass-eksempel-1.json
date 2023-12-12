@@ -42,9 +42,7 @@
         "personAdresse": {
           "gradering": "KLIENT_ADRESSE",
           "adresse": {
-            "adresselinjer": [
-              "Bjørklund 21"
-            ],
+            "adresselinjer": ["Bjørklund 21"],
             "postnummer": "4137",
             "poststed": "ÅRDAL I RYFYLKE"
           }
@@ -58,19 +56,13 @@
       },
       "risikoOgHelseInfo": {
         "risikovurdering": {
-          "risiko": [
-            "ROEMNINGSFARE"
-          ]
+          "risiko": ["ROEMNINGSFARE"]
         },
         "helseInfo": {
-          "helse": [
-            "INGEN"
-          ]
+          "helse": ["INGEN"]
         },
         "tilstandArresten": {
-          "tilstand": [
-            "INGEN"
-          ],
+          "tilstand": ["INGEN"],
           "beskrivelse": "Veldig rolig type"
         }
       }
@@ -125,9 +117,7 @@
             "gjerningstidspunktFra": "2022-01-01T00:00:00+02:00",
             "gjerningstidspunktTil": "2022-01-01T00:00:00+02:00",
             "gjerningssted": {
-              "adresselinjer": [
-                "Waldemar Carlsens veg 4"
-              ],
+              "adresselinjer": ["Waldemar Carlsens veg 4"],
               "postnummer": "2214",
               "poststed": "KONGSVINGER",
               "land": {
@@ -195,9 +185,7 @@
                 ],
                 "personAdresse": {
                   "adresse": {
-                    "adresselinjer": [
-                      "Rugdeberget 2"
-                    ],
+                    "adresselinjer": ["Rugdeberget 2"],
                     "postnummer": "1266",
                     "poststed": "OSLO"
                   }
@@ -235,9 +223,7 @@
                 ],
                 "personAdresse": {
                   "adresse": {
-                    "adresselinjer": [
-                      "Bratsberggata 29"
-                    ],
+                    "adresselinjer": ["Bratsberggata 29"],
                     "postnummer": "3714",
                     "poststed": "SKIEN"
                   }
@@ -265,9 +251,7 @@
               ],
               "personAdresse": {
                 "adresse": {
-                  "adresselinjer": [
-                    "Øvstedalsvegen 87"
-                  ],
+                  "adresselinjer": ["Øvstedalsvegen 87"],
                   "postnummer": "6391",
                   "poststed": "TRESFJORD"
                 }
@@ -283,9 +267,7 @@
             "gjerningstidspunktFra": "2022-03-01T00:00:00+02:00",
             "gjerningstidspunktTil": "2022-03-01T00:00:00+02:00",
             "gjerningssted": {
-              "adresselinjer": [
-                "Loftsgårdsvegen 5"
-              ],
+              "adresselinjer": ["Loftsgårdsvegen 5"],
               "postnummer": "2670",
               "poststed": "OTTA",
               "land": {
@@ -334,9 +316,7 @@
                 ],
                 "personAdresse": {
                   "adresse": {
-                    "adresselinjer": [
-                      "Rugdeberget 2"
-                    ],
+                    "adresselinjer": ["Rugdeberget 2"],
                     "postnummer": "1266",
                     "poststed": "OSLO"
                   }
@@ -380,9 +360,7 @@
             "gjerningstidspunktFra": "2022-04-05T00:00:00+02:00",
             "gjerningstidspunktTil": "2022-04-05T00:00:00+02:00",
             "gjerningssted": {
-              "adresselinjer": [
-                "Rabben 9"
-              ],
+              "adresselinjer": ["Rabben 9"],
               "postnummer": "2611",
               "poststed": "LILLEHAMMER",
               "land": {
@@ -441,9 +419,7 @@
             "gjerningstidspunktFra": "2015-01-01T00:00:00+02:00",
             "gjerningstidspunktTil": "2015-11-01T00:00:00+02:00",
             "gjerningssted": {
-              "adresselinjer": [
-                "Walmannsvegen 81"
-              ],
+              "adresselinjer": ["Walmannsvegen 81"],
               "postnummer": "2230",
               "poststed": "SKOTTERUD",
               "land": {
@@ -493,9 +469,7 @@
                 ],
                 "personAdresse": {
                   "adresse": {
-                    "adresselinjer": [
-                      "Bratsberggata 29"
-                    ],
+                    "adresselinjer": ["Bratsberggata 29"],
                     "postnummer": "3714",
                     "poststed": "SKIEN"
                   }

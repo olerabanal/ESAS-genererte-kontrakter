@@ -70,7 +70,9 @@
           "description": "Nøkkel på bestillingen, alle svar på bestilling skal koble til den samme nøkkelen."
         },
         "personVaretektInfo": { "$ref": "#/definitions/personVaretektInfo" },
-        "restriksjonIsolasjon": { "$ref": "#/definitions/restriksjonIsolasjon" },
+        "restriksjonIsolasjon": {
+          "$ref": "#/definitions/restriksjonIsolasjon"
+        },
         "paagrepetTidspunkt": { "type": "string", "format": "date-time" },
         "paagrepetSted": {
           "type": "string",
