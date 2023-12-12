@@ -7,6 +7,11 @@ Versjon 1.0 er første versjon som vi skal i produksjon med.
 
 [Se changelog for endringer](changelog.md)
 
+## Headere forsendelse justisHub
+SchmaName=REKVISISJON_PERSONUNDERSOEKELSE  
+SchemaVersion=1.0  
+[RFC message name header](../../../rfc/MessageName-header.md)
+
 ## Avklaringer
 
 ### Utestående avklaringer
