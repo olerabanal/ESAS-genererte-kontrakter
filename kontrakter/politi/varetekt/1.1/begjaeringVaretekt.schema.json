@@ -29,7 +29,6 @@
   "additionalProperties": false,
 
   "definitions": {
-
     "begjaeringVaretekt": {
       "type": "object",
       "description": "Begjæringen med data som er nødvendig for avgjørelsen. Siktede og krav som skal avgjøres.",
@@ -1213,6 +1212,9 @@
           "$ref": "#/definitions/hendelse"
         },
         "statistikkgruppe": {
+          "$ref": "#/definitions/kodeverk"
+        },
+        "krimtype": {
           "$ref": "#/definitions/kodeverk"
         }
       },
